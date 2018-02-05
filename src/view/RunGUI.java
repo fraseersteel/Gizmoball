@@ -33,6 +33,8 @@ public class RunGUI {
         jFrame.setVisible(true);
         //jFrame.pack();
 
+        //board.paintComponent(Graphics2D.g);
+
     }
 
     private void initialise() {
@@ -45,14 +47,16 @@ public class RunGUI {
         jFrame.setSize(800, 600);
 
         controlZone = new JPanel();
-        playZone = new JPanel();
+        //playZone = new JPanel();
+
+        playZone = new Board(500,500, model);
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
         Dimension runDimension = new Dimension(500,500);
         playZone.setPreferredSize(runDimension);
 
         controlZone.setLayout(new GridLayout( 0,1));
-        playZone.setLayout(new GridLayout(20,20, 25, 25));
+        //playZone.setLayout(new GridLayout(21,21));
 
         playZone.setBackground(Color.BLACK);
 
@@ -81,10 +85,10 @@ public class RunGUI {
     }
 
     private void rightZone() {
-        JButton but = new JButton();
-        JButton but1 = new JButton();
-        playZone.add(but);
-        playZone.add(but1);
+        //JButton but = new JButton();
+        //playZone.add(but);
+
+
 
 
     }
