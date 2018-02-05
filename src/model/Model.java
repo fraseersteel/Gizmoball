@@ -1,6 +1,5 @@
 package model;
 
-import physics.Circle;
 import physics.Geometry;
 import physics.LineSegment;
 
@@ -19,5 +18,18 @@ public class Model {
         circles = new ArrayList<Circle>();
         triangles = new ArrayList<Triangle>();
         squares = new ArrayList<Square>();
+    }
+
+
+    public void addCircle(Circle c) {
+        circles.add(c);
+    }
+
+    public void addTriangle(Triangle t) {
+        triangles.add(t);
+    }
+
+    public void addSquare(Square s) {
+        squares.add(s);
     }
 }
