@@ -2,7 +2,6 @@ package view;
 
 import controller.RunListener;
 import model.Model;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -28,6 +27,7 @@ public class RunGUI {
         initialise();
         leftZone();
         rightZone();
+        menu();
 
         controlZone.setAlignmentX(100);
         jFrame.setVisible(true);
@@ -66,6 +66,8 @@ public class RunGUI {
 
 
     private void leftZone() {
+
+        //Create grid and populate with buttons
         controlButtons = new GridLayout(4,1);
         JButton start = new JButton("Start");
         JButton stop = new JButton("Stop");
@@ -94,8 +96,20 @@ public class RunGUI {
     }
 
     private void menu() {
+        //Create menu bar then populate it
+        JMenuBar menuBar = new JMenuBar();
 
+        //Create menu
+        JMenu menu = new JMenu("File");
 
+        //Create menu items
+        JMenuItem exit = new JMenuItem("Exit");
+        exit.addActionListener(listener);
+
+        //Construct menu bar
+        jFrame.setJMenuBar(menuBar);
+        menuBar.add(menu);
+        menu.add(exit);
     }
 
 }
