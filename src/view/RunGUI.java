@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public class RunGUI {
 
+    private final static Dimension WINDOW_SIZE = new Dimension(800, 600);
     private Model model;
     private JFrame jFrame;
     private ActionListener listener;
@@ -44,7 +45,8 @@ public class RunGUI {
 
         jFrame.setTitle("Gizmoball");
 
-        jFrame.setSize(800, 600);
+        jFrame.setSize(WINDOW_SIZE);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         controlZone = new JPanel();
         //playZone = new JPanel();
@@ -102,7 +104,7 @@ public class RunGUI {
         //Create menu
         JMenu menu = new JMenu("File");
 
-        //Create menu items
+        //Create all menu items
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);
 

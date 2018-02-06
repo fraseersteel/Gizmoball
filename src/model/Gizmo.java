@@ -15,7 +15,5 @@ public class Gizmo {
         return xLocation;
     }
 
-    public double getyLocation() {
-        return yLocation;
-    }
+    public double getyLocation() { return yLocation; }
 }
