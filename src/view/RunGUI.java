@@ -1,5 +1,6 @@
 package view;
 
+import controller.LoadListener;
 import controller.RunListener;
 import model.Model;
 import javax.swing.*;
@@ -105,12 +106,21 @@ public class RunGUI {
         JMenu menu = new JMenu("File");
 
         //Create all menu items
+        JMenuItem save = new JMenuItem("Save");
+        save.addActionListener(listener);
+
+        JMenuItem load = new JMenuItem("Load");
+        load.addActionListener(new LoadListener());
+
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);
 
         //Construct menu bar
         jFrame.setJMenuBar(menuBar);
         menuBar.add(menu);
+        menu.add(save);
+        menu.add(load);
+        menu.addSeparator();
         menu.add(exit);
     }
 
