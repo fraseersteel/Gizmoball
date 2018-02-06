@@ -1,4 +1,4 @@
-package model;
+package model; //should really be in controller I imagine
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -46,10 +46,10 @@ public class GizmoLoader {
             }
             buffReader.close();
 
-        } catch (FileNotFoundException e) {
-            return false;
+        } catch (FileNotFoundException e) { //delete the printing of the actual exception later
+            System.err.println("Error: file not found. " + e);
         } catch (IOException e) {
-            return false;
+            System.err.println("Error: problem with input/output. " + e);
         }
         return true;
     }
