@@ -13,9 +13,28 @@ public class Gizmo {
         this.id = id;
     }
 
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String i){
+        id = i;
+    }
+
     public double getxLocation() {
+
         return xLocation;
     }
 
-    public double getyLocation() { return yLocation; }
+    public void setXPos(double x){
+        xLocation = x;
+    }
+
+    public double getyLocation() {
+        return yLocation;
+    }
+
+    public void setYLocation(double y){
+        yLocation = y;
+    }
 }
