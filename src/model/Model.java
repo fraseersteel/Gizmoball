@@ -26,6 +26,20 @@ public class Model {
         squares = new ArrayList<Square>();
     }
 
+    /*public void moveBall() {
+        double moveTime = 0.05; // 0.05 = 20 times per second as per Gizmoball
+        CollisionDetails cd = timeUntilCollision();
+        double tuc = cd.getTuc();
+        if (tuc > moveTime) {
+// No collision ...
+            ball = movelBallForTime(ball, moveTime);
+        } else {
+// We've got a collision in tuc
+            ball = movelBallForTime(ball, tuc);
+// Post collision velocity ...
+            ball.setVelo(cd.getVelo());
+        }*/
+
 
     public void addCircle(Circle c) {
         circles.add(c);
