@@ -12,6 +12,7 @@ public class Model {
     private ArrayList<Circle> circles;
     private ArrayList<Triangle> triangles;
     private ArrayList<Square> squares;
+    private Wall walls;
 
     // do we really need each of these individually? could have an interface and
     // a single ArrayList for all gizmos?
@@ -24,6 +25,8 @@ public class Model {
         circles = new ArrayList<Circle>();
         triangles = new ArrayList<Triangle>();
         squares = new ArrayList<Square>();
+        ball = new Ball("Ball",25,25,400,50,50);
+        walls = new Wall(0,0,500,500);
     }
 
     /*public void moveBall() {
