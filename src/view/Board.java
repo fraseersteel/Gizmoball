@@ -1,5 +1,6 @@
 package view;
 
+import model.Ball;
 import model.Model;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ public class Board extends JPanel implements Observer{
     private int height;
 
     public Board(int x, int y, Model m){
+        m.addObserver(this);
         width = x;
         height = x;
         model = m;
@@ -24,12 +26,17 @@ public class Board extends JPanel implements Observer{
     public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
 
-        Graphics2D g2 = (Graphics2D) graphic;
+        Graphics2D g2d = (Graphics2D) graphic;
 
-        //for (VerticalLine )
+        Ball ball = model.getBall();
 
-        g2.setColor(Color.white);
-        g2.fillOval(30,10, 20, 20);
+        if(ball!=null){
+            g2d.setColor(Color.BLACK);
+            int x = (int) (ball.getX() - ball.getRadius());
+            int y = (int) (ball.getX() - ball.getRadius());
+            int ballWidth = (int) (2* ball.getRadius());
+            g2d.fillOval(x,y,ballWidth,ballWidth);
+        }
     }
 
 
