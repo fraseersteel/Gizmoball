@@ -55,10 +55,10 @@ public class RunGUI {
         cp = new Container();
         //playZone = new JPanel();
 
-        playZone = new Board(500,500, model);
+        playZone = new Board(500,500,model);
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
-        Dimension runDimension = new Dimension(500,500);
+        Dimension runDimension = new Dimension(playZone.getWidth(),playZone.getHeight());
         playZone.setPreferredSize(runDimension);
 
         cp.setLayout(new GridLayout( 0,1));
