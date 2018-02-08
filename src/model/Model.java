@@ -2,10 +2,12 @@ package model;
 
 import physics.Geometry;
 import physics.LineSegment;
+import physics.Vect;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Model {
+public class Model extends Observable{
 
     private ArrayList<LineSegment> lines;
     private Ball ball;
@@ -25,7 +27,7 @@ public class Model {
         circles = new ArrayList<Circle>();
         triangles = new ArrayList<Triangle>();
         squares = new ArrayList<Square>();
-        ball = new Ball("Ball",25,25,400,50,50);
+        ball = new Ball("Ball",25,25,400,50);
         walls = new Wall(0,0,500,500);
     }
 
@@ -43,10 +45,35 @@ public class Model {
             ball.setVelo(cd.getVelo());
         }*/
 
+    public void moveBall(){
+        double moveTime = 0.05;
 
-    public void addCircle(Circle c) {
-        circles.add(c);
+        if(!ball.isStopped() && ball != null){
+
+            CollisionDetails cd = timeUntilCollision();
+        }
     }
+
+    private CollisionDetails timeUntilCollision(){
+
+        double time = 0;
+        double minTime = 0;
+        Vect ballVelocity = ball.getVelocity();
+        Circle circle = ball.getCircle();
+        Vect newVelocity = new Vect(0,0);
+
+
+        //for loop for each gizmo type
+
+
+        return new CollisionDetails(minTime,newVelocity);
+
+    }
+
+
+   public void addCircle(model.Circle c){
+        circles.add(c);
+   }
 
     public void addTriangle(Triangle t) {
         triangles.add(t);

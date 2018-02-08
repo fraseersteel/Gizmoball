@@ -1,5 +1,6 @@
 package model; //should really be in controller I imagine
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -35,7 +36,7 @@ public class GizmoLoader {
                             model.addTriangle(new Triangle(id,x, y));
                             break;
                         case "Circle":
-                            model.addCircle(new Circle(id,x, y));
+                            model.addCircle(new Circle(id,x,y));
                             break;
                         case "Square":
                             model.addSquare(new Square(id,x, y));
