@@ -17,7 +17,8 @@ public class RunGUI {
     private ActionListener listener;
     private Board board;
 
-    private JPanel controlZone, playZone;
+    private JPanel playZone;
+    private Container cp;
     private GridLayout controlButtons;
     private FlowLayout flow;
 
@@ -33,7 +34,6 @@ public class RunGUI {
         rightZone();
         menu();
 
-        controlZone.setAlignmentX(100);
         jFrame.setVisible(true);
         //jFrame.pack();
 
@@ -51,7 +51,7 @@ public class RunGUI {
         jFrame.setSize(WINDOW_SIZE);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        controlZone = new JPanel();
+        cp = new Container();
         //playZone = new JPanel();
 
         playZone = new Board(500,500, model);
@@ -60,19 +60,18 @@ public class RunGUI {
         Dimension runDimension = new Dimension(500,500);
         playZone.setPreferredSize(runDimension);
 
-        controlZone.setLayout(new GridLayout( 0,1));
+        cp.setLayout(new GridLayout( 0,1));
         //playZone.setLayout(new GridLayout(21,21));
-        controlZone.setPreferredSize(new Dimension(100,550));
+        cp.setPreferredSize(new Dimension(100,550));
 
 
 
         Container pane = jFrame.getContentPane();
 
-        pane.add(controlZone,BorderLayout.BEFORE_LINE_BEGINS);
+        pane.add(cp,BorderLayout.LINE_START);
         pane.add(playZone,BorderLayout.CENTER);
 
         jFrame.pack();
-
         jFrame.setResizable(false);
 
     }
@@ -92,10 +91,10 @@ public class RunGUI {
         tick.addActionListener(listener);
         quit.addActionListener(listener);
 
-        controlZone.add(start);
-        controlZone.add(stop);
-        controlZone.add(tick);
-        controlZone.add(quit);
+        cp.add(start);
+        cp.add(stop);
+        cp.add(tick);
+        cp.add(quit);
 
     }
 
