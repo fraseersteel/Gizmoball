@@ -1,8 +1,6 @@
 package view;
 
-import model.Ball;
-import model.Circle;
-import model.Model;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,14 +30,26 @@ public class Board extends JPanel implements Observer{
         Ball ball = model.getBall();
 
         if(ball!=null){
-            g2d.setColor(Color.BLACK);
-            int x = (int) (ball.getX() - ball.getRadius());
-            int y = (int) (ball.getX() - ball.getRadius());
+            int x = (int) ball.getXPos()*20;
+            int y = (int) ball.getYPos()*20;
             int ballWidth = (int) (2* ball.getRadius());
             g2d.fillOval(x,y,ballWidth,ballWidth);
         }
 
-        //for (Circle circle : )
+
+        for (IGizmo gizmo : model.getGizmos()) {
+            int x = (int) gizmo.getxLocation()*20;
+            int y = (int) gizmo.getyLocation()*20;
+
+            if (gizmo instanceof Triangle) {
+            }
+            else if(gizmo instanceof Square) {
+                g2d.fillRect(x, y, 25, 25);
+            }
+            else if(gizmo instanceof Circle) {
+                g2d.fillOval(x, y, 25, 25);
+            }
+        }
     }
 
 
