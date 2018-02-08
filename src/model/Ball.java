@@ -11,18 +11,18 @@ public class Ball extends JPanel implements Observer {
 
     private String id;
     private Vect velocity;
-    private double xPosition;
-    private double yPosition;
+    private double xPos;
+    private double yPos;
     private double radius;
     private boolean isStopped;
 
     public Ball(String id, double xPosition, double yPosition, double xVelocity, double yVelocity){
 
-        radius = 25;
+        radius = 15;
         this.id = id;
         this.radius = radius;
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
+        xPos = xPosition;
+        yPos = yPosition;
         velocity = new Vect(xVelocity, yVelocity);
         isStopped = false;
     }
@@ -48,19 +48,19 @@ public class Ball extends JPanel implements Observer {
     }
 
     public double getXPos(){
-        return xPosition;
+        return xPos;
     }
 
     public void setXPos(double x){
-        xPosition = x;
+        xPos = x;
     }
 
     public double getYPos(){
-        return yPosition;
+        return yPos;
     }
 
     public void setYPos(double y){
-        yPosition = y;
+        yPos = y;
     }
 
     public Vect getVelocity(){
@@ -89,7 +89,7 @@ public class Ball extends JPanel implements Observer {
     }
 
     public model.Circle getCircle() {
-        return new model.Circle(id,xPosition,yPosition);
+        return new model.Circle(id,xPos,yPos);
     }
 
 

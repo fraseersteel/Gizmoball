@@ -9,16 +9,16 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.jar.JarEntry;
 
-public class Board extends JPanel implements Observer{
+public class Board extends JPanel implements Observer {
 
     private Model model;
     private int width;
     private int height;
 
-    public Board(int x, int y, Model m){
-        m.addObserver(this);
+    public Board(int x, int y,Model m) {
         width = x;
-        height = x;
+        height = y;
+        m.addObserver(this);
         model = m;
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
@@ -30,15 +30,24 @@ public class Board extends JPanel implements Observer{
 
         Ball ball = model.getBall();
 
-        if(ball!=null){
+        if (ball != null) {
             g2d.setColor(Color.BLACK);
-            int x = (int) (ball.getX() - ball.getRadius());
-            int y = (int) (ball.getX() - ball.getRadius());
-            int ballWidth = (int) (2* ball.getRadius());
-            g2d.fillOval(x,y,ballWidth,ballWidth);
+            int x = (int) (ball.getXPos() - ball.getRadius());
+            int y = (int) (ball.getYPos() - ball.getRadius());
+            int ballWidth = (int) (2 * ball.getRadius());
+            g2d.fillOval(x, y, ballWidth, ballWidth);
+        } else {
+            System.out.println("Error with ball");
         }
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
 
     @Override
     public void update(Observable o, Object arg) {

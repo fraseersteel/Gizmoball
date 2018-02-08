@@ -26,7 +26,7 @@ public class Model extends Observable {
         circles = new ArrayList<Circle>();
         triangles = new ArrayList<Triangle>();
         squares = new ArrayList<Square>();
-        ball = new Ball("Ball", 100, 100, 50, 50);
+        ball = new Ball("Ball", 250, 250, 50, 50);
         walls = new Wall(0, 0, 500, 500);
     }
 
