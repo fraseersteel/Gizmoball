@@ -1,15 +1,17 @@
-package view;
 
-import controller.LoadListener;
-import controller.RunListener;
-import model.Model;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
+        package view;
+
+        import controller.LoadListener;
+        import controller.RunListener;
+        import model.Model;
+        import javax.swing.*;
+        import javax.swing.border.Border;
+        import java.awt.*;
+        import java.awt.event.ActionListener;
 
 public class RunGUI {
 
-    private final static Dimension WINDOW_SIZE = new Dimension(800, 600);
+    private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
     private Model model;
     private JFrame jFrame;
     private ActionListener listener;
@@ -60,11 +62,19 @@ public class RunGUI {
 
         controlZone.setLayout(new GridLayout( 0,1));
         //playZone.setLayout(new GridLayout(21,21));
+        controlZone.setPreferredSize(new Dimension(100,550));
 
-        playZone.setBackground(Color.BLACK);
 
-        jFrame.add(controlZone);
-        jFrame.add(playZone);
+
+        Container pane = jFrame.getContentPane();
+
+        pane.add(controlZone,BorderLayout.BEFORE_LINE_BEGINS);
+        pane.add(playZone,BorderLayout.CENTER);
+
+        jFrame.pack();
+
+        jFrame.setResizable(false);
+
     }
 
 

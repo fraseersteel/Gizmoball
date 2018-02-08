@@ -26,18 +26,19 @@ public class GizmoLoader {
                 if (!line.isEmpty()) {
                     String[] element = line.split("\\s+");
 
+                    String id = element[1];
                     Double x = Double.parseDouble(element[2]);
                     Double y = Double.parseDouble(element[3]);
 
                     switch (element[0]) {
                         case "Triangle":
-                            model.addTriangle(new Triangle(x, y));
+                            model.addTriangle(new Triangle(id,x, y));
                             break;
                         case "Circle":
-                            model.addCircle(new Circle(x, y));
+                            model.addCircle(new Circle(id,x, y));
                             break;
                         case "Square":
-                            model.addSquare(new Square(x, y));
+                            model.addSquare(new Square(id,x, y));
                             break;
                         default:
                             //

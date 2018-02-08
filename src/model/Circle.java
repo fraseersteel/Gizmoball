@@ -2,7 +2,7 @@ package model;
 
 public class Circle extends Gizmo {
 
-    public Circle(double x, double y) {
-        super(x,y);
+    public Circle(String id,double x, double y) {
+        super(id,x,y);
     }
 }

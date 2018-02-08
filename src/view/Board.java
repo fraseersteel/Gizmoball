@@ -18,7 +18,7 @@ public class Board extends JPanel implements Observer{
         width = x;
         height = x;
         model = m;
-        setBackground(Color.BLACK);
+        this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
 
     public void paintComponent(Graphics graphic) {
