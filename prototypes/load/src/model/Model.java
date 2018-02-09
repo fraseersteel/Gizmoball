@@ -9,13 +9,16 @@ import java.util.Observable;
 public class Model extends Observable {
 
     private ArrayList<LineSegment> lines;
-    private Ball ball;
     private ArrayList<IGizmo> gizmos;
+    private ArrayList<Absorber> absorbers;
+
+    private Ball ball;
     private Wall walls;
 
     public Model() {
 
         gizmos = new ArrayList<>();
+        absorbers = new ArrayList<>();
         ball = new Ball("Ball", 100, 100, 50, 50);
         walls = new Wall(0, 0, 500, 500);
     }
@@ -77,6 +80,18 @@ public class Model extends Observable {
         gizmos.add(s);
     }
 
+    public void addLeftFlipper(LeftFlipper flipper) {
+        gizmos.add(flipper);
+    }
+
+    public void addRightFlipper(RightFlipper flipper) {
+        gizmos.add(flipper);
+    }
+
+    public void addAbsorber(Absorber a) {
+        absorbers.add(a);
+    }
+
     public void setBall(Ball b) {
         ball = b;
     }
@@ -87,6 +102,10 @@ public class Model extends Observable {
 
     public ArrayList<IGizmo> getGizmos() {
         return gizmos;
+    }
+
+    public ArrayList<Absorber> getAbsorbers() {
+        return absorbers;
     }
 
 }

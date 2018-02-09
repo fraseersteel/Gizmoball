@@ -1,5 +1,6 @@
 package controller;
 
+import model.GizmoLoader;
 import model.Model;
 
 import javax.swing.*;
@@ -22,10 +23,12 @@ public class LoadListener implements ActionListener {
             chooser.showOpenDialog(null);
             File file = chooser.getSelectedFile();
 
+
             fileInputStream = new FileInputStream(file);
             ObjectInputStream oInputStream = new ObjectInputStream(fileInputStream);
-            //
+
             oInputStream.close();
+
 
         } catch (FileNotFoundException e) {
             msg = "File not selected or doesn't exist!";
