@@ -1,5 +1,6 @@
 package collisionsModel;
 
+import collisionsPhysics.Circle;
 import collisionsPhysics.Vect;
 
 import javax.swing.*;
@@ -82,14 +83,15 @@ public class Ball extends JPanel implements Observer {
         return isStopped;
     }
 
+    public Circle getCircle(){
+        return new Circle(xPos,yPos,radius);
+    }
+
     @Override
     public void update(Observable o, Object arg) {
 
     }
 
-    public collisionsModel.Circle getCircle() {
-        return new collisionsModel.Circle(id,xPos,yPos);
-    }
 
 
 }

@@ -1,12 +1,12 @@
 package collisionsView;
 
-import collisionsModel.Ball;
-import collisionsModel.Model;
+import collisionsModel.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.zip.GZIPInputStream;
 
 public class Board extends JPanel implements Observer {
 
@@ -14,7 +14,7 @@ public class Board extends JPanel implements Observer {
     private int width;
     private int height;
 
-    public Board(int x, int y,Model m) {
+    public Board(int x, int y, Model m) {
         width = x;
         height = y;
         m.addObserver(this);
@@ -39,14 +39,47 @@ public class Board extends JPanel implements Observer {
             System.out.println("Error with ball");
         }
 
-        //for (Circle circle : )
+        for (IGizmo gizmo : model.getGizmo()) {
+            int xCor =0;
+            int yCor =0;
+
+            g2d.setPaint(Color.BLUE);
+            String[] line = gizmo.toString().split(" ");
+            System.out.println(line[0]);
+            switch (line[0]) {
+                case "Square":
+                    xCor = (int) (gizmo.to2D()[0] * 25);
+                    yCor = (int) (gizmo.to2D()[1] * 25);
+                    width = (int) (gizmo.to2D()[2] *25);
+                    g2d.fillOval(xCor,yCor,width,width);
+                    break;
+                case "Triangle":
+
+                    break;
+                case "Circle":
+
+                    break;
+
+                case "Absorber":
+
+                    break;
+
+                case "RightFlipper":
+
+                    break;
+
+                case "LeftFlipper":
+
+                    break;
+            }
+        }
     }
 
     public int getWidth() {
         return width;
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return height;
     }
 
