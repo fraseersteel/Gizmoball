@@ -1,9 +1,9 @@
+package collisionsView;
 
-        package view;
+import collisionsController.LoadListener;
+        import collisionsController.RunListener;
+        import collisionsModel.Model;
 
-        import controller.LoadListener;
-        import controller.RunListener;
-        import model.Model;
         import javax.swing.*;
         import java.awt.*;
         import java.awt.event.ActionListener;
@@ -11,10 +11,10 @@
 public class RunGUI {
 
     private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
-    private Model model;
+    private Model m;
     private JFrame jFrame;
     private ActionListener listener;
-    private Board board;
+    private collisionsView.Board board;
 
     private JPanel playZone;
     private Container cp;
@@ -25,8 +25,8 @@ public class RunGUI {
 
     public RunGUI(Model model){
 
-        this.model = model;
-        listener = new RunListener(model);
+        m = model;
+        listener = new RunListener(m);
 
         initialise();
         leftZone();
@@ -54,7 +54,7 @@ public class RunGUI {
         cp = new Container();
         //playZone = new JPanel();
 
-        playZone = new Board(500,500,model);
+        playZone = new collisionsView.Board(500,500,m);
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
         Dimension runDimension = new Dimension(playZone.getWidth(),playZone.getHeight());

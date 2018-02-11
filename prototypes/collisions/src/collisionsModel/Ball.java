@@ -1,58 +1,95 @@
 package collisionsModel;
 
-import physics.Circle;
-import physics.Vect;
+import collisionsPhysics.Vect;
 
-import java.awt.*;
+import javax.swing.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Ball {
+public class Ball extends JPanel implements Observer {
 
-    private double radius;
+    private String id;
     private Vect velocity;
     private double xPos;
     private double yPos;
-    private boolean stopped;
-    private Color colour;
+    private double radius;
+    private boolean isStopped;
 
-    public Ball(double x,double y, double xVel, double yVel){
-        xPos = x;
-        yPos = y;
-        colour = Color.RED;
-        velocity = new Vect(xVel,yVel);
-        radius = 5;
-        stopped = false;
+    public Ball(String id, double xPosition, double yPosition, double xVelocity, double yVelocity){
+
+        radius = 15;
+        this.id = id;
+        this.radius = radius;
+        xPos = xPosition;
+        yPos = yPosition;
+        velocity = new Vect(xVelocity, yVelocity);
+        isStopped = false;
+    }
+
+    // constructor for balls of fixed size? would ideally want a maximum size for user specified balls
+    // to avoid, uh, shenanigans
+    // would have to test how big they can get before it just sort of breaks
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String i){
+        id = i;
     }
 
     public double getRadius(){
         return radius;
     }
 
-    public Circle getCircle(){
-        return new Circle(xPos,yPos,radius);
+    public void setRadius(double r){
+        radius = r;
     }
 
-    public double getxPos(){
+    public double getXPos(){
         return xPos;
     }
 
-    public double getyPos(){
+    public void setXPos(double x){
+        xPos = x;
+    }
+
+    public double getYPos(){
         return yPos;
     }
 
-    public void stopBall(){
-        stopped = true;
-    }
-
-    public void moveBall(){
-        stopped = false;
+    public void setYPos(double y){
+        yPos = y;
     }
 
     public Vect getVelocity(){
         return velocity;
+
+    }
+    public double getXVelo(){
+        return velocity.x();
+    }
+
+    public double getYVelo(){
+        return velocity.y();
     }
 
     public void setVelocity(Vect v){
         velocity = v;
     }
+
+    public boolean isStopped(){
+        return isStopped;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
+
+    public collisionsModel.Circle getCircle() {
+        return new collisionsModel.Circle(id,xPos,yPos);
+    }
+
 
 }

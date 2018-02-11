@@ -1,4 +1,4 @@
-package controller;
+package collisionsController;
 
 public class KeyListener {
 }

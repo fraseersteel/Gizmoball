@@ -2,40 +2,57 @@ package collisionsController;
 
 import collisionsModel.Model;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class RunListener implements ActionListener {
+public class RunListener implements ActionListener{
 
     private Model model;
-    private Timer timer;
+    private KeyListener keyboardListener;
 
     public RunListener(Model m){
         model = m;
-        timer = new Timer(20,this);
     }
-
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        //case statement for which action to perform
+        // cases include "Start","Stop","Tick","Quit"
+
         switch(e.getActionCommand()){
             case "Start":
-                timer.start();
+                //timer.start();
+                System.out.println("Pressed Start");
+                break;
             case "Stop":
-                timer.stop();
+                //timer.stop();
+                System.out.println("Pressed Stop");
+                break;
             case "Tick":
-                model.moveBall();
+                //model.moveBall();
+                System.out.println("Pressed Tick");
+                break;
             case "Quit":
-                int reply = JOptionPane.showConfirmDialog(null,"Are you sure you would like to quit","Warning",JOptionPane.YES_NO_OPTION);
+            case "Exit":
+                int reply = JOptionPane.showConfirmDialog(null,"Are you sure you would like to quit?","Warning",JOptionPane.YES_NO_OPTION);
                 if(reply==JOptionPane.YES_NO_CANCEL_OPTION) {
-                    System.exit(0);
-                }else{
                     JOptionPane.showMessageDialog(null,"Resuming game");
+                }else{
+                    System.exit(0);
                 }
+                System.out.println("Pressed Quit");
+                break;
         }
 
+    }
+
+
+    public void keyPressed(KeyEvent e){
+        keyboardListener.keyPressed(e);
     }
 }

@@ -56,7 +56,7 @@ public class Model extends Observable {
     private CollisionDetails timeUntilCollision() {
 
         double time = 0;
-        double minTime = 0;
+        double minTUC = 0;
         Vect ballVelocity = ball.getVelocity();
         Circle circle = ball.getCircle();
         Vect newVelocity = new Vect(0, 0);
@@ -65,7 +65,7 @@ public class Model extends Observable {
         //for loop for each gizmo type
 
 
-        return new CollisionDetails(minTime, newVelocity);
+        return new CollisionDetails(minTUC, newVelocity);
 
     }
 
