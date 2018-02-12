@@ -72,6 +72,7 @@ public class RunGUI {
         pane.add(cp,BorderLayout.LINE_START);
         pane.add(playZone,BorderLayout.CENTER);
 
+
         jFrame.pack();
         jFrame.setResizable(false);
 
@@ -120,7 +121,7 @@ public class RunGUI {
         save.addActionListener(listener);
 
         JMenuItem load = new JMenuItem("Load");
-        load.addActionListener(new LoadListener());
+        load.addActionListener(new LoadListener(model, playZone));
 
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);
