@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.jar.JarEntry;
 
 public class Board extends JPanel implements Observer{
 
@@ -40,8 +39,8 @@ public class Board extends JPanel implements Observer{
 
 
         for (IGizmo gizmo : model.getGizmos()) {
-            int x = (int) gizmo.getxLocation()*25;
-            int y = (int) gizmo.getyLocation()*25;
+            int x = (int) gizmo.getXPos()*25;
+            int y = (int) gizmo.getYPos()*25;
 
             if (gizmo instanceof Triangle) {
 
@@ -60,7 +59,7 @@ public class Board extends JPanel implements Observer{
             }
             else if(gizmo instanceof RightFlipper) {
                 g2d.setColor(Color.ORANGE);
-                g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+                g2d.fillRoundRect(x+12, y, 12, 50, 13, 13);
             }
         }
 

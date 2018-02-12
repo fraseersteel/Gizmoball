@@ -1,16 +1,26 @@
 package model;
 
+import java.util.ArrayList;
+
 public interface IGizmo {
 
     String getId();
 
     void setId(String i);
 
-    double getxLocation();
+    double getXPos();
 
     void setXPos(double x);
 
-    double getyLocation();
+    double getYPos();
 
-    void setYLocation(double y);
+    void setYPos(double y);
+
+    int getAngle();
+
+    void rotate();
+
+    ArrayList<Gizmo> getTriggers();
+
+    void addTrigger(Gizmo gizmo);
 }

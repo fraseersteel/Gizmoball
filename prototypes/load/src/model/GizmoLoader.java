@@ -48,9 +48,10 @@ public class GizmoLoader {
         if (line.length == 0)
             return false;
 
+        String id = line[1];
+
         // Right now for testing, we only worry about shapes
         if (line[0].equals("Triangle") || line[0].equals("Circle") || line[0].equals("Square") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
-            String id = line[1];
             double x = Double.parseDouble(line[2]);
             double y = Double.parseDouble(line[3]);
 
@@ -61,7 +62,6 @@ public class GizmoLoader {
         }
 
         if (line[0].equals("Absorber")) {
-            String id = line[1];
             double startX = Double.parseDouble(line[2]);
             double startY = Double.parseDouble(line[3]);
             double endX = Double.parseDouble(line[4]);
@@ -69,6 +69,24 @@ public class GizmoLoader {
 
             if (!processAbsorber(id, startX, startY, endX, endY))
                 System.out.println("Error found in save file");
+        }
+
+        if (line[0].equals("Move")) {
+            double x = Double.parseDouble(line[2]);
+            double y = Double.parseDouble(line[3]);
+            moveGizmo(id, x, y);
+        }
+
+        if (line[0].equals("Rotate")) {
+            rotateGizmo(id);
+        }
+
+        if (line[0].equals("Connect")) {
+            connectTrigger(id, line[2]);
+        }
+
+        if (line[0].equals("KeyConnect")) {
+            // still to do.
         }
 
         return true;
@@ -104,6 +122,47 @@ public class GizmoLoader {
             return false;
 
         model.addAbsorber(new Absorber(id, startX, startY, endX, endY));
+        return true;
+    }
+
+    private boolean moveGizmo(String id, double x, double y) {
+        IGizmo gizmo = model.findGizmo(id);
+
+        if (gizmo == null)
+            return false;
+
+        gizmo.setXPos(x);
+        gizmo.setYPos(y);
+        return true;
+    }
+
+    private boolean rotateGizmo(String id) {
+        IGizmo gizmo = model.findGizmo(id);
+
+        if (gizmo == null)
+            return false;
+
+        gizmo.rotate();
+        return true;
+    }
+
+    private boolean connectTrigger(String id, String trigger) {
+        IGizmo baseGizmo = model.findGizmo(id);
+        IGizmo triggerGizmo = model.findGizmo(trigger);
+
+        if (triggerGizmo == null)
+            return false;
+
+
+        if (id.equals("OuterWalls")) {
+            // Still to connect walls to triggers here.
+        }
+
+        if (baseGizmo == null || triggerGizmo == null) {
+            return false;
+        }
+
+        baseGizmo.addTrigger((Gizmo) triggerGizmo);
         return true;
     }
 
