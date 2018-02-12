@@ -32,15 +32,12 @@ public class RunListener implements ActionListener{
             switch (e.getActionCommand()) {
                 case "Start":
                     timer.start();
-                    System.out.println("Pressed Start");
                     break;
                 case "Stop":
                     timer.stop();
-                    System.out.println("Pressed Stop");
                     break;
                 case "Tick":
                     model.moveBall();
-                    System.out.println("Pressed Tick");
                     break;
                 case "Quit":
                     int reply = JOptionPane.showConfirmDialog(null, "Are you sure you would like to quit?", "Warning", JOptionPane.YES_NO_OPTION);
@@ -49,7 +46,6 @@ public class RunListener implements ActionListener{
                     } else {
                         System.exit(0);
                     }
-                    System.out.println("Pressed Quit");
                     break;
             }
         }
