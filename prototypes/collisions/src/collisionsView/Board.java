@@ -24,6 +24,7 @@ public class Board extends JPanel implements Observer {
 
     public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
+        int gizmoWidth = 25;
 
         Graphics2D g2d = (Graphics2D) graphic;
 
@@ -40,40 +41,37 @@ public class Board extends JPanel implements Observer {
         }
 
         for (IGizmo gizmo : model.getGizmo()) {
-            int xCor =0;
-            int yCor =0;
+            int x = (int) gizmo.getxPos();
+            int y = (int) gizmo.getyPos();
 
-            g2d.setPaint(Color.BLUE);
-            String[] line = gizmo.toString().split(" ");
-            System.out.println(line[0]);
-            switch (line[0]) {
-                case "Square":
-                    xCor = (int) (gizmo.to2D()[0] * 25);
-                    yCor = (int) (gizmo.to2D()[1] * 25);
-                    width = (int) (gizmo.to2D()[2] *25);
-                    g2d.fillOval(xCor,yCor,width,width);
+            switch (gizmo.getClass().getName()) {
+                case "collisionsModel.Square":
+                    g2d.setColor(Color.RED);
+                    g2d.fillRect(x, y, gizmoWidth, gizmoWidth);
                     break;
-                case "Triangle":
-
+                case "collisionsModel.Circle":
+                    g2d.setColor(Color.GREEN);
+                    g2d.fillOval(x, y, gizmoWidth, gizmoWidth);
                     break;
-                case "Circle":
-
-                    break;
-
-                case "Absorber":
-
-                    break;
-
-                case "RightFlipper":
-
-                    break;
-
-                case "LeftFlipper":
-
+                case "collisionsModel.LeftFlipper":
+                    g2d.setColor(Color.ORANGE);
+                    g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+                case "collisionsModel.RightFlipper":
+                    g2d.setColor(Color.ORANGE);
+                    g2d.fillRoundRect(x, y, 12, 50, 13, 13);
                     break;
             }
         }
+
+        for(VerticalLines vertL : model.getVertlines()){
+            g2d.fillRect(vertL.getxPos(),vertL.getyPos(),1,vertL.getHeight());
+        }
+        for(HorizontalLines hortL: model.getHorzLines()){
+            g2d.fillRect(hortL.getxPos(),hortL.getyPos(),hortL.getWidth(),1);
+        }
+
     }
+
 
     public int getWidth() {
         return width;

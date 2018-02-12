@@ -5,6 +5,7 @@ import collisionsPhysics.Geometry;
 import collisionsPhysics.LineSegment;
 import collisionsPhysics.Vect;
 import model.Absorber;
+import model.Gizmo;
 import model.Wall;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class Model extends Observable {
     private ArrayList<Absorber> absorbers;
     private collisionsModel.Ball ball;
     private collisionsModel.Wall walls;
+    private ArrayList<VerticalLines> vertlines;
+    private ArrayList<HorizontalLines> horzLines;
 
 
     public Model() {
@@ -25,9 +28,17 @@ public class Model extends Observable {
         absorbers = new ArrayList<>();
         ball = new Ball("Ball", 100, 100, 50, 50);
         walls = new collisionsModel.Wall(0, 0, 500, 500);
-        gizmos.add(new collisionsModel.Circle("new",100,100));
-        gizmos.add(new Square("new",100,100));
-        gizmos.add(new Square("new",100,100));
+//        gizmos.add(new collisionsModel.Circle("new",200,350));
+//        gizmos.add(new collisionsModel.Square("new",250,250));
+//        gizmos.add(new collisionsModel.Square("new",50,100));
+
+        vertlines = new ArrayList<VerticalLines>();
+        horzLines = new ArrayList<HorizontalLines>();
+
+        horzLines.add(new HorizontalLines(100,100,100));
+        vertlines.add(new VerticalLines(250,250,500));
+
+
     }
 
     public void moveBall() {
@@ -82,6 +93,58 @@ public class Model extends Observable {
                 newVelocity = Geometry.reflectWall(line, ball.getVelocity());
             }
         }
+
+       for(VerticalLines line : vertlines){
+           LineSegment ls = line.getLine();
+           time = Geometry.timeUntilWallCollision(ls,circle,ballVelocity);
+           if(time<minTUC){
+               minTUC = time;
+               newVelocity = Geometry.reflectWall(ls,ball.getVelocity());
+           }
+       }
+
+        for(HorizontalLines line : horzLines){
+            LineSegment ls = line.getLine();
+            time = Geometry.timeUntilWallCollision(ls,circle,ballVelocity);
+            if(time<minTUC){
+                minTUC = time;
+                newVelocity = Geometry.reflectWall(ls,ball.getVelocity());
+            }
+        }
+
+
+
+        for (IGizmo gizmo : gizmos){
+
+            //for all gizmo in array check what type of gizmo is contained within the model and get tuc
+
+            if(gizmo.getClass().getName().contains("Square")){
+
+                //collision stuff
+            }
+            else if(gizmo.getClass().getName().contains("Cirlce")){
+
+                //collision stuff
+            }
+            else if(gizmo.getClass().getName().contains("Triangle")){
+
+                //collision stuff
+            }
+            else if(gizmo.getClass().getName().contains("RightFlipper")){
+
+                //collision stuff
+            }
+            else if(gizmo.getClass().getName().contains("LeftFlipper")){
+
+                //collision stuff
+            }
+            else if(gizmo.getClass().getName().contains("RightFlipper")){
+
+                //collision stuff
+            }
+
+        }
+
         return new CollisionDetails(minTUC, newVelocity);
     }
 
@@ -96,6 +159,23 @@ public class Model extends Observable {
 
     public ArrayList<IGizmo> getGizmo(){
         return gizmos;
+    }
+
+
+    public ArrayList<VerticalLines> getVertlines(){
+        return vertlines;
+    }
+
+    public void addVerticalLines(VerticalLines vl){
+        vertlines.add(vl);
+    }
+
+    public ArrayList<HorizontalLines> getHorzLines(){
+        return horzLines;
+    }
+
+    public void addHorizontalLines(HorizontalLines hl){
+        horzLines.add(hl);
     }
 
 }
