@@ -1,7 +1,7 @@
-package model;
+package loadModel;
 
-import physics.LineSegment;
-import physics.Vect;
+import loadPhysics.LineSegment;
+import loadPhysics.Vect;
 
 import java.util.ArrayList;
 import java.util.Observable;

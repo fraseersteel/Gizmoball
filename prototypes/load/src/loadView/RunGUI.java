@@ -1,11 +1,10 @@
 
-        package view;
+        package loadView;
 
-        import controller.LoadListener;
-        import controller.RunListener;
-        import model.Model;
+        import loadController.LoadListener;
+        import loadController.RunListener;
+        import loadModel.Model;
         import javax.swing.*;
-        import javax.swing.border.Border;
         import java.awt.*;
         import java.awt.event.ActionListener;
 

@@ -1,11 +1,6 @@
-package model;
+package loadModel;
 
-import physics.Vect;
-import physics.Circle;
-
-import javax.swing.*;
-import java.util.Observable;
-import java.util.Observer;
+import loadPhysics.Vect;
 
 public class Ball {
 
@@ -84,8 +79,8 @@ public class Ball {
     }
 
 
-    public model.Circle getCircle() {
-        return new model.Circle(id,xPosition,yPosition);
+    public Circle getCircle() {
+        return new Circle(id,xPosition,yPosition);
     }
 
 

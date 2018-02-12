@@ -1,6 +1,6 @@
-package model;
+package loadModel;
 
-import physics.Vect;
+import loadPhysics.Vect;
 
 public class CollisionDetails {
     //per the moveBall method from the slides

@@ -1,9 +1,9 @@
-package main;
+package loadMain;
 
 
-import model.GizmoLoader;
-import model.Model;
-import view.RunGUI;
+import loadModel.GizmoLoader;
+import loadModel.Model;
+import loadView.RunGUI;
 
 public class Driver {
     Model model;

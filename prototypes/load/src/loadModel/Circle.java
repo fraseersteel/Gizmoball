@@ -1,4 +1,4 @@
-package model;
+package loadModel;
 
 public class Circle extends Gizmo {
 

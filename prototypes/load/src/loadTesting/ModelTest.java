@@ -1,8 +1,7 @@
 
 
-package testing;
+package loadTesting;
 import org.junit.Test;
-import model.Ball;
 
 import static org.junit.Assert.assertEquals;
 

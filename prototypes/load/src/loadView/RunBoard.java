@@ -1,4 +1,4 @@
-package view;
+package loadView;
 
 public class RunBoard {
 }

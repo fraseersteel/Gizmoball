@@ -1,12 +1,12 @@
-package view;
+package loadView;
 
+import loadModel.*;
 import model.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.jar.JarEntry;
 
 public class Board extends JPanel implements Observer{
 

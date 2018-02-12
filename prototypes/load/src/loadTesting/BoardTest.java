@@ -1,4 +1,4 @@
-package testing;
+package loadTesting;
 
 public class BoardTest {
 }

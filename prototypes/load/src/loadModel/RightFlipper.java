@@ -1,9 +1,9 @@
-package model;
+package loadModel;
 
 import java.util.ArrayList;
 
-import physics.Circle;
-import physics.LineSegment;
+import loadPhysics.Circle;
+import loadPhysics.LineSegment;
 
 public class RightFlipper extends Gizmo {
 
