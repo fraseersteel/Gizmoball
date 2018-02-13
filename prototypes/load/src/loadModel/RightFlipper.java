@@ -24,6 +24,10 @@ public class RightFlipper extends Gizmo {
         //what's the relationship between the backend structure of a gizmo i.e. the lines and circles
         //and the frontend painting thereof?
         //like when you perform a rotational operation on the backend how does that translate?
+
+        //so when the actual rotation happens, in whatever method that takes place in, it goes like
+        //lines.set(0, Geometry.rotateAround(lines.get(0), center of rotation, angle of rotation));
+        //and repeat for everything that needs rotating
     }
 
     private ArrayList<LineSegment> lines = new ArrayList<LineSegment>();
