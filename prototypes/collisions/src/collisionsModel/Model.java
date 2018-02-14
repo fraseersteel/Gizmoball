@@ -35,8 +35,9 @@ public class Model extends Observable {
         vertlines = new ArrayList<VerticalLines>();
         horzLines = new ArrayList<HorizontalLines>();
 
-        horzLines.add(new HorizontalLines(100,100,100));
-        vertlines.add(new VerticalLines(250,250,500));
+        horzLines.add(new HorizontalLines(100,200,200));
+        horzLines.add(new HorizontalLines(250,400,200));
+//        vertlines.add(new VerticalLines(250,250,500));
 
 
     }

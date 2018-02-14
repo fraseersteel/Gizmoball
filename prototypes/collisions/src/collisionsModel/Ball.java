@@ -18,7 +18,7 @@ public class Ball extends JPanel implements Observer {
 
     public Ball(String id, double xPosition, double yPosition, double xVelocity, double yVelocity){
 
-        radius = 15;
+        radius = 10;
         this.id = id;
         this.radius = radius;
         xPos = xPosition;

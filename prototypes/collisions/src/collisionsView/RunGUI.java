@@ -46,7 +46,7 @@ public class RunGUI {
         flow = new FlowLayout();
         jFrame.setLayout(flow);
 
-        jFrame.setTitle("Gizmoball");
+        jFrame.setTitle("Gizmoball MW05");
 
         jFrame.setSize(WINDOW_SIZE);
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
