@@ -5,47 +5,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="faef3119-5bf5-453f-98e9-9f819712646c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadException/BadFileException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadMain/Driver.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Absorber.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Ball.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Circle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/CollisionDetails.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Gizmo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/LeftFlipper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Model.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/RightFlipper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadModel/Square.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadTesting/BoardTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadTesting/ModelTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadView/Board.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadView/BuildBoard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadView/BuildGUI.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadView/RunBoard.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/load/src/loadView/RunGUI.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/model/Ball.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/model/Ball.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/model/Model.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/model/Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/view/Board.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/view/Board.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/view/RunGUI.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/view/RunGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/collisions/collisionsController/RunListener.class" afterPath="$PROJECT_DIR$/out/production/collisions/collisionsController/RunListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Square.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/absorber/absorberController/Listener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/absorber/absorberModel/Ball.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/absorber/absorberView/Board.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/absorber/absorberView/GUI.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsException/BadFileException.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsTesting/BoardTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsTesting/ModelTest.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/BuildListener.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/BuildListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/KeyListener.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/KeyListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/LoadListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/RunListener.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/RunListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Ball.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Circle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/CollisionDetails.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/CollisionDetails.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Gizmo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/HorizontalLines.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/HorizontalLines.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/IGizmo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/LeftFlipper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/RightFlipper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Triangle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Triangle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/VerticalLines.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/VerticalLines.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Wall.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Wall.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/Angle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Angle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/Circle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Circle.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/Geometry.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Geometry.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/GeometryCompare.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryCompare.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/GeometryImpl.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/GeometryInterface.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryInterface.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/GeometryReference.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryReference.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/IntervalList.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/IntervalList.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/LineSegment.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/LineSegment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/Newton.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Newton.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/SimpleGeometry.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/SimpleGeometry.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberPhysics/Vect.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Vect.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Ball.class" afterPath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Ball.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Model.class" afterPath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Model.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/collisions/collisionsView/Board.class" afterPath="$PROJECT_DIR$/out/production/collisions/collisionsView/Board.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Triangle.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Triangle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java" afterPath="$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/collisions.iml" afterPath="$PROJECT_DIR$/prototypes/collisions/collisions.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsController/LoadListener.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsController/LoadListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Absorber.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Absorber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Ball.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Ball.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Circle.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Circle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CollisionDetails.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CollisionDetails.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/IGizmo.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/IGizmo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/LeftFlipper.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/LeftFlipper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/RightFlipper.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/RightFlipper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Circle.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Circle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Geometry.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Geometry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryImpl.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/IntervalList.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/IntervalList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/LineSegment.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/LineSegment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Newton.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Newton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/SimpleGeometry.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/SimpleGeometry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Vect.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Vect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/RunGUI.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/RunGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,110 +84,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RightFlipper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java">
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="85">
+              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LeftFlipper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JComponent.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/javax/swing/JComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="775" column="19" lean-forward="false" selection-start-line="775" selection-start-column="19" selection-end-line="775" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="82" column="25" lean-forward="false" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Absorber.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/KeyListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/RunListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -222,20 +151,22 @@
         <option value="$PROJECT_DIR$/prototypes/load/src/view/RunGUI.java" />
         <option value="$PROJECT_DIR$/prototypes/load/src/view/Board.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsTesting/ModelTest.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Triangle.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberController/RunListener.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java" />
       </list>
     </option>
   </component>
@@ -287,6 +218,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,40 +252,34 @@
               <item name="prototypes" type="462c0819:PsiDirectoryNode" />
               <item name="absorber" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="absorberController" type="462c0819:PsiDirectoryNode" />
+              <item name="collisionsMain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
               <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="absorber" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="absorberMain" type="462c0819:PsiDirectoryNode" />
+              <item name="collisions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
               <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="absorber" type="462c0819:PsiDirectoryNode" />
+              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="absorberModel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
               <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="absorber" type="462c0819:PsiDirectoryNode" />
+              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="absorberView" type="462c0819:PsiDirectoryNode" />
+              <item name="collisionsMain" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -420,25 +348,6 @@
       <module name="collisions" />
       <envs />
     </configuration>
-    <configuration name="Driver (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="absorberMain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="absorberMain.Driver" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="absorber" />
-      <envs />
-    </configuration>
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -456,6 +365,25 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Gizmoball" />
+      <envs />
+    </configuration>
+    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="collisionsMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="collisionsMain.Driver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="absorber" />
       <envs />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -571,6 +499,7 @@
       <workItem from="1518353626219" duration="669000" />
       <workItem from="1518451657291" duration="5335000" />
       <workItem from="1518610635524" duration="1912000" />
+      <workItem from="1518640122240" duration="466000" />
     </task>
     <task id="LOCAL-00001" summary="Shapes now paint onto display area.">
       <created>1517848548869</created>
@@ -628,11 +557,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518456292181</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Bunch of backend stuff from load moved over to absorber. Its messy....">
+      <created>1518635789296</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1518635789296</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35067000" />
+    <option name="totallyTimeSpent" value="37249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -641,53 +577,32 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08585056" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="EvoSuite" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13950716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13831478" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="EvoSuite" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,7 +620,8 @@
     <MESSAGE value="More save-file syntax functionality added." />
     <MESSAGE value="Loading UI now works." />
     <MESSAGE value="Removed old load testing code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed old load testing code." />
+    <MESSAGE value="Bunch of backend stuff from load moved over to absorber. Its messy...." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bunch of backend stuff from load moved over to absorber. Its messy...." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -716,8 +632,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/physics/Circle.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/physics/Newton.java" />
     <entry file="file://$PROJECT_DIR$/prototypes/load/src/controller/RunListener.java" />
     <entry file="file://$PROJECT_DIR$/prototypes/load/src/RunBoard.java" />
     <entry file="file://$PROJECT_DIR$/prototypes/load/src/physics/Vect.java" />
@@ -776,9 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,35 +697,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/IGizmo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Gizmo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Circle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
@@ -822,7 +708,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Ball.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -830,7 +716,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Wall.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Wall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
@@ -838,15 +724,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Triangle.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Triangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
@@ -854,7 +732,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/RightFlipper.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/RightFlipper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
@@ -862,7 +740,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/LeftFlipper.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/LeftFlipper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
@@ -870,7 +748,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Absorber.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
@@ -878,7 +756,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/LoadListener.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/LoadListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
@@ -888,7 +766,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/KeyListener.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/KeyListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -896,9 +774,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberController/RunListener.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/RunListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
+        <state relative-caret-position="136">
           <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -906,18 +784,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberView/RunGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="82" column="25" lean-forward="false" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="25" />
+        <state relative-caret-position="1275">
+          <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -926,19 +796,81 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/javax/swing/JComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
+        <state relative-caret-position="12087">
           <caret line="775" column="19" lean-forward="false" selection-start-line="775" selection-start-column="19" selection-end-line="775" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/absorberView/Board.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/LineSegment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="918">
+          <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/IGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Gizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="71" column="39" lean-forward="false" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="131" column="13" lean-forward="false" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
