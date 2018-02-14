@@ -1,4 +1,5 @@
 Triangle T 19 0
+Rotate T
 
 Triangle T2 1 1
 
@@ -35,7 +36,7 @@ Circle C183 18 3
 LeftFlipper LF92 9 2
 KeyConnect key 32 down LF92
 KeyConnect key 32 up LF92
-RightFlipper RF112 11 2
+RightFlipper RF112 12 2
 KeyConnect key 32 down RF112
 KeyConnect key 32 up RF112
 LeftFlipper LF87 8 7
@@ -50,6 +51,7 @@ Connect C1110 LF87
 Connect C139 LF87
 
 RightFlipper RF137 13 7
+Move RF137 14 7
 KeyConnect key 87 down RF137
 KeyConnect key 87 up RF137
 Connect C99 RF137

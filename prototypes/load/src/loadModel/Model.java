@@ -19,8 +19,6 @@ public class Model extends Observable {
 
         gizmos = new ArrayList<>();
         absorbers = new ArrayList<>();
-        ball = new Ball("Ball", 100, 100, 50, 50);
-        walls = new Wall(0, 0, 500, 500);
     }
 
     /*public void moveBall() {
@@ -106,6 +104,14 @@ public class Model extends Observable {
 
     public ArrayList<Absorber> getAbsorbers() {
         return absorbers;
+    }
+
+    public IGizmo findGizmo(String gizmoId) {
+        for (IGizmo giz : getGizmos()) {
+            if (giz.getId().equals(gizmoId))
+                return giz;
+        }
+        return null;
     }
 
 }

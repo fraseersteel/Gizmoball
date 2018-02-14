@@ -23,6 +23,9 @@ public class RunGUI {
 
     private GridLayout runGrid;
 
+    private final int cellDimension = 25;
+    private final int cellAmount = 20;
+
     public RunGUI(Model model){
 
         this.model = model;
@@ -54,10 +57,12 @@ public class RunGUI {
         cp = new Container();
         //playZone = new JPanel();
 
-        playZone = new Board(500,500, model);
+        int totalRes = cellDimension*cellAmount;
+
+        playZone = new Board(model, cellDimension);
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
-        Dimension runDimension = new Dimension(500,500);
+        Dimension runDimension = new Dimension(totalRes,totalRes);
         playZone.setPreferredSize(runDimension);
 
         cp.setLayout(new GridLayout( 0,1));
@@ -70,6 +75,7 @@ public class RunGUI {
 
         pane.add(cp,BorderLayout.LINE_START);
         pane.add(playZone,BorderLayout.CENTER);
+
 
         jFrame.pack();
         jFrame.setResizable(false);
@@ -119,7 +125,7 @@ public class RunGUI {
         save.addActionListener(listener);
 
         JMenuItem load = new JMenuItem("Load");
-        load.addActionListener(new LoadListener());
+        load.addActionListener(new LoadListener(model, playZone));
 
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);
