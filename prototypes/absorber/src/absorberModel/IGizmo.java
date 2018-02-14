@@ -1,7 +1,5 @@
 package absorberModel;
 
-import absorberPhysics.LineSegment;
-
 import java.util.ArrayList;
 
 public interface IGizmo {
@@ -10,19 +8,19 @@ public interface IGizmo {
 
     void setId(String i);
 
-    int getxPos();
+    double getXPos();
 
-    int getyPos();
+    void setXPos(double x);
 
-    void setYPos(int y);
+    double getYPos();
 
-    void setXPos(int x);
+    void setYPos(double y);
 
-    ArrayList<LineSegment> getLines();
+    int getRotationAngle();
 
-    ArrayList<Circle> getCircles();
+    void rotate();
 
-    public double[] to2D();
+    ArrayList<Gizmo> getTriggers();
 
-
+    void addTrigger(Gizmo gizmo);
 }

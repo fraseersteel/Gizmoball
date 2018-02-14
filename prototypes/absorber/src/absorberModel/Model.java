@@ -180,4 +180,20 @@ public class Model extends Observable {
         horzLines.add(hl);
     }
 
+    public void addAbsorber (Absorber absorber) {
+        absorbers.add(absorber);
+    }
+
+    public void addSquare(Square square) {
+        gizmos.add(square);
+    }
+
+    public ArrayList<IGizmo> getGizmos() {
+        return gizmos;
+    }
+
+    public ArrayList<Absorber> getAbsorbers() {
+        return absorbers;
+    }
+
 }

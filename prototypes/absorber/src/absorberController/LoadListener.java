@@ -1,38 +1,29 @@
 package absorberController;
 
+import absorberModel.Model;
+
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.*;
 
 public class LoadListener implements ActionListener {
 
+    Model model;
+    JPanel board;
+
+    public LoadListener(Model m, JPanel board) {
+        model = m;
+        this.board = board;
+    }
 
     public void actionPerformed() {
 
-        FileInputStream fileInputStream;
-        String msg = "Success";
 
-        try {
-            JFileChooser chooser = new JFileChooser();
-            chooser.showOpenDialog(null);
-            File file = chooser.getSelectedFile();
-
-            fileInputStream = new FileInputStream(file);
-            ObjectInputStream oInputStream = new ObjectInputStream(fileInputStream);
-            //
-            oInputStream.close();
-
-        } catch (FileNotFoundException e) {
-            msg = "File not selected or doesn't exist!";
-        } catch(InvalidClassException e){
-            msg = "This file type is incompatible!";
-        } catch (IOException e) {
-            msg = "Problem occurred while reading the file, it may have been moved!";
-        } catch(NullPointerException ee){
-            return;
-        }
-        JOptionPane.showMessageDialog(null, msg);
 
     }
 

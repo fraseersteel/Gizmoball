@@ -1,20 +1,22 @@
-package absorberView;
 
-import absorberController.LoadListener;
-import absorberController.RunListener;
-import absorberModel.Model;
+        package absorberView;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
+        import absorberController.LoadListener;
+        import absorberController.RunListener;
+        import absorberModel.Model;
+
+        import javax.swing.*;
+        import javax.swing.border.Border;
+        import java.awt.*;
+        import java.awt.event.ActionListener;
 
 public class RunGUI {
 
     private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
-    private Model m;
+    private Model model;
     private JFrame jFrame;
     private ActionListener listener;
-    private absorberView.Board board;
+    private Board board;
 
     private JPanel playZone;
     private Container cp;
@@ -23,10 +25,13 @@ public class RunGUI {
 
     private GridLayout runGrid;
 
+    private final int cellDimension = 25;
+    private final int cellAmount = 20;
+
     public RunGUI(Model model){
 
-        m = model;
-        listener = new RunListener(m);
+        this.model = model;
+        listener = new RunListener(model);
 
         initialise();
         leftZone();
@@ -54,10 +59,12 @@ public class RunGUI {
         cp = new Container();
         //playZone = new JPanel();
 
-        playZone = new absorberView.Board(500,500,m);
+        int totalRes = cellDimension*cellAmount;
+
+        playZone = new Board(model, cellDimension);
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
-        Dimension runDimension = new Dimension(playZone.getWidth(),playZone.getHeight());
+        Dimension runDimension = new Dimension(totalRes,totalRes);
         playZone.setPreferredSize(runDimension);
 
         cp.setLayout(new GridLayout( 0,1));
@@ -70,6 +77,7 @@ public class RunGUI {
 
         pane.add(cp,BorderLayout.LINE_START);
         pane.add(playZone,BorderLayout.CENTER);
+
 
         jFrame.pack();
         jFrame.setResizable(false);
@@ -119,7 +127,7 @@ public class RunGUI {
         save.addActionListener(listener);
 
         JMenuItem load = new JMenuItem("Load");
-        load.addActionListener(new LoadListener());
+        load.addActionListener(new LoadListener(model, playZone));
 
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);

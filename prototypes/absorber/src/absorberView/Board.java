@@ -7,22 +7,30 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Board extends JPanel implements Observer {
+public class Board extends JPanel implements Observer{
 
     private Model model;
-    private int width;
-    private int height;
+    private int dim;
 
-    public Board(int x, int y, Model m) {
-        width = x;
-        height = y;
+
+    public Board(Model m, int cellDimension){
         m.addObserver(this);
         model = m;
+        this.dim = cellDimension;
+        //this.setBackground(Color.BLACK);
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
 
-
     public void paintBall(Graphics graphic){
+        super.paintComponent(graphic);
+
+        Graphics2D g2d = (Graphics2D) graphic;
+
+
+    }
+
+
+    public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
 
         Graphics2D g2d = (Graphics2D) graphic;
@@ -38,73 +46,57 @@ public class Board extends JPanel implements Observer {
         } else {
             System.out.println("Error with ball");
         }
-    }
 
-    private void paintLines(Graphics g){
+        for (IGizmo gizmo : model.getGizmos()) {
+            int x = (int) gizmo.getXPos()*dim;
+            int y = (int) gizmo.getYPos()*dim;
 
-        g.setColor(Color.gray);
-
-        for (int i = 0; i <= getSize().width; i += 25)
-        {
-            g.drawLine(i, 0, i, getSize().height);
-        }
-
-        for (int i = 0; i <= getHeight(); i += 25)
-        {
-            g.drawLine(0,i, getSize().width, i);
-        }
-    }
-
-
-    public void paintComponent(Graphics graphic) {
-        super.paintComponent(graphic);
-        int gizmoWidth = 25;
-
-        Graphics2D g2d = (Graphics2D) graphic;
-
-        paintBall(graphic);
-        paintLines(graphic);
-
-        for (IGizmo gizmo : model.getGizmo()) {
-            int x = (int) gizmo.getxPos();
-            int y = (int) gizmo.getyPos();
-
-            switch (gizmo.getClass().getName()) {
-                case "absorberModel.Square":
-                    g2d.setColor(Color.RED);
-                    g2d.fillRect(x, y, gizmoWidth, gizmoWidth);
-                    break;
-                case "absorberModel.Circle":
-                    g2d.setColor(Color.GREEN);
-                    g2d.fillOval(x, y, gizmoWidth, gizmoWidth);
-                    break;
-                case "absorberModel.LeftFlipper":
-                    g2d.setColor(Color.ORANGE);
-                    g2d.fillRoundRect(x, y, 12, 50, 13, 13);
-                case "absorberModel.RightFlipper":
-                    g2d.setColor(Color.ORANGE);
-                    g2d.fillRoundRect(x, y, 12, 50, 13, 13);
-                    break;
+            if (gizmo instanceof Triangle) {
+                g2d.setColor(Color.BLUE);
+                switch (gizmo.getRotationAngle()) {
+                    case 0:
+                        g2d.drawPolygon(new int[] {x, x, x+ dim}, new int[] {y, y+dim, y}, 3);
+                        break;
+                    case 90:
+                        g2d.drawPolygon(new int[] {x, x+dim, x+dim}, new int[] {y, y, y+dim}, 3);
+                        break;
+                    case 180:
+                        g2d.drawPolygon(new int[] {x+dim, x+dim, x}, new int[] {y, y+dim, y+dim}, 3);
+                        break;
+                    case 270:
+                        g2d.drawPolygon(new int[] {x, x, x+dim}, new int[] {y, y+dim, y+dim}, 3);
+                        break;
+                }
+            }
+            else if(gizmo instanceof Square) {
+                g2d.setColor(Color.RED);
+                g2d.fillRect(x, y, dim, dim);
+            }
+            else if(gizmo instanceof Circle) {
+                g2d.setColor(Color.GREEN);
+                g2d.fillOval(x, y, dim, dim);
+            }
+            else if(gizmo instanceof LeftFlipper) {
+                g2d.setColor(Color.ORANGE);
+                g2d.fillRoundRect(x, y, dim/2, dim*2, dim/2, dim/2);
+            }
+            else if(gizmo instanceof RightFlipper) {
+                g2d.setColor(Color.ORANGE);
+                g2d.fillRoundRect(x+dim/2, y, dim/2, dim*2, dim/2, dim/2);
             }
         }
 
-        for(VerticalLines vertL : model.getVertlines()){
-            g2d.fillRect(vertL.getxPos(),vertL.getyPos(),1,vertL.getHeight());
+        for (Absorber absorber : model.getAbsorbers()) {
+            int startX = (int) (absorber.getStartX() * dim);
+            int startY = (int) (absorber.getStartY() * dim);
+            int width = (int) ((absorber.getEndX()-absorber.getStartX()) * dim);
+            int height = (int) ((absorber.getEndY()-absorber.getStartY()) * dim);
+
+            g2d.setColor(Color.MAGENTA);
+            g2d.fillRect(startX, startY, width, height);
         }
-        for(HorizontalLines hortL: model.getHorzLines()){
-            g2d.fillRect(hortL.getxPos(),hortL.getyPos(),hortL.getWidth(),1);
-        }
-
     }
 
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
 
     @Override
     public void update(Observable o, Object arg) {
