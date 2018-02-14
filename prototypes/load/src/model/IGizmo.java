@@ -16,7 +16,7 @@ public interface IGizmo {
 
     void setYPos(double y);
 
-    int getAngle();
+    int getRotationAngle();
 
     void rotate();
 

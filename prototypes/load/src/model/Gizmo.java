@@ -7,7 +7,7 @@ public class Gizmo implements IGizmo {
     private String id;
     private double xLocation;
     private double yLocation;
-    private int angle;
+    private int rotationAngle;
 
     private ArrayList<Gizmo> triggers;
 
@@ -16,7 +16,7 @@ public class Gizmo implements IGizmo {
         this.xLocation = x;
         this.yLocation = y;
         this.id = id;
-        this.angle = 0;
+        this.rotationAngle = 0;
 
         this.triggers = new ArrayList<>();
     }
@@ -46,15 +46,15 @@ public class Gizmo implements IGizmo {
         yLocation = y;
     }
 
-    public int getAngle() {
-        return angle;
+    public int getRotationAngle() {
+        return rotationAngle;
     }
 
     public void rotate() {
-        angle = angle+90;
+        rotationAngle = rotationAngle +90;
 
-        if (angle == 360) {
-            angle = 0;
+        if (rotationAngle == 360) {
+            rotationAngle = 0;
         }
     }
 
