@@ -12,6 +12,9 @@ public class Driver {
     public static void main(String[] args) {
         Model model = new Model();
 
+        model.addSquare(new Square("heee", 10, 13));
+
+        /*
         Triangle triangle = new Triangle("hey", 10, 4);
         triangle.rotate();
         triangle.rotate();
@@ -22,6 +25,7 @@ public class Driver {
         model.addSquare(new Square("heee", 2, 13));
         model.addSquare(new Square("heee", 17, 5));
         model.addTriangle(triangle);
+        */
 
         RunGUI gui = new RunGUI(model);
         model.setBallVeloctiy(0, 300);
