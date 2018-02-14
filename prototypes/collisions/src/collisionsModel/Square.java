@@ -6,17 +6,23 @@ import java.util.ArrayList;
 
 public class Square extends Gizmo {
 
-    public Square(String id,double x, double y) {
+    public Square(String id, int x, int y) {
         super(id,x,y);
     }
 
     @Override
     public ArrayList<LineSegment> getLines() {
         ArrayList<LineSegment> lines = new ArrayList<>();
-        // basically top line of a square
-        lines.add(new LineSegment((int)xLocation*25, (int)yLocation*25, ((int)xLocation+1)*25, (int)yLocation*25));
+
+        int x = xLocation*25;
+        int y = yLocation*25;
+
+        //top
+        lines.add(new LineSegment(x, y, x+25, y));
+        lines.add(new LineSegment(x+25, y, x+25, y+25));
+        lines.add(new LineSegment(x+25, y+25, x, y+25));
+        lines.add(new LineSegment(x, y+25, x, y));
 
         return lines;
-
     }
 }

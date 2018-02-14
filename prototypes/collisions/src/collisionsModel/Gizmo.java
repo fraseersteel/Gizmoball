@@ -5,17 +5,17 @@ import collisionsPhysics.LineSegment;
 
 import java.util.ArrayList;
 
-public class Gizmo implements IGizmo {
+public class Gizmo {
 
     private String id;
-    protected double xLocation;
-    protected double yLocation;
-    private int rotationAngle;
+    protected int xLocation;
+    protected int yLocation;
+    protected int rotationAngle;
 
     private ArrayList<Gizmo> triggers;
 
 
-    public Gizmo(String id, double x, double y) {
+    public Gizmo(String id, int x, int y) {
         this.xLocation = x;
         this.yLocation = y;
         this.id = id;
@@ -37,7 +37,7 @@ public class Gizmo implements IGizmo {
         return xLocation;
     }
 
-    public void setXPos(double x){
+    public void setXPos(int x){
         xLocation = x;
     }
 
@@ -45,7 +45,7 @@ public class Gizmo implements IGizmo {
         return yLocation;
     }
 
-    public void setYPos(double y){
+    public void setYPos(int y){
         yLocation = y;
     }
 
@@ -69,8 +69,12 @@ public class Gizmo implements IGizmo {
         triggers.add(gizmo);
     }
 
-    //This should always be overridden?
     public ArrayList<LineSegment> getLines() {
         return null;
     }
+
+    public collisionsPhysics.Circle getPhysicsCircle() {
+        return null;
+    }
+
 }

@@ -11,7 +11,7 @@ import java.util.Observable;
 public class Model extends Observable {
 
     private ArrayList<collisionsPhysics.LineSegment> lines;
-    private ArrayList<IGizmo> gizmos;
+    private ArrayList<Gizmo> gizmos;
     private ArrayList<Absorber> absorbers;
     private collisionsModel.Ball ball;
     private collisionsModel.Wall walls;
@@ -121,38 +121,22 @@ public class Model extends Observable {
         }
 
 
-        for (IGizmo gizmo : gizmos) {
 
-            for (LineSegment line : gizmo.getLines()) {
-                time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
-                if (time < minTUC) {
-                    minTUC = time;
-                    newVelocity = Geometry.reflectWall(line, ball.getVelocity());
+        for (Gizmo gizmo : gizmos) {
+
+            if (gizmo instanceof collisionsModel.Circle) {
+                // NEED TO BOUNCE OFF CIRCLE HERE!
+            }
+            else {
+                for (LineSegment line : gizmo.getLines()) {
+                    time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
+                    if (time < minTUC) {
+                        minTUC = time;
+                        Geometry.reflectWall(line, ballVelocity);
+                        newVelocity = Geometry.reflectWall(line, ball.getVelocity());
+                    }
                 }
             }
-            //for all gizmo in array check what type of gizmo is contained within the model and get tuc
-
-            /*
-            if (gizmo.getClass().getName().contains("Square")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("Cirlce")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("Triangle")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("RightFlipper")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("LeftFlipper")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("RightFlipper")) {
-
-                //collision stuff
-            }
-            */
 
         }
 
@@ -168,7 +152,7 @@ public class Model extends Observable {
         return ball;
     }
 
-    public ArrayList<IGizmo> getGizmo() {
+    public ArrayList<Gizmo> getGizmo() {
         return gizmos;
     }
 
@@ -197,7 +181,11 @@ public class Model extends Observable {
         gizmos.add(square);
     }
 
-    public ArrayList<IGizmo> getGizmos() {
+    public void addTriangle(Triangle triangle) {
+        gizmos.add(triangle);
+    }
+
+    public ArrayList<Gizmo> getGizmos() {
         return gizmos;
     }
 

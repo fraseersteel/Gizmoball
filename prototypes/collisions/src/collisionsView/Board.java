@@ -2,6 +2,7 @@ package collisionsView;
 
 import collisionsModel.*;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
@@ -17,18 +18,9 @@ public class Board extends JPanel implements Observer{
         m.addObserver(this);
         model = m;
         this.dim = cellDimension;
-        //this.setBackground(Color.BLACK);
+        this.setBackground(Color.BLACK);
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
-
-    public void paintBall(Graphics graphic){
-        super.paintComponent(graphic);
-
-        Graphics2D g2d = (Graphics2D) graphic;
-
-
-    }
-
 
     public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
@@ -37,22 +29,21 @@ public class Board extends JPanel implements Observer{
 
         Ball ball = model.getBall();
 
-        if (ball != null) {
-            g2d.setColor(Color.BLACK);
-            int x = (int) (ball.getXPos() - ball.getRadius());
-            int y = (int) (ball.getYPos() - ball.getRadius());
-            int ballWidth = (int) (2 * ball.getRadius());
-            g2d.fillOval(x, y, ballWidth, ballWidth);
-        } else {
-            System.out.println("Error with ball");
+        if(ball!=null){
+            int x = (int) ball.getXPos();
+            int y = (int) ball.getYPos();
+            int ballWidth = (int) (2* ball.getRadius());
+            g2d.setColor(Color.WHITE);
+            g2d.fillOval(x,y,(int)ball.getRadius(),(int)ball.getRadius());
         }
 
-        for (IGizmo gizmo : model.getGizmos()) {
+
+        for (Gizmo gizmo : model.getGizmos()) {
             int x = (int) gizmo.getXPos()*dim;
             int y = (int) gizmo.getYPos()*dim;
 
             if (gizmo instanceof Triangle) {
-                g2d.setColor(Color.BLUE);
+                g2d.setColor(Color.CYAN);
                 switch (gizmo.getRotationAngle()) {
                     case 0:
                         g2d.drawPolygon(new int[] {x, x, x+ dim}, new int[] {y, y+dim, y}, 3);
