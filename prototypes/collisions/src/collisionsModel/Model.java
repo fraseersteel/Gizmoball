@@ -88,20 +88,21 @@ public class Model extends Observable {
         double minTUC = Double.MAX_VALUE;
         System.out.println("velocity = " + ball.getVelocity());
         Vect ballVelocity = ball.getVelocity();
-        Circle circle = ball.getCircle();
+        Circle ballCircle = ball.getCircle();
         Vect newVelocity = new Vect(0, 0);
 
 
         //for loop for each gizmo type
+
         ArrayList<LineSegment> lines = walls.getLines();
         for (LineSegment line : lines) {
-            time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
+            time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
             if (time < minTUC) {
                 minTUC = time;
                 newVelocity = Geometry.reflectWall(line, ball.getVelocity());
             }
         }
-
+        /*
         for (VerticalLines line : vertlines) {
             LineSegment ls = line.getLine();
             time = Geometry.timeUntilWallCollision(ls, circle, ballVelocity);
@@ -120,22 +121,46 @@ public class Model extends Observable {
             }
         }
 
-
+        */
 
         for (Gizmo gizmo : gizmos) {
 
-            if (gizmo instanceof collisionsModel.Circle) {
+            if (gizmo instanceof CircleGizmo) {
                 // NEED TO BOUNCE OFF CIRCLE HERE!
+                /*
+                time = Geometry.timeUntilCircleCollision(gizmo.getPhysicsCircle(), ballCircle, ballVelocity);
+                if (time < minTUC) {
+                    minTUC = time;
+                    Geometry.reflectCircle(gizmo.getPhysicsCircle().getCenter(), ballCircle.getCenter(), ballVelocity);
+                    //newVelocity = Geometry.reflectWall(line, ball.getVelocity());
+                }
+                */
             }
             else {
-                for (LineSegment line : gizmo.getLines()) {
-                    time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
+                for (LineSegment line : gizmo.getPhysicsLines()) {
+                    time = Geometry.timeUntilWallCollision(line, ballCircle, ballVelocity);
                     if (time < minTUC) {
                         minTUC = time;
                         Geometry.reflectWall(line, ballVelocity);
                         newVelocity = Geometry.reflectWall(line, ball.getVelocity());
                     }
                 }
+
+                //NOTE: This breaks collisions for some reason....
+                /*
+                for (Circle circle : gizmo.getPhysicsCircles()) {
+
+                    time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+
+                    if (time < minTUC) {
+                        minTUC = time;
+                        Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity);
+                        newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ball.getVelocity());
+                    }
+
+
+                }
+                */
             }
 
         }
@@ -179,6 +204,10 @@ public class Model extends Observable {
 
     public void addSquare(Square square) {
         gizmos.add(square);
+    }
+
+    public void addCircle(CircleGizmo circle) {
+        gizmos.add(circle);
     }
 
     public void addTriangle(Triangle triangle) {

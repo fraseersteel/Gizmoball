@@ -1,11 +1,12 @@
 package collisionsModel;
 
-public class Circle extends Gizmo {
+public class CircleGizmo extends Gizmo {
 
-    public Circle(String id, int x, int y) {
+    public CircleGizmo(String id, int x, int y) {
         super(id,x,y);
     }
 
+    /*
     @Override
     public collisionsPhysics.Circle getPhysicsCircle() {
 
@@ -14,4 +15,5 @@ public class Circle extends Gizmo {
 
         return new collisionsPhysics.Circle(x, y, 12);
     }
+    */
 }

@@ -1,6 +1,7 @@
 package collisionsModel;
 
 
+import collisionsPhysics.Circle;
 import collisionsPhysics.LineSegment;
 
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ public class Gizmo {
 
     private ArrayList<Gizmo> triggers;
 
+    protected ArrayList<LineSegment> physicsLines;
+    protected ArrayList<Circle> physicsCircles;
+
 
     public Gizmo(String id, int x, int y) {
         this.xLocation = x;
@@ -22,6 +26,9 @@ public class Gizmo {
         this.rotationAngle = 0;
 
         this.triggers = new ArrayList<>();
+
+        this.physicsCircles = new ArrayList<>();
+        this.physicsLines = new ArrayList<>();
     }
 
     public String getId(){
@@ -55,7 +62,6 @@ public class Gizmo {
 
     public void rotate() {
         rotationAngle = rotationAngle +90;
-
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
@@ -69,12 +75,12 @@ public class Gizmo {
         triggers.add(gizmo);
     }
 
-    public ArrayList<LineSegment> getLines() {
-        return null;
+    public ArrayList<LineSegment> getPhysicsLines() {
+        return physicsLines;
     }
 
-    public collisionsPhysics.Circle getPhysicsCircle() {
-        return null;
+    public ArrayList<Circle> getPhysicsCircles() {
+        return physicsCircles;
     }
 
 }
