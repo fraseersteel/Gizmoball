@@ -44,20 +44,22 @@ public class Board extends JPanel implements Observer{
 
             if (gizmo instanceof Triangle) {
                 g2d.setColor(Color.CYAN);
+                Polygon triangle = null;
                 switch (gizmo.getRotationAngle()) {
                     case 0:
-                        g2d.drawPolygon(new int[] {x, x, x+ dim}, new int[] {y, y+dim, y}, 3);
+                        triangle = new Polygon(new int[] {x, x, x+ dim}, new int[] {y, y+dim, y}, 3);
                         break;
                     case 90:
-                        g2d.drawPolygon(new int[] {x, x+dim, x+dim}, new int[] {y, y, y+dim}, 3);
+                        triangle = new Polygon(new int[] {x, x+dim, x+dim}, new int[] {y, y, y+dim}, 3);
                         break;
                     case 180:
-                        g2d.drawPolygon(new int[] {x+dim, x+dim, x}, new int[] {y, y+dim, y+dim}, 3);
+                        triangle = new Polygon(new int[] {x+dim, x+dim, x}, new int[] {y, y+dim, y+dim}, 3);
                         break;
                     case 270:
-                        g2d.drawPolygon(new int[] {x, x, x+dim}, new int[] {y, y+dim, y+dim}, 3);
+                        triangle = new Polygon(new int[] {x, x, x+dim}, new int[] {y, y+dim, y+dim}, 3);
                         break;
                 }
+                g2d.drawPolygon(triangle);
             }
             else if(gizmo instanceof Square) {
                 g2d.setColor(Color.RED);
