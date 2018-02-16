@@ -52,7 +52,7 @@ public class Model extends Observable {
             CollisionDetails cd = timeUntilCollision();
             if (cd != null) {
                 System.out.println("the speed of the ball before gravity is:" + ball.getVelocity());
-                applyGravity();
+                //applyGravity();
                 System.out.println("the speed of the ball after gravity is:  " + ball.getVelocity());
                 double tuc = cd.getTuc();
                 if (tuc > moveTime) {
@@ -102,39 +102,21 @@ public class Model extends Observable {
                 newVelocity = Geometry.reflectWall(line, ball.getVelocity());
             }
         }
-        /*
-        for (VerticalLines line : vertlines) {
-            LineSegment ls = line.getLine();
-            time = Geometry.timeUntilWallCollision(ls, circle, ballVelocity);
-            if (time < minTUC) {
-                minTUC = time;
-                newVelocity = Geometry.reflectWall(ls, ball.getVelocity());
-            }
-        }
-
-        for (HorizontalLines line : horzLines) {
-            LineSegment ls = line.getLine();
-            time = Geometry.timeUntilWallCollision(ls, circle, ballVelocity);
-            if (time < minTUC) {
-                minTUC = time;
-                newVelocity = Geometry.reflectWall(ls, ball.getVelocity());
-            }
-        }
-
-        */
 
         for (Gizmo gizmo : gizmos) {
 
             if (gizmo instanceof CircleGizmo) {
                 // NEED TO BOUNCE OFF CIRCLE HERE!
+                // CIRCLE COLLISIONS DONT WORK!
                 /*
-                time = Geometry.timeUntilCircleCollision(gizmo.getPhysicsCircle(), ballCircle, ballVelocity);
+                time = Geometry.timeUntilCircleCollision(gizmo.getCircle(), ballCircle, ballVelocity);
                 if (time < minTUC) {
                     minTUC = time;
-                    Geometry.reflectCircle(gizmo.getPhysicsCircle().getCenter(), ballCircle.getCenter(), ballVelocity);
+                    Geometry.reflectCircle(gizmo.getCircle().getCenter(), ballCircle.getCenter(), ballVelocity);
                     //newVelocity = Geometry.reflectWall(line, ball.getVelocity());
                 }
                 */
+
             }
             else {
                 for (LineSegment line : gizmo.getPhysicsLines()) {

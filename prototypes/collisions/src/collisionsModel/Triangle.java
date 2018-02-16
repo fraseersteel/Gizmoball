@@ -57,8 +57,8 @@ public class Triangle extends Gizmo {
     }
 
     private void addCircles() {
-        int x = xLocation*25;
-        int y = yLocation*25;
+        int x = xLocation*20;
+        int y = yLocation*20;
 
         switch (rotationAngle) {
             case 0:

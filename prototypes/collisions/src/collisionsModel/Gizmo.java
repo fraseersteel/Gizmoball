@@ -18,6 +18,8 @@ public class Gizmo {
     protected ArrayList<LineSegment> physicsLines;
     protected ArrayList<Circle> physicsCircles;
 
+    protected Circle circle;
+
 
     public Gizmo(String id, int x, int y) {
         this.xLocation = x;
@@ -83,4 +85,7 @@ public class Gizmo {
         return physicsCircles;
     }
 
+    public Circle getCircle() {
+        return circle;
+    }
 }

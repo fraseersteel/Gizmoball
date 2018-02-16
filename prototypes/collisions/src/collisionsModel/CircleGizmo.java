@@ -4,6 +4,8 @@ public class CircleGizmo extends Gizmo {
 
     public CircleGizmo(String id, int x, int y) {
         super(id,x,y);
+
+        circle = new collisionsPhysics.Circle(x*25, y*25, 12);
     }
 
     /*

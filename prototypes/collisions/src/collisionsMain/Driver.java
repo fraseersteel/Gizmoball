@@ -16,7 +16,10 @@ public class Driver {
         //model.addSquare(new Square("heee", 10, 13));
 
 
-        Triangle triangle = new Triangle("hey", 10, 4);
+        //model.addCircle(new CircleGizmo("dssd",10, 4));
+
+
+        Triangle triangle = new Triangle("hey", 10, 6);
         triangle.rotate();
         triangle.rotate();
 
