@@ -108,6 +108,7 @@ public class Triangle extends Gizmo {
 
     private void updateLines() {
         physicsLines.clear();
+        physicsCircles.clear();
         addLines();
     }
 }

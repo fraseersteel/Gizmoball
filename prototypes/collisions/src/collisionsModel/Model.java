@@ -146,13 +146,12 @@ public class Model extends Observable {
                     }
                 }
 
-                //NOTE: This breaks collisions for some reason....
-                /*
                 for (Circle circle : gizmo.getPhysicsCircles()) {
 
                     time = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
 
                     if (time < minTUC) {
+                        System.out.println("Circle collision");
                         minTUC = time;
                         Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity);
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ball.getVelocity());
@@ -160,7 +159,7 @@ public class Model extends Observable {
 
 
                 }
-                */
+
             }
 
         }

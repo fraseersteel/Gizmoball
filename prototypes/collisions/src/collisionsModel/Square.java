@@ -20,7 +20,7 @@ public class Square extends Gizmo {
 
         physicsCircles.add(new Circle(x,y,0));
         physicsCircles.add(new Circle(x+25,y,0));
-        physicsCircles.add(new Circle(x+25,y,y+25));
+        physicsCircles.add(new Circle(x+25,y,0));
         physicsCircles.add(new Circle(x,y+25,0));
 
     }
