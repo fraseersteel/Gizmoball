@@ -2,9 +2,7 @@ package flipperModel;
 
 import java.util.ArrayList;
 
-import flipperPhysics.Circle;
-import flipperPhysics.LineSegment;
-import flipperPhysics.Vect;
+import flipperPhysics.*;
 
 //was wondering if we really needed two flipper classes or could have just one
 //with a variable indicating its direction
@@ -15,6 +13,11 @@ public class RightFlipper extends Gizmo {
     private ArrayList<Circle> circles = new ArrayList<Circle>();
     private ArrayList<String> connections = new ArrayList<String>();
     private ArrayList<String> keyConnections = new ArrayList<String>();
+
+    //private boolean isStopped = true;
+    //private boolean isFlipped = false;
+
+    //will probably prove useful for actual flippers
 
     private Vect lineCor; //center of rotation for lines
     private Vect circleCor; //center of rotation for circles
@@ -29,7 +32,11 @@ public class RightFlipper extends Gizmo {
     public RightFlipper(String id, int xPos, int yPos) {
 
         super(id, xPos, yPos);
-        //lineCor = new Vect something something
+        height = xPos*25;
+        width = yPos*25;
+        radius = width/2;
+
+        lineCor = new Vect ((xPos+radius),(yPos-radius));
         LineSegment l1 = new LineSegment(xPos, yPos, xPos, yPos-height);
         LineSegment l2 = new LineSegment(xPos+width, yPos, xPos+width, yPos-height);
         lines.add(l1);
@@ -44,12 +51,37 @@ public class RightFlipper extends Gizmo {
         Circle z2 = new Circle(xPos, yPos-height, 0);
         Circle z3 = new Circle(xPos+width, yPos, 0);
         Circle z4 = new Circle(xPos+width, yPos-height, 0);
+        circles.add(z1);
+        circles.add(z2);
+        circles.add(z3);
+        circles.add(z4);
 
         //so when the actual rotation happens, in whatever method that takes place in, it goes like
         //lines.set(0, Geometry.rotateAround(lines.get(0), center of rotation, angle of rotation));
         //and repeat for everything that needs rotating
     }
 
+    public void rotate() {
+        Angle angle;
+        angle = new Angle(1.57);
+            circles.set(0, Geometry.rotateAround(circles.get(0), lineCor, angle));
+            circles.set(1, Geometry.rotateAround(circles.get(1), lineCor, angle));
+            circles.set(2, Geometry.rotateAround(circles.get(2), lineCor, angle));
+            circles.set(3, Geometry.rotateAround(circles.get(3), lineCor, angle));
+            circles.set(4, Geometry.rotateAround(circles.get(4), lineCor, angle));
+            circles.set(5, Geometry.rotateAround(circles.get(5), lineCor, angle));
+
+            lines.set(0, Geometry.rotateAround(lines.get(0), lineCor, angle));
+            lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
+
+
+    }
+
+    /*public void flip(){
+        isFlipped = !isFlipped;
+        isStopped = false;
+        System.out.print("Executed RightFlipper.flip()");
+    }*/
 
 
     public ArrayList<LineSegment> getLines() {
