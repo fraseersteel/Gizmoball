@@ -43,15 +43,20 @@ public class Board extends JPanel implements Observer{
         for (RightFlipper rFlippers : model.getFlippers()) {
             int x = (int) rFlippers.getXPos() * 25;
             int y = (int) rFlippers.getYPos() * 25;
+
+
+
             ArrayList<LineSegment> lines = rFlippers.getLines();
             LineSegment l1 = lines.get(0);
             LineSegment l2 = lines.get(1);
+            g2d.setColor(Color.ORANGE);
+            g2d.fillRoundRect((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
 
-            g2d.drawLine((int) l1.p1().x(), (int) l1.p1().y(),
+           /* g2d.drawLine((int) l1.p1().x(), (int) l1.p1().y(),
                     (int) l1.p2().x(), (int) l1.p2().y());
 
             g2d.drawLine((int) l2.p1().x(), (int) l2.p1().y(),
-                    (int) l2.p2().x(), (int) l2.p2().y());
+                    (int) l2.p2().x(), (int) l2.p2().y());*/
         }
 
 

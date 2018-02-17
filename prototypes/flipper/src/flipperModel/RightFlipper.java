@@ -23,19 +23,15 @@ public class RightFlipper extends Gizmo {
     private Vect circleCor; //center of rotation for circles
     //actually could probably be just the same value not sure
 
-    private int height; //height and width of the flippers
-    private int width; //there is no actual rectangle being created with these dimensions
+    private int height = 50; //height and width of the flippers
+    private int width = 20;//there is no actual rectangle being created with these dimensions
     //they're just sort of references for positioning things
     //also need actual values for these
-    private int radius;
+    private int radius = 10 ;
 
     public RightFlipper(String id, int xPos, int yPos) {
 
         super(id, xPos, yPos);
-        height = xPos*25;
-        width = yPos*25;
-        radius = width/2;
-
         lineCor = new Vect ((xPos+radius),(yPos-radius));
         LineSegment l1 = new LineSegment(xPos, yPos, xPos, yPos-height);
         LineSegment l2 = new LineSegment(xPos+width, yPos, xPos+width, yPos-height);
@@ -62,6 +58,10 @@ public class RightFlipper extends Gizmo {
     }
 
     public void rotate() {
+
+        //extremely primitive for basic rotation with no checking of limits
+        //i.e. not checking if the flipper is currently in the flipped position or not
+
         Angle angle;
         angle = new Angle(1.57);
             circles.set(0, Geometry.rotateAround(circles.get(0), lineCor, angle));
