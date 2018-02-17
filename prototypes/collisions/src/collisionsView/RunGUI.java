@@ -131,11 +131,15 @@ public class RunGUI {
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(listener);
 
+        JMenuItem reset = new JMenuItem("Reset");
+        reset.addActionListener(listener);
+
         //Construct menu bar
         jFrame.setJMenuBar(menuBar);
         menuBar.add(menu);
         menu.add(save);
         menu.add(load);
+        menu.add(reset);
         menu.addSeparator();
         menu.add(exit);
     }

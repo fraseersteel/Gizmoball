@@ -18,7 +18,6 @@ public class Board extends JPanel implements Observer{
         m.addObserver(this);
         model = m;
         this.dim = cellDimension;
-        this.setBackground(Color.BLACK);
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
 
@@ -33,7 +32,7 @@ public class Board extends JPanel implements Observer{
             int x = (int) ball.getXPos();
             int y = (int) ball.getYPos();
             int ballWidth = (int) (2* ball.getRadius());
-            g2d.setColor(Color.WHITE);
+            g2d.setColor(Color.BLACK);
             g2d.fillOval(x,y,(int)ball.getRadius(),(int)ball.getRadius());
         }
 
@@ -59,7 +58,8 @@ public class Board extends JPanel implements Observer{
                         triangle = new Polygon(new int[] {x, x, x+dim}, new int[] {y, y+dim, y+dim}, 3);
                         break;
                 }
-                g2d.drawPolygon(triangle);
+                g2d.fillPolygon(triangle);
+                g2d.setColor(Color.BLUE);
             }
             else if(gizmo instanceof Square) {
                 g2d.setColor(Color.RED);
