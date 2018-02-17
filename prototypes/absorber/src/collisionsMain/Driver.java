@@ -13,7 +13,7 @@ public class Driver {
         //model.addSquare(new Square("hey", 10, 3));
 
         RunGUI gui = new RunGUI(model);
-        model.setBallVeloctiy(0, 300);
+        model.setBallVeloctiy(0, 500);
 
     }
 }

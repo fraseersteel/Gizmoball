@@ -27,9 +27,6 @@ public class Ball extends JPanel implements Observer {
         isStopped = false;
     }
 
-    // constructor for balls of fixed size? would ideally want a maximum size for user specified balls
-    // to avoid, uh, shenanigans
-    // would have to test how big they can get before it just sort of breaks
 
     public String getId(){
         return id;

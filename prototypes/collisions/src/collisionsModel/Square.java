@@ -18,10 +18,11 @@ public class Square extends Gizmo {
         int x = xLocation*25;
         int y = yLocation*25;
 
-        physicsCircles.add(new Circle(x,y,0));
-        physicsCircles.add(new Circle(x+25,y,0));
-        physicsCircles.add(new Circle(x+25,y,0));
-        physicsCircles.add(new Circle(x,y+25,0));
+        physicsCircles.add(new Circle(x,y,0.0));
+        physicsCircles.add(new Circle(x,y+25,0.0));
+        physicsCircles.add(new Circle(x+25,y,0.0));
+        physicsCircles.add(new Circle(x+25,y+25,0.0));
+
 
     }
 
