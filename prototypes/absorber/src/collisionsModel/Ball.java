@@ -87,6 +87,14 @@ public class Ball extends JPanel implements Observer {
         return new Circle(xPos,yPos,radius);
     }
 
+    public void start() {
+        isStopped = false;
+    }
+
+    public void stop() {
+        isStopped = true;
+    }
+
     @Override
     public void update(Observable o, Object arg) {
 

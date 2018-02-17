@@ -86,15 +86,15 @@ public class Board extends JPanel implements Observer{
             }
         }
 
-        for (Absorber absorber : model.getAbsorbers()) {
-            int startX = (int) (absorber.getStartX() * dim);
-            int startY = (int) (absorber.getStartY() * dim);
-            int width = (int) ((absorber.getEndX()-absorber.getStartX()) * dim);
-            int height = (int) ((absorber.getEndY()-absorber.getStartY()) * dim);
+        Absorber absorber = model.getAbsorber();
+        int startX = (int) (absorber.getStartX() * dim);
+        int startY = (int) (absorber.getStartY() * dim);
+        int width = (int) ((absorber.getEndX()-absorber.getStartX()) * dim);
+        int height = (int) ((absorber.getEndY()-absorber.getStartY()) * dim);
 
-            g2d.setColor(Color.MAGENTA);
-            g2d.fillRect(startX, startY, width, height);
-        }
+        g2d.setColor(Color.MAGENTA);
+        g2d.fillRect(startX, startY, width, height);
+
     }
 
 

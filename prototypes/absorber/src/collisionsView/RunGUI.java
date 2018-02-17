@@ -1,6 +1,7 @@
 
         package collisionsView;
 
+        import collisionsController.AbsorberListener;
         import collisionsController.LoadListener;
         import collisionsController.RunListener;
         import collisionsModel.Model;
@@ -8,8 +9,10 @@
         import javax.swing.*;
         import java.awt.*;
         import java.awt.event.ActionListener;
+        import java.awt.event.KeyEvent;
+        import java.awt.event.KeyListener;
 
-public class RunGUI {
+        public class RunGUI {
 
     private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
     private Model model;
@@ -43,6 +46,8 @@ public class RunGUI {
         //board.paintComponent(Graphics2D.g);
         jFrame.pack();
 
+
+
     }
 
     private void initialise() {
@@ -70,7 +75,8 @@ public class RunGUI {
         //playZone.setLayout(new GridLayout(21,21));
         cp.setPreferredSize(new Dimension(100,550));
 
-
+        jFrame.addKeyListener(new AbsorberListener(model));
+        //playZone.addKeyListener(AbsorberListener);
 
         Container pane = jFrame.getContentPane();
 
@@ -80,6 +86,9 @@ public class RunGUI {
 
         jFrame.pack();
         jFrame.setResizable(false);
+
+        jFrame.setFocusable(true);
+        jFrame.requestFocusInWindow();
 
     }
 
@@ -97,6 +106,11 @@ public class RunGUI {
         stop.addActionListener(listener);
         tick.addActionListener(listener);
         quit.addActionListener(listener);
+
+        start.setFocusable(false);
+        stop.setFocusable(false);
+        tick.setFocusable(false);
+        quit.setFocusable(false);
 
         cp.add(start);
         cp.add(stop);

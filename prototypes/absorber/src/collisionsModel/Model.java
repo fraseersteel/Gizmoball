@@ -12,7 +12,7 @@ public class Model extends Observable {
 
     private ArrayList<collisionsPhysics.LineSegment> lines;
     private ArrayList<IGizmo> gizmos;
-    private ArrayList<Absorber> absorbers;
+    private Absorber absorber;
     private collisionsModel.Ball ball;
     private collisionsModel.Wall walls;
     private ArrayList<VerticalLines> vertlines;
@@ -23,7 +23,6 @@ public class Model extends Observable {
     public Model() {
 
         gizmos = new ArrayList<>();
-        absorbers = new ArrayList<>();
         ball = new Ball("Ball", 250, 50, 0, 0);
         walls = new collisionsModel.Wall(0, 0, 500, 500);
         vertlines = new ArrayList<VerticalLines>();
@@ -121,6 +120,22 @@ public class Model extends Observable {
         }
 
 
+        for (LineSegment line : absorber.getEdges()) {
+            time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
+            if (time < minTUC) {
+
+                if (ball.getYPos() > (absorber.getStartY()*25)) {
+                    System.out.println("BOOM");
+
+                    //ball.setYPos(absorber.getEndY()*25);
+                    ball.stop();
+                    // capture absorber
+                }
+            }
+        }
+
+
+
         for (IGizmo gizmo : gizmos) {
 
             for (LineSegment line : gizmo.getLines()) {
@@ -159,6 +174,18 @@ public class Model extends Observable {
         return new CollisionDetails(minTUC, newVelocity);
     }
 
+    public boolean shootAbsorber() {
+
+        if (ball.getYPos() < (absorber.getStartY()*20)) {
+            return false;
+        }
+
+        ball.start();
+        setBallVeloctiy(300, -800);
+        //setVelocity(0, -300);
+        return true;
+    }
+
     public void setBallVeloctiy(int x, int y) {
         ball.setVelocity(new Vect(x, y));
     }
@@ -189,8 +216,8 @@ public class Model extends Observable {
         horzLines.add(hl);
     }
 
-    public void addAbsorber (Absorber absorber) {
-        absorbers.add(absorber);
+    public void addAbsorber (Absorber ab) {
+        absorber = ab;
     }
 
     public void addSquare(Square square) {
@@ -201,8 +228,8 @@ public class Model extends Observable {
         return gizmos;
     }
 
-    public ArrayList<Absorber> getAbsorbers() {
-        return absorbers;
+    public Absorber getAbsorber() {
+        return absorber;
     }
 
 }
