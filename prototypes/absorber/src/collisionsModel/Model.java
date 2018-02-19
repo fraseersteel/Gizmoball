@@ -18,6 +18,7 @@ public class Model extends Observable {
     private ArrayList<VerticalLines> vertlines;
     private ArrayList<HorizontalLines> horzLines;
     private double accDueToGrav = 30;
+    private double deaccDueToFric = 1.05;
 
 
     public Model() {
@@ -40,6 +41,9 @@ public class Model extends Observable {
 
     public void applyFriction() {
 
+        Vect veloAfterFric = new Vect(ball.getXVelo()/deaccDueToFric, ball.getYVelo()/deaccDueToFric);
+        ball.setVelocity(veloAfterFric);
+
     }
 
     public void moveBall() {
@@ -52,6 +56,7 @@ public class Model extends Observable {
             if (cd != null) {
                 System.out.println("the speed of the ball before gravity is:" + ball.getVelocity());
                 applyGravity();
+                applyFriction();
                 System.out.println("the speed of the ball after gravity is:  " + ball.getVelocity());
                 double tuc = cd.getTuc();
                 if (tuc > moveTime) {
