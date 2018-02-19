@@ -1,23 +1,25 @@
 package collisionsModel;
 
+import collisionsPhysics.Circle;
 import collisionsPhysics.LineSegment;
 
 import java.util.ArrayList;
 
-public class Circle implements IGizmo {
+public class CircleGizmo implements IGizmo {
 
     private ArrayList<collisionsPhysics.Circle> circles = new ArrayList<collisionsPhysics.Circle>();
-    private ArrayList<LineSegment> lines = new ArrayList<LineSegment>();
     private int xPos = 0;
     private int yPos = 0;
     private int width = 1;
     private String ID = "";
+    private double diameter = 1;
 
 
-    public Circle(String id,int x, int y){
+    public CircleGizmo(String id, int x, int y) {
         this.ID = id;
         this.xPos = x;
         this.yPos = y;
+        createCircles();
     }
 
     @Override
@@ -52,12 +54,22 @@ public class Circle implements IGizmo {
 
     @Override
     public ArrayList<LineSegment> getLines() {
-        return lines;
+        return null;
+    }
+
+    public double getRadius() {
+        return (diameter/2);
     }
 
     @Override
     public ArrayList<collisionsPhysics.Circle> getCircles() {
         return circles;
+    }
+
+    public void createCircles() {
+        circles.clear();
+        Circle mid = new Circle(xPos + 0.5, yPos + 0.5, diameter / 2);
+        circles.add(mid);
     }
 
     @Override
@@ -66,8 +78,8 @@ public class Circle implements IGizmo {
     }
 
     @Override
-    public collisionsPhysics.Circle getCircle() {
-        return new collisionsPhysics.Circle(xPos,yPos,12.5);
+    public collisionsModel.CircleGizmo getCircle() {
+        return this;
     }
 
 }

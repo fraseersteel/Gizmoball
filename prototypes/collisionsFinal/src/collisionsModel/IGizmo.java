@@ -24,7 +24,10 @@ public interface IGizmo {
 
     int getRotationAngle();
 
-    collisionsPhysics.Circle getCircle();
+    collisionsModel.CircleGizmo getCircle();
+
+    double getRadius();
+
 
 
 }

@@ -37,10 +37,10 @@ public class Model extends Observable {
         gizmos.add(new collisionsModel.Triangle("new", 16, 8));
 
 
-        circles.add(new collisionsPhysics.Circle(100, 300, 12.5));
-        circles.add(new collisionsPhysics.Circle(200, 300, 12.5));
-        circles.add(new collisionsPhysics.Circle(300, 300, 12.5));
-        circles.add(new collisionsPhysics.Circle(400, 300, 12.5));
+        gizmos.add(new collisionsModel.CircleGizmo("new", 4, 12));
+        gizmos.add(new collisionsModel.CircleGizmo("new", 8, 12));
+        gizmos.add(new collisionsModel.CircleGizmo("new", 12, 12));
+        gizmos.add(new collisionsModel.CircleGizmo("new", 16, 12));
 
 
         //extreme testing
@@ -87,11 +87,9 @@ public class Model extends Observable {
             double tuc = cd.getTuc();
             if (tuc > moveTime) {
                 ball = moveBallTime(moveTime, ball);
-                System.out.println("x " + ball.getXPos() + " y " + ball.getYPos());
             } else {
                 ball = moveBallTime(tuc, ball);
                 ball.setVelocity(cd.getVelocity());
-                System.out.println("x " + ball.getX() + " y " + ball.getY());
             }
 
 
@@ -156,7 +154,6 @@ public class Model extends Observable {
                 }
             } else if (gizmo.getClass().getName().contains("Triangle")) {
 
-                //
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
@@ -172,6 +169,14 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
                     }
                 }
+            } else if (gizmo.getClass().getName().contains("CircleGizmo")) {
+                for (Circle circle : gizmo.getCircles()) {
+                    double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+                    if (circleTime < minTUC) {
+                        minTUC = circleTime;
+                        newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                    }
+                }
             } else if (gizmo.getClass().getName().contains("RightFlipper")) {
 
                 //collision stuff
@@ -185,13 +190,6 @@ public class Model extends Observable {
 
         }
 
-        for (Circle c : circles) {
-            double circleTime = Geometry.timeUntilCircleCollision(c, ballCircle, ballVelocity);
-            if (circleTime < minTUC) {
-                minTUC = circleTime;
-                newVelocity = Geometry.reflectCircle(c.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
-            }
-        }
 
         return new CollisionDetails(minTUC, newVelocity);
     }

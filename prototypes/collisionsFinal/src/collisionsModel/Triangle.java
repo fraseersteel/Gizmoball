@@ -170,8 +170,13 @@ public class Triangle implements IGizmo {
     }
 
     @Override
-    public Circle getCircle() {
+    public CircleGizmo getCircle() {
         return null;
+    }
+
+    @Override
+    public double getRadius() {
+        return 0;
     }
 
 }

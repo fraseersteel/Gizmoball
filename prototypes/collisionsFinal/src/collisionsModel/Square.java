@@ -86,8 +86,13 @@ public class Square implements IGizmo {
     }
 
     @Override
-    public Circle getCircle() {
+    public CircleGizmo getCircle() {
         return null;
+    }
+
+    @Override
+    public double getRadius() {
+        return 0;
     }
 
 
