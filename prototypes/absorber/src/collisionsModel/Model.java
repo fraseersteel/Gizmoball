@@ -61,6 +61,9 @@ public class Model extends Observable {
                     ball.setVelocity(cd.getVelocity());
                 }
 
+                if (checkAbsorber())
+                    ball.stop();
+
                 this.setChanged();
                 this.notifyObservers();
             }
@@ -120,6 +123,7 @@ public class Model extends Observable {
         }
 
 
+        /*
         for (LineSegment line : absorber.getEdges()) {
             time = Geometry.timeUntilWallCollision(line, circle, ballVelocity);
             if (time < minTUC) {
@@ -133,7 +137,7 @@ public class Model extends Observable {
                 }
             }
         }
-
+        */
 
 
         for (IGizmo gizmo : gizmos) {
@@ -174,6 +178,15 @@ public class Model extends Observable {
         return new CollisionDetails(minTUC, newVelocity);
     }
 
+    public boolean checkAbsorber() {
+        System.out.println("Y pos " + ball.getYPos());
+        if (ball.getYPos() > (absorber.getStartY()*25) && ball.getYPos() < (absorber.getEndY()*25)) {
+            System.out.println("ABSORBER!!");
+            return true;
+        }
+        return false;
+    }
+
     public boolean shootAbsorber() {
 
         if (ball.getYPos() < (absorber.getStartY()*20)) {
@@ -181,7 +194,7 @@ public class Model extends Observable {
         }
 
         ball.start();
-        setBallVeloctiy(300, -800);
+        setBallVeloctiy(0, -800);
         //setVelocity(0, -300);
         return true;
     }
