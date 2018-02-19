@@ -1,6 +1,7 @@
 package flipperView;
 
 import flipperModel.*;
+import flipperPhysics.Circle;
 import flipperPhysics.LineSegment;
 
 
@@ -47,16 +48,25 @@ public class Board extends JPanel implements Observer{
 
 
             ArrayList<LineSegment> lines = rFlippers.getLines();
+            ArrayList<Circle> circles = rFlippers.getCircles();
             LineSegment l1 = lines.get(0);
             LineSegment l2 = lines.get(1);
+            Circle c1 = circles.get(0);
+            Circle c2 = circles.get(1);
             g2d.setColor(Color.ORANGE);
-            g2d.fillRoundRect((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
+            //g2d.fillRoundRect((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
+            //don't know if this can be relied on to redraw properly
 
-           /* g2d.drawLine((int) l1.p1().x(), (int) l1.p1().y(),
+            g2d.drawLine((int) l1.p1().x(), (int) l1.p1().y(),
                     (int) l1.p2().x(), (int) l1.p2().y());
 
             g2d.drawLine((int) l2.p1().x(), (int) l2.p1().y(),
-                    (int) l2.p2().x(), (int) l2.p2().y());*/
+                    (int) l2.p2().x(), (int) l2.p2().y());
+
+            //circles are like super annoying to draw in the right place
+
+
+
         }
 
 

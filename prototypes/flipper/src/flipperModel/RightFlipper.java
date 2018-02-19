@@ -14,8 +14,8 @@ public class RightFlipper extends Gizmo {
     private ArrayList<String> connections = new ArrayList<String>();
     private ArrayList<String> keyConnections = new ArrayList<String>();
 
-    //private boolean isStopped = true;
-    //private boolean isFlipped = false;
+   //private boolean isStopped = false;
+    private boolean isFlipped = false;
 
     //will probably prove useful for actual flippers
 
@@ -32,14 +32,14 @@ public class RightFlipper extends Gizmo {
     public RightFlipper(String id, int xPos, int yPos) {
 
         super(id, xPos, yPos);
-        lineCor = new Vect ((xPos+radius),(yPos-radius));
+        lineCor = new Vect ( xPos, yPos-height);
         LineSegment l1 = new LineSegment(xPos, yPos, xPos, yPos-height);
         LineSegment l2 = new LineSegment(xPos+width, yPos, xPos+width, yPos-height);
         lines.add(l1);
         lines.add(l2);
         //circles for rounded ends of flipper
-        Circle c1 = new Circle(xPos+(width/2), yPos-radius, radius);
-        Circle c2 = new Circle (xPos+(width/2), (yPos-height)+radius, radius);
+        Circle c1 = new Circle(xPos+radius, yPos-radius, radius);
+        Circle c2 = new Circle (xPos+radius, (yPos-height)+radius, radius);
         circles.add(c1);
         circles.add(c2);
         //zero-radius circles for ends of lines
@@ -52,36 +52,38 @@ public class RightFlipper extends Gizmo {
         circles.add(z3);
         circles.add(z4);
 
-        //so when the actual rotation happens, in whatever method that takes place in, it goes like
-        //lines.set(0, Geometry.rotateAround(lines.get(0), center of rotation, angle of rotation));
-        //and repeat for everything that needs rotating
     }
 
     public void rotate() {
 
-        //extremely primitive for basic rotation with no checking of limits
-        //i.e. not checking if the flipper is currently in the flipped position or not
-
         Angle angle;
-        angle = new Angle(1.57);
-            circles.set(0, Geometry.rotateAround(circles.get(0), lineCor, angle));
-            circles.set(1, Geometry.rotateAround(circles.get(1), lineCor, angle));
-            circles.set(2, Geometry.rotateAround(circles.get(2), lineCor, angle));
-            circles.set(3, Geometry.rotateAround(circles.get(3), lineCor, angle));
-            circles.set(4, Geometry.rotateAround(circles.get(4), lineCor, angle));
-            circles.set(5, Geometry.rotateAround(circles.get(5), lineCor, angle));
+        if (!isFlipped) {
+            angle = new Angle(1.57);
+        } else {
+            angle = new Angle(-1.57); //cannot get the lines straight no matter how many
+                                            //decimal points deep I go
+        }
+        System.out.print("executed RightFlipper.rotate()");
 
-            lines.set(0, Geometry.rotateAround(lines.get(0), lineCor, angle));
-            lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
+        circles.set(0, Geometry.rotateAround(circles.get(0), lineCor, angle));
+        circles.set(1, Geometry.rotateAround(circles.get(1), lineCor, angle));
+        circles.set(2, Geometry.rotateAround(circles.get(2), lineCor, angle));
+        circles.set(3, Geometry.rotateAround(circles.get(3), lineCor, angle));
+        circles.set(4, Geometry.rotateAround(circles.get(4), lineCor, angle));
+        circles.set(5, Geometry.rotateAround(circles.get(5), lineCor, angle));
 
-
+        lines.set(0, Geometry.rotateAround(lines.get(0), lineCor, angle));
+        lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
+        isFlipped = !isFlipped;
     }
 
-    /*public void flip(){
+   /* public void flip(){
         isFlipped = !isFlipped;
-        isStopped = false;
+        //isStopped = false;
         System.out.print("Executed RightFlipper.flip()");
-    }*/
+
+        gone but not forgotten
+    } */
 
 
     public ArrayList<LineSegment> getLines() {

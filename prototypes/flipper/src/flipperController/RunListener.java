@@ -17,6 +17,7 @@ public class RunListener implements ActionListener{
     public RunListener(Model m){
         model = m;
         timer = new Timer(50,this);
+        timer.start();
     }
 
 

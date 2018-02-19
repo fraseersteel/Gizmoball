@@ -6,8 +6,8 @@ import flipperPhysics.Circle;
 import flipperPhysics.LineSegment;
 import flipperPhysics.Vect;
 
-//was wondering if we really needed two flipper classes or could have just one
-//with a variable indicating its direction
+//poor neglected LeftFlipper
+//we hardly knew ye
 
 public class LeftFlipper extends Gizmo {
 
