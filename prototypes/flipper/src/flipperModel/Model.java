@@ -26,7 +26,7 @@ public class Model extends Observable {
 
         gizmos = new ArrayList<>();
         absorbers = new ArrayList<>();
-        ball = new Ball("Ball", 250, 50, 0, 0);
+        ball = new Ball("Ball", 170, 50, 0, 0);
         walls = new flipperModel.Wall(0, 0, 500, 500);
         rFlippers = new ArrayList<RightFlipper>();
         RightFlipper right = new RightFlipper("right", 200,200);

@@ -57,7 +57,7 @@ public class Board extends JPanel implements Observer {
                     g2d.setColor(Color.RED);
                     g2d.fillRect(x, y, gizmoWidth, gizmoWidth);
                     break;
-                case "collisionsModel.Circle":
+                case "collisionsModel.CircleGizmo":
                     g2d.setColor(Color.GREEN);
                     g2d.fillOval(x, y, gizmoWidth, gizmoWidth);
                     break;
