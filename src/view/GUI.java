@@ -38,6 +38,7 @@ public class GUI {
         runZoneButtons();
         buildMenuBar();
         runMenuBar();
+        leftZone();
         buildEditButtons();
         runFrame.setVisible(true);
         buildFrame.setVisible(false);
