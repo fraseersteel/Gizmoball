@@ -1,6 +1,8 @@
 package controller;
 
 import model.Model;
+import view.GUI;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,13 +10,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class RunListener implements ActionListener{
+public class RunListener implements ActionListener {
 
     private Model model;
     private KeyListener keyboardListener;
+    private Timer timer;
+    private GUI gui;
 
-    public RunListener(Model m){
+    public RunListener(Model m, GUI gui) {
         model = m;
+        timer = new Timer(50, this);
+        this.gui = gui;
     }
 
 
@@ -24,35 +30,43 @@ public class RunListener implements ActionListener{
         //case statement for which action to perform
         // cases include "Start","Stop","Tick","Quit"
 
-        switch(e.getActionCommand()){
-            case "Start":
-                //timer.start();
-                System.out.println("Pressed Start");
-                break;
-            case "Stop":
-                //timer.stop();
-                System.out.println("Pressed Stop");
-                break;
-            case "Tick":
-                //model.moveBall();
-                System.out.println("Pressed Tick");
-                break;
-            case "Quit":
-            case "Exit":
-                int reply = JOptionPane.showConfirmDialog(null,"Are you sure you would like to quit?","Warning",JOptionPane.YES_NO_OPTION);
-                if(reply==JOptionPane.YES_NO_CANCEL_OPTION) {
-                    JOptionPane.showMessageDialog(null,"Resuming game");
-                }else{
-                    System.exit(0);
-                }
-                System.out.println("Pressed Quit");
-                break;
+        if (e.getSource() == timer) {
+            model.moveBall();
+        } else {
+            switch (e.getActionCommand()) {
+                case "Start":
+                    timer.start();
+                    break;
+                case "Stop":
+                    timer.stop();
+                    break;
+                case "Tick":
+                    timer.stop();
+                    model.moveBall();
+                    break;
+                case "Build Mode":
+                    System.out.println("switching");
+                    gui.switchToBuildMode();
+                    break;
+                case "Run Mode":
+                    System.out.println("switching to run");
+                    gui.switchToRunMode();
+                    break;
+                case "Quit":
+                    int reply = JOptionPane.showConfirmDialog(null, "Are you sure you would like to quit?", "Warning", JOptionPane.YES_NO_OPTION);
+                    if (reply == JOptionPane.YES_NO_CANCEL_OPTION) {
+                        JOptionPane.showMessageDialog(null, "Resuming game");
+                    } else {
+                        System.exit(0);
+                    }
+                    break;
+            }
         }
 
     }
 
 
-    public void keyPressed(KeyEvent e){
+    public void keyPressed(KeyEvent e) {
         keyboardListener.keyPressed(e);
     }
 }

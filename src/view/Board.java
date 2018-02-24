@@ -1,7 +1,7 @@
 package view;
 
 import model.Ball;
-import model.Circle;
+import model.CircleGizmo;
 import model.Model;
 
 import javax.swing.*;
@@ -41,14 +41,7 @@ public class Board extends JPanel implements Observer {
             System.out.println("Error with ball");
         }
 
-        for(int i =0; i<width;i+=25){
-            g2d.drawLine(i,0,i,height);
-        }
-        for(int i=0;i<height;i+=25){
-            g2d.drawLine(0,i,width,i);
-        }
 
-        //for (Circle circle : )
     }
 
     public int getWidth() {

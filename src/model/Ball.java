@@ -88,8 +88,8 @@ public class Ball extends JPanel implements Observer {
 
     }
 
-    public model.Circle getCircle() {
-        return new model.Circle(id,xPos,yPos);
+    public Circle getCircle() {
+        return new Circle(xPos,yPos,radius);
     }
 
 
