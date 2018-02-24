@@ -29,7 +29,7 @@ public class Model extends Observable {
         absorbers = new ArrayList<>();
         circles = new ArrayList<physics.Circle>();
         ball = new Ball("Ball", 8, 10, 14, 12.5);
-        walls = new model.Wall(10, 10, 20, 20);
+        walls = new model.Wall(0, 0, 20, 20);
 
 //        gizmos.add(new model.Square("new", 4, 4));
 //        gizmos.add(new model.Square("new", 8, 4));
@@ -53,43 +53,43 @@ public class Model extends Observable {
 
         //extreme testing
 
-        gizmos.add(new model.Triangle("new", 6, 8));
-        gizmos.add(new model.Triangle("new", 6, 9));
-        gizmos.add(new model.Triangle("new", 6, 10));
-        gizmos.add(new model.Triangle("new", 6, 11));
-        gizmos.add(new model.Triangle("new", 6, 12));
-
-        Triangle t1 = new model.Triangle("new", 6, 12);
-        t1.rotate();
-        t1.rotate();
-        gizmos.add(t1);
-        Triangle t2 = new model.Triangle("new", 7, 12);
-        t2.rotate(); t2.rotate();
-        gizmos.add(t2);
-        Triangle t3 = new model.Triangle("new", 8, 12);
-        t3.rotate();
-        t3.rotate();
-        gizmos.add(t3);
-        Triangle t4 = new model.Triangle("new", 9, 12);
-        t4.rotate();
-        t4.rotate();
-        gizmos.add(t4);
-        Triangle t5 = new model.Triangle("new", 10, 12);
-        t5.rotate();
-        t5.rotate();
-        gizmos.add(t5);
-
-
-        gizmos.add(new model.Triangle("new", 10, 8));
-        gizmos.add(new model.Triangle("new", 10, 9));
-        gizmos.add(new model.Triangle("new", 10, 10));
-        gizmos.add(new model.Triangle("new", 10, 11));
-        gizmos.add(new model.Triangle("new", 10, 12));
-
-        gizmos.add(new model.Triangle("new", 7, 8));
-        gizmos.add(new model.Triangle("new", 8, 8));
-        gizmos.add(new model.Triangle("new", 9, 8));
-        gizmos.add(new model.Triangle("new", 10, 8));
+//        gizmos.add(new model.Triangle("new", 6, 8));
+//        gizmos.add(new model.Triangle("new", 6, 9));
+//        gizmos.add(new model.Triangle("new", 6, 10));
+//        gizmos.add(new model.Triangle("new", 6, 11));
+//        gizmos.add(new model.Triangle("new", 6, 12));
+//
+//        Triangle t1 = new model.Triangle("new", 6, 12);
+//        t1.rotate();
+//        t1.rotate();
+//        gizmos.add(t1);
+//        Triangle t2 = new model.Triangle("new", 7, 12);
+//        t2.rotate(); t2.rotate();
+//        gizmos.add(t2);
+//        Triangle t3 = new model.Triangle("new", 8, 12);
+//        t3.rotate();
+//        t3.rotate();
+//        gizmos.add(t3);
+//        Triangle t4 = new model.Triangle("new", 9, 12);
+//        t4.rotate();
+//        t4.rotate();
+//        gizmos.add(t4);
+//        Triangle t5 = new model.Triangle("new", 10, 12);
+//        t5.rotate();
+//        t5.rotate();
+//        gizmos.add(t5);
+//
+//
+//        gizmos.add(new model.Triangle("new", 10, 8));
+//        gizmos.add(new model.Triangle("new", 10, 9));
+//        gizmos.add(new model.Triangle("new", 10, 10));
+//        gizmos.add(new model.Triangle("new", 10, 11));
+//        gizmos.add(new model.Triangle("new", 10, 12));
+//
+//        gizmos.add(new model.Triangle("new", 7, 8));
+//        gizmos.add(new model.Triangle("new", 8, 8));
+//        gizmos.add(new model.Triangle("new", 9, 8));
+//        gizmos.add(new model.Triangle("new", 10, 8));
 
 
     }
