@@ -1,7 +1,7 @@
 package model;
 
-import physics.Vect;
 import physics.Circle;
+import physics.Vect;
 
 import javax.swing.*;
 import java.util.Observable;
@@ -16,9 +16,9 @@ public class Ball extends JPanel implements Observer {
     private double radius;
     private boolean isStopped;
 
-    public Ball(String id, double xPosition, double yPosition, double xVelocity, double yVelocity){
+    public Ball(String id, int xPosition, int yPosition, double xVelocity, double yVelocity){
 
-        radius = 15;
+        radius = 0.5;
         this.id = id;
         this.radius = radius;
         xPos = xPosition;
@@ -47,7 +47,7 @@ public class Ball extends JPanel implements Observer {
         radius = r;
     }
 
-    public double getXPos(){
+    public double getXPos() {
         return xPos;
     }
 
@@ -83,14 +83,15 @@ public class Ball extends JPanel implements Observer {
         return isStopped;
     }
 
+    public Circle getCircle(){
+        return new Circle(xPos,yPos,radius);
+    }
+
     @Override
     public void update(Observable o, Object arg) {
 
     }
 
-    public Circle getCircle() {
-        return new Circle(xPos,yPos,radius);
-    }
 
 
 }
