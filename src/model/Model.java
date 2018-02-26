@@ -1,14 +1,9 @@
 package model;
 
-import model.Square;
-import model.IGizmo;
 import physics.Circle;
 import physics.Geometry;
 import physics.LineSegment;
 import physics.Vect;
-import model.Absorber;
-import model.Ball;
-import model.Triangle;
 
 
 import java.util.ArrayList;
@@ -17,101 +12,61 @@ import java.util.Observable;
 public class Model extends Observable {
 
     private ArrayList<IGizmo> gizmos;
-    private ArrayList<Absorber> absorbers;
-    private model.Ball ball;
-    private ArrayList<physics.Circle> circles;
-    private model.Wall walls;
+    private ArrayList<Circle> circles;
+
+    private Absorber absorber;
+    private Ball ball;
+    private Wall walls;
+
+    private double accDueToGrav;
+    private double deaccDueToFric;
 
 
     public Model() {
+        accDueToGrav = 30;
+        deaccDueToFric = 1.05;
 
         gizmos = new ArrayList<>();
-        absorbers = new ArrayList<>();
-        circles = new ArrayList<physics.Circle>();
-        ball = new Ball("Ball", 8, 10, 14, 12.5);
+        circles = new ArrayList<>();
+
         walls = new model.Wall(0, 0, 20, 20);
+        absorber = null;
+    }
 
-//        gizmos.add(new model.Square("new", 4, 4));
-//        gizmos.add(new model.Square("new", 8, 4));
-//        gizmos.add(new model.Square("new", 12, 4));
-//        gizmos.add(new model.Square("new", 16, 4));
-//
-//        gizmos.add(new model.Triangle("new", 4, 8));
-//        gizmos.add(new model.Triangle("new", 8, 8));
-//        gizmos.add(new model.Triangle("new", 12, 8));
-//        gizmos.add(new model.Triangle("new", 16, 8));
-//
-//
-//        gizmos.add(new model.CircleGizmo("new", 4, 12));
-//        gizmos.add(new model.CircleGizmo("new", 8, 12));
-//        gizmos.add(new model.CircleGizmo("new", 12, 12));
-//        gizmos.add(new model.CircleGizmo("new", 16, 12));
+    public void applyGravity() {
+        Vect veloAfterGrav = new Vect(ball.getXVelo(), ball.getYVelo() + accDueToGrav);
+        ball.setVelocity(veloAfterGrav);
+    }
 
-
-        //       gizmos.add(new model.LeftFlipper("Left Flipper", 4,4);
-
-
-        //extreme testing
-
-//        gizmos.add(new model.Triangle("new", 6, 8));
-//        gizmos.add(new model.Triangle("new", 6, 9));
-//        gizmos.add(new model.Triangle("new", 6, 10));
-//        gizmos.add(new model.Triangle("new", 6, 11));
-//        gizmos.add(new model.Triangle("new", 6, 12));
-//
-//        Triangle t1 = new model.Triangle("new", 6, 12);
-//        t1.rotate();
-//        t1.rotate();
-//        gizmos.add(t1);
-//        Triangle t2 = new model.Triangle("new", 7, 12);
-//        t2.rotate(); t2.rotate();
-//        gizmos.add(t2);
-//        Triangle t3 = new model.Triangle("new", 8, 12);
-//        t3.rotate();
-//        t3.rotate();
-//        gizmos.add(t3);
-//        Triangle t4 = new model.Triangle("new", 9, 12);
-//        t4.rotate();
-//        t4.rotate();
-//        gizmos.add(t4);
-//        Triangle t5 = new model.Triangle("new", 10, 12);
-//        t5.rotate();
-//        t5.rotate();
-//        gizmos.add(t5);
-//
-//
-//        gizmos.add(new model.Triangle("new", 10, 8));
-//        gizmos.add(new model.Triangle("new", 10, 9));
-//        gizmos.add(new model.Triangle("new", 10, 10));
-//        gizmos.add(new model.Triangle("new", 10, 11));
-//        gizmos.add(new model.Triangle("new", 10, 12));
-//
-//        gizmos.add(new model.Triangle("new", 7, 8));
-//        gizmos.add(new model.Triangle("new", 8, 8));
-//        gizmos.add(new model.Triangle("new", 9, 8));
-//        gizmos.add(new model.Triangle("new", 10, 8));
-
-
+    public void applyFriction() {
+        Vect veloAfterFric = new Vect(ball.getXVelo()/deaccDueToFric, ball.getYVelo()/deaccDueToFric);
+        ball.setVelocity(veloAfterFric);
     }
 
     public void moveBall() {
-
-
         double moveTime = 0.05;
 
         if (!ball.isStopped() && ball != null) {
             CollisionDetails cd = timeUntilCollision();
-            double tuc = cd.getTuc();
-            if (tuc > moveTime) {
-                ball = moveBallTime(moveTime, ball);
-            } else {
-                ball = moveBallTime(tuc, ball);
-                ball.setVelocity(cd.getVelocity());
+            if (cd != null) {
+                System.out.println("the speed of the ball before gravity is:" + ball.getVelocity());
+                //applyGravity();
+                //applyFriction();
+                System.out.println("the speed of the ball after gravity is:  " + ball.getVelocity());
+                double tuc = cd.getTuc();
+                if (tuc > moveTime) {
+                    ball = moveBallTime(moveTime, ball);
+                } else {
+                    ball = moveBallTime(tuc, ball);
+                    ball.setVelocity(cd.getVelocity());
+                }
+
+                //if (checkAbsorber())
+                //    ball.stop();
+
+                this.setChanged();
+                this.notifyObservers();
             }
-
-
-            this.setChanged();
-            this.notifyObservers();
         }
     }
 
@@ -152,7 +107,7 @@ public class Model extends Observable {
 
             //for all gizmo in array check what type of gizmo is contained within the model and get tuc
 
-            if (gizmo.getClass().getName().contains("Square")) {
+            if (gizmo instanceof SquareGizmo) {
                 //checks for collisions of square's circles with radius 0
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
@@ -169,7 +124,7 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
                     }
                 }
-            } else if (gizmo.getClass().getName().contains("Triangle")) {
+            } else if (gizmo instanceof TriangleGizmo) {
 
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
@@ -186,7 +141,7 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
                     }
                 }
-            } else if (gizmo.getClass().getName().contains("CircleGizmo")) {
+            } else if (gizmo instanceof CircleGizmo) {
                 for (Circle circle : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
@@ -194,27 +149,32 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
                 }
-            } else if (gizmo.getClass().getName().contains("RightFlipper")) {
+            } else if (gizmo instanceof RightFlipper) {
 
                 //collision stuff
-            } else if (gizmo.getClass().getName().contains("LeftFlipper")) {
-
-                //collision stuff
-            } else if (gizmo.getClass().getName().contains("RightFlipper")) {
+            } else if (gizmo instanceof LeftFlipper) {
 
                 //collision stuff
             }
-
         }
-
 
         return new CollisionDetails(minTUC, newVelocity);
     }
 
+    /*
+    public boolean checkAbsorber() {
+        System.out.println("Y pos " + ball.getYPos());
+        if (ball.getYPos() > (absorber.getStartY()*25) && ball.getYPos() < (absorber.getEndY()*25)) {
+            System.out.println("ABSORBER!!");
+            return true;
+        }
+        return false;
+    }
+    */
+
     public void setBallVeloctiy(int x, int y) {
         ball.setVelocity(new Vect(x, y));
     }
-
 
     public Ball getBall() {
         return ball;
@@ -230,42 +190,40 @@ public class Model extends Observable {
     }
 
 
-
     public void addCircle(CircleGizmo c) {
         gizmos.add(c);
     }
 
-    public void addTriangle(Triangle t) {
+    public void addTriangle(TriangleGizmo t) {
         gizmos.add(t);
     }
 
-    public void addSquare(Square s) {
+    public void addSquare(SquareGizmo s) {
         gizmos.add(s);
     }
 
     public void addLeftFlipper(LeftFlipper flipper) {
-//        gizmos.add(flipper);
+        gizmos.add(flipper);
     }
 
     public void addRightFlipper(RightFlipper flipper) {
-//        gizmos.add(flipper);
+        gizmos.add(flipper);
     }
 
-    public void addAbsorber(Absorber a) {
-        absorbers.add(a);
+    public void setAbsorber(Absorber a) {
+        absorber = a;
     }
 
     public void setBall(Ball b) {
         ball = b;
     }
 
-
     public ArrayList<IGizmo> getGizmos() {
         return gizmos;
     }
 
-    public ArrayList<Absorber> getAbsorbers() {
-        return absorbers;
+    public Absorber getAbsorber() {
+        return absorber;
     }
 
     public IGizmo findGizmo(String gizmoId) {

@@ -1,35 +1,32 @@
 package model;
 
-import model.CircleGizmo;
-import model.IGizmo;
 import physics.Circle;
 import physics.LineSegment;
 
 import java.util.ArrayList;
 
-public class Triangle implements IGizmo {
+public class TriangleGizmo implements IGizmo {
 
-    private ArrayList<Circle> circles = new ArrayList<Circle>();
-    private ArrayList<LineSegment> lines = new ArrayList<LineSegment>();
-    private int xPos = 0;
-    private int yPos = 0;
-    private int width = 1;
-    private String ID = "";
-    private int rotationAngle = 0;
-    private int cellDimenion = 25;
+    private ArrayList<Circle> circles;
+    private ArrayList<LineSegment> lines;
 
-    public Triangle(String id, int x, int y){
+    private String ID;
+    private int xPos;
+    private int yPos;
+    private int rotationAngle;
+
+    public TriangleGizmo(String id, int x, int y){
         this.ID = id;
         this.xPos = x;
         this.yPos = y;
+        this.rotationAngle = 0;
+
+        circles = new ArrayList<>();
+        lines = new ArrayList<>();
 
         addLines();
         addCircles();
     }
-
-
-
-
 
     private void addLines() {
 
@@ -108,9 +105,6 @@ public class Triangle implements IGizmo {
         }
     }
 
-    /**
-     * Overrides parent rotate since triangles need new physics lines on rotation.
-     */
     public void rotate() {
         rotationAngle = rotationAngle +90;
         if (rotationAngle == 360) {
@@ -132,11 +126,6 @@ public class Triangle implements IGizmo {
     }
 
     @Override
-    public void setId(String id) {
-        this.ID= id;
-    }
-
-    @Override
     public int getxPos() {
         return xPos;
     }
@@ -144,16 +133,6 @@ public class Triangle implements IGizmo {
     @Override
     public int getyPos() {
         return yPos;
-    }
-
-    @Override
-    public void setYPos(int y) {
-        this.yPos = y;
-    }
-
-    @Override
-    public void setXPos(int x) {
-        this.xPos = x;
     }
 
     @Override
@@ -171,14 +150,20 @@ public class Triangle implements IGizmo {
         return rotationAngle;
     }
 
+
     @Override
-    public CircleGizmo getCircle() {
-        return null;
+    public void setId(String id) {
+        this.ID= id;
     }
 
     @Override
-    public double getRadius() {
-        return 0;
+    public void setYPos(int y) {
+        this.yPos = y;
+    }
+
+    @Override
+    public void setXPos(int x) {
+        this.xPos = x;
     }
 
     @Override

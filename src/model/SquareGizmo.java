@@ -5,45 +5,57 @@ import physics.LineSegment;
 
 import java.util.ArrayList;
 
-public class CircleGizmo implements IGizmo {
+public class SquareGizmo implements IGizmo {
 
     private ArrayList<Circle> circles;
+    private ArrayList<LineSegment> lines;
 
     private String ID;
     private int xPos;
     private int yPos;
     private int rotationAngle;
 
-
-    public CircleGizmo(String id, int x, int y) {
+    public SquareGizmo(String id, int x, int y) {
         this.ID = id;
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
 
         circles = new ArrayList<>();
+        lines = new ArrayList<>();
 
-        createCircles();
+        addCircles();
+        addLines();
     }
 
-    public void createCircles() {
-        circles.clear();
-        Circle mid = new Circle(xPos + 0.5, yPos + 0.5, 0.5);
-        circles.add(mid);
+    private void addCircles(){
+
+        circles.add(new Circle(xPos,yPos,0.0));
+        circles.add(new Circle(xPos,yPos+1,0.0));
+        circles.add(new Circle(xPos+1,yPos,0.0));
+        circles.add(new Circle(xPos+1,yPos+1,0.0));
+    }
+
+    private void addLines(){
+
+        lines.add(new LineSegment(xPos,yPos,xPos+1,yPos));
+        lines.add(new LineSegment(xPos+1,yPos,xPos+1,yPos+1));
+        lines.add(new LineSegment(xPos+1,yPos+1,xPos,yPos+1));
+        lines.add(new LineSegment(xPos,yPos+1,xPos,yPos));
     }
 
     @Override
     public void rotate() {
-        rotationAngle = rotationAngle + 90;
+        rotationAngle = rotationAngle +90;
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
-
     }
+
 
     @Override
     public String getId() {
-        return ID;
+        return this.ID;
     }
 
     @Override
@@ -58,7 +70,7 @@ public class CircleGizmo implements IGizmo {
 
     @Override
     public ArrayList<LineSegment> getLines() {
-        return null;
+        return lines;
     }
 
     @Override
@@ -88,12 +100,7 @@ public class CircleGizmo implements IGizmo {
 
     @Override
     public void addTrigger(IGizmo gizmo) {
-        //
+
     }
-
-
-
-
-
 
 }

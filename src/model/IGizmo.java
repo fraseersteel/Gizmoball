@@ -24,13 +24,9 @@ public interface IGizmo {
 
     int getRotationAngle();
 
-    model.CircleGizmo getCircle();
-
-    double getRadius();
-
     void addTrigger(IGizmo gizmo);
 
-    public void rotate();
+    void rotate();
 
 
 

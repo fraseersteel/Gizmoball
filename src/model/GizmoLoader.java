@@ -51,7 +51,7 @@ public class GizmoLoader {
         String id = line[1];
 
         // Right now for testing, we only worry about shapes
-        if (line[0].equals("Triangle") || line[0].equals("Circle") || line[0].equals("Square") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
+        if (line[0].equals("TriangleGizmo") || line[0].equals("Circle") || line[0].equals("SquareGizmo") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
             int x = Integer.parseInt(line[2]);
             int y = Integer.parseInt(line[3]);
 
@@ -101,11 +101,11 @@ public class GizmoLoader {
             case "RightFlipper":
                 model.addRightFlipper(new RightFlipper(id, x, y));
                 return true;
-            case "Triangle":
-                model.addTriangle(new Triangle(id, x, y));
+            case "TriangleGizmo":
+                model.addTriangle(new TriangleGizmo(id, x, y));
                 return true;
-            case "Square":
-                model.addSquare(new Square(id, x, y));
+            case "SquareGizmo":
+                model.addSquare(new SquareGizmo(id, x, y));
                 return true;
             case "Circle":
                 model.addCircle(new CircleGizmo(id, x, y));
@@ -121,7 +121,7 @@ public class GizmoLoader {
         if (endX <= startX || endY <= startY)
             return false;
 
-        model.addAbsorber(new Absorber(id, startX, startY, endX, endY));
+        model.setAbsorber(new Absorber(id, startX, startY, endX, endY));
         return true;
     }
 

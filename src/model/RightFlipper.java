@@ -8,62 +8,67 @@ import physics.LineSegment;
 
 public class RightFlipper implements IGizmo {
 
+    private ArrayList<Circle> circles;
+    private ArrayList<LineSegment> lines;
+
     private String ID;
-    private double xPos;
-    private double yPos;
+    private int xPos;
+    private int yPos;
+    private int rotationAngle;
 
-    public RightFlipper(String id, double x, double y) {
+    public RightFlipper(String id, int x, int y) {
+        this.ID = id;
+        this.xPos = x;
+        this.yPos = y;
+        this.rotationAngle = 0;
 
-        ID = id;
-        xPos = x;
-        yPos = y;
+        circles = new ArrayList<>();
+        lines = new ArrayList<>();
+
+        addCircles();
+        addLines();
 
     }
 
-    private ArrayList<LineSegment> lines = new ArrayList<LineSegment>();
-    private ArrayList<Circle> circles = new ArrayList<Circle>();
-    //easy way to get the corners of any given object to easily add the zero-radius circles?
-    private ArrayList<String> connections = new ArrayList<String>();
-    private ArrayList<String> keyConnections = new ArrayList<String>();
+    private void addCircles(){
+        //todo
+    }
+
+    private void addLines(){
+        //todo
+    }
+
+    @Override
+    public void rotate() {
+        rotationAngle = rotationAngle +90;
+        if (rotationAngle == 360) {
+            rotationAngle = 0;
+        }
+    }
 
     @Override
     public String getId() {
-        return null;
-    }
-
-    @Override
-    public void setId(String i) {
-
+        return this.ID;
     }
 
     @Override
     public int getxPos() {
-        return 0;
+        return xPos;
     }
 
     @Override
     public int getyPos() {
-        return 0;
-    }
-
-    @Override
-    public void setYPos(int y) {
-
-    }
-
-    @Override
-    public void setXPos(int x) {
-
+        return yPos;
     }
 
     @Override
     public ArrayList<LineSegment> getLines() {
-        return null;
+        return lines;
     }
 
     @Override
     public ArrayList<Circle> getCircles() {
-        return null;
+        return circles;
     }
 
     @Override
@@ -72,22 +77,22 @@ public class RightFlipper implements IGizmo {
     }
 
     @Override
-    public CircleGizmo getCircle() {
-        return null;
+    public void setId(String id) {
+        this.ID = id;
     }
 
     @Override
-    public double getRadius() {
-        return 0;
+    public void setYPos(int y) {
+        this.yPos = y;
+    }
+
+    @Override
+    public void setXPos(int x) {
+        this.xPos = x;
     }
 
     @Override
     public void addTrigger(IGizmo gizmo) {
-
-    }
-
-    @Override
-    public void rotate() {
 
     }
 }

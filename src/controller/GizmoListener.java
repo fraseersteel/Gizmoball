@@ -21,14 +21,14 @@ public class GizmoListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
-            case "Square":
+            case "SquareGizmo":
                 System.out.println("pressed square");
                 break;
             case "Circle":
                 System.out.println("pressed circle");
                 break;
 
-            case "Triangle":
+            case "TriangleGizmo":
                 System.out.println("pressed triangle");
                 break;
             case "Right Flipper":

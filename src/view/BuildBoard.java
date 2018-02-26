@@ -65,7 +65,7 @@ public class BuildBoard extends JPanel implements Observer {
             }
 
             switch (gizmo.getClass().getName()) {
-                case "collisionsModel.Square":
+                case "collisionsModel.SquareGizmo":
                     g2d.setColor(Color.RED);
                     g2d.fillRect(x, y, gizmoWidth, gizmoWidth);
                     break;
@@ -73,7 +73,7 @@ public class BuildBoard extends JPanel implements Observer {
                     g2d.setColor(Color.GREEN);
                     g2d.fillOval(x, y, gizmoWidth, gizmoWidth);
                     break;
-                case "collisionsModel.Triangle":
+                case "collisionsModel.TriangleGizmo":
                     Polygon triangle = null;
                     g2d.setColor(Color.BLUE);
                     int dim = cellWidth;

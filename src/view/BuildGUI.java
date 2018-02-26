@@ -110,8 +110,8 @@
 //    private void leftZone() {
 //
 //        //Create grid and populate with buttons
-//        JButton square = new JButton("Square");
-//        JButton triangle = new JButton("Triangle");
+//        JButton square = new JButton("SquareGizmo");
+//        JButton triangle = new JButton("TriangleGizmo");
 //        JButton circle = new JButton("Circle");
 //        JButton leftFlipper = new JButton("Left Flipper");
 //        JButton rightFlipper = new JButton("Right Flipper");
