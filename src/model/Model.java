@@ -23,7 +23,7 @@ public class Model extends Observable {
 
 
     public Model() {
-        accDueToGrav = 30;
+        accDueToGrav = 1;
         deaccDueToFric = 1.05;
 
         gizmos = new ArrayList<>();
@@ -49,10 +49,8 @@ public class Model extends Observable {
         if (!ball.isStopped() && ball != null) {
             CollisionDetails cd = timeUntilCollision();
             if (cd != null) {
-                System.out.println("the speed of the ball before gravity is:" + ball.getVelocity());
-                //applyGravity();
+                applyGravity();
                 //applyFriction();
-                System.out.println("the speed of the ball after gravity is:  " + ball.getVelocity());
                 double tuc = cd.getTuc();
                 if (tuc > moveTime) {
                     ball = moveBallTime(moveTime, ball);
@@ -61,8 +59,10 @@ public class Model extends Observable {
                     ball.setVelocity(cd.getVelocity());
                 }
 
-                //if (checkAbsorber())
-                //    ball.stop();
+                if (checkAbsorber()) {
+                    ball.setXPos(7);
+                    ball.stop();
+                }
 
                 this.setChanged();
                 this.notifyObservers();
@@ -161,16 +161,27 @@ public class Model extends Observable {
         return new CollisionDetails(minTUC, newVelocity);
     }
 
-    /*
+
     public boolean checkAbsorber() {
-        System.out.println("Y pos " + ball.getYPos());
-        if (ball.getYPos() > (absorber.getStartY()*25) && ball.getYPos() < (absorber.getEndY()*25)) {
+        if ((ball.getYPos() > absorber.getStartY()) && (ball.getYPos() < absorber.getEndY())) {
             System.out.println("ABSORBER!!");
             return true;
         }
         return false;
     }
-    */
+
+    public boolean shootAbsorber() {
+
+        if (ball.getYPos() < (absorber.getStartY())) {
+            return false;
+        }
+
+        ball.start();
+        setBallVeloctiy(2, -30);
+        //setVelocity(0, -300);
+        return true;
+    }
+
 
     public void setBallVeloctiy(int x, int y) {
         ball.setVelocity(new Vect(x, y));

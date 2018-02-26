@@ -1,4 +1,4 @@
-package model; //should really be in controller I imagine
+package model;
 
 
 import java.io.BufferedReader;
@@ -51,9 +51,9 @@ public class GizmoLoader {
         String id = line[1];
 
         // Right now for testing, we only worry about shapes
-        if (line[0].equals("TriangleGizmo") || line[0].equals("Circle") || line[0].equals("SquareGizmo") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
-            int x = Integer.parseInt(line[2]);
-            int y = Integer.parseInt(line[3]);
+        if (line[0].equals("Triangle") || line[0].equals("Circle") || line[0].equals("Square") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
+            int x = (int) Double.parseDouble(line[2]);
+            int y = (int) Double.parseDouble(line[3]);
 
             if (!processShape(line[0], id, x, y))
                 System.out.println("Error found in save file");
@@ -62,10 +62,10 @@ public class GizmoLoader {
         }
 
         if (line[0].equals("Absorber")) {
-            double startX = Double.parseDouble(line[2]);
-            double startY = Double.parseDouble(line[3]);
-            double endX = Double.parseDouble(line[4]);
-            double endY = Double.parseDouble(line[5]);
+            int startX = Integer.parseInt(line[2]);
+            int startY = Integer.parseInt(line[3]);
+            int endX = Integer.parseInt(line[4]);
+            int endY = Integer.parseInt(line[5]);
 
             if (!processAbsorber(id, startX, startY, endX, endY))
                 System.out.println("Error found in save file");
@@ -101,10 +101,10 @@ public class GizmoLoader {
             case "RightFlipper":
                 model.addRightFlipper(new RightFlipper(id, x, y));
                 return true;
-            case "TriangleGizmo":
+            case "Triangle":
                 model.addTriangle(new TriangleGizmo(id, x, y));
                 return true;
-            case "SquareGizmo":
+            case "Square":
                 model.addSquare(new SquareGizmo(id, x, y));
                 return true;
             case "Circle":
@@ -117,7 +117,7 @@ public class GizmoLoader {
         return false;
     }
 
-    private boolean processAbsorber(String id, double startX, double startY, double endX, double endY) {
+    private boolean processAbsorber(String id, int startX, int startY, int endX, int endY) {
         if (endX <= startX || endY <= startY)
             return false;
 

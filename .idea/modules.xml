@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Gizmoball.iml" filepath="$PROJECT_DIR$/Gizmoball.iml" />
       <module fileurl="file://$PROJECT_DIR$/prototypes/absorber/absorber.iml" filepath="$PROJECT_DIR$/prototypes/absorber/absorber.iml" />
       <module fileurl="file://$PROJECT_DIR$/prototypes/collisions/collisions.iml" filepath="$PROJECT_DIR$/prototypes/collisions/collisions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prototypes/collisionsFinal/collisionsFinal1.iml" filepath="$PROJECT_DIR$/prototypes/collisionsFinal/collisionsFinal1.iml" />
       <module fileurl="file://$PROJECT_DIR$/prototypes/flipper/flipper.iml" filepath="$PROJECT_DIR$/prototypes/flipper/flipper.iml" />
       <module fileurl="file://$PROJECT_DIR$/prototypes/load/load.iml" filepath="$PROJECT_DIR$/prototypes/load/load.iml" />
     </modules>

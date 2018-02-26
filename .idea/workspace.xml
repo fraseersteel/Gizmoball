@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/prototypes/load/src/model/GizmoLoader.java" line="74" />
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="absorber:jar" />
+      <artifact name="collisionsFinal1:jar" />
+      <artifact name="flipper:jar" />
+      <artifact name="load:jar" />
+    </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="faef3119-5bf5-453f-98e9-9f819712646c" name="Default" comment="Fixed couple of bugs">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Model.class" afterPath="$PROJECT_DIR$/out/production/collisions/collisionsModel/Model.class" />
+    <list default="true" id="faef3119-5bf5-453f-98e9-9f819712646c" name="Default" comment="Final changes.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/RunKeyListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/main/Driver.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/main/Driver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/model/Absorber.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/model/Absorber.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gizmoball/model/Model.class" afterPath="$PROJECT_DIR$/out/production/Gizmoball/model/Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java" afterPath="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/LoadListener.java" afterPath="$PROJECT_DIR$/src/controller/LoadListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Driver.java" afterPath="$PROJECT_DIR$/src/main/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Absorber.java" afterPath="$PROJECT_DIR$/src/model/Absorber.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Ball.java" afterPath="$PROJECT_DIR$/src/model/Ball.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/GizmoLoader.java" afterPath="$PROJECT_DIR$/src/model/GizmoLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Model.java" afterPath="$PROJECT_DIR$/src/model/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Board.java" afterPath="$PROJECT_DIR$/src/view/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/GUI.java" afterPath="$PROJECT_DIR$/src/view/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,109 +35,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java">
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="save.giz" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/save.giz">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+            <state relative-caret-position="702">
+              <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GizmoLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/GizmoLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/LoadListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunKeyListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/RunKeyListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="217" column="63" lean-forward="false" selection-start-line="217" selection-start-column="63" selection-end-line="217" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/Board.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Ball.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Ball.java">
+        <entry file="file://$PROJECT_DIR$/src/model/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsView/RunGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CircleGizmo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Triangle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gizmo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+              <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +130,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -148,6 +140,8 @@
       <find>b</find>
       <find>black</find>
       <find>set</find>
+      <find>loadlis</find>
+      <find>system.out</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,31 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/BuildGUI.java" />
-        <option value="$PROJECT_DIR$/src/model/Circle.java" />
-        <option value="$PROJECT_DIR$/src/model/LeftFlipper.java" />
-        <option value="$PROJECT_DIR$/src/model/RightFlipper.java" />
-        <option value="$PROJECT_DIR$/src/model/Square.java" />
-        <option value="$PROJECT_DIR$/src/model/Triangle.java" />
-        <option value="$PROJECT_DIR$/src/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/model/Gizmo.java" />
-        <option value="$PROJECT_DIR$/src/testing/ModelTest.java" />
-        <option value="$PROJECT_DIR$/src/controller/RunListener.java" />
-        <option value="$PROJECT_DIR$/src/controller/LoadListener.java" />
-        <option value="$PROJECT_DIR$/src/view/RunGUI.java" />
-        <option value="$PROJECT_DIR$/src/model/GizmoLoader.java" />
-        <option value="$PROJECT_DIR$/src/view/Board.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/testing/ModelTest.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/Ball.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/Absorber.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/Model.java" />
-        <option value="$PROJECT_DIR$/save.txt" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/IGizmo.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/GizmoLoader.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/controller/LoadListener.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/main/Driver.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/model/Gizmo.java" />
-        <option value="$PROJECT_DIR$/prototypes/load/src/view/RunGUI.java" />
         <option value="$PROJECT_DIR$/prototypes/load/src/view/Board.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsTesting/ModelTest.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Circle.java" />
@@ -203,16 +172,41 @@
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Model.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberMain/Driver.java" />
         <option value="$PROJECT_DIR$/prototypes/absorber/src/absorberModel/Square.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java" />
-        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Circle.java" />
-        <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java" />
         <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java" />
+        <option value="$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/KeyListener.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsController/AbsorberListener.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java" />
+        <option value="$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java" />
+        <option value="$PROJECT_DIR$/prototypes/flipper/src/flipperModel/RightFlipper.java" />
+        <option value="$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Model.java" />
+        <option value="$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsView/Board.java" />
+        <option value="$PROJECT_DIR$/src/model/Square.java" />
+        <option value="$PROJECT_DIR$/src/model/IGizmo.java" />
+        <option value="$PROJECT_DIR$/src/model/TriangleGizmo.java" />
+        <option value="$PROJECT_DIR$/src/model/CircleGizmo.java" />
+        <option value="$PROJECT_DIR$/src/model/RightFlipper.java" />
+        <option value="$PROJECT_DIR$/src/model/SquareGizmo.java" />
+        <option value="$PROJECT_DIR$/src/model/LeftFlipper.java" />
+        <option value="$PROJECT_DIR$/src/model/Absorber.java" />
+        <option value="$PROJECT_DIR$/src/controller/RunKeyListener.java" />
+        <option value="$PROJECT_DIR$/src/model/GizmoLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/Driver.java" />
+        <option value="$PROJECT_DIR$/src/controller/LoadListener.java" />
+        <option value="$PROJECT_DIR$/src/view/GUI.java" />
+        <option value="$PROJECT_DIR$/src/model/Ball.java" />
+        <option value="$PROJECT_DIR$/src/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/view/Board.java" />
       </list>
     </option>
   </component>
@@ -224,10 +218,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1437" />
-    <option name="y" value="192" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -264,9 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -278,64 +269,46 @@
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="collisionsMain" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="collisionsModel" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="collisionsPhysics" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS308_Gizmoball_MW5" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS308_Gizmoball_MW5" type="462c0819:PsiDirectoryNode" />
-              <item name="prototypes" type="462c0819:PsiDirectoryNode" />
-              <item name="collisions" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="collisionsView" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -345,6 +318,306 @@
       <recent name="C:\Users\Kieran\Documents\Uni Work\CS308\Gizmoball\CS308_Gizmoball_MW5\prototypes\load" />
       <recent name="C:\Users\Kieran\Documents\Uni Work\CS308\Gizmoball\CS308_Gizmoball_MW5\prototypes\load\src" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Square.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Triangle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/BuildBoard.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/BuildGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/RunGUI.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/EditListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/FileMenuListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/GizmoListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/CircleGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/GizmoLoader.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/IGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/view/GUI.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/absorber.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsController/AbsorberListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsController/BuildListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsController/LoadListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsController/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/CollisionDetails.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Gizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/HorizontalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/IGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Square.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Triangle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/VerticalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Wall.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Angle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Geometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryCompare.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryInterface.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/GeometryReference.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/IntervalList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/LineSegment.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Newton.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/SimpleGeometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/Vect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/collisions.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsController/BuildListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsController/KeyListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsController/LoadListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsController/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CollisionDetails.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/HorizontalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/VerticalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Wall.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Angle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Geometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryCompare.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryInterface.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/GeometryReference.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/IntervalList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/LineSegment.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Newton.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/SimpleGeometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsPhysics/Vect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisions/src/collisionsView/RunGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsController/BuildListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsController/KeyListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsController/LoadListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsController/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsException/BadFileException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsMain/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/CircleGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/CollisionDetails.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Gizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/IGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Square.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Triangle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Wall.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/Angle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/Geometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/GeometryCompare.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/GeometryImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/GeometryInterface.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/GeometryReference.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/IntervalList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/LineSegment.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/Newton.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/SimpleGeometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsPhysics/Vect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsView/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsView/RunGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/flipper.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperController/BoardListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperController/Listener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperController/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperMain/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/CollisionDetails.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Gizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/HorizontalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/VerticalLines.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Wall.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/Angle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/Geometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/GeometryCompare.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/GeometryImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/GeometryInterface.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/GeometryReference.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/IntervalList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/LineSegment.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/Newton.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/SimpleGeometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperPhysics/Vect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperView/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperView/GUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/flipper/src/flipperView/RunGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/load.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/controller/BuildListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/controller/KeyListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/controller/LoadListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/controller/RunListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/exception/BadFileException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/main/Driver.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Absorber.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Ball.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/CollisionDetails.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Gizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/GizmoLoader.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/IGizmo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/LeftFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Model.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/RightFlipper.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Square.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Triangle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/model/Wall.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/Angle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/Geometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/GeometryCompare.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/GeometryImpl.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/GeometryInterface.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/GeometryReference.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/IntervalList.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/LineSegment.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/Newton.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/SimpleGeometry.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/physics/Vect.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/testing/BoardTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/testing/ModelTest.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/view/Board.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/view/BuildBoard.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/view/BuildGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/view/RunBoard.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototypes/load/src/view/RunGUI.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/BuildListener.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Circle.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/Gizmo.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -358,7 +631,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Driver (2)">
+  <component name="RunManager" selected="Application.Driver">
     <configuration name="Driver (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -394,7 +667,26 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="collisions" />
+      <module name="collisionsFinal1" />
+      <envs />
+    </configuration>
+    <configuration name="Driver (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="flipperMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="flipperMain.Driver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="flipper" />
       <envs />
     </configuration>
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -414,6 +706,44 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Gizmoball" />
+      <envs />
+    </configuration>
+    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="collisionsMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="collisionsMain.Driver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="absorber" />
+      <envs />
+    </configuration>
+    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="collisionsMain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="collisionsMain.Driver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="collisions" />
       <envs />
     </configuration>
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -515,16 +845,18 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Driver" />
       <item index="1" class="java.lang.String" itemvalue="Application.Driver (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Driver (2)" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Driver (4)" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Driver (2)" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Driver (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Driver (1)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Driver" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.Driver" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Driver (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Driver (4)" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Driver (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -548,7 +880,11 @@
       <workItem from="1518610635524" duration="1912000" />
       <workItem from="1518640122240" duration="6888000" />
       <workItem from="1518701018637" duration="4148000" />
-      <workItem from="1518794886781" duration="1966000" />
+      <workItem from="1518794886781" duration="3059000" />
+      <workItem from="1518872889304" duration="4733000" />
+      <workItem from="1519056532353" duration="5702000" />
+      <workItem from="1519129893784" duration="3597000" />
+      <workItem from="1519666252601" duration="9522000" />
     </task>
     <task id="LOCAL-00001" summary="Shapes now paint onto display area.">
       <created>1517848548869</created>
@@ -648,11 +984,53 @@
       <option name="project" value="LOCAL" />
       <updated>1518795404576</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed couple of bugs (2)">
+      <created>1518796863994</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1518796863994</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Some changed to load.">
+      <created>1518797337502</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1518797337502</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Absorber somewhat works now.  Messy af.">
+      <created>1518876614960</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1518876614960</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Absorber mostly complete, few bugs fixed.">
+      <created>1519057978380</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1519057978380</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Final changes.">
+      <created>1519151563411</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1519151563412</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Removed a bunch of redundant code, and refactored a bunch.  Still some tidying up to do.">
+      <created>1519673670778</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1519673670778</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49785000" />
+    <option name="totallyTimeSpent" value="74432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -666,19 +1044,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32734376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15699524" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16176471" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09062003" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -686,7 +1065,6 @@
       <window_info id="EvoSuite" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +1088,13 @@
     <MESSAGE value="Commented out some tests." />
     <MESSAGE value="Added circles to each corner of gizmos functionallity for squares and triangles.&#10;Commented out in time until collision currently." />
     <MESSAGE value="Fixed couple of bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed couple of bugs" />
+    <MESSAGE value="Fixed couple of bugs (2)" />
+    <MESSAGE value="Some changed to load." />
+    <MESSAGE value="Absorber somewhat works now.  Messy af." />
+    <MESSAGE value="Absorber mostly complete, few bugs fixed." />
+    <MESSAGE value="Final changes." />
+    <MESSAGE value="Removed a bunch of redundant code, and refactored a bunch.  Still some tidying up to do." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed a bunch of redundant code, and refactored a bunch.  Still some tidying up to do." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -721,274 +1105,413 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/BuildBoard.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/BuildGUI.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Ball.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/RunBoard.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Absorber.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Square.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/LeftFlipper.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/RightFlipper.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/loadModel/Gizmo.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/loadModel/Model.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Model.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/main/Driver.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Triangle.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/Gizmo.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/IGizmo.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="18" lean-forward="false" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state relative-caret-position="637">
+          <caret line="76" column="45" lean-forward="false" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/model/GizmoLoader.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="128" column="43" lean-forward="false" selection-start-line="128" selection-start-column="43" selection-end-line="128" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="560">
+          <caret line="112" column="12" lean-forward="false" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/RunGUI.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/Board.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsTesting/ModelTest.java" />
-    <entry file="file://$PROJECT_DIR$/prototypes/load/src/controller/LoadListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Wall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Triangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/RightFlipper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/LeftFlipper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/LoadListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/KeyListener.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/BuildListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/RunListener.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Absorber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/RunGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/javax/swing/JComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12087">
-          <caret line="775" column="19" lean-forward="false" selection-start-line="775" selection-start-column="19" selection-end-line="775" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsPhysics/LineSegment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/IGizmo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="38" lean-forward="false" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Gizmo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="71" column="39" lean-forward="false" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="131" column="13" lean-forward="false" selection-start-line="131" selection-start-column="13" selection-end-line="131" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsView/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsMain/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="14" column="56" lean-forward="true" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Wall.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/flipper/src/flipperModel/LeftFlipper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/IGizmo.java" />
-    <entry file="file://$PROJECT_DIR$/save.giz">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsView/RunGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="-326">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/flipper/src/flipperModel/RightFlipper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="28" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="388">
+          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2519">
+          <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Gizmo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
+        <state relative-caret-position="1445">
           <caret line="88" column="22" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/CircleGizmo.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Square.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="459">
+          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsMain/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
-          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+          <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/CollisionDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3230">
+          <caret line="196" column="25" lean-forward="false" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/RightFlipper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsView/RunGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Ball.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsView/Board.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototypes/collisions/src/collisionsModel/Model.java">
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsModel/Absorber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/AbsorberListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/absorber/src/collisionsController/LoadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/RunBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/load/src/view/RunGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/IGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/RightFlipper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/flipper/src/flipperMain/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/flipper/src/flipperModel/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsMain/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsModel/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="41" column="50" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototypes/collisionsFinal/src/collisionsView/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/IGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/CircleGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/TriangleGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/SquareGizmo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/LeftFlipper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/RightFlipper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Absorber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/RunListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/RunBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="579" column="0" lean-forward="false" selection-start-line="579" selection-start-column="0" selection-end-line="579" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/RunGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3800#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoadListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="41" column="17" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="217" column="63" lean-forward="false" selection-start-line="217" selection-start-column="63" selection-end-line="217" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Ball.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/RunKeyListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/GizmoLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -998,10 +1521,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>absorber:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1044,12 +1569,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>absorber</last-edited>
+          <last-edited>collisionsFinal1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -10,6 +10,7 @@ public class Driver {
 
     public static void main(String[] args) {
         Model model = new Model();
+        /*
         model.addSquare(new SquareGizmo("hey", 4, 5));
         model.addSquare(new SquareGizmo("hey", 10, 5));
         model.addSquare(new SquareGizmo("hey", 12, 7));
@@ -22,7 +23,10 @@ public class Driver {
 
         model.addTriangle(new TriangleGizmo("hey", 4, 15));
 
-        model.setBall(new Ball("Ball", 8, 10, 14, 12.5));
+        model.setBall(new Ball("Ball", 9, 1, 2, 1.1));
+
+        model.setAbsorber(new Absorber("abs", 0, 19, 20, 20));
+        */
 
         GUI Gui = new GUI(model);
     }

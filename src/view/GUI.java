@@ -1,9 +1,6 @@
 package view;
 
-import controller.EditListener;
-import controller.GizmoListener;
-import controller.LoadListener;
-import controller.RunListener;
+import controller.*;
 import model.Model;
 
 import javax.swing.*;
@@ -44,6 +41,7 @@ public class GUI {
         buildFrame.setVisible(false);
         runFrame.pack();
         buildFrame.pack();
+
 
         //board.paintComponent(Graphics2D.g);
 
@@ -97,10 +95,15 @@ public class GUI {
         JButton tick = new JButton("Tick");
         JButton quit = new JButton("Quit");
 
+
         start.addActionListener(runListener);
+        start.setFocusable(false);
         stop.addActionListener(runListener);
+        stop.setFocusable(false);
         tick.addActionListener(runListener);
+        tick.setFocusable(false);
         quit.addActionListener(runListener);
+        quit.setFocusable(false);
 
         runButtons.add(start);
         runButtons.add(stop);
@@ -181,7 +184,7 @@ public class GUI {
         save.addActionListener(runListener);
 
         JMenuItem load = new JMenuItem("Load");
-        load.addActionListener(new LoadListener());
+        load.addActionListener(new LoadListener(model, playZone));
 
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(runListener);
@@ -212,7 +215,7 @@ public class GUI {
         save.addActionListener(runListener);
 
         JMenuItem load = new JMenuItem("Load");
-        load.addActionListener(new LoadListener());
+        load.addActionListener(new LoadListener(model, playZone));
 
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(runListener);
@@ -238,6 +241,8 @@ public class GUI {
         runFrame = new JFrame();
         flow = new FlowLayout();
         runFrame.setLayout(flow);
+
+        runFrame.addKeyListener(new RunKeyListener(model));
 
         runFrame.setTitle("Gizmoball");
 

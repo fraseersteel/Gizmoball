@@ -1,5 +1,6 @@
 package view;
 
+import controller.RunKeyListener;
 import model.*;
 
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class Board extends JPanel implements Observer {
         model = m;
         g2d = null;
 
+        this.setBackground(Color.BLACK);
+        this.addKeyListener(new RunKeyListener(model));
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         m.addObserver(this);
@@ -30,6 +33,16 @@ public class Board extends JPanel implements Observer {
     public void paintComponent(Graphics graphic) {
         super.paintComponent(graphic);
         g2d = (Graphics2D) graphic;
+
+        Absorber absorber = model.getAbsorber();
+        if (absorber != null) {
+            int startX = (int) (absorber.getStartX() * cellWidth);
+            int startY = (int) (absorber.getStartY() * cellWidth);
+            int width = (int) ((absorber.getEndX() - absorber.getStartX()) * cellWidth);
+            int height = (int) ((absorber.getEndY() - absorber.getStartY()) * cellWidth);
+
+            drawAbsorber(startX, startY, width, height);
+        }
 
         Ball ball = model.getBall();
         if (ball != null) {
@@ -61,22 +74,12 @@ public class Board extends JPanel implements Observer {
             }
         }
 
-        Absorber absorber = model.getAbsorber();
-        if (absorber != null) {
-            int startX = (int) (absorber.getStartX() * cellWidth);
-            int startY = (int) (absorber.getStartY() * cellWidth);
-            int width = (int) ((absorber.getEndX() - absorber.getStartX()) * cellWidth);
-            int height = (int) ((absorber.getEndY() - absorber.getStartY()) * cellWidth);
-
-            drawAbsorber(startX, startY, width, height);
-        }
-
     }
 
     private void drawBall(int x, int y, double radius) {
         int ballWidth = (int) (2 * radius*cellWidth);
 
-        g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.WHITE);
         g2d.fillOval(x, y, ballWidth, ballWidth);
     }
 
