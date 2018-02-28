@@ -2,8 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import physics.Circle;
-import physics.LineSegment;
+import physics.*;
 
 
 public class LeftFlipper implements IGizmo {
@@ -16,6 +15,16 @@ public class LeftFlipper implements IGizmo {
     private int yPos;
     private int rotationAngle;
 
+    private int height = 50;
+    private int width = 20;
+    private int radius = 10; //using same values from prototype
+
+    private boolean isFlipped; //if is in the flipped position
+    private boolean isStopped; //for checking if at rest
+
+    private Vect lineCor;
+    private Vect circleCor;
+
     public LeftFlipper(String id, int x, int y) {
         this.ID = id;
         this.xPos = x;
@@ -24,6 +33,8 @@ public class LeftFlipper implements IGizmo {
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
+        lineCor = new Vect ( xPos, yPos-height);
+        circleCor = new Vect ( xPos, yPos-height); //still not sure about these
 
         addCircles();
         addLines();
@@ -31,11 +42,27 @@ public class LeftFlipper implements IGizmo {
     }
 
     private void addCircles(){
-        //todo
+        //circles for rounded ends of flipper
+        Circle c1 = new Circle(xPos+radius, yPos-radius, radius);
+        Circle c2 = new Circle (xPos+radius, (yPos-height)+radius, radius);
+        circles.add(c1);
+        circles.add(c2);
+        //zero-radius circles for ends of lines
+        Circle z1 = new Circle(xPos, yPos, 0);
+        Circle z2 = new Circle(xPos, yPos-height, 0);
+        Circle z3 = new Circle(xPos+width, yPos, 0);
+        Circle z4 = new Circle(xPos+width, yPos-height, 0);
+        circles.add(z1);
+        circles.add(z2);
+        circles.add(z3);
+        circles.add(z4);
     }
 
     private void addLines(){
-        //todo
+        LineSegment l1 = new LineSegment(xPos, yPos, xPos, yPos-height);
+        LineSegment l2 = new LineSegment(xPos+width, yPos, xPos+width, yPos-height);
+        lines.add(l1);
+        lines.add(l2);
     }
 
     @Override
@@ -44,6 +71,26 @@ public class LeftFlipper implements IGizmo {
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
+    }
+
+    public void flipFlipper(){
+        Angle angle;
+        if (!isFlipped) {
+            angle = new Angle(-1.57); //think these should just be opposite of right
+        } else {
+            angle = new Angle(1.57); //roughly 90 degrees
+        }
+
+        circles.set(0, Geometry.rotateAround(circles.get(0), circleCor, angle));
+        circles.set(1, Geometry.rotateAround(circles.get(1), circleCor, angle));
+        circles.set(2, Geometry.rotateAround(circles.get(2), circleCor, angle));
+        circles.set(3, Geometry.rotateAround(circles.get(3), circleCor, angle));
+        circles.set(4, Geometry.rotateAround(circles.get(4), circleCor, angle));
+        circles.set(5, Geometry.rotateAround(circles.get(5), circleCor, angle));
+
+        lines.set(0, Geometry.rotateAround(lines.get(0), lineCor, angle));
+        lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
+        isFlipped = !isFlipped;
     }
 
     @Override
