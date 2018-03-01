@@ -93,6 +93,14 @@ public class LeftFlipper implements IGizmo {
         isFlipped = !isFlipped;
     }
 
+    public Vect getCircleCor() {
+        return circleCor;
+    }
+
+    public Vect getLineCor() {
+        return lineCor;
+    }
+
     @Override
     public String getId() {
         return this.ID;
@@ -106,6 +114,18 @@ public class LeftFlipper implements IGizmo {
     @Override
     public int getyPos() {
         return yPos;
+    }
+
+    public boolean getIsStopped() {
+        return isStopped;
+    }
+
+    public boolean getIsFlipped(){
+        return isFlipped;
+    }
+
+    public double getAngle(){
+        return angle.radians();
     }
 
     @Override
