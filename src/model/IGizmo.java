@@ -2,6 +2,7 @@ package model;
 
 import physics.LineSegment;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public interface IGizmo {
@@ -28,6 +29,9 @@ public interface IGizmo {
 
     void rotate();
 
+    void setColour(Color color);
+
+    Color getColour();
 
 
 }

@@ -28,7 +28,6 @@ public class Model extends Observable {
 
         gizmos = new ArrayList<>();
         circles = new ArrayList<>();
-
         walls = new model.Wall(0, 0, 20, 20);
         absorber = null;
     }

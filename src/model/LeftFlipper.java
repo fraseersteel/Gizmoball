@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import physics.*;
@@ -10,6 +11,7 @@ public class LeftFlipper implements IGizmo {
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
 
+    private Color colour;
     private String ID;
     private int xPos;
     private int yPos;
@@ -32,6 +34,7 @@ public class LeftFlipper implements IGizmo {
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
+        colour = Color.ORANGE;
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -92,6 +95,17 @@ public class LeftFlipper implements IGizmo {
         lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
         isFlipped = !isFlipped;
     }
+
+    @Override
+    public void setColour(Color color) {
+        this.colour = color;
+    }
+
+    @Override
+    public Color getColour() {
+        return colour;
+    }
+
 
     public Vect getCircleCor() {
         return circleCor;

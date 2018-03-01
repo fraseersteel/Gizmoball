@@ -58,19 +58,19 @@ public class Board extends JPanel implements Observer {
             int y = gizmo.getyPos()*cellWidth;
 
             if (gizmo instanceof SquareGizmo) {
-                drawSquare(x, y);
+                drawSquare(x, y,gizmo.getColour());
             }
             else if (gizmo instanceof CircleGizmo) {
-                drawCircle(x, y);
+                drawCircle(x, y,gizmo.getColour());
             }
             else if (gizmo instanceof TriangleGizmo) {
-                drawTriangle(x, y, gizmo.getRotationAngle());
+                drawTriangle(x, y, gizmo.getRotationAngle(),gizmo.getColour());
             }
             else if (gizmo instanceof LeftFlipper) {
-                drawLeftFlipper(x, y);
+                drawLeftFlipper(x, y,gizmo.getColour());
             }
             else if(gizmo instanceof RightFlipper) {
-                drawRightFlipper(x, y);
+                drawRightFlipper(x, y,gizmo.getColour());
             }
         }
 
@@ -83,27 +83,27 @@ public class Board extends JPanel implements Observer {
         g2d.fillOval(x, y, ballWidth, ballWidth);
     }
 
-    private void drawSquare(int x, int y) {
-        g2d.setColor(Color.RED);
+    private void drawSquare(int x, int y,Color color) {
+        g2d.setColor(color);
         g2d.fillRect(x, y, cellWidth, cellWidth);
     }
 
-    private void drawCircle(int x, int y) {
-        g2d.setColor(Color.GREEN);
+    private void drawCircle(int x, int y,Color color) {
+        g2d.setColor(color);
         g2d.fillOval(x, y, cellWidth, cellWidth);
     }
 
-    private void drawLeftFlipper(int x, int y) {
-        g2d.setColor(Color.ORANGE);
+    private void drawLeftFlipper(int x, int y,Color color) {
+        g2d.setColor(color);
         g2d.fillRoundRect(x, y, 12, 50, 13, 13);
     }
 
-    private void drawRightFlipper(int x, int y) {
-        g2d.setColor(Color.ORANGE);
+    private void drawRightFlipper(int x, int y,Color color) {
+        g2d.setColor(color);
         g2d.fillRoundRect(x, y, 12, 50, 13, 13);
     }
 
-    private void drawTriangle(int x, int y, int rotationAngle) {
+    private void drawTriangle(int x, int y, int rotationAngle,Color color) {
         Polygon triangle = null;
         switch (rotationAngle) {
             case 0:
@@ -121,7 +121,7 @@ public class Board extends JPanel implements Observer {
         }
 
         g2d.fillPolygon(triangle);
-        g2d.setColor(Color.BLUE);
+        g2d.setColor(color);
     }
 
     private void drawAbsorber(int startX, int startY, int width, int height) {

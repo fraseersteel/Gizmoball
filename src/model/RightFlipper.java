@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import physics.*;
@@ -14,6 +15,7 @@ public class RightFlipper implements IGizmo {
     private int xPos;
     private int yPos;
     private int rotationAngle;
+    private Color colour;
 
     private int height = 50;
     private int width = 20;
@@ -32,6 +34,7 @@ public class RightFlipper implements IGizmo {
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
+        colour = Color.ORANGE;
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -93,6 +96,17 @@ public class RightFlipper implements IGizmo {
         lines.set(1, Geometry.rotateAround(lines.get(1), lineCor, angle));
         isFlipped = !isFlipped;
     }
+
+    @Override
+    public void setColour(Color color) {
+        this.colour = color;
+    }
+
+    @Override
+    public Color getColour() {
+        return colour;
+    }
+
 
     public Vect getCircleCor() {
         return circleCor;
