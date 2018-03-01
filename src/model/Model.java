@@ -149,24 +149,34 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
                 }
-            } else if (gizmo instanceof RightFlipper) { //for flippers will need to later wrap this in some kind of if statement to determine if it's currently moving
-                //Geometry.reflectRotatingWall, Geometry.reflectRotatingCircle, etc
-                for (LineSegment lines : gizmo.getLines()) {
-                    double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
-                    if (lineTime < minTUC) {
-                        minTUC = lineTime;
-                        newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
-                    }
-                }
+            } else if (gizmo instanceof RightFlipper) {
 
-                for (Circle circle : gizmo.getCircles()) {
-                    double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
-                    if (circleTime < minTUC) {
-                        minTUC = circleTime;
-                        newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                if (!((RightFlipper) gizmo).getIsStopped()) { //if it's moving
+
+                    /*think this is the general idea? shouldn't ever actually execute as is since isStopped is never set to false
+                    not sure about reflection coefficient, just set it to 1
+                     */
+
+                    for (LineSegment lines : ((RightFlipper) gizmo).getLines()) {
+                        double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((RightFlipper) gizmo).getLineCor(),
+                                ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (lineTime < minTUC) {
+                            minTUC = lineTime;
+                            newVelocity = Geometry.reflectRotatingWall(lines, ((RightFlipper) gizmo).getLineCor(), ((RightFlipper) gizmo).getAngle(),
+                                    ballCircle, ballVelocity, 1);
+                        }
                     }
-                }
-                } else if (gizmo instanceof LeftFlipper) {
+
+                    for (Circle circle : ((RightFlipper) gizmo).getCircles()) {
+                       double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((RightFlipper) gizmo).getCircleCor(),
+                                ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (circleTime < minTUC) {
+                            minTUC = circleTime;
+                            newVelocity = Geometry.reflectRotatingCircle(circle, ((RightFlipper) gizmo).getCircleCor(),
+                                    ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 1);
+                        }
+                    }
+                } else { //and if it isn't moving
                     for (LineSegment lines : gizmo.getLines()) {
                         double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                         if (lineTime < minTUC) {
@@ -182,6 +192,23 @@ public class Model extends Observable {
                             newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                         }
                     }
+                }
+            } else if (gizmo instanceof LeftFlipper) {
+                for (LineSegment lines : gizmo.getLines()) {
+                    double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
+                    if (lineTime < minTUC) {
+                        minTUC = lineTime;
+                        newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                    }
+                }
+
+                for (Circle circle : gizmo.getCircles()) {
+                    double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+                    if (circleTime < minTUC) {
+                        minTUC = circleTime;
+                        newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                    }
+                }
             }
         }
 

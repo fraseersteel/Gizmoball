@@ -19,11 +19,13 @@ public class RightFlipper implements IGizmo {
     private int width = 20;
     private int radius = 10; //using same values from prototype
 
-    private boolean isFlipped;
-    private boolean isStopped; //for checking if at rest
+    private boolean isFlipped; //if is in the flipped position
+    private boolean isStopped = true; //for checking if at rest - need to apply
 
     private Vect lineCor;
     private Vect circleCor;
+
+    private Angle angle;
 
     public RightFlipper(String id, int x, int y) {
         this.ID = id;
@@ -35,6 +37,7 @@ public class RightFlipper implements IGizmo {
         lines = new ArrayList<>();
         lineCor = new Vect ( xPos, yPos-height);
         circleCor = new Vect ( xPos, yPos-height); //still not sure about these
+
 
         addCircles();
         addLines();
@@ -73,7 +76,6 @@ public class RightFlipper implements IGizmo {
     }
 
     public void flipFlipper(){
-        Angle angle;
         if (!isFlipped) {
             angle = new Angle(1.57);
         } else {
@@ -113,6 +115,18 @@ public class RightFlipper implements IGizmo {
     @Override
     public int getyPos() {
         return yPos;
+    }
+
+    public boolean getIsStopped() {
+        return isStopped;
+    }
+
+    public boolean getIsFlipped(){
+        return isFlipped;
+    }
+
+    public double getAngle(){
+        return angle.radians();
     }
 
     @Override

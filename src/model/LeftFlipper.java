@@ -20,10 +20,12 @@ public class LeftFlipper implements IGizmo {
     private int radius = 10; //using same values from prototype
 
     private boolean isFlipped; //if is in the flipped position
-    private boolean isStopped; //for checking if at rest
+    private boolean isStopped = true; //for checking if at rest - need to apply
 
     private Vect lineCor;
     private Vect circleCor;
+
+    private Angle angle;
 
     public LeftFlipper(String id, int x, int y) {
         this.ID = id;
@@ -38,7 +40,6 @@ public class LeftFlipper implements IGizmo {
 
         addCircles();
         addLines();
-
     }
 
     private void addCircles(){
@@ -74,7 +75,6 @@ public class LeftFlipper implements IGizmo {
     }
 
     public void flipFlipper(){
-        Angle angle;
         if (!isFlipped) {
             angle = new Angle(-1.57); //think these should just be opposite of right
         } else {
