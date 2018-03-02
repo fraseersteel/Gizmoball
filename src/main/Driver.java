@@ -2,7 +2,7 @@ package main;
 
 
 import model.*;
-import view.GUI;
+import view.RunGUI;
 
 
 public class Driver {
@@ -28,6 +28,6 @@ public class Driver {
         model.setAbsorber(new Absorber("abs", 0, 19, 20, 20));
 
 
-        GUI Gui = new GUI(model);
+        RunGUI runGui = new RunGUI(model);
     }
 }

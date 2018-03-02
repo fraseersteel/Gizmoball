@@ -17,10 +17,10 @@ public class RunListener implements ActionListener {
     private Timer timer;
     private GUI gui;
 
-    public RunListener(Model m, GUI gui) {
+    public RunListener(Model m, GUI runGui) {
         model = m;
         timer = new Timer(50, this);
-        this.gui = gui;
+        this.gui = runGui;
     }
 
 
