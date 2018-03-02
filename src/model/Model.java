@@ -6,6 +6,7 @@ import physics.LineSegment;
 import physics.Vect;
 
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -20,6 +21,8 @@ public class Model extends Observable {
 
     private double accDueToGrav;
     private double deaccDueToFric;
+
+    private double moveTime;
 
 
     public Model() {
@@ -43,7 +46,7 @@ public class Model extends Observable {
     }
 
     public void moveBall() {
-        double moveTime = 0.05;
+        moveTime = 0.05;
 
         if (!ball.isStopped() && ball != null) {
             CollisionDetails cd = timeUntilCollision();
@@ -111,6 +114,7 @@ public class Model extends Observable {
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
+
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
                     }
@@ -120,7 +124,13 @@ public class Model extends Observable {
                     double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                     if (lineTime < minTUC) {
                         minTUC = lineTime;
+
+                        if (minTUC < moveTime)
+                            gizmo.setColour(Color.blue);
+
+
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+
                     }
                 }
             } else if (gizmo instanceof TriangleGizmo) {
