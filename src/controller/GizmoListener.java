@@ -1,5 +1,6 @@
 package controller;
 
+import model.Ball;
 import model.Model;
 
 import java.awt.event.ActionEvent;
@@ -21,13 +22,14 @@ public class GizmoListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
+            case "Ball":
+                break;
             case "SquareGizmo":
                 System.out.println("pressed square");
                 break;
             case "Circle":
                 System.out.println("pressed circle");
                 break;
-
             case "TriangleGizmo":
                 System.out.println("pressed triangle");
                 break;

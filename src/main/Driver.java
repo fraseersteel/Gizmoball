@@ -23,7 +23,7 @@ public class Driver {
 
         model.addTriangle(new TriangleGizmo("hey", 4, 15));
 
-        model.setBall(new Ball("Ball", 9, 1, 2, 1.1));
+        model.setBall(new Ball("Ball", 9, 1, 5, 0));
 
         model.setAbsorber(new Absorber("abs", 0, 19, 20, 20));
 
