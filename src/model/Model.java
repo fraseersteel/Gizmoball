@@ -300,25 +300,6 @@ public class Model extends Observable {
         gizmos.add((IGizmo) gizmo);
     }
 
-    public void addCircle(CircleGizmo c) {
-        gizmos.add(c);
-    }
-
-    public void addTriangle(TriangleGizmo t) {
-        gizmos.add(t);
-    }
-
-    public void addSquare(SquareGizmo s) {
-        gizmos.add(s);
-    }
-
-    public void addLeftFlipper(LeftFlipper flipper) {
-        gizmos.add(flipper);
-    }
-
-    public void addRightFlipper(RightFlipper flipper) {
-        gizmos.add(flipper);
-    }
 
     public void setAbsorber(Absorber a) {
         absorber = a;

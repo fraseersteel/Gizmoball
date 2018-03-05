@@ -1,6 +1,8 @@
 package model;
 
 
+import exceptions.InvalidGizmoException;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -94,26 +96,31 @@ public class GizmoLoader {
 
 
     private boolean processShape(String shape, String id, int x, int y) {
+        IGizmo gizmo = null;
         switch(shape) {
             case "LeftFlipper":
-                model.addLeftFlipper(new LeftFlipper(id, x, y));
-                return true;
+                gizmo = new LeftFlipper(id, x, y);
+                break;
             case "RightFlipper":
-                model.addRightFlipper(new RightFlipper(id, x, y));
-                return true;
+                gizmo = new RightFlipper(id, x, y);
+                break;
             case "Triangle":
-                model.addTriangle(new TriangleGizmo(id, x, y));
-                return true;
+                gizmo = new TriangleGizmo(id, x, y);
+                break;
             case "Square":
-                model.addSquare(new SquareGizmo(id, x, y));
-                return true;
+                gizmo = new SquareGizmo(id, x, y);
+                break;
             case "Circle":
-                model.addCircle(new CircleGizmo(id, x, y));
-                return true;
+                gizmo = new CircleGizmo(id, x, y);
+                break;
             case "Ball":
                 model.setBall(new Ball(id, x, y, 0, 0));
                 return true;
         }
+
+        try {
+            model.addGizmo(gizmo);
+        } catch (InvalidGizmoException ex) { }
         return false;
     }
 
