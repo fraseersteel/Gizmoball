@@ -34,6 +34,7 @@ public class Model extends Observable {
         circles = new ArrayList<>();
         walls = new model.Wall(0, 0, 20, 20);
         absorber = null;
+
     }
 
     public void applyGravity() {
@@ -333,6 +334,13 @@ public class Model extends Observable {
         }
         return null;
     }
+
+
+    public void removeGizmoByCoords(int x, int y){
+        //currently trying to remove but not sure how to get the index of the gizmo, tired my being stupid
+        gizmos.remove(findGizmoByCoords(x,y));
+    }
+
 
 
 
