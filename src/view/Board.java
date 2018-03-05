@@ -100,7 +100,7 @@ public class Board extends JPanel implements Observer {
 
     private void drawRightFlipper(int x, int y,Color color) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+        g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
     }
 
     private void drawTriangle(int x, int y, int rotationAngle,Color color) {

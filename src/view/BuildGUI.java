@@ -1,9 +1,6 @@
 package view;
 
-import controller.EditListener;
-import controller.GizmoListener;
-import controller.LoadListener;
-import controller.RunListener;
+import controller.*;
 import model.Model;
 
 import javax.swing.*;
@@ -13,16 +10,18 @@ class BuildGUI extends GUI {
 
     private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
 
-    private JPanel buildBoard;
+    private BuildBoard buildBoard;
     private Container gizmoButtons;
     private Container editButtons;
     private FlowLayout flow;
 
     private RunListener runListener;
+    private GizmoPlaceListener currentListener;
 
     public BuildGUI(Model model) {
         super(model);
         runListener = new RunListener(model,this);
+        currentListener = null;
 
         initilise();
         buildMenuBar();
@@ -64,6 +63,8 @@ class BuildGUI extends GUI {
         pane1.add(buildBoard, BorderLayout.CENTER);
         pane1.add(editButtons, BorderLayout.PAGE_END);
 
+
+
         jframe.pack();
         jframe.setResizable(false);
 
@@ -97,21 +98,23 @@ class BuildGUI extends GUI {
     private void leftZone() {
 
         //Create grid and populate with buttons
+        JButton ball = new JButton("Ball");
         JButton square = new JButton("SquareGizmo");
         JButton triangle = new JButton("TriangleGizmo");
         JButton circle = new JButton("Circle");
         JButton leftFlipper = new JButton("Left Flipper");
         JButton rightFlipper = new JButton("Right Flipper");
 
+        GizmoListener gizmoListener = new GizmoListener(model, buildBoard);
 
-        GizmoListener gizmoListener = new GizmoListener(model);
-
+        ball.addActionListener(gizmoListener);
         square.addActionListener(gizmoListener);
         triangle.addActionListener(gizmoListener);
         circle.addActionListener(gizmoListener);
         leftFlipper.addActionListener(gizmoListener);
         rightFlipper.addActionListener(gizmoListener);
 
+        gizmoButtons.add(ball);
         gizmoButtons.add(square);
         gizmoButtons.add(triangle);
         gizmoButtons.add(circle);

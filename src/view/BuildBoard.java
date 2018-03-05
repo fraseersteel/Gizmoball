@@ -18,14 +18,15 @@ public class BuildBoard extends JPanel implements Observer {
     private final int cellWidth = 25;
     private Graphics2D g2d;
 
-    public BuildBoard(int x, int y, Model m) {
-        width = x;
-        height = y;
-        m.addObserver(this);
-        model = m;
-        this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
-        this.addMouseListener(new GizmoPlaceListener(model, this, cellWidth));
+
+    public BuildBoard(int x, int y, Model m) {
+        this.width = x;
+        this.height = y;
+        this.model = m;
+
+        m.addObserver(this);
+        this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
 
     public void paintComponent(Graphics graphic) {
@@ -33,10 +34,6 @@ public class BuildBoard extends JPanel implements Observer {
         int gizmoWidth = cellWidth;
 
         g2d = (Graphics2D) graphic;
-
-        Ball ball = model.getBall();
-
-
 
         // drawing grid lines
         for(int i =0; i<width;i+=25){
@@ -46,6 +43,14 @@ public class BuildBoard extends JPanel implements Observer {
             g2d.drawLine(0,i,width,i);
         }
 
+        Ball ball = model.getBall();
+        if (ball != null) {
+            int x = (int) ((ball.getXPos() - ball.getRadius())*cellWidth);
+            int y = (int) ((ball.getYPos() - ball.getRadius())*cellWidth);
+            drawBall(x, y, ball.getRadius());
+        } else {
+            System.out.println("Error with ball");
+        }
 
         for (IGizmo gizmo : model.getGizmo()) {
             int x = gizmo.getxPos()*cellWidth;
@@ -67,9 +72,7 @@ public class BuildBoard extends JPanel implements Observer {
                 drawRightFlipper(x, y,gizmo.getColour());
             }
         }
-
     }
-
 
     private void drawBall(int x, int y, double radius) {
         int ballWidth = (int) (2 * radius*cellWidth);
@@ -95,7 +98,7 @@ public class BuildBoard extends JPanel implements Observer {
 
     private void drawRightFlipper(int x, int y,Color color) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+        g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
     }
 
     private void drawTriangle(int x, int y, int rotationAngle,Color color) {

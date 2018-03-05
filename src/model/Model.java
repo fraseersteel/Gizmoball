@@ -248,9 +248,11 @@ public class Model extends Observable {
 
 
     public boolean checkAbsorber() {
-        if ((ball.getYPos() > absorber.getStartY()) && (ball.getYPos() < absorber.getEndY())) {
-            System.out.println("ABSORBER!!");
-            return true;
+        if (absorber != null) {
+            if ((ball.getYPos() > absorber.getStartY()) && (ball.getYPos() < absorber.getEndY())) {
+                System.out.println("ABSORBER!!");
+                return true;
+            }
         }
         return false;
     }
