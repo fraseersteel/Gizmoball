@@ -50,7 +50,7 @@ public class BuildBoard extends JPanel implements Observer {
             drawBall(x, y, ball.getRadius());
         }
 
-        for (IGizmo gizmo : model.getGizmo()) {
+        for (IGizmo gizmo : model.getGizmos()) {
             int x = gizmo.getxPos()*cellWidth;
             int y = gizmo.getyPos()*cellWidth;
 
