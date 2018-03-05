@@ -6,15 +6,15 @@ import model.Model;
 import javax.swing.*;
 import java.awt.*;
 
-class BuildGUI extends GUI {
+public class BuildGUI extends GUI {
 
     private final static Dimension WINDOW_SIZE = new Dimension(750, 575);
 
     private BuildBoard buildBoard;
     private Container gizmoButtons;
     private Container editButtons;
-    private Container messageBoard;
     private FlowLayout flow;
+    private JLabel status;
 
     private RunListener runListener;
     private GizmoPlaceListener currentListener;
@@ -23,12 +23,12 @@ class BuildGUI extends GUI {
         super(model);
         runListener = new RunListener(model,this);
         currentListener = null;
+        status = new JLabel("Welcome to Build Mode");
 
         initilise();
         buildMenuBar();
         leftZone();
         buildEditButtons();
-        textMessage();
 
         jframe.setVisible(true);
     }
@@ -46,7 +46,7 @@ class BuildGUI extends GUI {
 
         gizmoButtons = new Container();
         editButtons = new Container();
-        messageBoard = new Container();
+
 
         buildBoard = new BuildBoard(500, 500, model);
 
@@ -56,7 +56,6 @@ class BuildGUI extends GUI {
 
         gizmoButtons.setLayout(new GridLayout(0, 1));
         editButtons.setLayout(new GridLayout(0, 1));
-        messageBoard.setLayout(new GridLayout(1,0));
         //playZone.setLayout(new GridLayout(21,21));
         editButtons.setPreferredSize(new Dimension(100, 600));
 
@@ -65,7 +64,7 @@ class BuildGUI extends GUI {
         pane1.add(gizmoButtons);
         pane1.add(buildBoard);
         pane1.add(editButtons);
-        pane1.add(messageBoard,BorderLayout.PAGE_END);
+        pane1.add(status,BorderLayout.PAGE_END);
 
 
 
@@ -108,7 +107,7 @@ class BuildGUI extends GUI {
         JButton leftFlipper = new JButton("Left Flipper");
         JButton rightFlipper = new JButton("Right Flipper");
 
-        GizmoListener gizmoListener = new GizmoListener(model, buildBoard);
+        GizmoListener gizmoListener = new GizmoListener(model, buildBoard, this);
 
         ball.addActionListener(gizmoListener);
         square.addActionListener(gizmoListener);
@@ -129,12 +128,8 @@ class BuildGUI extends GUI {
 
     }
 
-    private void textMessage(){
-
-        JLabel label = new JLabel("Welcome to build mode");
-
-        messageBoard.add(label);
-
+    public JLabel getLabel(){
+        return status;
     }
 
     private void buildMenuBar(){

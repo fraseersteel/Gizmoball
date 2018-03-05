@@ -3,7 +3,9 @@ package controller;
 import exceptions.InvalidGizmoException;
 import model.*;
 import view.BuildBoard;
+import view.BuildGUI;
 
+import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,6 +14,7 @@ public class GizmoPlaceListener implements MouseListener {
     private Model model;
     private BuildBoard board;
     private int cellDimension;
+    private BuildGUI buildGUI;
 
     private int gizmoType;
     // gizmoType is a reference to each different gizmo, as follows:
@@ -23,11 +26,12 @@ public class GizmoPlaceListener implements MouseListener {
     // 5 = Right Flipper
 
 
-    public GizmoPlaceListener(Model model, BuildBoard board, int cellDimension, int gizmoType) {
+    public GizmoPlaceListener(Model model, BuildBoard board, int cellDimension, int gizmoType, BuildGUI gui) {
         this.model = model;
         this.board = board;
         this.cellDimension = cellDimension;
         this.gizmoType = gizmoType;
+        this.buildGUI = gui;
     }
 
     @Override
@@ -40,25 +44,31 @@ public class GizmoPlaceListener implements MouseListener {
         switch (gizmoType) {
             case 1:
                 newGizmo = new SquareGizmo("hey", xCoord, yCoord);
+                buildGUI.getLabel().setText("Added Square");
                 break;
             case 2:
                 newGizmo = new CircleGizmo("hey", xCoord, yCoord);
+                buildGUI.getLabel().setText("Added Circle");
                 break;
             case 3:
                 newGizmo = new TriangleGizmo("hey", xCoord, yCoord);
+                buildGUI.getLabel().setText("Added Triangle");
                 break;
             case 4:
                 newGizmo = new LeftFlipper("hey", xCoord, yCoord);
+                buildGUI.getLabel().setText("Added Left Flipper");
                 break;
             case 5:
                 newGizmo = new RightFlipper("hey", xCoord, yCoord);
+                buildGUI.getLabel().setText("Added Right Flipper");
                 break;
         }
 
         if (checkLegalPlace(xCoord, yCoord)) {
             try {
                 if (gizmoType == 0) {
-                    model.setBall(new Ball("ball", xCoord, yCoord, 5, 0));
+                    model.setBall(new Ball("ball", xCoord, yCoord, 3, 3));
+                    buildGUI.getLabel().setText("Added Ball");
                 }
                 else {
                     model.addGizmo(newGizmo);
@@ -67,8 +77,7 @@ public class GizmoPlaceListener implements MouseListener {
         }
         else
         {
-            // TODO: Update UI here.
-            System.out.println("Cannot place gizmo here.");
+            buildGUI.getLabel().setText("Warning: Cannot Place Gizmo Here!");
         }
         board.repaint();
 
