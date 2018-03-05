@@ -53,7 +53,7 @@ public class Board extends JPanel implements Observer {
             System.out.println("Error with ball");
         }
 
-        for (IGizmo gizmo : model.getGizmo()) {
+        for (IGizmo gizmo : model.getGizmos()) {
             int x = gizmo.getxPos()*cellWidth;
             int y = gizmo.getyPos()*cellWidth;
 

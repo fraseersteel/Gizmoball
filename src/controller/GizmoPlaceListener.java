@@ -92,6 +92,24 @@ public class GizmoPlaceListener implements MouseListener {
         if (model.findGizmoByCoords(x,y) != null)
             return false;
 
+        // Check no flippers in vicinity
+        for (LeftFlipper flipper : model.getLeftFlippers()) {
+            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+                return false;
+            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+                return false;
+            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+                return false;
+        }
+        for (RightFlipper flipper : model.getRightFlippers()) {
+            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+                return false;
+            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+                return false;
+            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+                return false;
+        }
+
         // Check no ball in vicinity
         if (model.getBall() != null) {
             Ball ball = model.getBall();

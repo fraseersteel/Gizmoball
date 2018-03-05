@@ -87,6 +87,7 @@ public class Model extends Observable {
         return ball;
     }
 
+    // TODO: Flipper collisions as is are completely broken - commented out until fixed.
     private CollisionDetails timeUntilCollision() {
 
         double time = 0.0;
@@ -159,14 +160,14 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
                 }
-            } else if (gizmo instanceof RightFlipper) {
+            } /* else if (gizmo instanceof RightFlipper) {
 
                 if (!((RightFlipper) gizmo).getIsStopped()) { //if it's moving
 
                     /*think this is the general idea? shouldn't ever actually execute as is since isStopped is never set to false
                     not sure about reflection coefficient, just set it to 1, don't know if it should be different for movement
                      */
-
+                    /*
                     for (LineSegment lines : ((RightFlipper) gizmo).getLines()) {
                         double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((RightFlipper) gizmo).getLineCor(),
                                 ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
@@ -202,7 +203,8 @@ public class Model extends Observable {
                             newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                         }
                     }
-                }
+                } */
+                    /*
             } else if (gizmo instanceof LeftFlipper) {
                 if (!((LeftFlipper) gizmo).getIsStopped()) { //if it's moving
                     for (LineSegment lines : ((LeftFlipper) gizmo).getLines()) {
@@ -241,7 +243,7 @@ public class Model extends Observable {
                         }
                     }
                 }
-            }
+            } */
         }
 
         return new CollisionDetails(minTUC, newVelocity);
@@ -279,9 +281,6 @@ public class Model extends Observable {
         return ball;
     }
 
-    public ArrayList<IGizmo> getGizmo() {
-        return gizmos;
-    }
 
 
     public ArrayList<physics.Circle> getCircles() {
@@ -312,6 +311,26 @@ public class Model extends Observable {
     public ArrayList<IGizmo> getGizmos() {
         return gizmos;
     }
+
+    public ArrayList<LeftFlipper> getLeftFlippers() {
+        ArrayList<LeftFlipper> leftFlippers = new ArrayList<>();
+        for (IGizmo gizmo : gizmos) {
+            if (gizmo instanceof LeftFlipper) {
+                leftFlippers.add((LeftFlipper) gizmo);
+            }
+        }
+        return leftFlippers;
+    }
+    public ArrayList<RightFlipper> getRightFlippers() {
+        ArrayList<RightFlipper> rightFlippers = new ArrayList<>();
+        for (IGizmo gizmo : gizmos) {
+            if (gizmo instanceof RightFlipper) {
+                rightFlippers.add((RightFlipper) gizmo);
+            }
+        }
+        return rightFlippers;
+    }
+
 
     public Absorber getAbsorber() {
         return absorber;
