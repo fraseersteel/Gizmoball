@@ -8,11 +8,12 @@ import java.awt.*;
 
 class BuildGUI extends GUI {
 
-    private final static Dimension WINDOW_SIZE = new Dimension(800, 700);
+    private final static Dimension WINDOW_SIZE = new Dimension(750, 575);
 
     private BuildBoard buildBoard;
     private Container gizmoButtons;
     private Container editButtons;
+    private Container messageBoard;
     private FlowLayout flow;
 
     private RunListener runListener;
@@ -27,8 +28,8 @@ class BuildGUI extends GUI {
         buildMenuBar();
         leftZone();
         buildEditButtons();
+        textMessage();
 
-        jframe.pack();
         jframe.setVisible(true);
     }
 
@@ -45,6 +46,7 @@ class BuildGUI extends GUI {
 
         gizmoButtons = new Container();
         editButtons = new Container();
+        messageBoard = new Container();
 
         buildBoard = new BuildBoard(500, 500, model);
 
@@ -54,18 +56,19 @@ class BuildGUI extends GUI {
 
         gizmoButtons.setLayout(new GridLayout(0, 1));
         editButtons.setLayout(new GridLayout(0, 1));
+        messageBoard.setLayout(new GridLayout(1,0));
         //playZone.setLayout(new GridLayout(21,21));
-        editButtons.setPreferredSize(new Dimension(100, 580));
+        editButtons.setPreferredSize(new Dimension(100, 600));
 
         Container pane1 = jframe.getContentPane();
 
-        pane1.add(gizmoButtons, BorderLayout.LINE_START);
-        pane1.add(buildBoard, BorderLayout.CENTER);
-        pane1.add(editButtons, BorderLayout.PAGE_END);
+        pane1.add(gizmoButtons);
+        pane1.add(buildBoard);
+        pane1.add(editButtons);
+        pane1.add(messageBoard,BorderLayout.PAGE_END);
 
 
 
-        jframe.pack();
         jframe.setResizable(false);
 
     }
@@ -122,7 +125,15 @@ class BuildGUI extends GUI {
         gizmoButtons.add(rightFlipper);
 
 
-        gizmoButtons.setPreferredSize(new Dimension(100, 400));
+        gizmoButtons.setPreferredSize(new Dimension(120, 400));
+
+    }
+
+    private void textMessage(){
+
+        JLabel label = new JLabel("Welcome to build mode");
+
+        messageBoard.add(label);
 
     }
 
