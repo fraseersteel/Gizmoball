@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.InvalidGizmoException;
 import physics.Circle;
 import physics.Geometry;
 import physics.LineSegment;
@@ -288,6 +289,17 @@ public class Model extends Observable {
     }
 
 
+    public void addGizmo(Object gizmo) throws InvalidGizmoException {
+        if (!(gizmo instanceof SquareGizmo) &&
+                !(gizmo instanceof CircleGizmo) &&
+                !(gizmo instanceof TriangleGizmo) &&
+                !(gizmo instanceof LeftFlipper) &&
+                !(gizmo instanceof RightFlipper) ) {
+            throw new InvalidGizmoException("Attempted to add invalid gizmo type!");
+        }
+        gizmos.add((IGizmo) gizmo);
+    }
+
     public void addCircle(CircleGizmo c) {
         gizmos.add(c);
     }
@@ -324,10 +336,19 @@ public class Model extends Observable {
         return absorber;
     }
 
-    public IGizmo findGizmo(String gizmoId) {
+    public IGizmo findGizmoByID(String gizmoId) {
         for (IGizmo giz : getGizmos()) {
             if (giz.getId().equals(gizmoId))
                 return giz;
+        }
+        return null;
+    }
+
+    public IGizmo findGizmoByCoords(int x, int y) {
+        for (IGizmo gizmo : gizmos) {
+            if (gizmo.getxPos() == x && gizmo.getyPos() == y) {
+                return gizmo;
+            }
         }
         return null;
     }

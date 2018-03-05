@@ -1,5 +1,6 @@
 package controller;
 
+import exceptions.InvalidGizmoException;
 import model.*;
 import view.BuildBoard;
 
@@ -37,36 +38,86 @@ public class GizmoPlaceListener implements MouseListener {
         IGizmo newGizmo = null;
 
         switch (gizmoType) {
-            case 0:
-                model.setBall(new Ball("ball", xCoord, yCoord, 5, 0));
-                break;
             case 1:
                 newGizmo = new SquareGizmo("hey", xCoord, yCoord);
-                model.addSquare((SquareGizmo) newGizmo);
                 break;
             case 2:
                 newGizmo = new CircleGizmo("hey", xCoord, yCoord);
-                model.addCircle((CircleGizmo) newGizmo);
                 break;
             case 3:
                 newGizmo = new TriangleGizmo("hey", xCoord, yCoord);
-                model.addTriangle((TriangleGizmo) newGizmo);
                 break;
             case 4:
                 newGizmo = new LeftFlipper("hey", xCoord, yCoord);
-                model.addLeftFlipper((LeftFlipper) newGizmo);
                 break;
             case 5:
                 newGizmo = new RightFlipper("hey", xCoord, yCoord);
-                model.addRightFlipper((RightFlipper) newGizmo);
                 break;
         }
 
+        if (checkLegalPlace(xCoord, yCoord)) {
+            try {
+                if (gizmoType == 0) {
+                    model.setBall(new Ball("ball", xCoord, yCoord, 5, 0));
+                }
+                else {
+                    model.addGizmo(newGizmo);
+                }
+            } catch (InvalidGizmoException ex) { }
+        }
+        else
+        {
+            // TODO: Update UI here.
+            System.out.println("Cannot place gizmo here.");
+        }
         board.repaint();
 
+    }
 
-        System.out.println("X:" + xCoord + " Y:" + yCoord);
+    /**
+     * Checks to see if corresponding gizmo type can be placed in this cell location
+     * Worth noting that Flippers AND Ball occupy 4x4 cells.
+     * @return true if gizmo can be legally placed here, false otherwise.
+     */
+    private boolean checkLegalPlace(int x, int y) {
+        if (model.findGizmoByCoords(x,y) != null)
+            return false;
 
+        // Check no ball in vicinity
+        if (model.getBall() != null) {
+            Ball ball = model.getBall();
+            if (ball.getXPos() == x && ball.getYPos() == y)
+                return false;
+            if (ball.getXPos()-1 == x && ball.getYPos() == y)
+                return false;
+            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
+                return false;
+            if (ball.getXPos() == x && ball.getYPos()-1 == y)
+                return false;
+        }
+
+        // BALL
+        // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
+        if (gizmoType == 0) {
+            if (model.findGizmoByCoords(x,y-1) != null)
+                return false;
+            if (model.findGizmoByCoords(x-1,y-1) != null)
+                return false;
+            if (model.findGizmoByCoords(x-1,y) != null)
+                return false;
+        }
+
+        // FLIPPERS
+        if (gizmoType == 4 || gizmoType == 5) {
+            if (model.findGizmoByCoords(x+1,y) != null)
+                return false;
+            if (model.findGizmoByCoords(x,y+1) != null)
+                return false;
+            if (model.findGizmoByCoords(x+1,y+1) != null)
+                return false;
+        }
+
+        return true;
     }
 
     @Override

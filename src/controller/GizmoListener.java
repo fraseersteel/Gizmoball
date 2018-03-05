@@ -59,7 +59,7 @@ public class GizmoListener implements ActionListener{
         keyboardListener.keyPressed(e);
     }
 
-    public void updatePlaceListener(int type) {
+    private void updatePlaceListener(int type) {
         board.removeMouseListener(gizmoPlaceListener);
         gizmoPlaceListener = new GizmoPlaceListener(model, board, 25, type);
         board.addMouseListener(gizmoPlaceListener);

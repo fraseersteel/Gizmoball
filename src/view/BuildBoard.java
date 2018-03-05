@@ -45,11 +45,9 @@ public class BuildBoard extends JPanel implements Observer {
 
         Ball ball = model.getBall();
         if (ball != null) {
-            int x = (int) ((ball.getXPos() - ball.getRadius())*cellWidth);
-            int y = (int) ((ball.getYPos() - ball.getRadius())*cellWidth);
+            int x = (int) ((ball.getXPos() - ball.getRadius()) * cellWidth);
+            int y = (int) ((ball.getYPos() - ball.getRadius()) * cellWidth);
             drawBall(x, y, ball.getRadius());
-        } else {
-            System.out.println("Error with ball");
         }
 
         for (IGizmo gizmo : model.getGizmo()) {

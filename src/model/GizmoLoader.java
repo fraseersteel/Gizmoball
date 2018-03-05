@@ -33,7 +33,7 @@ public class GizmoLoader {
             }
             buffReader.close();
 
-        } catch (FileNotFoundException e) { //delete the printing of the actual exception later
+        } catch (FileNotFoundException e) { //delete the printing of the actual exceptions later
             System.err.println("Error: file not found. " + e);
             return false;
         } catch (IOException e) {
@@ -126,7 +126,7 @@ public class GizmoLoader {
     }
 
     private boolean moveGizmo(String id, int x, int y) {
-        IGizmo gizmo = model.findGizmo(id);
+        IGizmo gizmo = model.findGizmoByID(id);
 
         if (gizmo == null)
             return false;
@@ -137,7 +137,7 @@ public class GizmoLoader {
     }
 
     private boolean rotateGizmo(String id) {
-        IGizmo gizmo = model.findGizmo(id);
+        IGizmo gizmo = model.findGizmoByID(id);
 
         if (gizmo == null)
             return false;
@@ -147,8 +147,8 @@ public class GizmoLoader {
     }
 
     private boolean connectTrigger(String id, String trigger) {
-        IGizmo baseGizmo = model.findGizmo(id);
-        IGizmo triggerGizmo = model.findGizmo(trigger);
+        IGizmo baseGizmo = model.findGizmoByID(id);
+        IGizmo triggerGizmo = model.findGizmoByID(trigger);
 
         if (triggerGizmo == null)
             return false;
