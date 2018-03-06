@@ -45,8 +45,8 @@ public class AbsorberPlaceListener implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        int xCoord = e.getX()/cellWidth;
-        int yCoord = e.getY()/cellWidth;
+        int xCoord = (e.getX()/cellWidth)+1;
+        int yCoord = (e.getY()/cellWidth)+1;
 
         System.out.println("[Release] x:" + xCoord + " y:" + yCoord);
 

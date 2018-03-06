@@ -253,8 +253,8 @@ public class Model extends Observable {
 
     public boolean checkAbsorber() {
         if (absorber != null) {
-            if ((ball.getYPos() > absorber.getStartY()) && (ball.getYPos() < absorber.getEndY())) {
-                System.out.println("ABSORBER!!");
+            if ((ball.getYPos() > absorber.getStartY()) && (ball.getYPos() < absorber.getEndY()) &&
+                    (ball.getXPos() > absorber.getStartX()) && (ball.getXPos() < absorber.getEndX())) {
                 return true;
             }
         }
@@ -262,15 +262,17 @@ public class Model extends Observable {
     }
 
     public boolean shootAbsorber() {
+        if (absorber != null) {
+            if (ball.getYPos() < (absorber.getStartY())) {
+                return false;
+            }
 
-        if (ball.getYPos() < (absorber.getStartY())) {
-            return false;
+            ball.start();
+            setBallVeloctiy(2, -30);
+            //setVelocity(0, -300);
+            return true;
         }
-
-        ball.start();
-        setBallVeloctiy(2, -30);
-        //setVelocity(0, -300);
-        return true;
+        return false;
     }
 
 
@@ -286,6 +288,73 @@ public class Model extends Observable {
 
     public ArrayList<physics.Circle> getCircles() {
         return circles;
+    }
+
+
+
+    // 0 = Ball
+    // 1 = Square
+    // 2 = Circle
+    // 3 = Triangle
+    // 4 = Left Flipper
+    // 5 = Right Flipper
+    public boolean checkLegalPlace(int gizmoType, int x, int y) {
+        if (findGizmoByCoords(x,y) != null)
+            return false;
+
+        // Check no flippers in vicinity
+        for (LeftFlipper flipper : getLeftFlippers()) {
+            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+                return false;
+            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+                return false;
+            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+                return false;
+        }
+        for (RightFlipper flipper : getRightFlippers()) {
+            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+                return false;
+            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+                return false;
+            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+                return false;
+        }
+
+        // Check no ball in vicinity
+        if (getBall() != null) {
+            Ball ball = getBall();
+            if (ball.getXPos() == x && ball.getYPos() == y)
+                return false;
+            if (ball.getXPos()-1 == x && ball.getYPos() == y)
+                return false;
+            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
+                return false;
+            if (ball.getXPos() == x && ball.getYPos()-1 == y)
+                return false;
+        }
+
+        // BALL
+        // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
+        if (gizmoType == 0) {
+            if (findGizmoByCoords(x,y-1) != null)
+                return false;
+            if (findGizmoByCoords(x-1,y-1) != null)
+                return false;
+            if (findGizmoByCoords(x-1,y) != null)
+                return false;
+        }
+
+        // FLIPPERS
+        if (gizmoType == 4 || gizmoType == 5) {
+            if (findGizmoByCoords(x+1,y) != null)
+                return false;
+            if (findGizmoByCoords(x,y+1) != null)
+                return false;
+            if (findGizmoByCoords(x+1,y+1) != null)
+                return false;
+        }
+
+        return true;
     }
 
 

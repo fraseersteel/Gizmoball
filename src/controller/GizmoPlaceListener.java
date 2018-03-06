@@ -61,7 +61,7 @@ public class GizmoPlaceListener implements MouseListener {
                 break;
         }
 
-        if (checkLegalPlace(xCoord, yCoord)) {
+        if (model.checkLegalPlace(gizmoType, xCoord, yCoord)) {
             try {
                 if (gizmoType == 0) {
                     model.setBall(new Ball("ball", xCoord, yCoord, 3, 3));
@@ -80,69 +80,7 @@ public class GizmoPlaceListener implements MouseListener {
 
     }
 
-    /**
-     * Checks to see if corresponding gizmo type can be placed in this cell location
-     * Worth noting that Flippers AND Ball occupy 4x4 cells.
-     * @return true if gizmo can be legally placed here, false otherwise.
-     */
-    private boolean checkLegalPlace(int x, int y) {
-        if (model.findGizmoByCoords(x,y) != null)
-            return false;
 
-        // Check no flippers in vicinity
-        for (LeftFlipper flipper : model.getLeftFlippers()) {
-            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
-                return false;
-            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
-                return false;
-            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
-                return false;
-        }
-        for (RightFlipper flipper : model.getRightFlippers()) {
-            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
-                return false;
-            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
-                return false;
-            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
-                return false;
-        }
-
-        // Check no ball in vicinity
-        if (model.getBall() != null) {
-            Ball ball = model.getBall();
-            if (ball.getXPos() == x && ball.getYPos() == y)
-                return false;
-            if (ball.getXPos()-1 == x && ball.getYPos() == y)
-                return false;
-            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
-                return false;
-            if (ball.getXPos() == x && ball.getYPos()-1 == y)
-                return false;
-        }
-
-        // BALL
-        // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
-        if (gizmoType == 0) {
-            if (model.findGizmoByCoords(x,y-1) != null)
-                return false;
-            if (model.findGizmoByCoords(x-1,y-1) != null)
-                return false;
-            if (model.findGizmoByCoords(x-1,y) != null)
-                return false;
-        }
-
-        // FLIPPERS
-        if (gizmoType == 4 || gizmoType == 5) {
-            if (model.findGizmoByCoords(x+1,y) != null)
-                return false;
-            if (model.findGizmoByCoords(x,y+1) != null)
-                return false;
-            if (model.findGizmoByCoords(x+1,y+1) != null)
-                return false;
-        }
-
-        return true;
-    }
 
     @Override
     public void mousePressed(MouseEvent e) {
