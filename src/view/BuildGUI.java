@@ -1,6 +1,9 @@
 package view;
 
 import controller.*;
+import controller.build.EditListener;
+import controller.build.GizmoListener;
+import controller.build.GizmoPlaceListener;
 import model.Model;
 
 import javax.swing.*;

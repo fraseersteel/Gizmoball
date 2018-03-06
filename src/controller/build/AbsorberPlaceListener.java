@@ -1,4 +1,4 @@
-package controller;
+package controller.build;
 
 import model.Absorber;
 import model.Model;

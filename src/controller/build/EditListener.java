@@ -1,5 +1,6 @@
-package controller;
+package controller.build;
 
+import controller.build.EditPlaceListener;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;

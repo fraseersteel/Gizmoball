@@ -1,14 +1,12 @@
 package view;
 
-import controller.GizmoPlaceListener;
+import controller.build.BuildMouseHoverListener;
 import model.*;
-import physics.Circle;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.zip.GZIPInputStream;
 
 public class BuildBoard extends JPanel implements Observer {
 
@@ -25,7 +23,9 @@ public class BuildBoard extends JPanel implements Observer {
         this.height = y;
         this.model = m;
 
+        this.addMouseMotionListener(new BuildMouseHoverListener(this));
         m.addObserver(this);
+
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }
 
@@ -42,6 +42,7 @@ public class BuildBoard extends JPanel implements Observer {
         for(int i=0;i<height;i+=25){
             g2d.drawLine(0,i,width,i);
         }
+
 
         Absorber absorber = model.getAbsorber();
         if (absorber != null) {
