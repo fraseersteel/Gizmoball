@@ -44,8 +44,8 @@ public class EditPlaceListener implements MouseListener {
                 buildGUI.getLabel().setText("Moved Gizmo");
                 break;
             case 2:
-
-                buildGUI.getLabel().setText("Rotated Gizmo");
+                model.findGizmoByCoords(xCoord,yCoord).rotate();
+                buildGUI.getLabel().setText("Rotated " + model.findGizmoByCoords(xCoord,yCoord).getClass().getName().replaceAll("model.",""));
                 break;
             case 3:
 
