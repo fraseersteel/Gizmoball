@@ -15,7 +15,7 @@ public class EditListener implements ActionListener {
     private KeyListener keyboardListener;
     private EditPlaceListener editPlaceListener;
 
-    public EditListener(Model m, BuildBoard board,BuildGUI gui) {
+    public EditListener(Model model, BuildBoard board,BuildGUI gui) {
         this.model = model;
         this.board = board;
         this.buildGUI = gui;

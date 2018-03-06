@@ -80,7 +80,7 @@ public class BuildGUI extends GUI {
         JButton delete = new JButton("Delete");
         JButton connect = new JButton("Connect");
 
-        EditListener editListener = new EditListener(model);
+        EditListener editListener = new EditListener(model,buildBoard,this);
 
         move.addActionListener(editListener);
         rotate.addActionListener(editListener);
