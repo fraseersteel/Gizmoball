@@ -5,7 +5,6 @@ import model.*;
 import view.BuildBoard;
 import view.BuildGUI;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,7 +12,6 @@ public class GizmoPlaceListener implements MouseListener {
 
     private Model model;
     private BuildBoard board;
-    private int cellDimension;
     private BuildGUI buildGUI;
 
     private int gizmoType;
@@ -26,18 +24,17 @@ public class GizmoPlaceListener implements MouseListener {
     // 5 = Right Flipper
 
 
-    public GizmoPlaceListener(Model model, BuildBoard board, int cellDimension, int gizmoType, BuildGUI gui) {
+    public GizmoPlaceListener(Model model, BuildBoard board, int gizmoType, BuildGUI gui) {
         this.model = model;
         this.board = board;
-        this.cellDimension = cellDimension;
         this.gizmoType = gizmoType;
         this.buildGUI = gui;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        int xCoord = e.getX()/cellDimension;
-        int yCoord = e.getY()/cellDimension;
+        int xCoord = e.getX()/board.getCellWidth();
+        int yCoord = e.getY()/board.getCellWidth();
 
         IGizmo newGizmo = null;
 
@@ -159,6 +156,7 @@ public class GizmoPlaceListener implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        System.out.println("Mouse Entered");
 
     }
 

@@ -43,6 +43,16 @@ public class BuildBoard extends JPanel implements Observer {
             g2d.drawLine(0,i,width,i);
         }
 
+        Absorber absorber = model.getAbsorber();
+        if (absorber != null) {
+            int startX = (int) (absorber.getStartX() * cellWidth);
+            int startY = (int) (absorber.getStartY() * cellWidth);
+            int width = (int) ((absorber.getEndX() - absorber.getStartX()) * cellWidth);
+            int height = (int) ((absorber.getEndY() - absorber.getStartY()) * cellWidth);
+
+            drawAbsorber(startX, startY, width, height);
+        }
+
         Ball ball = model.getBall();
         if (ball != null) {
             int x = (int) ((ball.getXPos() - ball.getRadius()) * cellWidth);
@@ -133,6 +143,10 @@ public class BuildBoard extends JPanel implements Observer {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getCellWidth() {
+        return cellWidth;
     }
 
     @Override

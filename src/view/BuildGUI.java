@@ -106,6 +106,7 @@ public class BuildGUI extends GUI {
         JButton circle = new JButton("Circle");
         JButton leftFlipper = new JButton("Left Flipper");
         JButton rightFlipper = new JButton("Right Flipper");
+        JButton absorber = new JButton("Absorber");
 
         GizmoListener gizmoListener = new GizmoListener(model, buildBoard, this);
 
@@ -115,6 +116,7 @@ public class BuildGUI extends GUI {
         circle.addActionListener(gizmoListener);
         leftFlipper.addActionListener(gizmoListener);
         rightFlipper.addActionListener(gizmoListener);
+        absorber.addActionListener(gizmoListener);
 
         gizmoButtons.add(ball);
         gizmoButtons.add(square);
@@ -122,6 +124,7 @@ public class BuildGUI extends GUI {
         gizmoButtons.add(circle);
         gizmoButtons.add(leftFlipper);
         gizmoButtons.add(rightFlipper);
+        gizmoButtons.add(absorber);
 
 
         gizmoButtons.setPreferredSize(new Dimension(120, 400));

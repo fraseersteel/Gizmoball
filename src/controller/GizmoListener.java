@@ -1,14 +1,10 @@
 package controller;
 
-import model.Ball;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.awt.event.KeyListener;
 
 public class GizmoListener implements ActionListener{
@@ -16,13 +12,13 @@ public class GizmoListener implements ActionListener{
     private Model model;
     private BuildBoard board;
     private KeyListener keyboardListener;
-    private GizmoPlaceListener gizmoPlaceListener;
+    private MouseListener listener;
     private BuildGUI buildGUI;
 
     public GizmoListener(Model m, BuildBoard board,BuildGUI gui){
         this.model = m;
         this.board = board;
-        this.gizmoPlaceListener = null;
+        this.listener = null;
         this.buildGUI = gui;
     }
 
@@ -34,32 +30,37 @@ public class GizmoListener implements ActionListener{
 
         switch(e.getActionCommand()){
             case "Ball":
-                updatePlaceListener(0);
+                setGizmoPlaceListener(0);
                 buildGUI.getLabel().setText("Adding ball");
                 break;
             case "SquareGizmo":
-                updatePlaceListener(1);
+                setGizmoPlaceListener(1);
                 buildGUI.getLabel().setText("Adding Square");
                 break;
             case "Circle":
-                updatePlaceListener(2);
+                setGizmoPlaceListener(2);
                 System.out.println("pressed circle");
                 buildGUI.getLabel().setText("Adding Circle");
                 break;
             case "TriangleGizmo":
-                updatePlaceListener(3);
+                setGizmoPlaceListener(3);
                 System.out.println("pressed triangle");
                 buildGUI.getLabel().setText("Adding Triangle");
                 break;
             case "Left Flipper":
-                updatePlaceListener(4);
+                setGizmoPlaceListener(4);
                 System.out.println("pressed left flipper");
                 buildGUI.getLabel().setText("Adding Left Flipper");
                 break;
             case "Right Flipper":
-                updatePlaceListener(5);
+                setGizmoPlaceListener(5);
                 System.out.println("pressed right flipper");
                 buildGUI.getLabel().setText("Adding Right Flipper");
+                break;
+            case "Absorber":
+                setAbsorberPlaceListener();
+                System.out.println("pressed absorber");
+                buildGUI.getLabel().setText("Drag over area to place absorber");
                 break;
         }
 
@@ -69,9 +70,15 @@ public class GizmoListener implements ActionListener{
         keyboardListener.keyPressed(e);
     }
 
-    private void updatePlaceListener(int type) {
-        board.removeMouseListener(gizmoPlaceListener);
-        gizmoPlaceListener = new GizmoPlaceListener(model, board, 25, type,buildGUI);
-        board.addMouseListener(gizmoPlaceListener);
+    private void setGizmoPlaceListener(int type) {
+        board.removeMouseListener(listener);
+        listener = new GizmoPlaceListener(model, board, type,buildGUI);
+        board.addMouseListener(listener);
+    }
+
+    private void setAbsorberPlaceListener() {
+        board.removeMouseListener(listener);
+        listener = new AbsorberPlaceListener(model, board);
+        board.addMouseListener(listener);
     }
 }
