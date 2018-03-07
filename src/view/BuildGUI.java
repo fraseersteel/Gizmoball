@@ -2,8 +2,7 @@ package view;
 
 import controller.*;
 import controller.build.EditListener;
-import controller.build.GizmoListener;
-import controller.build.GizmoPlaceListener;
+import controller.build.BuildButtonListener;
 import model.Model;
 
 import javax.swing.*;
@@ -20,12 +19,10 @@ public class BuildGUI extends GUI {
     private JLabel status;
 
     private RunListener runListener;
-    private GizmoPlaceListener currentListener;
 
     public BuildGUI(Model model) {
         super(model);
         runListener = new RunListener(model,this);
-        currentListener = null;
         status = new JLabel("Welcome to Build Mode");
 
         initilise();
@@ -111,15 +108,15 @@ public class BuildGUI extends GUI {
         JButton rightFlipper = new JButton("Right Flipper");
         JButton absorber = new JButton("Absorber");
 
-        GizmoListener gizmoListener = new GizmoListener(model, buildBoard, this);
+        BuildButtonListener buildButtonListener = new BuildButtonListener(model, buildBoard, this);
 
-        ball.addActionListener(gizmoListener);
-        square.addActionListener(gizmoListener);
-        triangle.addActionListener(gizmoListener);
-        circle.addActionListener(gizmoListener);
-        leftFlipper.addActionListener(gizmoListener);
-        rightFlipper.addActionListener(gizmoListener);
-        absorber.addActionListener(gizmoListener);
+        ball.addActionListener(buildButtonListener);
+        square.addActionListener(buildButtonListener);
+        triangle.addActionListener(buildButtonListener);
+        circle.addActionListener(buildButtonListener);
+        leftFlipper.addActionListener(buildButtonListener);
+        rightFlipper.addActionListener(buildButtonListener);
+        absorber.addActionListener(buildButtonListener);
 
         gizmoButtons.add(ball);
         gizmoButtons.add(square);

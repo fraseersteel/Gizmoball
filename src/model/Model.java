@@ -291,14 +291,12 @@ public class Model extends Observable {
     }
 
 
+    // TODO: Method is too large/messy right now, possibly split into smaller methods for each gizmo/object type?
+    public boolean checkLegalPlace(Object gizmo, int x, int y) throws InvalidGizmoException {
+        if (!checkLegalGizmo(gizmo) && !(gizmo instanceof Ball) && !(gizmo instanceof Absorber)) {
+            throw new InvalidGizmoException("Attempting to check if an invalid gizmo/object type can be placed on the board");
+        }
 
-    // 0 = Ball
-    // 1 = Square
-    // 2 = Circle
-    // 3 = Triangle
-    // 4 = Left Flipper
-    // 5 = Right Flipper
-    public boolean checkLegalPlace(int gizmoType, int x, int y) {
         if (findGizmoByCoords(x,y) != null)
             return false;
 
@@ -335,7 +333,7 @@ public class Model extends Observable {
 
         // BALL
         // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
-        if (gizmoType == 0) {
+        if (gizmo instanceof Ball) {
             if (findGizmoByCoords(x,y-1) != null)
                 return false;
             if (findGizmoByCoords(x-1,y-1) != null)
@@ -345,7 +343,7 @@ public class Model extends Observable {
         }
 
         // FLIPPERS
-        if (gizmoType == 4 || gizmoType == 5) {
+        if (gizmo instanceof LeftFlipper || gizmo instanceof RightFlipper) {
             if (findGizmoByCoords(x+1,y) != null)
                 return false;
             if (findGizmoByCoords(x,y+1) != null)
@@ -359,14 +357,27 @@ public class Model extends Observable {
 
 
     public void addGizmo(Object gizmo) throws InvalidGizmoException {
-        if (!(gizmo instanceof SquareGizmo) &&
-                !(gizmo instanceof CircleGizmo) &&
-                !(gizmo instanceof TriangleGizmo) &&
-                !(gizmo instanceof LeftFlipper) &&
-                !(gizmo instanceof RightFlipper) ) {
+        if (!checkLegalGizmo(gizmo)) {
             throw new InvalidGizmoException("Attempted to add invalid gizmo type!");
         }
         gizmos.add((IGizmo) gizmo);
+    }
+
+
+    /**
+     * Checks to see if a given object is a valid gizmo for this system.
+     * @param object the object we want to check for being a valid gizmo.
+     * @return true if object is a valid gizmo, false otherwise.
+     */
+    boolean checkLegalGizmo(Object object) {
+        if (!(object instanceof SquareGizmo) &&
+                !(object instanceof CircleGizmo) &&
+                !(object instanceof TriangleGizmo) &&
+                !(object instanceof LeftFlipper) &&
+                !(object instanceof RightFlipper) ) {
+            return false;
+        }
+        return true;
     }
 
 
