@@ -101,6 +101,20 @@ public class Board extends JPanel implements Observer {
     private void drawRightFlipper(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
+
+        /*AffineTransform transform = new AffineTransform();
+            g2d.setColor(Color.ORANGE);
+            Shape flipper;
+            if (rFlippers.getOrientation() == 0) {
+                flipper = new RoundRectangle2D.Double((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
+                g2d.fill(flipper);
+            } else if (rFlippers.getOrientation() != 0) {
+                flipper = new RoundRectangle2D.Double((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
+                transform.rotate(Math.toRadians(rFlippers.getOrientation()), (int) l1.p1().x() + 20, (int) l1.p1().y() + 50);
+                Shape newFlipper = transform.createTransformedShape(flipper);
+                flipper = newFlipper;
+                g2d.fill(flipper);
+            }*/
     }
 
     private void drawTriangle(int x, int y, int rotationAngle,Color color) {
