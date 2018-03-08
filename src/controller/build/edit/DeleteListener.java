@@ -35,6 +35,7 @@ public class DeleteListener implements MouseListener {
             buildGUI.getLabel().setText("No gizmo to Delete");
         }
 
+        board.repaint();
     }
 
     @Override

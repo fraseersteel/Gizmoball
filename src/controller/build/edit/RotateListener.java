@@ -32,6 +32,8 @@ public class RotateListener implements MouseListener {
         }else{
             buildGUI.getLabel().setText("Could not find Gizmo to rotate");
         }
+
+        board.repaint();
     }
 
     @Override

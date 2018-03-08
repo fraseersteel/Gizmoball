@@ -33,6 +33,7 @@ public class ConnectListener implements MouseListener {
             buildGUI.getLabel().setText("No gizmo to connect");
         }
 
+        board.repaint();
 
     }
 

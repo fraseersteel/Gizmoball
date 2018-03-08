@@ -23,7 +23,7 @@ public class BuildBoard extends JPanel implements Observer {
         this.height = y;
         this.model = m;
 
-        this.addMouseMotionListener(new BuildMouseHoverListener(this));
+        this.addMouseMotionListener(new BuildMouseHoverListener(this,model));
         m.addObserver(this);
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
@@ -105,9 +105,9 @@ public class BuildBoard extends JPanel implements Observer {
         g2d.fillOval(x, y, ballWidth, ballWidth);
     }
 
-    private void drawSquare(int x, int y,Color color) {
+    public void drawSquare(int x, int y,Color color) {
         g2d.setColor(color);
-        g2d.fillRect(x, y, cellWidth, cellWidth);
+        g2d.fillRect(x, y, 25, 25);
     }
 
     private void drawCircle(int x, int y,Color color) {

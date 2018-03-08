@@ -1,7 +1,10 @@
 package controller.build;
 
+import model.Model;
+import model.SquareGizmo;
 import view.BuildBoard;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
@@ -9,9 +12,11 @@ public class BuildMouseHoverListener implements MouseMotionListener{
 
     private BuildBoard board;
     private int cellWidth;
+    private Model model;
 
-    public BuildMouseHoverListener(BuildBoard board) {
+    public BuildMouseHoverListener(BuildBoard board,Model model) {
         this.board = board;
+        this.model = model;
         cellWidth = board.getCellWidth();
     }
 
@@ -28,6 +33,9 @@ public class BuildMouseHoverListener implements MouseMotionListener{
 
         System.out.println("[MOUSE] x:" + xCoord + " y:" + yCoord);
 
+
+        board.drawSquare(xCoord,yCoord, Color.BLUE);
+        board.repaint();
 
     }
 }
