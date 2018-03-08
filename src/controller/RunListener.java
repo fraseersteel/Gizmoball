@@ -16,11 +16,13 @@ public class RunListener implements ActionListener {
     private KeyListener keyboardListener;
     private Timer timer;
     private GUI gui;
+    private int timerCount;
 
     public RunListener(Model m, GUI runGui) {
         model = m;
         timer = new Timer(50, this);
         this.gui = runGui;
+        timerCount =0;
     }
 
 
@@ -29,6 +31,7 @@ public class RunListener implements ActionListener {
 
         //case statement for which action to perform
         // cases include "Start","Stop","Tick","Quit"
+
 
         if (e.getSource() == timer) {
             model.moveBall();
@@ -43,6 +46,7 @@ public class RunListener implements ActionListener {
                 case "Tick":
                     timer.stop();
                     model.moveBall();
+                    timerCount++;
                     break;
                 case "Build Mode":
                     System.out.println("switching");

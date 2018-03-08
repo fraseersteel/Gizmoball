@@ -66,13 +66,28 @@ public class BuildBoard extends JPanel implements Observer {
             int y = gizmo.getyPos()*cellWidth;
 
             if (gizmo instanceof SquareGizmo) {
-                drawSquare(x, y,gizmo.getColour());
+                if(!gizmo.isTrigger()){
+                    drawSquare(x, y,Color.RED);
+                }
+                else{
+                    drawSquare(x, y,Color.GREEN);
+                }
+
             }
             else if (gizmo instanceof CircleGizmo) {
-                drawCircle(x, y,gizmo.getColour());
+                if(!gizmo.isTrigger()){
+                    drawCircle(x, y,Color.GREEN);
+                }
+                else{
+                    drawCircle(x, y,Color.YELLOW);
+                }
             }
             else if (gizmo instanceof TriangleGizmo) {
-                drawTriangle(x, y, gizmo.getRotationAngle(),gizmo.getColour());
+                if(!gizmo.isTrigger()) {
+                    drawTriangle(x, y, gizmo.getRotationAngle(), Color.BLUE);
+                }else{
+                    drawTriangle(x, y, gizmo.getRotationAngle(), Color.CYAN);
+                }
             }
             else if (gizmo instanceof LeftFlipper) {
                 drawLeftFlipper(x, y,gizmo.getColour());
@@ -87,8 +102,7 @@ public class BuildBoard extends JPanel implements Observer {
         int ballWidth = (int) (2 * radius*cellWidth);
 
         g2d.setColor(Color.WHITE);
-        //g2d.fillOval(x, y, ballWidth, ballWidth);
-        g2d.fillOval(x+(cellWidth/2), y+(cellWidth/2), ballWidth, ballWidth);
+        g2d.fillOval(x, y, ballWidth, ballWidth);
     }
 
     private void drawSquare(int x, int y,Color color) {

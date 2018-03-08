@@ -1,4 +1,4 @@
-package controller.build;
+package controller.build.gizmo;
 
 import exceptions.InvalidGizmoException;
 import model.*;
@@ -8,13 +8,13 @@ import view.BuildGUI;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class RightFlipperPlaceListener implements MouseListener {
+public class LeftFlipperPlaceListener implements MouseListener {
 
     private Model model;
     private BuildBoard board;
     private BuildGUI buildGUI;
 
-    public RightFlipperPlaceListener(Model model, BuildBoard board, BuildGUI gui) {
+    public LeftFlipperPlaceListener(Model model, BuildBoard board, BuildGUI gui) {
         this.model = model;
         this.board = board;
         this.buildGUI = gui;
@@ -26,13 +26,13 @@ public class RightFlipperPlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        RightFlipper newFlipper = new RightFlipper("rightflipper", xCoord, yCoord);
+        LeftFlipper newFlipper = new LeftFlipper("leftflipper", xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newFlipper, xCoord, yCoord)) {
                 model.addGizmo(newFlipper);
-                buildGUI.getLabel().setText("Added Right Flipper");
+                buildGUI.getLabel().setText("Added ");
             } else {
-                buildGUI.getLabel().setText("Right Flipper can't be placed here!");
+                buildGUI.getLabel().setText("Left Flipper can't be placed here!");
             }
         } catch (InvalidGizmoException ex) {
             System.err.println("Error: " + ex);

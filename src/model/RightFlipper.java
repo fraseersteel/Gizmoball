@@ -16,6 +16,7 @@ public class RightFlipper implements IGizmo {
     private int yPos;
     private int rotationAngle;
     private Color colour;
+    private boolean isTriggered;
 
     private int height = 50;
     private int width = 20;
@@ -35,6 +36,7 @@ public class RightFlipper implements IGizmo {
         this.yPos = y;
         this.rotationAngle = 0;
         colour = Color.ORANGE;
+        isTriggered = false;
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -107,6 +109,15 @@ public class RightFlipper implements IGizmo {
         return colour;
     }
 
+    @Override
+    public boolean isTrigger() {
+        return isTriggered;
+    }
+
+    @Override
+    public void trigger() {
+        isTriggered = true;
+    }
 
     public Vect getCircleCor() {
         return circleCor;

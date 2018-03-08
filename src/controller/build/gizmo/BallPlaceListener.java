@@ -1,20 +1,21 @@
-package controller.build;
+package controller.build.gizmo;
 
 import exceptions.InvalidGizmoException;
-import model.*;
+import model.Ball;
+import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class LeftFlipperPlaceListener implements MouseListener {
+public class BallPlaceListener implements MouseListener {
 
     private Model model;
     private BuildBoard board;
     private BuildGUI buildGUI;
 
-    public LeftFlipperPlaceListener(Model model, BuildBoard board, BuildGUI gui) {
+    public BallPlaceListener(Model model, BuildBoard board,  BuildGUI gui) {
         this.model = model;
         this.board = board;
         this.buildGUI = gui;
@@ -26,13 +27,13 @@ public class LeftFlipperPlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        LeftFlipper newFlipper = new LeftFlipper("leftflipper", xCoord, yCoord);
+        Ball newBall = new Ball("ball", xCoord, yCoord, 3, 3);
         try {
-            if (model.checkLegalPlace(newFlipper, xCoord, yCoord)) {
-                model.addGizmo(newFlipper);
-                buildGUI.getLabel().setText("Added Left Flipper");
+            if (model.checkLegalPlace(newBall, xCoord, yCoord)) {
+                model.setBall(newBall);
+                buildGUI.getLabel().setText("Added Ball");
             } else {
-                buildGUI.getLabel().setText("Left Flipper can't be placed here!");
+                buildGUI.getLabel().setText("Ball can't be placed here!");
             }
         } catch (InvalidGizmoException ex) {
             System.err.println("Error: " + ex);

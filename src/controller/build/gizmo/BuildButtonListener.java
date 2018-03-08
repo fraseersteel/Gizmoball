@@ -1,11 +1,14 @@
-package controller.build;
+package controller.build.gizmo;
 
+import controller.build.edit.ConnectListener;
+import controller.build.edit.DeleteListener;
+import controller.build.edit.MoveListener;
+import controller.build.edit.RotateListener;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
 import java.awt.event.*;
-import java.awt.event.KeyListener;
 
 public class BuildButtonListener implements ActionListener{
 
@@ -54,8 +57,29 @@ public class BuildButtonListener implements ActionListener{
                 changePlaceListener(new AbsorberPlaceListener(model, board));
                 buildGUI.getLabel().setText("Drag over area to place absorber");
                 break;
+            case "Move":
+
+                changePlaceListener(new MoveListener(model,board,buildGUI));
+                buildGUI.getLabel().setText("Moving Gizmo");
+                break;
+            case "Rotate":
+
+                changePlaceListener(new RotateListener(model,board,buildGUI));
+                buildGUI.getLabel().setText("Rotating Gizmo");
+                break;
+            case "Connect":
+
+                changePlaceListener(new ConnectListener(model,board,buildGUI));
+                buildGUI.getLabel().setText("Connecting Gizmo");
+                break;
+            case "Delete":
+
+                changePlaceListener(new DeleteListener(model,board,buildGUI));
+                buildGUI.getLabel().setText("Deleting Gizmo");
+                break;
         }
 
+        board.repaint();
     }
 
     public void keyPressed(KeyEvent e){

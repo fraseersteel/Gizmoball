@@ -1,4 +1,4 @@
-package controller.build;
+package controller.build.gizmo;
 
 import exceptions.InvalidGizmoException;
 import model.Model;

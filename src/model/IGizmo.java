@@ -33,5 +33,9 @@ public interface IGizmo {
 
     Color getColour();
 
+    boolean isTrigger();
+
+    void trigger();
+
 
 }

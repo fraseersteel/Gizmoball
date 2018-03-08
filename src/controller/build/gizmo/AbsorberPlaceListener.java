@@ -1,4 +1,4 @@
-package controller.build;
+package controller.build.gizmo;
 
 import model.Absorber;
 import model.Model;

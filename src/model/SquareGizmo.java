@@ -16,6 +16,7 @@ public class SquareGizmo implements IGizmo {
     private int yPos;
     private int rotationAngle;
     private Color colour;
+    private boolean isTriggered;
 
     public SquareGizmo(String id, int x, int y) {
         this.ID = id;
@@ -25,6 +26,7 @@ public class SquareGizmo implements IGizmo {
         colour = Color.RED;
         circles = new ArrayList<>();
         lines = new ArrayList<>();
+        isTriggered = false;
 
         addCircles();
         addLines();
@@ -115,6 +117,20 @@ public class SquareGizmo implements IGizmo {
     @Override
     public void addTrigger(IGizmo gizmo) {
 
+    }
+
+    @Override
+    public boolean isTrigger(){
+        return isTriggered;
+    }
+
+    @Override
+    public void trigger(){
+        if(isTriggered==false){
+            isTriggered = true;
+        } else if(isTriggered ==true){
+            isTriggered = false;
+        }
     }
 
 }

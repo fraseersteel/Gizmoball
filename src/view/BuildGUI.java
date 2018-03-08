@@ -1,8 +1,7 @@
 package view;
 
 import controller.*;
-import controller.build.EditListener;
-import controller.build.BuildButtonListener;
+import controller.build.gizmo.BuildButtonListener;
 import model.Model;
 
 import javax.swing.*;
@@ -17,6 +16,7 @@ public class BuildGUI extends GUI {
     private Container editButtons;
     private FlowLayout flow;
     private JLabel status;
+    private BuildButtonListener buildButtonListener;
 
     private RunListener runListener;
 
@@ -60,6 +60,7 @@ public class BuildGUI extends GUI {
         editButtons.setPreferredSize(new Dimension(100, 600));
 
         Container pane1 = jframe.getContentPane();
+        buildButtonListener = new BuildButtonListener(model, buildBoard, this);
 
         pane1.add(gizmoButtons);
         pane1.add(buildBoard);
@@ -80,13 +81,10 @@ public class BuildGUI extends GUI {
         JButton delete = new JButton("Delete");
         JButton connect = new JButton("Connect");
 
-        EditListener editListener = new EditListener(model,buildBoard,this);
-
-        move.addActionListener(editListener);
-        rotate.addActionListener(editListener);
-        delete.addActionListener(editListener);
-        connect.addActionListener(editListener);
-
+        connect.addActionListener(buildButtonListener);
+        rotate.addActionListener(buildButtonListener);
+        delete.addActionListener(buildButtonListener);
+        move.addActionListener(buildButtonListener);
 
         editButtons.add(move);
         editButtons.add(rotate);
@@ -108,7 +106,7 @@ public class BuildGUI extends GUI {
         JButton rightFlipper = new JButton("Right Flipper");
         JButton absorber = new JButton("Absorber");
 
-        BuildButtonListener buildButtonListener = new BuildButtonListener(model, buildBoard, this);
+
 
         ball.addActionListener(buildButtonListener);
         square.addActionListener(buildButtonListener);
@@ -117,6 +115,8 @@ public class BuildGUI extends GUI {
         leftFlipper.addActionListener(buildButtonListener);
         rightFlipper.addActionListener(buildButtonListener);
         absorber.addActionListener(buildButtonListener);
+
+
 
         gizmoButtons.add(ball);
         gizmoButtons.add(square);

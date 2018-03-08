@@ -43,7 +43,7 @@ public class Model extends Observable {
     }
 
     public void applyFriction() {
-        Vect veloAfterFric = new Vect(ball.getXVelo()/deaccDueToFric, ball.getYVelo()/deaccDueToFric);
+        Vect veloAfterFric = new Vect(ball.getXVelo() / deaccDueToFric, ball.getYVelo() / deaccDueToFric);
         ball.setVelocity(veloAfterFric);
     }
 
@@ -118,6 +118,9 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
+                        if (minTUC < moveTime)
+                            gizmo.trigger();
+
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
                     }
@@ -126,12 +129,11 @@ public class Model extends Observable {
                 for (LineSegment lines : gizmo.getLines()) {
                     double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                     if (lineTime < minTUC) {
-                        minTUC = lineTime;
 
                         if (minTUC < moveTime)
-                            gizmo.setColour(Color.blue);
+                            gizmo.trigger();
 
-
+                        minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
 
                     }
@@ -141,6 +143,10 @@ public class Model extends Observable {
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
+
+                        if (minTUC < moveTime)
+                            gizmo.trigger();
+
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
                     }
@@ -151,12 +157,18 @@ public class Model extends Observable {
                     if (lineTime < minTUC) {
                         minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+
+                        if (minTUC < moveTime)
+                            gizmo.trigger();
                     }
                 }
             } else if (gizmo instanceof CircleGizmo) {
                 for (Circle circle : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
+
+                        if (minTUC < moveTime)
+                            gizmo.trigger();
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
@@ -285,7 +297,6 @@ public class Model extends Observable {
     }
 
 
-
     public ArrayList<physics.Circle> getCircles() {
         return circles;
     }
@@ -297,24 +308,24 @@ public class Model extends Observable {
             throw new InvalidGizmoException("Attempting to check if an invalid gizmo/object type can be placed on the board");
         }
 
-        if (findGizmoByCoords(x,y) != null)
+        if (findGizmoByCoords(x, y) != null)
             return false;
 
         // Check no flippers in vicinity
         for (LeftFlipper flipper : getLeftFlippers()) {
-            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y)
                 return false;
-            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y)
                 return false;
-            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y)
                 return false;
         }
         for (RightFlipper flipper : getRightFlippers()) {
-            if (flipper.getxPos()+1 == x && flipper.getyPos() == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y)
                 return false;
-            if (flipper.getxPos()+1 == x && flipper.getyPos()+1 == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y)
                 return false;
-            if (flipper.getxPos() == x && flipper.getyPos()+1 == y)
+            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y)
                 return false;
         }
 
@@ -323,32 +334,32 @@ public class Model extends Observable {
             Ball ball = getBall();
             if (ball.getXPos() == x && ball.getYPos() == y)
                 return false;
-            if (ball.getXPos()-1 == x && ball.getYPos() == y)
+            if (ball.getXPos() - 1 == x && ball.getYPos() == y)
                 return false;
-            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
+            if (ball.getXPos() - 1 == x && ball.getYPos() - 1 == y)
                 return false;
-            if (ball.getXPos() == x && ball.getYPos()-1 == y)
+            if (ball.getXPos() == x && ball.getYPos() - 1 == y)
                 return false;
         }
 
         // BALL
         // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
         if (gizmo instanceof Ball) {
-            if (findGizmoByCoords(x,y-1) != null)
+            if (findGizmoByCoords(x, y - 1) != null)
                 return false;
-            if (findGizmoByCoords(x-1,y-1) != null)
+            if (findGizmoByCoords(x - 1, y - 1) != null)
                 return false;
-            if (findGizmoByCoords(x-1,y) != null)
+            if (findGizmoByCoords(x - 1, y) != null)
                 return false;
         }
 
         // FLIPPERS
         if (gizmo instanceof LeftFlipper || gizmo instanceof RightFlipper) {
-            if (findGizmoByCoords(x+1,y) != null)
+            if (findGizmoByCoords(x + 1, y) != null)
                 return false;
-            if (findGizmoByCoords(x,y+1) != null)
+            if (findGizmoByCoords(x, y + 1) != null)
                 return false;
-            if (findGizmoByCoords(x+1,y+1) != null)
+            if (findGizmoByCoords(x + 1, y + 1) != null)
                 return false;
         }
 
@@ -366,6 +377,7 @@ public class Model extends Observable {
 
     /**
      * Checks to see if a given object is a valid gizmo for this system.
+     *
      * @param object the object we want to check for being a valid gizmo.
      * @return true if object is a valid gizmo, false otherwise.
      */
@@ -374,7 +386,7 @@ public class Model extends Observable {
                 !(object instanceof CircleGizmo) &&
                 !(object instanceof TriangleGizmo) &&
                 !(object instanceof LeftFlipper) &&
-                !(object instanceof RightFlipper) ) {
+                !(object instanceof RightFlipper)) {
             return false;
         }
         return true;
@@ -402,6 +414,7 @@ public class Model extends Observable {
         }
         return leftFlippers;
     }
+
     public ArrayList<RightFlipper> getRightFlippers() {
         ArrayList<RightFlipper> rightFlippers = new ArrayList<>();
         for (IGizmo gizmo : gizmos) {
@@ -435,12 +448,17 @@ public class Model extends Observable {
     }
 
 
-    public void removeGizmoByCoords(int x, int y){
-        //currently trying to remove but not sure how to get the index of the gizmo, tired my being stupid
-        gizmos.remove(findGizmoByCoords(x,y));
+    public boolean removeGizmoByCoords(int x, int y) {
+        if (findGizmoByCoords(x, y) != null) {
+            gizmos.remove(findGizmoByCoords(x, y));
+            return true;
+        }
+        return false;
     }
 
 
-
+    public String getGizmoTypeName(int x,int y){
+       return findGizmoByCoords(x,y).getClass().getName().replace("model.", "");
+    }
 
 }

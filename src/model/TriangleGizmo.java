@@ -16,17 +16,18 @@ public class TriangleGizmo implements IGizmo {
     private int yPos;
     private int rotationAngle;
     private Color colour;
+    private boolean isTriggered;
 
     public TriangleGizmo(String id, int x, int y){
         this.ID = id;
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
+        //starts in initial colour scheme
+        isTriggered = false;
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
-
-        colour = Color.GREEN;
         addLines();
         addCircles();
     }
@@ -117,6 +118,20 @@ public class TriangleGizmo implements IGizmo {
     @Override
     public Color getColour() {
         return colour;
+    }
+
+    @Override
+    public boolean isTrigger() {
+        return isTriggered;
+    }
+
+    @Override
+    public void trigger(){
+        if(isTriggered==false){
+            isTriggered = true;
+        } else if(isTriggered ==true){
+            isTriggered = false;
+        }
     }
 
 

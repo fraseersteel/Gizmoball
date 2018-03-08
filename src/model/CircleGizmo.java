@@ -15,6 +15,7 @@ public class CircleGizmo implements IGizmo {
     private int yPos;
     private int rotationAngle;
     private Color colour;
+    private boolean isTriggered;
 
 
     public CircleGizmo(String id, int x, int y) {
@@ -22,7 +23,7 @@ public class CircleGizmo implements IGizmo {
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
-        colour = Color.GREEN;
+        isTriggered = false;
 
         circles = new ArrayList<>();
 
@@ -105,8 +106,19 @@ public class CircleGizmo implements IGizmo {
     }
 
 
+    @Override
+    public boolean isTrigger(){
+        return isTriggered;
+    }
 
-
+    @Override
+    public void trigger(){
+        if(isTriggered==false){
+            isTriggered = true;
+        } else if(isTriggered ==true){
+            isTriggered = false;
+        }
+    }
 
 
 }

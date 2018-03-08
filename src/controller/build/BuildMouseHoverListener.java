@@ -27,5 +27,7 @@ public class BuildMouseHoverListener implements MouseMotionListener{
         int yCoord = e.getY()/cellWidth;
 
         System.out.println("[MOUSE] x:" + xCoord + " y:" + yCoord);
+
+
     }
 }

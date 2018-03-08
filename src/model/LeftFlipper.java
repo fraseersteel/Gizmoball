@@ -16,6 +16,7 @@ public class LeftFlipper implements IGizmo {
     private int xPos;
     private int yPos;
     private int rotationAngle;
+    private boolean isTriggered;
 
     private int height = 50;
     private int width = 20;
@@ -35,6 +36,7 @@ public class LeftFlipper implements IGizmo {
         this.yPos = y;
         this.rotationAngle = 0;
         colour = Color.ORANGE;
+        isTriggered = false;
 
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -104,6 +106,16 @@ public class LeftFlipper implements IGizmo {
     @Override
     public Color getColour() {
         return colour;
+    }
+
+    @Override
+    public boolean isTrigger() {
+        return isTriggered;
+    }
+
+    @Override
+    public void trigger() {
+        isTriggered = true;
     }
 
 
