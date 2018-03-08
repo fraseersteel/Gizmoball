@@ -37,5 +37,8 @@ public interface IGizmo {
 
     void trigger();
 
+    ArrayList<IGizmo> getConnections();
+
+    boolean hasConnections();
 
 }

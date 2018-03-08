@@ -10,6 +10,7 @@ public class RightFlipper implements IGizmo {
 
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
+    private ArrayList<IGizmo> connections;
 
     private String ID;
     private int xPos;
@@ -30,6 +31,7 @@ public class RightFlipper implements IGizmo {
 
     private Angle angle;
 
+
     public RightFlipper(String id, int x, int y) {
         this.ID = id;
         this.xPos = x;
@@ -38,6 +40,7 @@ public class RightFlipper implements IGizmo {
         colour = Color.ORANGE;
         isTriggered = false;
 
+        connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
         lineCor = new Vect ( xPos, yPos-height);
@@ -187,5 +190,20 @@ public class RightFlipper implements IGizmo {
     @Override
     public void addTrigger(IGizmo gizmo) {
 
+    }
+
+
+    @Override
+    public ArrayList<IGizmo> getConnections() {
+        return connections;
+    }
+
+    @Override
+    public boolean hasConnections() {
+        if(connections.size()==0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

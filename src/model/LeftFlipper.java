@@ -10,6 +10,7 @@ public class LeftFlipper implements IGizmo {
 
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
+    private ArrayList<IGizmo> connections;
 
     private Color colour;
     private String ID;
@@ -38,6 +39,7 @@ public class LeftFlipper implements IGizmo {
         colour = Color.ORANGE;
         isTriggered = false;
 
+        connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
         lineCor = new Vect ( xPos, yPos-height);
@@ -188,4 +190,19 @@ public class LeftFlipper implements IGizmo {
     public void addTrigger(IGizmo gizmo) {
 
     }
+
+    @Override
+    public ArrayList<IGizmo> getConnections() {
+        return connections;
+    }
+
+    @Override
+    public boolean hasConnections() {
+        if(connections.size()==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }

@@ -10,6 +10,7 @@ public class SquareGizmo implements IGizmo {
 
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
+    private ArrayList<IGizmo> connections;
 
     private String ID;
     private int xPos;
@@ -23,7 +24,8 @@ public class SquareGizmo implements IGizmo {
         this.xPos = x;
         this.yPos = y;
         this.rotationAngle = 0;
-        colour = Color.RED;
+
+        connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
         isTriggered = false;
@@ -43,26 +45,25 @@ public class SquareGizmo implements IGizmo {
     }
 
 
+    private void addCircles() {
 
-    private void addCircles(){
-
-        circles.add(new Circle(xPos,yPos,0.0));
-        circles.add(new Circle(xPos,yPos+1,0.0));
-        circles.add(new Circle(xPos+1,yPos,0.0));
-        circles.add(new Circle(xPos+1,yPos+1,0.0));
+        circles.add(new Circle(xPos, yPos, 0.0));
+        circles.add(new Circle(xPos, yPos + 1, 0.0));
+        circles.add(new Circle(xPos + 1, yPos, 0.0));
+        circles.add(new Circle(xPos + 1, yPos + 1, 0.0));
     }
 
-    private void addLines(){
+    private void addLines() {
 
-        lines.add(new LineSegment(xPos,yPos,xPos+1,yPos));
-        lines.add(new LineSegment(xPos+1,yPos,xPos+1,yPos+1));
-        lines.add(new LineSegment(xPos+1,yPos+1,xPos,yPos+1));
-        lines.add(new LineSegment(xPos,yPos+1,xPos,yPos));
+        lines.add(new LineSegment(xPos, yPos, xPos + 1, yPos));
+        lines.add(new LineSegment(xPos + 1, yPos, xPos + 1, yPos + 1));
+        lines.add(new LineSegment(xPos + 1, yPos + 1, xPos, yPos + 1));
+        lines.add(new LineSegment(xPos, yPos + 1, xPos, yPos));
     }
 
     @Override
     public void rotate() {
-        rotationAngle = rotationAngle +90;
+        rotationAngle = rotationAngle + 90;
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
@@ -120,16 +121,31 @@ public class SquareGizmo implements IGizmo {
     }
 
     @Override
-    public boolean isTrigger(){
+    public boolean isTrigger() {
         return isTriggered;
     }
 
     @Override
-    public void trigger(){
-        if(isTriggered==false){
+    public void trigger() {
+        if (isTriggered == false) {
             isTriggered = true;
-        } else if(isTriggered ==true){
+        } else if (isTriggered == true) {
             isTriggered = false;
+        }
+    }
+
+
+    @Override
+    public ArrayList<IGizmo> getConnections() {
+        return connections;
+    }
+
+    @Override
+    public boolean hasConnections() {
+        if (connections.size() == 0) {
+            return false;
+        } else {
+            return true;
         }
     }
 

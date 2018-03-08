@@ -10,6 +10,7 @@ public class TriangleGizmo implements IGizmo {
 
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
+    private ArrayList<IGizmo> connections;
 
     private String ID;
     private int xPos;
@@ -26,6 +27,7 @@ public class TriangleGizmo implements IGizmo {
         //starts in initial colour scheme
         isTriggered = false;
 
+        connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
         addLines();
@@ -201,4 +203,20 @@ public class TriangleGizmo implements IGizmo {
         //
     }
 
+    @Override
+    public ArrayList<IGizmo> getConnections() {
+        return connections;
+    }
+
+    @Override
+    public boolean hasConnections() {
+        if(connections.size()==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
 }
+
+

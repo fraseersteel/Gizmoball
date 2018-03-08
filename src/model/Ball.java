@@ -23,7 +23,7 @@ public class Ball extends JPanel implements Observer {
         this.id = id;
         this.velocity = new Vect(xVelocity, yVelocity);
 
-        this.radius = 0.4;
+        this.radius = 0.25;
         this.xPos = xPosition;
         this.yPos = yPosition;
 

@@ -1,5 +1,6 @@
 package model;
 
+
 import physics.Circle;
 import physics.LineSegment;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class CircleGizmo implements IGizmo {
 
     private ArrayList<Circle> circles;
+    private ArrayList<IGizmo> connections;
 
     private String ID;
     private int xPos;
@@ -25,6 +27,7 @@ public class CircleGizmo implements IGizmo {
         this.rotationAngle = 0;
         isTriggered = false;
 
+        connections = new ArrayList<>();
         circles = new ArrayList<>();
 
         createCircles();
@@ -117,6 +120,20 @@ public class CircleGizmo implements IGizmo {
             isTriggered = true;
         } else if(isTriggered ==true){
             isTriggered = false;
+        }
+    }
+
+    @Override
+    public ArrayList<IGizmo> getConnections() {
+        return connections;
+    }
+
+    @Override
+    public boolean hasConnections() {
+        if(connections.size()==0){
+            return false;
+        }else{
+            return true;
         }
     }
 

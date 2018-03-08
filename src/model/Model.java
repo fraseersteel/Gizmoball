@@ -118,8 +118,8 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
-                        if (minTUC < moveTime)
-                            gizmo.trigger();
+//                        if (minTUC < moveTime)
+//                            gizmo.trigger();
 
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
@@ -130,8 +130,8 @@ public class Model extends Observable {
                     double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                     if (lineTime < minTUC) {
 
-                        if (minTUC < moveTime)
-                            gizmo.trigger();
+//                        if (minTUC < moveTime)
+//                            gizmo.trigger();
 
                         minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
@@ -144,8 +144,7 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
-                        if (minTUC < moveTime)
-                            gizmo.trigger();
+//                        if (minTUC < moveTime)
 
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
@@ -158,8 +157,8 @@ public class Model extends Observable {
                         minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
 
-                        if (minTUC < moveTime)
-                            gizmo.trigger();
+//                        if (minTUC < moveTime)
+
                     }
                 }
             } else if (gizmo instanceof CircleGizmo) {
@@ -167,8 +166,8 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
-                        if (minTUC < moveTime)
-                            gizmo.trigger();
+//                        if (minTUC < moveTime)
+
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
