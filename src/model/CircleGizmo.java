@@ -137,5 +137,10 @@ public class CircleGizmo implements IGizmo {
         }
     }
 
+    @Override
+    public String toString(){
+        return String.format("Circle %s %s %s", getId(),getxPos(),getyPos());
+    }
+
 
 }

@@ -217,6 +217,11 @@ public class TriangleGizmo implements IGizmo {
         }
     }
 
+
+    @Override
+    public String toString(){
+        return String.format("Triangle %s %s %s", getId(),getxPos(),getyPos());
+    }
 }
 
 

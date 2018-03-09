@@ -118,11 +118,15 @@ public class BuildBoard extends JPanel implements Observer {
     private void drawLeftFlipper(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+        drawSquare(x+cellWidth,y,Color.LIGHT_GRAY);
+        drawSquare(x+cellWidth,y+cellWidth,Color.lightGray);
     }
 
     private void drawRightFlipper(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
+        drawSquare(x,y,Color.LIGHT_GRAY);
+        drawSquare(x,y+cellWidth,Color.lightGray);
     }
 
     private void drawTriangle(int x, int y, int rotationAngle,Color color) {

@@ -141,7 +141,7 @@ public class BuildGUI extends GUI {
         JMenu menu = new JMenu("File");
 
         JMenuItem save = new JMenuItem("Save");
-        save.addActionListener(runListener);
+        save.addActionListener(new SaveListener(model,buildBoard));
 
         JMenuItem load = new JMenuItem("Load");
         load.addActionListener(new LoadListener(model, buildBoard));

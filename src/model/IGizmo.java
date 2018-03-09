@@ -41,4 +41,6 @@ public interface IGizmo {
 
     boolean hasConnections();
 
+    String toString();
+
 }

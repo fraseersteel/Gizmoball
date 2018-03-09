@@ -149,4 +149,9 @@ public class SquareGizmo implements IGizmo {
         }
     }
 
+    @Override
+    public String toString(){
+        return String.format("Square %s %s %s", getId(),getxPos(),getyPos());
+    }
+
 }

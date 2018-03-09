@@ -26,7 +26,7 @@ public class LoadListener implements ActionListener {
 
 
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        jfc.setDialogTitle("Select Gizmo Save");
+        jfc.setDialogTitle("Select Gizmo map to Load");
         jfc.setAcceptAllFileFilterUsed(false);
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("(.giz) Gizmo Saves", "giz");
