@@ -460,4 +460,8 @@ public class Model extends Observable {
        return findGizmoByCoords(x,y).getClass().getName().replace("model.", "");
     }
 
+    public void removeAllGizmo(){
+        gizmos.clear();
+    }
+
 }

@@ -1,6 +1,7 @@
 package view;
 
 import controller.*;
+import controller.build.edit.ClearListener;
 import controller.build.gizmo.BuildButtonListener;
 import model.Model;
 
@@ -146,6 +147,9 @@ public class BuildGUI extends GUI {
         JMenuItem load = new JMenuItem("Load");
         load.addActionListener(new LoadListener(model, buildBoard));
 
+        JMenuItem clear = new JMenuItem("Clear Map");
+        clear.addActionListener(new ClearListener(model,buildBoard));
+
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(runListener);
 
@@ -154,6 +158,7 @@ public class BuildGUI extends GUI {
         buildMenu.add(menu);
         menu.add(save);
         menu.add(load);
+        menu.add(clear);
         menu.addSeparator();
 
         menu.add(exit);

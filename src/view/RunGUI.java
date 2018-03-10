@@ -109,6 +109,7 @@ public class RunGUI extends GUI {
         JMenuItem exit = new JMenuItem("Exit");
         exit.addActionListener(runListener);
 
+
         //Construct menu bar
         jframe.setJMenuBar(runMenu);
 

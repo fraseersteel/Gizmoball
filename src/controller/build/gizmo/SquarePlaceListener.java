@@ -8,6 +8,7 @@ import view.BuildGUI;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.UUID;
 
 public class SquarePlaceListener implements MouseListener {
 
@@ -27,7 +28,9 @@ public class SquarePlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        SquareGizmo newSquare = new SquareGizmo("square", xCoord, yCoord);
+        // TODO - all new gizmo objects are the same ID, must increment per object?
+
+        SquareGizmo newSquare = new SquareGizmo("newSquare", xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newSquare, xCoord, yCoord)) {
                 model.addGizmo(newSquare);
@@ -40,6 +43,7 @@ public class SquarePlaceListener implements MouseListener {
         }
         board.repaint();
     }
+
 
     @Override
     public void mousePressed(MouseEvent e) {

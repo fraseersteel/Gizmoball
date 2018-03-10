@@ -58,7 +58,7 @@ public class GizmoLoader {
             int y = (int) Double.parseDouble(line[3]);
 
             if (!processShape(line[0], id, x, y))
-                System.out.println("Error found in save file");
+                System.out.println("Error found in save file for gizmo.");
 
             return true;
         }
@@ -70,7 +70,7 @@ public class GizmoLoader {
             int endY = Integer.parseInt(line[5]);
 
             if (!processAbsorber(id, startX, startY, endX, endY))
-                System.out.println("Error found in save file");
+                System.out.println("Error found in save file for absorber.");
         }
 
         if (line[0].equals("Move")) {
@@ -96,6 +96,9 @@ public class GizmoLoader {
 
 
     private boolean processShape(String shape, String id, int x, int y) {
+
+        // TODO - always returns false
+
         IGizmo gizmo = null;
         switch(shape) {
             case "LeftFlipper":
