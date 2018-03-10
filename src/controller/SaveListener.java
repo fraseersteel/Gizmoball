@@ -3,6 +3,7 @@ package controller;
 import model.IGizmo;
 import model.Model;
 import model.SaveFile;
+import view.BuildGUI;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -15,24 +16,27 @@ public class SaveListener implements ActionListener {
     Model model;
     JPanel board;
     JFileChooser fc;
+    BuildGUI buildGUI;
 
-    public SaveListener(Model m, JPanel board){
+
+    public SaveListener(Model m, JPanel board,BuildGUI gui){
         this.model = m;
         this.board = board;
         fc = new JFileChooser();
+        buildGUI = gui;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("(.giz) Gizo Saves","giz");
-        fc.addChoosableFileFilter(filter);
-
         fc.showSaveDialog(board);
 
-        SaveFile saveFile = new SaveFile(model,fc.getName());
-        System.out.println(model.getGizmos() + " is in the model");
-        saveFile.save();
+        String withExt = fc.getSelectedFile().getAbsolutePath()+".giz";
+        File file = new File(withExt);
+
+        SaveFile saveFile = new SaveFile(model,file);
+        saveFile.saveToFile();
+
+        buildGUI.getLabel().setText("File saved to: " + file);
 
     }
 }

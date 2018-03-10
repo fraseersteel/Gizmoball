@@ -7,10 +7,10 @@ import java.util.ArrayList;
 public class SaveFile {
 
     private Model model;
-    private String file;
+    private File file;
     private ArrayList<String> saveLine;
 
-    public SaveFile(Model model, String fileName) {
+    public SaveFile(Model model, File fileName) {
         this.model = model;
         this.file = fileName;
         saveLine = new ArrayList<>();
@@ -32,12 +32,18 @@ public class SaveFile {
         try{
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw);
             ArrayList<String> lines = save();
-            for(int i=0;i<lines.size();i++){
-                bw.write(lines.get(i) + "\n");
+            System.out.println(lines.size());
+            for(int i = 0; i<lines.size(); i++){
+                System.out.println(i);
+                if(lines.get(i) != null){
+                    out.write(lines.get(i));
+                    System.out.println(lines.get(i));
+                    out.write("\n");
+                }
             }
-            fw.close();
-            bw.close();
+            out.close();
 
         }catch (FileNotFoundException e){
             e.printStackTrace();
