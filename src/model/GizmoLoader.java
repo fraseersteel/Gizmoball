@@ -24,6 +24,8 @@ public class GizmoLoader {
             FileReader reader = new FileReader(file);
             BufferedReader buffReader = new BufferedReader(reader);
 
+            model.removeAllGizmo();
+
             String line;
             while ((line = buffReader.readLine()) != null){
                 if (!line.isEmpty()) {
