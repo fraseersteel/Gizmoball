@@ -28,15 +28,22 @@ public class SaveListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         fc.showSaveDialog(board);
+            try {
+                String withExt = fc.getSelectedFile().getAbsolutePath() + ".giz";
+                File file = new File(withExt);
 
-        String withExt = fc.getSelectedFile().getAbsolutePath()+".giz";
-        File file = new File(withExt);
+                SaveFile saveFile = new SaveFile(model, file);
+                saveFile.saveToFile();
 
-        SaveFile saveFile = new SaveFile(model,file);
-        saveFile.saveToFile();
+                buildGUI.getLabel().setText("File saved to: " + file);
 
-        buildGUI.getLabel().setText("File saved to: " + file);
-
+            }
+            catch (Exception ex)
+            {
+                buildGUI.getLabel().setText("Cancel selected: nothing saved.");
+            }
+        }
     }
-}
+

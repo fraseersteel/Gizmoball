@@ -30,7 +30,7 @@ public class LeftFlipperPlaceListener implements MouseListener {
         try {
             if (model.checkLegalPlace(newFlipper, xCoord, yCoord)) {
                 model.addGizmo(newFlipper);
-                buildGUI.getLabel().setText("Added ");
+                buildGUI.getLabel().setText("Added Left Flipper");
             } else {
                 buildGUI.getLabel().setText("Left Flipper can't be placed here!");
             }
