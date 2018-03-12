@@ -14,10 +14,9 @@ public class GUI {
     }
 
     public void switchToBuildMode(){
-        model = new Model(); // Create new model when we go to build.
-
         jframe.setVisible(false);
-        new BuildGUI(new Model());
+        model.getBall().stop();
+        new BuildGUI(model);
     }
 
     public void switchToRunMode(){
