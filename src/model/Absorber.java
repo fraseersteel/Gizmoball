@@ -8,12 +8,12 @@ import java.util.ArrayList;
 public class Absorber {
 
     private String id;
-    private double startX, startY;
-    private double endX, endY;
+    private int startX, startY;
+    private int endX, endY;
 
     private ArrayList<LineSegment> edges;
 
-    public Absorber(String name, double startX, double startY, double endX, double endY) {
+    public Absorber(String name, int startX, int startY, int endX, int endY) {
         this.id = name;
 
         this.startX = startX;
@@ -31,23 +31,30 @@ public class Absorber {
         return id;
     }
 
-    public double getStartX() {
+    public int getStartX() {
         return startX;
     }
 
-    public double getStartY() {
+    public int getStartY() {
         return startY;
     }
 
-    public double getEndX() {
+    public int getEndX() {
         return endX;
     }
 
-    public double getEndY() {
+    public int getEndY() {
         return endY;
     }
 
     public ArrayList<LineSegment> getEdges() {
         return edges;
+    }
+
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> absorber = new ArrayList<>();
+        absorber.add("Absorber " + "A " + getStartX() + " "  + getStartY() + " " + getEndX() + " " + getEndY());
+
+        return absorber;
     }
 }

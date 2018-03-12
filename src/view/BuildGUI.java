@@ -170,5 +170,10 @@ public class BuildGUI extends GUI {
         runMode.addActionListener(runListener);
     }
 
+
+    public void showError(Exception ex){
+        JOptionPane.showMessageDialog(null,ex);
+    }
+
 }
 

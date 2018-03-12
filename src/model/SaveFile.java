@@ -23,6 +23,9 @@ public class SaveFile {
         for(IGizmo gizmo: model.getGizmos()){
            saveLine.addAll(gizmo.saveSignature());
         }
+        if(model.getAbsorber() != null){
+            saveLine.addAll(model.getAbsorber().saveSignature());
+        }
 
         return saveLine;
     }

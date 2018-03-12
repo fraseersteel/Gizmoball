@@ -25,6 +25,12 @@ public class Model extends Observable {
 
     private double moveTime;
 
+    private int lFlipperCount = 0;
+    private int rFlipperCount = 0;
+    private int squareCount = 0;
+    private int circleCount = 0;
+    private int triangleCount = 0;
+
 
     public Model() {
         accDueToGrav = 1;
@@ -381,6 +387,7 @@ public class Model extends Observable {
             throw new InvalidGizmoException("Attempted to add invalid gizmo type!");
         }
         gizmos.add((IGizmo) gizmo);
+        gizmoAddCounter((IGizmo) gizmo);
     }
 
 
@@ -459,6 +466,7 @@ public class Model extends Observable {
 
     public boolean removeGizmoByCoords(int x, int y) {
         if (findGizmoByCoords(x, y) != null) {
+            gizmoRemoveCounter(findGizmoByCoords(x,y));
             gizmos.remove(findGizmoByCoords(x, y));
             return true;
         }
@@ -472,6 +480,55 @@ public class Model extends Observable {
 
     public void removeAllGizmo(){
         gizmos.clear();
+        circleCount = squareCount = lFlipperCount = rFlipperCount = triangleCount = 0;
     }
 
+
+    public void gizmoAddCounter(IGizmo gizmo){
+        if (gizmo instanceof SquareGizmo){
+            squareCount++;
+        }else if (gizmo instanceof  CircleGizmo){
+            circleCount++;
+        } else if(gizmo instanceof  TriangleGizmo){
+            triangleCount++;
+        }else if(gizmo instanceof  LeftFlipper){
+            lFlipperCount++;
+        }else if(gizmo instanceof  RightFlipper){
+            rFlipperCount++;
+        }
+    }
+
+    public void gizmoRemoveCounter(IGizmo gizmo){
+        if (gizmo instanceof SquareGizmo){
+            squareCount--;
+        }else if (gizmo instanceof  CircleGizmo){
+            circleCount--;
+        } else if(gizmo instanceof  TriangleGizmo){
+            triangleCount--;
+        }else if(gizmo instanceof  LeftFlipper){
+            lFlipperCount--;
+        }else if(gizmo instanceof  RightFlipper){
+            rFlipperCount--;
+        }
+    }
+
+    public int getSquareCount(){
+        return squareCount;
+    }
+
+    public int getCircleCount(){
+        return circleCount;
+    }
+
+    public int getTriangleCount(){
+        return triangleCount;
+    }
+
+    public int getLFlipperCount(){
+        return lFlipperCount;
+    }
+
+    public int getRFlipperCount(){
+        return rFlipperCount;
+    }
 }
