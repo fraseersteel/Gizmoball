@@ -15,7 +15,6 @@ public class GUI {
 
     public void switchToBuildMode(){
         jframe.setVisible(false);
-        model.getBall().stop();
         new BuildGUI(model);
     }
 
