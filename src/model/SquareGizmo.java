@@ -3,7 +3,10 @@ package model;
 import physics.Circle;
 import physics.LineSegment;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SquareGizmo implements IGizmo {
@@ -29,6 +32,8 @@ public class SquareGizmo implements IGizmo {
         circles = new ArrayList<>();
         lines = new ArrayList<>();
         isTriggered = false;
+
+        colour = Color.GREEN;
 
         addCircles();
         addLines();
@@ -129,6 +134,19 @@ public class SquareGizmo implements IGizmo {
     public void trigger() {
         if (isTriggered == false) {
             isTriggered = true;
+
+            colour = Color.GREEN;
+
+            Timer timer = new Timer(3000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    colour = Color.RED;
+                }
+            });
+
+            timer.setRepeats(false);
+            timer.start();
+
         } else if (isTriggered == true) {
             isTriggered = false;
         }

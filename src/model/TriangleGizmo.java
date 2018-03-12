@@ -3,7 +3,10 @@ package model;
 import physics.Circle;
 import physics.LineSegment;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class TriangleGizmo implements IGizmo {
@@ -26,6 +29,8 @@ public class TriangleGizmo implements IGizmo {
         this.rotationAngle = 0;
         //starts in initial colour scheme
         isTriggered = false;
+
+        colour = Color.BLUE;
 
         connections = new ArrayList<>();
         circles = new ArrayList<>();
@@ -128,10 +133,23 @@ public class TriangleGizmo implements IGizmo {
     }
 
     @Override
-    public void trigger(){
-        if(isTriggered==false){
+    public void trigger() {
+        if (isTriggered == false) {
             isTriggered = true;
-        } else if(isTriggered ==true){
+
+            colour = Color.CYAN;
+
+            Timer timer = new Timer(3000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    colour = Color.RED;
+                }
+            });
+
+            timer.setRepeats(false);
+            timer.start();
+
+        } else if (isTriggered == true) {
             isTriggered = false;
         }
     }

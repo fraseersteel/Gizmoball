@@ -39,6 +39,8 @@ public class LeftFlipper implements IGizmo {
         colour = Color.ORANGE;
         isTriggered = false;
 
+        colour = Color.ORANGE;
+
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();

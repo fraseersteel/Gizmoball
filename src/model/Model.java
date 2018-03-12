@@ -89,6 +89,7 @@ public class Model extends Observable {
     }
 
     // TODO: Flipper collisions as is are completely broken - commented out until fixed.
+    // TODO: Triggers are super random right now.  Unknown reason for bug.
     private CollisionDetails timeUntilCollision() {
 
         double time = 0.0;
@@ -118,8 +119,8 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
-//                        if (minTUC < moveTime)
-//                            gizmo.trigger();
+                        if (minTUC <= moveTime)
+                            triggerGizmo(gizmo);
 
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
@@ -130,8 +131,8 @@ public class Model extends Observable {
                     double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                     if (lineTime < minTUC) {
 
-//                        if (minTUC < moveTime)
-//                            gizmo.trigger();
+                        if (minTUC <= moveTime)
+                            triggerGizmo(gizmo);
 
                         minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
@@ -142,9 +143,10 @@ public class Model extends Observable {
 
                 for (Circle circleX : gizmo.getCircles()) {
                     double circleTime = Geometry.timeUntilCircleCollision(circleX, ballCircle, ballVelocity);
-                    if (circleTime < minTUC) {
+                    if (circleTime <= minTUC) {
 
-//                        if (minTUC < moveTime)
+                        if (minTUC < moveTime)
+                            triggerGizmo(gizmo);
 
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circleX.getCenter(), ballCircle.getCenter(), ballVelocity);
@@ -157,7 +159,8 @@ public class Model extends Observable {
                         minTUC = lineTime;
                         newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
 
-//                        if (minTUC < moveTime)
+                        if (minTUC < moveTime)
+                            triggerGizmo(gizmo);
 
                     }
                 }
@@ -166,7 +169,8 @@ public class Model extends Observable {
                     double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
                     if (circleTime < minTUC) {
 
-//                        if (minTUC < moveTime)
+                        if (minTUC <= moveTime)
+                            triggerGizmo(gizmo);
 
                         minTUC = circleTime;
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
@@ -259,6 +263,12 @@ public class Model extends Observable {
         }
 
         return new CollisionDetails(minTUC, newVelocity);
+    }
+
+    private void triggerGizmo(IGizmo gizmo) {
+        System.out.println("Trigger");
+        gizmo.trigger();
+
     }
 
 

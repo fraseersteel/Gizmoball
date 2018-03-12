@@ -4,7 +4,10 @@ package model;
 import physics.Circle;
 import physics.LineSegment;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CircleGizmo implements IGizmo {
@@ -26,6 +29,8 @@ public class CircleGizmo implements IGizmo {
         this.yPos = y;
         this.rotationAngle = 0;
         isTriggered = false;
+
+        colour = Color.GREEN;
 
         connections = new ArrayList<>();
         circles = new ArrayList<>();
@@ -115,10 +120,24 @@ public class CircleGizmo implements IGizmo {
     }
 
     @Override
-    public void trigger(){
-        if(isTriggered==false){
+    public void trigger() {
+        if (isTriggered == false) {
+            System.out.println("Trigger circle");
             isTriggered = true;
-        } else if(isTriggered ==true){
+
+            colour = Color.YELLOW;
+
+            Timer timer = new Timer(3000, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    colour = Color.GREEN;
+                }
+            });
+
+            timer.setRepeats(false);
+            timer.start();
+
+        } else if (isTriggered == true) {
             isTriggered = false;
         }
     }
