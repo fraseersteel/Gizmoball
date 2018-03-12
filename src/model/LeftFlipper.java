@@ -205,4 +205,12 @@ public class LeftFlipper implements IGizmo {
         }
     }
 
+    @Override
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> gizLines = new ArrayList<>();
+        gizLines.add("LeftFlipper " + ID + " " + xPos + " " + yPos);
+
+        return gizLines;
+    }
+
 }

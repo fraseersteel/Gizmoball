@@ -150,8 +150,11 @@ public class SquareGizmo implements IGizmo {
     }
 
     @Override
-    public String toString(){
-        return String.format("Square %s %s %s", getId(),getxPos(),getyPos());
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> gizLines = new ArrayList<>();
+        gizLines.add("Square " + ID + " " + xPos + " " + yPos);
+
+        return gizLines;
     }
 
 }

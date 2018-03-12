@@ -206,4 +206,12 @@ public class RightFlipper implements IGizmo {
             return true;
         }
     }
+
+    @Override
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> gizLines = new ArrayList<>();
+        gizLines.add("RightFlipper " + ID + " " + xPos + " " + yPos);
+
+        return gizLines;
+    }
 }

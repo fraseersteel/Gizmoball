@@ -21,7 +21,7 @@ public class SaveFile {
     public ArrayList<String> save(){
 
         for(IGizmo gizmo: model.getGizmos()){
-           saveLine.add(gizmo.toString());
+           saveLine.addAll(gizmo.saveSignature());
         }
 
         return saveLine;
@@ -33,8 +33,9 @@ public class SaveFile {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw);
+
             ArrayList<String> lines = save();
-            System.out.println(lines.size());
+
             for(int i = 0; i<lines.size(); i++){
                 System.out.println(i);
                 if(lines.get(i) != null){

@@ -219,8 +219,17 @@ public class TriangleGizmo implements IGizmo {
 
 
     @Override
-    public String toString(){
-        return String.format("Triangle %s %s %s", getId(),getxPos(),getyPos());
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> gizLines = new ArrayList<>();
+        gizLines.add("Triangle " + ID + " " + xPos + " " + yPos);
+
+        int rotation = rotationAngle;
+        while (rotation != 0) {
+            rotation = rotation-90;
+            gizLines.add("Rotate " + ID);
+        }
+
+        return gizLines;
     }
 }
 

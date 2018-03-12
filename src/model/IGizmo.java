@@ -41,6 +41,6 @@ public interface IGizmo {
 
     boolean hasConnections();
 
-    String toString();
+    ArrayList<String> saveSignature();
 
 }

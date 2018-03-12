@@ -138,8 +138,11 @@ public class CircleGizmo implements IGizmo {
     }
 
     @Override
-    public String toString(){
-        return String.format("Circle %s %s %s", getId(),getxPos(),getyPos());
+    public ArrayList<String> saveSignature(){
+        ArrayList<String> gizLines = new ArrayList<>();
+        gizLines.add("Circle " + ID + " " + xPos + " " + yPos);
+
+        return gizLines;
     }
 
 
