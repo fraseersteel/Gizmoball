@@ -58,9 +58,11 @@ public class RunListener implements ActionListener {
                     break;
                 case "Quit":
                 case "Exit":
+                    timer.stop();
                     int reply = JOptionPane.showConfirmDialog(null, "Are you sure you would like to quit?", "Warning", JOptionPane.YES_NO_OPTION);
                     if (reply == JOptionPane.YES_NO_CANCEL_OPTION) {
                         JOptionPane.showMessageDialog(null, "Resuming game");
+                        timer.start();
                     } else {
                         System.exit(0);
                     }

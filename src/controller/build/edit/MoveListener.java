@@ -36,7 +36,7 @@ public class MoveListener implements MouseListener {
                 System.out.println("No Gizmo was clicked");
             }else {
                 String name = model.getGizmoTypeName(selectedGizmo.getxPos(), selectedGizmo.getyPos());
-                System.out.println(name + " was selected");
+                buildGUI.getLabel().setText(name + " at " + xCoord + "," + yCoord + " selected");
             }
         } else {
             String name = model.getGizmoTypeName(selectedGizmo.getxPos(), selectedGizmo.getyPos());
