@@ -387,7 +387,6 @@ public class Model extends Observable {
             throw new InvalidGizmoException("Attempted to add invalid gizmo type!");
         }
         gizmos.add((IGizmo) gizmo);
-        gizmoAddCounter((IGizmo) gizmo);
     }
 
 
@@ -466,7 +465,6 @@ public class Model extends Observable {
 
     public boolean removeGizmoByCoords(int x, int y) {
         if (findGizmoByCoords(x, y) != null) {
-            gizmoRemoveCounter(findGizmoByCoords(x,y));
             gizmos.remove(findGizmoByCoords(x, y));
             return true;
         }
@@ -484,32 +482,10 @@ public class Model extends Observable {
     }
 
 
-    public void gizmoAddCounter(IGizmo gizmo){
-        if (gizmo instanceof SquareGizmo){
-            squareCount++;
-        }else if (gizmo instanceof  CircleGizmo){
-            circleCount++;
-        } else if(gizmo instanceof  TriangleGizmo){
-            triangleCount++;
-        }else if(gizmo instanceof  LeftFlipper){
-            lFlipperCount++;
-        }else if(gizmo instanceof  RightFlipper){
-            rFlipperCount++;
-        }
-    }
-
-    public void gizmoRemoveCounter(IGizmo gizmo){
-        if (gizmo instanceof SquareGizmo){
-            squareCount--;
-        }else if (gizmo instanceof  CircleGizmo){
-            circleCount--;
-        } else if(gizmo instanceof  TriangleGizmo){
-            triangleCount--;
-        }else if(gizmo instanceof  LeftFlipper){
-            lFlipperCount--;
-        }else if(gizmo instanceof  RightFlipper){
-            rFlipperCount--;
-        }
+    public void reset() {
+        gizmos.clear();
+        ball = null;
+        absorber = null;
     }
 
     public int getSquareCount(){

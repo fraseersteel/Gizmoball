@@ -21,7 +21,7 @@ public class ClearListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        model.removeAllGizmo();
+        model.reset();
 
 
         board.repaint();

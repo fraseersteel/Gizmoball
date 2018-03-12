@@ -93,6 +93,10 @@ public class Ball extends JPanel implements Observer {
         isStopped = true;
     }
 
+    public String saveSignature() {
+        return "Ball " + id + " " + xPos + " " + yPos + " " + velocity.x() + " " + velocity.y();
+    }
+
     @Override
     public void update(Observable o, Object arg) {
 

@@ -27,7 +27,7 @@ public class CirclePlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        CircleGizmo newCircle = new CircleGizmo("circle", xCoord, yCoord);
+        CircleGizmo newCircle = new CircleGizmo("Circle"+ model.getGizmos().size(), xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newCircle, xCoord, yCoord)) {
                 model.addGizmo(newCircle);

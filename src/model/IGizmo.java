@@ -15,6 +15,8 @@ public interface IGizmo {
 
     int getyPos();
 
+    void setID(String id);
+
     void setYPos(int y);
 
     void setXPos(int x);

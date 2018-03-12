@@ -26,7 +26,7 @@ public class RightFlipperPlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        RightFlipper newFlipper = new RightFlipper("rightflipper", xCoord, yCoord);
+        RightFlipper newFlipper = new RightFlipper("RightFlipper"+ model.getGizmos().size(), xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newFlipper, xCoord, yCoord)) {
                 model.addGizmo(newFlipper);

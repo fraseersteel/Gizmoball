@@ -105,6 +105,11 @@ public class RightFlipper implements IGizmo {
     }
 
     @Override
+    public void setID(String id) {
+        this.ID = id;
+    }
+
+    @Override
     public void setColour(Color color) {
         this.colour = color;
     }

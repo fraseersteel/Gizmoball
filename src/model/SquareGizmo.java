@@ -74,6 +74,11 @@ public class SquareGizmo implements IGizmo {
         }
     }
 
+    @Override
+    public void setID(String id) {
+        this.ID = id;
+    }
+
 
     @Override
     public String getId() {

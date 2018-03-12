@@ -26,6 +26,9 @@ public class SaveFile {
         if(model.getAbsorber() != null){
             saveLine.addAll(model.getAbsorber().saveSignature());
         }
+        if (model.getBall() != null) {
+            saveLine.add(model.getBall().saveSignature());
+        }
 
         return saveLine;
     }

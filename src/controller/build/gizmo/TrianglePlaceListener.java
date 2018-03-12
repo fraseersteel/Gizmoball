@@ -26,7 +26,7 @@ public class TrianglePlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        TriangleGizmo newTriangle = new TriangleGizmo("triangle", xCoord, yCoord);
+        TriangleGizmo newTriangle = new TriangleGizmo("Triangle"+ model.getGizmos().size(), xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newTriangle, xCoord, yCoord)) {
                 model.addGizmo(newTriangle);

@@ -30,7 +30,7 @@ public class SquarePlaceListener implements MouseListener {
 
         // TODO - all new gizmo objects are the same ID, must increment per object?
 
-        SquareGizmo newSquare = new SquareGizmo("newSquare", xCoord, yCoord);
+        SquareGizmo newSquare = new SquareGizmo("Square"+ model.getGizmos().size(), xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newSquare, xCoord, yCoord)) {
                 model.addGizmo(newSquare);

@@ -26,7 +26,7 @@ public class LeftFlipperPlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        LeftFlipper newFlipper = new LeftFlipper("leftflipper", xCoord, yCoord);
+        LeftFlipper newFlipper = new LeftFlipper("LeftFlipper"+ model.getGizmos().size(), xCoord, yCoord);
         try {
             if (model.checkLegalPlace(newFlipper, xCoord, yCoord)) {
                 model.addGizmo(newFlipper);
