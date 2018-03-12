@@ -55,6 +55,7 @@ public class MoveListener implements MouseListener {
         }
 
 
+        board.repaint();
 
 
 
