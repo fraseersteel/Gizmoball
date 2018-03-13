@@ -4,6 +4,7 @@ import physics.Circle;
 import physics.Vect;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,6 +16,7 @@ public class Ball extends JPanel implements Observer {
     private double xPos;
     private double yPos;
     private double radius;
+    private Color colour;
 
     private boolean isStopped;
 
@@ -28,6 +30,8 @@ public class Ball extends JPanel implements Observer {
         this.yPos = yPosition;
 
         this.isStopped = false;
+
+        colour = Color.ORANGE;
     }
 
 
@@ -55,9 +59,9 @@ public class Ball extends JPanel implements Observer {
         return velocity.x();
     }
 
-    public double getYVelo(){
-        return velocity.y();
-    }
+    public double getYVelo() { return velocity.y();}
+
+    public Color getColour(){return colour;}
 
     public boolean isStopped(){
         return isStopped;
@@ -81,9 +85,18 @@ public class Ball extends JPanel implements Observer {
         yPos = y;
     }
 
+    public void setXYPos(double x, double y){
+        xPos = x;
+        yPos = y;
+    }
+
     public void setVelocity(Vect v){
         velocity = v;
     }
+
+    public void setRadius(double r){radius = r;}
+
+    public void setColour(Color color){this.colour = color;}
 
     public void start() {
         isStopped = false;

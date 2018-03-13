@@ -1,12 +1,15 @@
 import model.CircleGizmo;
 import org.junit.Before;
 import org.junit.Test;
+import physics.Circle;
+
+import java.awt.*;
 
 import static org.junit.Assert.*;
 
 public class CircleGizmoTest {
 
-    CircleGizmo circleGizmo;
+    private CircleGizmo circleGizmo;
 
     @Before
     public void setUP(){
@@ -47,7 +50,7 @@ public class CircleGizmoTest {
     @Test
     public void testYPos2(){
         circleGizmo.setYPos(12);
-        assertEquals(12,circleGizmo.getxPos());
+        assertEquals(12,circleGizmo.getyPos());
     }
 
     //Test to check if the circles retain same coordinates after rotation
@@ -59,5 +62,53 @@ public class CircleGizmoTest {
         assertEquals(55, circleGizmo.getxPos());
         assertEquals(66,circleGizmo.getyPos());
     }
+
+    //Test to check if the colour is displayed correctly after setting a new value
+    @Test
+    public void testColor(){
+        circleGizmo.setColour(Color.GREEN);
+        assertEquals(Color.GREEN,circleGizmo.getColour());
+    }
+
+    //Test to check if the rotation angle always stays at 0
+    @Test
+    public void testRotation(){
+        circleGizmo.rotate();
+        assertEquals(0, circleGizmo.getRotationAngle());
+    }
+
+    //Test to check that the correct number of circles are in the arraylist
+    //Test to check x and y coordinates of the position 0 circle
+    //Test to check the radius of the position 0 circle
+    @Test
+    public void testCircles(){
+        assertEquals(1,circleGizmo.getCircles().size());
+        Circle c = circleGizmo.getCircles().get(0);
+        assertEquals(10+0.5, c.getCenter().x(),0);
+        assertEquals(15+0.5, c.getCenter().y(),0);
+        assertEquals(0.5, c.getRadius(),0);
+    }
+
+    //Test to check the initial number of connections
+    @Test
+    public void testHasConnections(){
+        assertEquals(0,circleGizmo.getConnections().size());
+    }
+
+    //Test to check if the number of lines for a circle gizmo are 0
+    @Test
+    public void testLines(){
+        assertEquals(null,circleGizmo.getLines());
+    }
+
+    //Test to check position 0 string
+    @Test
+    public void testSaveSignature(){
+        circleGizmo.setID("Circle_2");
+        circleGizmo.setXYPos(16,20);
+        assertEquals("Circle Circle_2 16 20", circleGizmo.saveSignature().get(0));
+    }
+
+
 
 }

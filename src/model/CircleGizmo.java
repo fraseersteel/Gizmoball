@@ -113,6 +113,11 @@ public class CircleGizmo implements IGizmo {
         this.xPos = x;
     }
 
+    public void setXYPos(double x, double y){
+        xPos = (int) x;
+        yPos = (int) y;
+    }
+
     @Override
     public void addTrigger(IGizmo gizmo) {
         //
