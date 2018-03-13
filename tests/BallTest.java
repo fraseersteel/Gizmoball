@@ -3,6 +3,8 @@ import org.junit.Before;
 import org.junit.Test;
 import physics.Vect;
 
+import java.awt.*;
+
 import static org.junit.Assert.*;
 
 
@@ -85,6 +87,13 @@ public class BallTest {
         ball.setVelocity(new Vect(15, 18));
         assertEquals("Ball Ball_2 50 60 15 18",ball.saveSignature());
     }
+
+    @Test
+    public void testColour(){
+        ball.setColour(Color.CYAN);
+        assertEquals(Color.CYAN,ball.getColour());
+    }
+
 /*
     //Currently can't set the colour of the ball
     //Test to check the initial ball colour
