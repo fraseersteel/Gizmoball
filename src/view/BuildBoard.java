@@ -146,13 +146,16 @@ public class BuildBoard extends JPanel implements Observer {
                 break;
         }
 
-        g2d.fillPolygon(triangle);
         g2d.setColor(color);
+        g2d.fillPolygon(triangle);
     }
 
     private void drawAbsorber(int startX, int startY, int width, int height) {
         g2d.setColor(Color.MAGENTA);
         g2d.fillRect(startX, startY, width, height);
+
+        g2d.setColor(Color.pink);
+        g2d.fillRect(startX+width-cellWidth, startY+height-cellWidth, cellWidth, cellWidth);
     }
 
 
