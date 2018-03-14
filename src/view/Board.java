@@ -152,8 +152,8 @@ public class Board extends JPanel implements Observer {
                 break;
         }
 
-        g2d.fillPolygon(triangle);
         g2d.setColor(color);
+        g2d.fillPolygon(triangle);
     }
 
     private void drawAbsorber(int startX, int startY, int width, int height) {

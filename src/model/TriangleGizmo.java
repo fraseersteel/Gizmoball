@@ -147,7 +147,8 @@ public class TriangleGizmo implements IGizmo {
             Timer timer = new Timer(3000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent arg0) {
-                    colour = Color.RED;
+                    colour = Color.BLUE;
+                    isTriggered = false;
                 }
             });
 
