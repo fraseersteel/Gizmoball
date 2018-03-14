@@ -3,12 +3,14 @@ package controller.build.gizmo;
 import model.Absorber;
 import model.Model;
 import view.BuildBoard;
+import view.BuildGUI;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class AbsorberPlaceListener implements MouseListener {
 
+    private BuildGUI gui;
     private Model model;
     private BuildBoard board;
     private int cellWidth;
@@ -16,9 +18,10 @@ public class AbsorberPlaceListener implements MouseListener {
     private int absorberStartX, absorberStartY, absorberEndX, absorberEndY;
     private boolean absorberProgress;
 
-    public AbsorberPlaceListener(Model model, BuildBoard board) {
+    public AbsorberPlaceListener(Model model, BuildBoard board, BuildGUI gui) {
         this.model = model;
         this.board = board;
+        this.gui = gui;
 
         this.cellWidth = board.getCellWidth();
         this.absorberProgress = false;
@@ -35,7 +38,7 @@ public class AbsorberPlaceListener implements MouseListener {
         int xCoord = e.getX()/cellWidth;
         int yCoord = e.getY()/cellWidth;
 
-        System.out.println("[Press] x:" + xCoord + " y:" + yCoord);
+        gui.getLabel().setText("[Press] x:" + xCoord + " y:" + yCoord);
 
         absorberStartX = xCoord;
         absorberStartY = yCoord;
@@ -48,13 +51,19 @@ public class AbsorberPlaceListener implements MouseListener {
         int xCoord = (e.getX()/cellWidth)+1;
         int yCoord = (e.getY()/cellWidth)+1;
 
-        System.out.println("[Release] x:" + xCoord + " y:" + yCoord);
+        System.out.println("x: " + xCoord + "y: " + yCoord);
 
-        absorberEndX = xCoord;
-        absorberEndY = yCoord;
+    gui.getLabel().setText("[Release] x:" + xCoord + " y:" + yCoord);
 
-        Absorber absorber = new Absorber("absorber", absorberStartX, absorberStartY, absorberEndX, absorberEndY);
-        model.setAbsorber(absorber);
+        if(xCoord<=20&&yCoord<=20) {
+            absorberEndX = xCoord;
+            absorberEndY = yCoord;
+
+            Absorber absorber = new Absorber("absorber", absorberStartX, absorberStartY, absorberEndX, absorberEndY);
+            model.setAbsorber(absorber);
+        }else{
+            gui.getLabel().setText("Absorber larger than the map: Make sure it is within boundaries");
+        }
         board.repaint();
     }
 

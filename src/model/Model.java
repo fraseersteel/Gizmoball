@@ -70,7 +70,7 @@ public class Model extends Observable {
                 }
 
                 if (checkAbsorber()) {
-                    ball.setXPos(7);
+                    ball.setXPos(absorber.getEndX()-1);
                     ball.stop();
                 }
 
@@ -488,23 +488,4 @@ public class Model extends Observable {
         absorber = null;
     }
 
-    public int getSquareCount(){
-        return squareCount;
-    }
-
-    public int getCircleCount(){
-        return circleCount;
-    }
-
-    public int getTriangleCount(){
-        return triangleCount;
-    }
-
-    public int getLFlipperCount(){
-        return lFlipperCount;
-    }
-
-    public int getRFlipperCount(){
-        return rFlipperCount;
-    }
 }
