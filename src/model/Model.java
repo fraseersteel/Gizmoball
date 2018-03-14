@@ -50,7 +50,12 @@ public class Model extends Observable {
 
     public void setGravity(int gravity){
         accDueToGrav = gravity;
-        System.out.println(accDueToGrav);
+        System.out.println("gravity: " + accDueToGrav);
+    }
+
+    public void setFriction(int friciton){
+        deaccDueToFric = friciton;
+        System.out.println("friction: " + deaccDueToFric);
     }
 
     public void applyFriction() {

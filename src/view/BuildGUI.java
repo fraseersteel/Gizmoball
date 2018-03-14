@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class BuildGUI extends GUI {
 
-    private final static Dimension WINDOW_SIZE = new Dimension(750, 600);
+    private final static Dimension WINDOW_SIZE = new Dimension(750, 620);
 
     private BuildBoard buildBoard;
     private Container gizmoButtons;
@@ -186,8 +186,15 @@ public class BuildGUI extends GUI {
 
     private void setSliders(){
         JSlider grav = new JSlider(JSlider.HORIZONTAL, gravMin,gravMax,gravInit);
+        grav.setName("gravity");
+
+        JSlider fric = new JSlider(JSlider.HORIZONTAL,gravMin,gravMax,gravInit);
+        fric.setName("friction");
+
         grav.addChangeListener(sliderListener);
+        fric.addChangeListener(sliderListener);
         sliders.add(grav);
+        sliders.add(fric);
 
     }
 

@@ -28,10 +28,16 @@ public class SliderListener implements ChangeListener{
 
         JSlider source = (JSlider)e.getSource();
 
+        String name = source.getName();
+
         if(!source.getValueIsAdjusting()){
-            int gravity = (int) source.getValue();
-            model.setGravity(gravity);
-            
+            if("gravity".equals(name)) {
+                int gravity = (int) source.getValue();
+                model.setGravity(gravity);
+            }else if("friction".equals(name)){
+                int friction = (int) source.getValue();
+                model.setFriction(friction);
+            }
         }
     }
 }
