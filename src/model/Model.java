@@ -265,6 +265,13 @@ public class Model extends Observable {
         return new CollisionDetails(minTUC, newVelocity);
     }
 
+    public void connect(IGizmo connector, IGizmo connected) {
+
+        if (!connector.getConnections().contains(connected)){
+            connector.addConnection(connected);
+        }
+    }
+
     private void triggerGizmo(IGizmo gizmo) {
         System.out.println("Trigger");
         gizmo.trigger();

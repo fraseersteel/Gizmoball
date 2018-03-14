@@ -19,10 +19,6 @@ public class RightFlipper implements IGizmo {
     private Color colour;
     private boolean isTriggered;
 
-    private int height = 50;
-    private int width = 20;
-    private int radius = 10; //using same values from prototype
-
     private boolean isFlipped; //if is in the flipped position
     private boolean isStopped = true; //for checking if at rest - need to apply
 
@@ -45,8 +41,8 @@ public class RightFlipper implements IGizmo {
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
-        lineCor = new Vect ( xPos, yPos-height);
-        circleCor = new Vect ( xPos, yPos-height); //still not sure about these
+        //lineCor = new Vect ( xPos, yPos-height);
+        //circleCor = new Vect ( xPos, yPos-height);
 
 
         addCircles();
@@ -55,15 +51,15 @@ public class RightFlipper implements IGizmo {
 
     private void addCircles(){
         //circles for rounded ends of flipper
-        Circle c1 = new Circle(xPos+radius, yPos-radius, radius);
-        Circle c2 = new Circle (xPos+radius, (yPos-height)+radius, radius);
+        Circle c1 = new Circle(xPos+1.75, yPos, 0.25);
+        Circle c2 = new Circle (xPos+1.75, yPos+2, 0.25);
         circles.add(c1);
         circles.add(c2);
         //zero-radius circles for ends of lines
-        Circle z1 = new Circle(xPos, yPos, 0);
-        Circle z2 = new Circle(xPos, yPos-height, 0);
-        Circle z3 = new Circle(xPos+width, yPos, 0);
-        Circle z4 = new Circle(xPos+width, yPos-height, 0);
+        Circle z1 = new Circle(xPos+1.5, yPos, 0);
+        Circle z2 = new Circle(xPos+1.5, yPos+2, 0);
+        Circle z3 = new Circle(xPos+2, yPos, 0);
+        Circle z4 = new Circle(xPos+2, yPos+2, 0);
         circles.add(z1);
         circles.add(z2);
         circles.add(z3);
@@ -71,10 +67,8 @@ public class RightFlipper implements IGizmo {
     }
 
     private void addLines(){
-        LineSegment l1 = new LineSegment(xPos, yPos, xPos, yPos-height);
-        LineSegment l2 = new LineSegment(xPos+width, yPos, xPos+width, yPos-height);
-        lines.add(l1);
-        lines.add(l2);
+        lines.add(new LineSegment(xPos+1.5, yPos, xPos+1.5, yPos+2));
+        lines.add(new LineSegment(xPos + 2, yPos, xPos + 2, yPos + 2));
     }
 
     @Override
@@ -212,6 +206,11 @@ public class RightFlipper implements IGizmo {
         }else{
             return true;
         }
+    }
+
+    public void addConnection(IGizmo connected){
+        System.out.println(String.format("Connecting gizmo %s to %s", this.ID, connected.getId()));
+        connections.add(connected);
     }
 
     @Override

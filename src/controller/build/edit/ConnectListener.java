@@ -1,10 +1,12 @@
 package controller.build.edit;
 
+import model.IGizmo;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
 import javax.jws.WebParam;
+import javax.xml.bind.SchemaOutputResolver;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,12 +15,15 @@ public class ConnectListener implements MouseListener {
     private Model model;
     private BuildBoard board;
     private BuildGUI buildGUI;
-
+    private boolean chosenConnector = false;
+    private IGizmo connectorGizmo;
+    private IGizmo connectedGizmo;
 
     public ConnectListener(Model model, BuildBoard board, BuildGUI gui) {
         this.model = model;
         this.board = board;
         this.buildGUI = gui;
+
     }
 
     @Override
@@ -27,8 +32,20 @@ public class ConnectListener implements MouseListener {
         int yCoord = e.getY()/board.getCellWidth();
 
         if(model.findGizmoByCoords(xCoord,yCoord) != null){
+            if(!chosenConnector) {
+                connectorGizmo = model.findGizmoByCoords(xCoord, yCoord);
+                chosenConnector = true;
+                System.out.println(String.format("Connecting %s", connectorGizmo.getId()));
+            } else {
+                connectedGizmo = model.findGizmoByCoords(xCoord, yCoord);
+                System.out.println(String.format("Connecting %s to %s", connectorGizmo.getId(), connectedGizmo.getId()));
+                model.connect(connectorGizmo, connectedGizmo);
+                connectorGizmo = null;
+                connectedGizmo = null;
+                chosenConnector = false;
+            }
 
-        }else{
+        } else {
 
             buildGUI.getLabel().setText("No gizmo to connect");
         }

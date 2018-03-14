@@ -172,6 +172,11 @@ public class SquareGizmo implements IGizmo {
         }
     }
 
+    public void addConnection(IGizmo connected){
+        System.out.println(String.format("Connecting gizmo %s to %s", this.ID, connected.getId()));
+        connections.add(connected);
+    }
+
     @Override
     public ArrayList<String> saveSignature(){
         ArrayList<String> gizLines = new ArrayList<>();
