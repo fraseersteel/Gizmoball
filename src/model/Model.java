@@ -346,7 +346,7 @@ public class Model extends Observable {
         }
 
         // Check no ball in vicinity
-        if (getBall() != null) {
+        if (ball != null) {
             Ball ball = getBall();
             if (ball.getXPos() == x && ball.getYPos() == y)
                 return false;
@@ -358,6 +358,54 @@ public class Model extends Observable {
                 return false;
         }
 
+        // Check no absorber in vicinity
+        if (absorber != null) {
+            if (x >= absorber.getStartX() && x <= absorber.getEndX()-1 &&
+                    y >= absorber.getStartY() && y <= absorber.getEndY()-1)
+                return false;
+        }
+
+
+        // ABSORBER
+        if (gizmo instanceof Absorber) {
+            Absorber abs = (Absorber) gizmo;
+            for (int xSer=abs.getStartX(); xSer < abs.getEndX(); xSer++) {
+                for (int ySer=abs.getStartY(); ySer < abs.getEndY(); ySer++) {
+                    if (findGizmoByCoords(xSer, ySer) != null) {
+                        return false;
+                    }
+
+                    if (ball != null) {
+                        if (ball.getXPos() == xSer && ball.getYPos() == ySer)
+                            return false;
+                        if (ball.getXPos() - 1 == xSer && ball.getYPos() == ySer)
+                            return false;
+                        if (ball.getXPos() - 1 == xSer && ball.getYPos() - 1 == ySer)
+                            return false;
+                        if (ball.getXPos() == xSer && ball.getYPos() - 1 == ySer)
+                            return false;
+                    }
+
+                    for (LeftFlipper flipper : getLeftFlippers()) {
+                        if (flipper.getxPos() + 1 == xSer && flipper.getyPos() == ySer)
+                            return false;
+                        if (flipper.getxPos() + 1 == xSer && flipper.getyPos() + 1 == ySer)
+                            return false;
+                        if (flipper.getxPos() == xSer && flipper.getyPos() + 1 == ySer)
+                            return false;
+                    }
+                    for (RightFlipper flipper : getRightFlippers()) {
+                        if (flipper.getxPos() + 1 == xSer && flipper.getyPos() == ySer)
+                            return false;
+                        if (flipper.getxPos() + 1 == xSer && flipper.getyPos() + 1 == ySer)
+                            return false;
+                        if (flipper.getxPos() == xSer && flipper.getyPos() + 1 == ySer)
+                            return false;
+                    }
+                }
+            }
+        }
+
         // BALL
         // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
         if (gizmo instanceof Ball) {
@@ -367,6 +415,17 @@ public class Model extends Observable {
                 return false;
             if (findGizmoByCoords(x - 1, y) != null)
                 return false;
+
+            if (absorber != null) {
+                if (absorber.occupies(x, y))
+                    return false;
+                if (absorber.occupies(x, y - 1))
+                    return false;
+                if (absorber.occupies(x - 1, y - 1))
+                    return false;
+                if (absorber.occupies(x - 1, y))
+                    return false;
+            }
         }
 
         // FLIPPERS
@@ -377,6 +436,17 @@ public class Model extends Observable {
                 return false;
             if (findGizmoByCoords(x + 1, y + 1) != null)
                 return false;
+
+            if (absorber != null) {
+                if (absorber.occupies(x, y))
+                    return false;
+                if (absorber.occupies(x + 1, y))
+                    return false;
+                if (absorber.occupies(x, y + 1))
+                    return false;
+                if (absorber.occupies(x + 1, y + 1))
+                    return false;
+            }
         }
 
         return true;
@@ -397,7 +467,7 @@ public class Model extends Observable {
      * @param object the object we want to check for being a valid gizmo.
      * @return true if object is a valid gizmo, false otherwise.
      */
-    boolean checkLegalGizmo(Object object) {
+    public boolean checkLegalGizmo(Object object) {
         if (!(object instanceof SquareGizmo) &&
                 !(object instanceof CircleGizmo) &&
                 !(object instanceof TriangleGizmo) &&
@@ -453,6 +523,9 @@ public class Model extends Observable {
         }
         return null;
     }
+
+
+
 
     public IGizmo findGizmoByCoords(int x, int y) {
         for (IGizmo gizmo : gizmos) {

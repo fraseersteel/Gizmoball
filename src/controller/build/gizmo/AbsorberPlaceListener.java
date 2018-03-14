@@ -1,5 +1,6 @@
 package controller.build.gizmo;
 
+import exceptions.InvalidGizmoException;
 import model.Absorber;
 import model.Model;
 import view.BuildBoard;
@@ -59,8 +60,19 @@ public class AbsorberPlaceListener implements MouseListener {
             absorberEndX = xCoord;
             absorberEndY = yCoord;
 
+
             Absorber absorber = new Absorber("absorber", absorberStartX, absorberStartY, absorberEndX, absorberEndY);
-            model.setAbsorber(absorber);
+
+            try {
+                if (model.checkLegalPlace(absorber, absorberStartX, absorberStartY)) {
+                    model.setAbsorber(absorber);
+                    gui.getLabel().setText("Added Absorber");
+                } else {
+                    gui.getLabel().setText("Absorber can't be placed here!");
+                }
+            } catch (InvalidGizmoException ex) {}
+
+
         }else{
             gui.getLabel().setText("Absorber larger than the map: Make sure it is within boundaries");
         }
