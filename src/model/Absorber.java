@@ -16,13 +16,28 @@ public class Absorber {
     public Absorber(String name, int startX, int startY, int endX, int endY) {
         this.id = name;
 
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
+        // These if statements ensure that startX isnt higher than endX etc (this causes problems)
+        if (endX < startX) {
+            this.startX = endX;
+            this.endX = startX;
+        }
+        else
+        {
+            this.startX = startX;
+            this.endX = endX;
+        }
+        if (endY < startY) {
+            this.startY = endY;
+            this.endY = startY;
+        }
+        else
+        {
+            this.startY = startY;
+            this.endY = endY;
+        }
 
-        int length = (int) (endX - startX);
-        int width = (int) (endY - endX);
+        int length = endX - startX;
+        int width = endY - endX;
         edges = new ArrayList<>();
         edges.add(new LineSegment(startX, startY, startX+length, startY+width));
     }
@@ -45,6 +60,13 @@ public class Absorber {
 
     public int getEndY() {
         return endY;
+    }
+
+    public boolean occupies(int x, int y) {
+        if (x >= startX && x <= endX-1 &&
+                y >= startY && y <= endY-1)
+            return true;
+        return false;
     }
 
     public ArrayList<LineSegment> getEdges() {

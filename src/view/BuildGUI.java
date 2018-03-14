@@ -2,6 +2,7 @@ package view;
 
 import controller.*;
 import controller.build.edit.ClearListener;
+import controller.build.edit.SliderListener;
 import controller.build.gizmo.BuildButtonListener;
 import model.Model;
 
@@ -10,26 +11,35 @@ import java.awt.*;
 
 public class BuildGUI extends GUI {
 
-    private final static Dimension WINDOW_SIZE = new Dimension(750, 575);
+    private final static Dimension WINDOW_SIZE = new Dimension(750, 620);
 
     private BuildBoard buildBoard;
     private Container gizmoButtons;
     private Container editButtons;
+    private Container sliders;
     private FlowLayout flow;
     private JLabel status;
     private BuildButtonListener buildButtonListener;
-
     private RunListener runListener;
+    private SliderListener sliderListener;
+
+    static final int gravMin = 0;
+    static final int gravMax = 5;
+    static final int gravInit = 1;
+
+
 
     public BuildGUI(Model model) {
         super(model);
         runListener = new RunListener(model,this);
+        sliderListener = new SliderListener(model,this);
         status = new JLabel("Welcome to Build Mode");
 
         initilise();
         buildMenuBar();
         leftZone();
         buildEditButtons();
+        setSliders();
 
         jframe.setVisible(true);
     }
@@ -47,6 +57,7 @@ public class BuildGUI extends GUI {
 
         gizmoButtons = new Container();
         editButtons = new Container();
+        sliders = new Container();
 
 
         buildBoard = new BuildBoard(500, 500, model);
@@ -57,8 +68,11 @@ public class BuildGUI extends GUI {
 
         gizmoButtons.setLayout(new GridLayout(0, 1));
         editButtons.setLayout(new GridLayout(0, 1));
+        sliders.setLayout(new GridLayout(0,1));
         //playZone.setLayout(new GridLayout(21,21));
         editButtons.setPreferredSize(new Dimension(100, 600));
+        sliders.setPreferredSize(new Dimension(200,50));
+        editButtons.setPreferredSize(new Dimension(100, 400));
 
         Container pane1 = jframe.getContentPane();
         buildButtonListener = new BuildButtonListener(model, buildBoard, this);
@@ -66,11 +80,12 @@ public class BuildGUI extends GUI {
         pane1.add(gizmoButtons);
         pane1.add(buildBoard);
         pane1.add(editButtons);
-        pane1.add(status,BorderLayout.PAGE_END);
+        pane1.add(status,BorderLayout.PAGE_START);
+        pane1.add(sliders,BorderLayout.PAGE_END);
 
 
 
-        jframe.setResizable(false);
+        jframe.setResizable(true);
 
     }
 
@@ -90,9 +105,7 @@ public class BuildGUI extends GUI {
         editButtons.add(move);
         editButtons.add(rotate);
         editButtons.add(delete);
-        editButtons.add(connect);
-
-        editButtons.setPreferredSize(new Dimension(100, 400));
+        editButtons.add(connect);;
 
     }
 
@@ -168,6 +181,21 @@ public class BuildGUI extends GUI {
         JMenuItem runMode = new JMenuItem("Run Mode");
         switch_mode.add(runMode);
         runMode.addActionListener(runListener);
+    }
+
+
+    private void setSliders(){
+        JSlider grav = new JSlider(JSlider.HORIZONTAL, gravMin,gravMax,gravInit);
+        grav.setName("gravity");
+
+        JSlider fric = new JSlider(JSlider.HORIZONTAL,gravMin,gravMax,gravInit);
+        fric.setName("friction");
+
+        grav.addChangeListener(sliderListener);
+        fric.addChangeListener(sliderListener);
+        sliders.add(grav);
+        sliders.add(fric);
+
     }
 
 

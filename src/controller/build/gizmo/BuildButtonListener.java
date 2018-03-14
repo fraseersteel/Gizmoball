@@ -54,7 +54,7 @@ public class BuildButtonListener implements ActionListener{
                 buildGUI.getLabel().setText("Adding Right Flipper");
                 break;
             case "Absorber":
-                changePlaceListener(new AbsorberPlaceListener(model, board));
+                changePlaceListener(new AbsorberPlaceListener(model, board,buildGUI));
                 buildGUI.getLabel().setText("Drag over area to place absorber");
                 break;
             case "Move":

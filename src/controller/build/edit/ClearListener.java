@@ -23,7 +23,6 @@ public class ClearListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         model.reset();
 
-
         board.repaint();
     }
 }
