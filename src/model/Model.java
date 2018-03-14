@@ -48,6 +48,11 @@ public class Model extends Observable {
         ball.setVelocity(veloAfterGrav);
     }
 
+    public void setGravity(int gravity){
+        accDueToGrav = gravity;
+        System.out.println(accDueToGrav);
+    }
+
     public void applyFriction() {
         Vect veloAfterFric = new Vect(ball.getXVelo() / deaccDueToFric, ball.getYVelo() / deaccDueToFric);
         ball.setVelocity(veloAfterFric);
