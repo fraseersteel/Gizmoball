@@ -183,24 +183,81 @@ public class Model extends Observable {
                     }
                 }
             } else if (gizmo instanceof RightFlipper) {
+                if (!((RightFlipper) gizmo).getIsStopped()) { //if it's moving
+                    for (LineSegment lines : ((RightFlipper) gizmo).getLines()) {
+                        double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((RightFlipper) gizmo).getLineCor(),
+                                ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (lineTime < minTUC) {
+                            minTUC = lineTime;
+                            newVelocity = Geometry.reflectRotatingWall(lines, ((RightFlipper) gizmo).getLineCor(), ((RightFlipper) gizmo).getAngle(),
+                                    ballCircle, ballVelocity, 1);
+                        }
+                    }
 
-                for (LineSegment lines : gizmo.getLines()) {
-                    double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
-                    if (lineTime < minTUC) {
-                        minTUC = lineTime;
-                        newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                    for (Circle circle : ((RightFlipper) gizmo).getCircles()) {
+                        double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((RightFlipper) gizmo).getCircleCor(),
+                                ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (circleTime < minTUC) {
+                            minTUC = circleTime;
+                            newVelocity = Geometry.reflectRotatingCircle(circle, ((RightFlipper) gizmo).getCircleCor(),
+                                    ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 1);
+                        }
+                    }
+                } else { //and if it isn't moving
+                    for (LineSegment lines : gizmo.getLines()) {
+                        double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
+                        if (lineTime < minTUC) {
+                            minTUC = lineTime;
+                            newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                        }
+                    }
 
+                    for (Circle circle : gizmo.getCircles()) {
+                        double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+                        if (circleTime < minTUC) {
+                            minTUC = circleTime;
+                            newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                        }
                     }
                 }
+            } else if (gizmo instanceof LeftFlipper) {
+                if (!((LeftFlipper) gizmo).getIsStopped()) { //if it's moving
+                    for (LineSegment lines : ((LeftFlipper) gizmo).getLines()) {
+                        double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((LeftFlipper) gizmo).getLineCor(),
+                                ((LeftFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (lineTime < minTUC) {
+                            minTUC = lineTime;
+                            newVelocity = Geometry.reflectRotatingWall(lines, ((LeftFlipper) gizmo).getLineCor(), ((LeftFlipper) gizmo).getAngle(),
+                                    ballCircle, ballVelocity, 1);
+                        }
+                    }
 
-                for (Circle circle : gizmo.getCircles()) {
-                    double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
-                    if (circleTime < minTUC) {
-                        minTUC = circleTime;
-                        newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                    for (Circle circle : ((LeftFlipper) gizmo).getCircles()) {
+                        double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((LeftFlipper) gizmo).getCircleCor(),
+                                ((LeftFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
+                        if (circleTime < minTUC) {
+                            minTUC = circleTime;
+                            newVelocity = Geometry.reflectRotatingCircle(circle, ((LeftFlipper) gizmo).getCircleCor(),
+                                    ((LeftFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 1);
+                        }
+                    }
+                } else { //and if it isn't moving
+                    for (LineSegment lines : gizmo.getLines()) {
+                        double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
+                        if (lineTime < minTUC) {
+                            minTUC = lineTime;
+                            newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                        }
+                    }
+
+                    for (Circle circle : gizmo.getCircles()) {
+                        double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
+                        if (circleTime < minTUC) {
+                            minTUC = circleTime;
+                            newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                        }
                     }
                 }
-
             }
         }
 
