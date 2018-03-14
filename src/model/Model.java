@@ -182,14 +182,8 @@ public class Model extends Observable {
                         newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                     }
                 }
-            } /* else if (gizmo instanceof RightFlipper) {
-
+            } else if (gizmo instanceof RightFlipper) {
                 if (!((RightFlipper) gizmo).getIsStopped()) { //if it's moving
-
-                    /*think this is the general idea? shouldn't ever actually execute as is since isStopped is never set to false
-                    not sure about reflection coefficient, just set it to 1, don't know if it should be different for movement
-                     */
-                    /*
                     for (LineSegment lines : ((RightFlipper) gizmo).getLines()) {
                         double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((RightFlipper) gizmo).getLineCor(),
                                 ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
@@ -201,7 +195,7 @@ public class Model extends Observable {
                     }
 
                     for (Circle circle : ((RightFlipper) gizmo).getCircles()) {
-                       double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((RightFlipper) gizmo).getCircleCor(),
+                        double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((RightFlipper) gizmo).getCircleCor(),
                                 ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
                         if (circleTime < minTUC) {
                             minTUC = circleTime;
@@ -225,8 +219,7 @@ public class Model extends Observable {
                             newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
                         }
                     }
-                } */
-                    /*
+                }
             } else if (gizmo instanceof LeftFlipper) {
                 if (!((LeftFlipper) gizmo).getIsStopped()) { //if it's moving
                     for (LineSegment lines : ((LeftFlipper) gizmo).getLines()) {
@@ -265,10 +258,18 @@ public class Model extends Observable {
                         }
                     }
                 }
-            } */
+            }
         }
 
+
         return new CollisionDetails(minTUC, newVelocity);
+    }
+
+    public void connect(IGizmo connector, IGizmo connected) {
+
+        if (!connector.getConnections().contains(connected)){
+            connector.addConnection(connected);
+        }
     }
 
     private void triggerGizmo(IGizmo gizmo) {

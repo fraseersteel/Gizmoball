@@ -43,6 +43,8 @@ public interface IGizmo {
 
     boolean hasConnections();
 
+    void addConnection(IGizmo gizmo);
+
     ArrayList<String> saveSignature();
 
 }

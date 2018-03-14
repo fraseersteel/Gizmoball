@@ -2,9 +2,11 @@ package view;
 
 import controller.RunKeyListener;
 import model.*;
+import physics.LineSegment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -77,7 +79,7 @@ public class Board extends JPanel implements Observer {
             else if (gizmo instanceof TriangleGizmo) {
                 if(!gizmo.isTrigger()) {
                     drawTriangle(x, y, gizmo.getRotationAngle(), Color.BLUE);
-                }else{
+                } else{
                     drawTriangle(x, y, gizmo.getRotationAngle(), gizmo.getColour());
                 }
             }
@@ -116,6 +118,7 @@ public class Board extends JPanel implements Observer {
     private void drawRightFlipper(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
+
 
         /*AffineTransform transform = new AffineTransform();
             g2d.setColor(Color.ORANGE);
