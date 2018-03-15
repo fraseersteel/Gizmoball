@@ -8,15 +8,16 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Hashtable;
 
 public class BuildGUI extends GUI {
 
-    private final static Dimension WINDOW_SIZE = new Dimension(750, 620);
+    private final static Dimension WINDOW_SIZE = new Dimension(750, 675);
 
     private BuildBoard buildBoard;
-    private Container gizmoButtons;
-    private Container editButtons;
-    private Container sliders;
+    private JPanel gizmoButtons;
+    private JPanel editButtons;
+    private JPanel sliders;
     private FlowLayout flow;
     private JLabel status;
     private BuildButtonListener buildButtonListener;
@@ -55,9 +56,9 @@ public class BuildGUI extends GUI {
         jframe.setSize(WINDOW_SIZE);
         jframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        gizmoButtons = new Container();
-        editButtons = new Container();
-        sliders = new Container();
+        gizmoButtons = new JPanel();
+        editButtons = new JPanel();
+        sliders = new JPanel();
 
 
         buildBoard = new BuildBoard(500, 500, model);
@@ -71,16 +72,16 @@ public class BuildGUI extends GUI {
         sliders.setLayout(new GridLayout(0,1));
         //playZone.setLayout(new GridLayout(21,21));
         editButtons.setPreferredSize(new Dimension(100, 600));
-        sliders.setPreferredSize(new Dimension(200,50));
+        sliders.setPreferredSize(new Dimension(200,100));
         editButtons.setPreferredSize(new Dimension(100, 400));
 
         Container pane1 = jframe.getContentPane();
         buildButtonListener = new BuildButtonListener(model, buildBoard, this);
 
-        pane1.add(gizmoButtons);
-        pane1.add(buildBoard);
-        pane1.add(editButtons);
-        pane1.add(status,BorderLayout.PAGE_START);
+        pane1.add(gizmoButtons,BorderLayout.LINE_START);
+        pane1.add(buildBoard,BorderLayout.CENTER);
+        pane1.add(editButtons,BorderLayout.LINE_END);
+        pane1.add(status,BorderLayout.PAGE_END);
         pane1.add(sliders,BorderLayout.PAGE_END);
 
 
@@ -187,9 +188,24 @@ public class BuildGUI extends GUI {
     private void setSliders(){
         JSlider grav = new JSlider(JSlider.HORIZONTAL, gravMin,gravMax,gravInit);
         grav.setName("gravity");
+        grav.setMinorTickSpacing(1);
+        grav.setMajorTickSpacing(5);
+        grav.setPaintTicks(true);
+        grav.setPaintLabels(true);
+        Hashtable gravLabel = new Hashtable();
+        gravLabel.put( new Integer( 0 ), new JLabel("Gravity") );
+        grav.setLabelTable(gravLabel);
+
 
         JSlider fric = new JSlider(JSlider.HORIZONTAL,gravMin,gravMax,gravInit);
         fric.setName("friction");
+        fric.setMinorTickSpacing(1);
+        fric.setMajorTickSpacing(5);
+        fric.setPaintTicks(true);
+        fric.setPaintLabels(true);
+        Hashtable fricLabel = new Hashtable();
+        fricLabel.put( new Integer( 0 ), new JLabel("Friction") );
+        fric.setLabelTable(fricLabel);
 
         grav.addChangeListener(sliderListener);
         fric.addChangeListener(sliderListener);

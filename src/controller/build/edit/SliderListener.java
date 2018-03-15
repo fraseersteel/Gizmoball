@@ -34,9 +34,11 @@ public class SliderListener implements ChangeListener{
             if("gravity".equals(name)) {
                 int gravity = (int) source.getValue();
                 model.setGravity(gravity);
+                buildGUI.getLabel().setText("Gravity set to " + gravity);
             }else if("friction".equals(name)){
                 int friction = (int) source.getValue();
                 model.setFriction(friction);
+                buildGUI.getLabel().setText("Friction set to " + friction);
             }
         }
     }
