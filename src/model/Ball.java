@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Ball extends JPanel implements Observer {
+public class Ball implements Observer {
 
     private String id;
     private Vect velocity;

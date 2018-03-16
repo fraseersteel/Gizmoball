@@ -545,14 +545,41 @@ public class Model extends Observable {
             if (gizmo.getxPos() == x && gizmo.getyPos() == y) {
                 return gizmo;
             }
+            if (gizmo instanceof LeftFlipper || gizmo instanceof RightFlipper) {
+                if (gizmo.getxPos()+1 == x && gizmo.getyPos() == y)
+                    return gizmo;
+                if (gizmo.getxPos()+1 == x && gizmo.getyPos()+1 == y)
+                    return gizmo;
+                if (gizmo.getxPos() == x && gizmo.getyPos()+1 == y)
+                    return gizmo;
+            }
         }
         return null;
     }
 
 
-    public boolean removeGizmoByCoords(int x, int y) {
+    public boolean removeItemByCoords(int x, int y) {
         if (findGizmoByCoords(x, y) != null) {
             gizmos.remove(findGizmoByCoords(x, y));
+            return true;
+        }
+
+        if (ball != null) {
+            if (ball.getXPos() == x && ball.getYPos() == y)
+                setBall(null);
+            if (ball.getXPos()-1 == x && ball.getYPos() == y)
+                setBall(null);
+            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
+                setBall(null);
+            if (ball.getXPos() == x && ball.getYPos()-1 == y)
+                setBall(null);
+
+            if (ball == null)
+                return true;
+        }
+
+        if (absorber.occupies(x, y)) {
+            absorber = null;
             return true;
         }
         return false;

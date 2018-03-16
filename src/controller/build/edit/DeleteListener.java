@@ -4,7 +4,6 @@ import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
-import javax.jws.WebParam;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -26,14 +25,10 @@ public class DeleteListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        String name = model.getGizmoTypeName(xCoord,yCoord);
-
-        if(model.findGizmoByCoords(xCoord,yCoord) != null){
-            model.removeGizmoByCoords(xCoord,yCoord);
-            buildGUI.getLabel().setText(name + " deleted.");
-        }else{
-            buildGUI.getLabel().setText("No gizmo to Delete");
-        }
+        if (model.removeItemByCoords(xCoord, yCoord))
+            buildGUI.getLabel().setText("Deleted item from board");
+        else
+            buildGUI.getLabel().setText("This cell is already empty!");
 
         board.repaint();
     }

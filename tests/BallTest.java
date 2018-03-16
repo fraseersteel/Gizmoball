@@ -46,16 +46,16 @@ public class BallTest {
     //Test to check if the correct ball coordinates were set initially
     @Test
     public void testCoord(){
-        assertEquals(100,ball.getX());
-        assertEquals(100,ball.getY());
+        assertEquals(100,ball.getXPos());
+        assertEquals(100,ball.getYPos());
     }
 
     //Test to check if the correct ball coordinates are displayed after setting new values
     @Test
     public void testCoord2(){
         ball.setXYPos(80,130);
-        assertEquals(80, ball.getX());
-        assertEquals(130, ball.getY());
+        assertEquals(80, ball.getXPos());
+        assertEquals(130, ball.getYPos());
     }
 
     //Test to check if the ball is currently stopped

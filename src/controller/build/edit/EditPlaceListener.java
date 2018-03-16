@@ -56,10 +56,10 @@
 //                buildGUI.getLabel().setText("Connected Gizmo");
 //                break;
 //            case 4:
-//                if (!model.removeGizmoByCoords(xCoord, yCoord)) {
+//                if (!model.removeItemByCoords(xCoord, yCoord)) {
 //                    buildGUI.getLabel().setText("Warning: Gizmo does not exist here.");
 //                } else {
-//                    model.removeGizmoByCoords(xCoord, yCoord);
+//                    model.removeItemByCoords(xCoord, yCoord);
 //                    buildGUI.getLabel().setText("Deleted " + model.findGizmoByCoords(xCoord, yCoord).getClass().getName().replaceAll("model.", ""));
 //                }
 //                break;
