@@ -1,6 +1,8 @@
 package controller.build.edit;
 
 import exceptions.InvalidGizmoException;
+import model.Absorber;
+import model.Ball;
 import model.IGizmo;
 import model.Model;
 import view.BuildBoard;
@@ -14,7 +16,7 @@ public class MoveListener implements MouseListener {
     private Model model;
     private BuildBoard board;
     private BuildGUI buildGUI;
-    private IGizmo selectedGizmo;
+    private Object selectedItem;
 
 
     public MoveListener(Model model, BuildBoard board, BuildGUI gui) {
@@ -25,25 +27,70 @@ public class MoveListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        int xCoord = e.getX() / board.getCellWidth();
+        int yCoord = e.getY() / board.getCellWidth();
+
+        if (selectedItem == null) {
+            Object selection = model.findItemByCoords(xCoord, yCoord);
+            if (selection != null) {
+                selectedItem = selection;
+                buildGUI.getLabel().setText("Selected. Choose location to move item.");
+
+            }
+
+        }
+        else {
+            try {
+                boolean legal = model.checkLegalPlace(selectedItem, xCoord, yCoord);
+                if (selectedItem instanceof IGizmo) {
+                    if (legal) {
+                        ((IGizmo) selectedItem).setXPos(xCoord);
+                        ((IGizmo) selectedItem).setYPos(yCoord);
+                        selectedItem = null;
+                        buildGUI.getLabel().setText("Gizmo moved.");
+                    }
+                    else
+                        buildGUI.getLabel().setText("This gizmo can't be moved here.");
+
+                }
+                else if(selectedItem instanceof Ball) {
+                    if (legal) {
+                        ((Ball) selectedItem).setXPos(xCoord);
+                        ((Ball) selectedItem).setYPos(yCoord);
+                        selectedItem = null;
+                        buildGUI.getLabel().setText("Gizmo moved.");
+                    }
+                    else
+                        buildGUI.getLabel().setText("This gizmo can't be moved here.");
+                }
+            } catch (InvalidGizmoException ex) { }
+        }
+        board.repaint();
+
+    }
+
+    /*
+    @Override
+    public void mouseClicked(MouseEvent e) {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        if (selectedGizmo == null){
+        if (selectedItem == null){
             System.out.println("No Gizmo selected: selecting clicked Gizmo");
-            selectedGizmo = model.findGizmoByCoords(xCoord, yCoord);
-            if (selectedGizmo == null){
+            selectedItem = model.findGizmoByCoords(xCoord, yCoord);
+            if (selectedItem == null){
                 System.out.println("No Gizmo was clicked");
             }else {
-                String name = model.getGizmoTypeName(selectedGizmo.getxPos(), selectedGizmo.getyPos());
+                String name = model.getGizmoTypeName(selectedItem.getxPos(), selectedItem.getyPos());
                 buildGUI.getLabel().setText(name + " at " + xCoord + "," + yCoord + " selected");
             }
         } else {
-            String name = model.getGizmoTypeName(selectedGizmo.getxPos(), selectedGizmo.getyPos());
+            String name = model.getGizmoTypeName(selectedItem.getxPos(), selectedItem.getyPos());
             try {
-                if (model.checkLegalPlace(selectedGizmo, xCoord, yCoord)) {
-                    selectedGizmo.setXPos(xCoord);
-                    selectedGizmo.setYPos(yCoord);
-                    selectedGizmo = null; //deselects the selected gizmo
+                if (model.checkLegalPlace(selectedItem, xCoord, yCoord)) {
+                    selectedItem.setXPos(xCoord);
+                    selectedItem.setYPos(yCoord);
+                    selectedItem = null; //deselects the selected gizmo
                     System.out.println(name + " was moved");
                 } else {
                     System.out.println("Not a legal placement of " + name);
@@ -59,6 +106,7 @@ public class MoveListener implements MouseListener {
 
 
     }
+    */
 
     @Override
     public void mousePressed(MouseEvent e) {
