@@ -97,8 +97,10 @@ public class BuildGUI extends GUI {
         JButton rotate = new JButton("Rotate");
         JButton delete = new JButton("Delete");
         JButton connect = new JButton("Connect");
+        JButton disconnect =  new JButton("Disconnect");
 
         connect.addActionListener(buildButtonListener);
+        disconnect.addActionListener(buildButtonListener);
         rotate.addActionListener(buildButtonListener);
         delete.addActionListener(buildButtonListener);
         move.addActionListener(buildButtonListener);
@@ -106,7 +108,8 @@ public class BuildGUI extends GUI {
         editButtons.add(move);
         editButtons.add(rotate);
         editButtons.add(delete);
-        editButtons.add(connect);;
+        editButtons.add(connect);
+        editButtons.add(disconnect);
 
     }
 

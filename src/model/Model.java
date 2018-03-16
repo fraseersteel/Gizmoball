@@ -281,6 +281,10 @@ public class Model extends Observable {
         }
     }
 
+    public void disconnect(IGizmo connector, IGizmo connected){
+        connector.getConnections().remove(connected);
+    }
+
     private void triggerGizmo(IGizmo gizmo) {
         System.out.println("Trigger");
         gizmo.trigger();

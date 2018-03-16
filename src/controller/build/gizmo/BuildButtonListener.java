@@ -1,9 +1,6 @@
 package controller.build.gizmo;
 
-import controller.build.edit.ConnectListener;
-import controller.build.edit.DeleteListener;
-import controller.build.edit.MoveListener;
-import controller.build.edit.RotateListener;
+import controller.build.edit.*;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
@@ -71,6 +68,12 @@ public class BuildButtonListener implements ActionListener{
 
                 changePlaceListener(new ConnectListener(model,board,buildGUI));
                 buildGUI.getLabel().setText("Connecting Gizmo");
+                break;
+
+            case "Disconnect":
+
+                changePlaceListener(new DisconnectListener(model,board,buildGUI));
+                buildGUI.getLabel().setText("Disconnecting Gizmo");
                 break;
             case "Delete":
 

@@ -134,6 +134,11 @@ public class CircleGizmo implements IGizmo {
         if (isTriggered == false) {
             System.out.println("Trigger circle");
             isTriggered = true;
+            if (hasConnections()){
+                for(int i = 0; i < getConnections().size(); i++){
+                    getConnections().get(i).trigger();
+                }
+            }
 
             colour = Color.YELLOW;
 

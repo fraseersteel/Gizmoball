@@ -139,6 +139,11 @@ public class SquareGizmo implements IGizmo {
     public void trigger() {
         if (isTriggered == false) {
             isTriggered = true;
+            if (hasConnections()){
+                for(int i = 0; i < getConnections().size(); i++){
+                    getConnections().get(i).trigger();
+                }
+            }
 
             colour = Color.GREEN;
 
