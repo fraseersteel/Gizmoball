@@ -69,45 +69,6 @@ public class MoveListener implements MouseListener {
 
     }
 
-    /*
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        int xCoord = e.getX()/board.getCellWidth();
-        int yCoord = e.getY()/board.getCellWidth();
-
-        if (selectedItem == null){
-            System.out.println("No Gizmo selected: selecting clicked Gizmo");
-            selectedItem = model.findGizmoByCoords(xCoord, yCoord);
-            if (selectedItem == null){
-                System.out.println("No Gizmo was clicked");
-            }else {
-                String name = model.getGizmoTypeName(selectedItem.getxPos(), selectedItem.getyPos());
-                buildGUI.getLabel().setText(name + " at " + xCoord + "," + yCoord + " selected");
-            }
-        } else {
-            String name = model.getGizmoTypeName(selectedItem.getxPos(), selectedItem.getyPos());
-            try {
-                if (model.checkLegalPlace(selectedItem, xCoord, yCoord)) {
-                    selectedItem.setXPos(xCoord);
-                    selectedItem.setYPos(yCoord);
-                    selectedItem = null; //deselects the selected gizmo
-                    System.out.println(name + " was moved");
-                } else {
-                    System.out.println("Not a legal placement of " + name);
-                }
-            } catch (InvalidGizmoException ex) {
-                System.err.println("Error: " + ex);
-            }
-        }
-
-
-        board.repaint();
-
-
-
-    }
-    */
-
     @Override
     public void mousePressed(MouseEvent e) {
 
