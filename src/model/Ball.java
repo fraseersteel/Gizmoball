@@ -110,6 +110,19 @@ public class Ball implements Observer {
         return "Ball " + id + " " + xPos + " " + yPos + " " + velocity.x() + " " + velocity.y();
     }
 
+    public boolean occupies(int x, int y) {
+        if (xPos == x && yPos == y)
+            return true;
+        if (xPos-1 == x && yPos == y)
+            return true;
+        if (xPos-1 == x && yPos-1 == y)
+            return true;
+        if (xPos == x && yPos-1 == y)
+            return true;
+
+        return false;
+    }
+
     @Override
     public void update(Observable o, Object arg) {
 

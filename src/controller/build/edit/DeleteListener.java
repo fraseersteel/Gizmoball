@@ -1,5 +1,7 @@
 package controller.build.edit;
 
+import model.Ball;
+import model.IGizmo;
 import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
@@ -25,8 +27,12 @@ public class DeleteListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        if (model.removeItemByCoords(xCoord, yCoord))
+        Object item = model.findItemByCoords(xCoord, yCoord);
+
+        if (item != null) {
+            model.removeItem(item);
             buildGUI.getLabel().setText("Deleted item from board");
+        }
         else
             buildGUI.getLabel().setText("This cell is already empty!");
 

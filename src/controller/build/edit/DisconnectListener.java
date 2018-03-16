@@ -29,7 +29,7 @@ public class DisconnectListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        if(model.findGizmoByCoords(xCoord,yCoord) != null){
+        if(model.findItemByCoords(xCoord,yCoord) != null){
             if(!chosenConnector) {
                 connectorGizmo = model.findGizmoByCoords(xCoord, yCoord);
                 chosenConnector = true;

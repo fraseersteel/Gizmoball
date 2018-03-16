@@ -5,8 +5,6 @@ import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
-import javax.jws.WebParam;
-import javax.xml.bind.SchemaOutputResolver;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -31,7 +29,7 @@ public class ConnectListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        if(model.findGizmoByCoords(xCoord,yCoord) != null){
+        if(model.findItemByCoords(xCoord,yCoord) != null){
             if(!chosenConnector) {
                 connectorGizmo = model.findGizmoByCoords(xCoord, yCoord);
                 chosenConnector = true;

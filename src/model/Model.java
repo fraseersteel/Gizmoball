@@ -7,7 +7,6 @@ import physics.LineSegment;
 import physics.Vect;
 
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -537,9 +536,6 @@ public class Model extends Observable {
         return null;
     }
 
-
-
-
     public IGizmo findGizmoByCoords(int x, int y) {
         for (IGizmo gizmo : gizmos) {
             if (gizmo.getxPos() == x && gizmo.getyPos() == y) {
@@ -558,36 +554,36 @@ public class Model extends Observable {
     }
 
 
-    public boolean removeItemByCoords(int x, int y) {
-        if (findGizmoByCoords(x, y) != null) {
-            gizmos.remove(findGizmoByCoords(x, y));
-            return true;
-        }
 
-        if (ball != null) {
-            if (ball.getXPos() == x && ball.getYPos() == y)
-                setBall(null);
-            if (ball.getXPos()-1 == x && ball.getYPos() == y)
-                setBall(null);
-            if (ball.getXPos()-1 == x && ball.getYPos()-1 == y)
-                setBall(null);
-            if (ball.getXPos() == x && ball.getYPos()-1 == y)
-                setBall(null);
 
-            if (ball == null)
-                return true;
-        }
 
-        if (absorber.occupies(x, y)) {
+    public Object findItemByCoords(int x, int y) {
+        if (findGizmoByCoords(x, y) != null)
+            return findGizmoByCoords(x, y);
+
+        if (absorber.occupies(x, y))
+            return absorber;
+
+        if (ball.occupies(x, y))
+            return ball;
+
+        return null;
+    }
+
+    public void removeItem(Object item) {
+        if (item instanceof IGizmo)
+            gizmos.remove(item);
+        else if (item instanceof Ball)
+            ball = null;
+        else if (item instanceof Absorber)
             absorber = null;
-            return true;
-        }
-        return false;
     }
 
 
+
+
     public String getGizmoTypeName(int x,int y){
-       return findGizmoByCoords(x,y).getClass().getName().replace("model.", "");
+       return findItemByCoords(x,y).getClass().getName().replace("model.", "");
     }
 
     public void removeAllGizmo(){

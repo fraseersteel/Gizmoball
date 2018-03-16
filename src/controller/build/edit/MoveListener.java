@@ -6,7 +6,6 @@ import model.Model;
 import view.BuildBoard;
 import view.BuildGUI;
 
-import javax.jws.WebParam;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

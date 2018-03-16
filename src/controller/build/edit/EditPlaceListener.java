@@ -43,11 +43,11 @@
 //                buildGUI.getLabel().setText("Moved Gizmo");
 //                break;
 //            case 2:
-//                if (model.findGizmoByCoords(xCoord, yCoord) == null) {
+//                if (model.findItemByCoords(xCoord, yCoord) == null) {
 //                    buildGUI.getLabel().setText("Warning: Gizmo does not exist here.");
 //                } else {
-//                    model.findGizmoByCoords(xCoord, yCoord).rotate();
-//                    buildGUI.getLabel().setText("Rotated " + model.findGizmoByCoords(xCoord, yCoord).getClass().getName().replaceAll("model.", ""));
+//                    model.findItemByCoords(xCoord, yCoord).rotate();
+//                    buildGUI.getLabel().setText("Rotated " + model.findItemByCoords(xCoord, yCoord).getClass().getName().replaceAll("model.", ""));
 //                }
 //                break;
 //            case 3:
@@ -60,7 +60,7 @@
 //                    buildGUI.getLabel().setText("Warning: Gizmo does not exist here.");
 //                } else {
 //                    model.removeItemByCoords(xCoord, yCoord);
-//                    buildGUI.getLabel().setText("Deleted " + model.findGizmoByCoords(xCoord, yCoord).getClass().getName().replaceAll("model.", ""));
+//                    buildGUI.getLabel().setText("Deleted " + model.findItemByCoords(xCoord, yCoord).getClass().getName().replaceAll("model.", ""));
 //                }
 //                break;
 //        }
