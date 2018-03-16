@@ -38,7 +38,14 @@ public class LoadListener implements ActionListener {
             File selectedFile = jfc.getSelectedFile();
 
             GizmoLoader loader = new GizmoLoader(model, selectedFile.getAbsolutePath());
-            loader.loadSave();
+
+            if (!loader.loadSave()) {
+                JOptionPane.showMessageDialog(board, "Save file is corrupt in some way.  Ensure you are only loading saves created within the build mode!",
+                        "Error with load", JOptionPane.ERROR_MESSAGE);
+                model.reset();
+            }
+
+
             board.repaint();
             System.out.println("Repainted");
 
