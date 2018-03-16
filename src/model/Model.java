@@ -199,7 +199,7 @@ public class Model extends Observable {
                         if (lineTime < minTUC) {
                             minTUC = lineTime;
                             newVelocity = Geometry.reflectRotatingWall(lines, ((RightFlipper) gizmo).getLineCor(), ((RightFlipper) gizmo).getAngle(),
-                                    ballCircle, ballVelocity, 1);
+                                    ballCircle, ballVelocity, 0.95);
                         }
                     }
 
@@ -209,7 +209,7 @@ public class Model extends Observable {
                         if (circleTime < minTUC) {
                             minTUC = circleTime;
                             newVelocity = Geometry.reflectRotatingCircle(circle, ((RightFlipper) gizmo).getCircleCor(),
-                                    ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 1);
+                                    ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 0.95);
                         }
                     }
                 } else { //and if it isn't moving
@@ -217,7 +217,7 @@ public class Model extends Observable {
                         double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                         if (lineTime < minTUC) {
                             minTUC = lineTime;
-                            newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                            newVelocity = Geometry.reflectWall(lines, ballVelocity, 0.95);
                         }
                     }
 
@@ -237,7 +237,7 @@ public class Model extends Observable {
                         if (lineTime < minTUC) {
                             minTUC = lineTime;
                             newVelocity = Geometry.reflectRotatingWall(lines, ((LeftFlipper) gizmo).getLineCor(), ((LeftFlipper) gizmo).getAngle(),
-                                    ballCircle, ballVelocity, 1);
+                                    ballCircle, ballVelocity, 0.95);
                         }
                     }
 
@@ -247,7 +247,7 @@ public class Model extends Observable {
                         if (circleTime < minTUC) {
                             minTUC = circleTime;
                             newVelocity = Geometry.reflectRotatingCircle(circle, ((LeftFlipper) gizmo).getCircleCor(),
-                                    ((LeftFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 1);
+                                    ((LeftFlipper) gizmo).getAngle(), ballCircle, ballVelocity, 0.95);
                         }
                     }
                 } else { //and if it isn't moving
@@ -255,7 +255,7 @@ public class Model extends Observable {
                         double lineTime = Geometry.timeUntilWallCollision(lines, ballCircle, ballVelocity);
                         if (lineTime < minTUC) {
                             minTUC = lineTime;
-                            newVelocity = Geometry.reflectWall(lines, ball.getVelocity());
+                            newVelocity = Geometry.reflectWall(lines, ballVelocity, 0.95);
                         }
                     }
 
@@ -263,7 +263,7 @@ public class Model extends Observable {
                         double circleTime = Geometry.timeUntilCircleCollision(circle, ballCircle, ballVelocity);
                         if (circleTime < minTUC) {
                             minTUC = circleTime;
-                            newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 1);
+                            newVelocity = Geometry.reflectCircle(circle.getCenter(), ballCircle.getCenter(), ballVelocity, 0.95);
                         }
                     }
                 }

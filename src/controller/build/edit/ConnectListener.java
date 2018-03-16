@@ -35,10 +35,10 @@ public class ConnectListener implements MouseListener {
             if(!chosenConnector) {
                 connectorGizmo = model.findGizmoByCoords(xCoord, yCoord);
                 chosenConnector = true;
-                System.out.println(String.format("Connecting %s", connectorGizmo.getId()));
+                buildGUI.getLabel().setText(String.format("Connecting %s", connectorGizmo.getId()));
             } else {
                 connectedGizmo = model.findGizmoByCoords(xCoord, yCoord);
-                System.out.println(String.format("Connecting %s to %s", connectorGizmo.getId(), connectedGizmo.getId()));
+                buildGUI.getLabel().setText(String.format("Connected %s to %s", connectorGizmo.getId(), connectedGizmo.getId()));
                 model.connect(connectorGizmo, connectedGizmo);
                 connectorGizmo = null;
                 connectedGizmo = null;
