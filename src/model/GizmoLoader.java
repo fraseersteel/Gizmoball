@@ -1,6 +1,7 @@
 package model;
 
 
+import exceptions.CorruptSaveException;
 import exceptions.InvalidGizmoException;
 
 import java.io.BufferedReader;
@@ -31,11 +32,15 @@ public class GizmoLoader {
                 if (!line.isEmpty()) {
                     String[] element = line.split("\\s+");
 
-                    processLine(element);
+                    if (!processLine(element)) {
+                        return false;
+                    }
 
                 }
             }
             buffReader.close();
+
+            System.out.println("Successfully loaded.");
 
         } catch (FileNotFoundException e) { //delete the printing of the actual exceptions later
             System.err.println("Error: file not found. " + e);
@@ -59,8 +64,13 @@ public class GizmoLoader {
             int x = (int) Double.parseDouble(line[2]);
             int y = (int) Double.parseDouble(line[3]);
 
-            if (!processShape(line[0], id, x, y))
-                System.out.println("Error found in save file for gizmo.");
+            try {
+                if (!processShape(line[0], id, x, y))
+                    System.out.println("Error found in save file for gizmo.");
+            } catch (CorruptSaveException ex) {
+                System.err.println(ex);
+                return false;
+            }
 
             return true;
         }
@@ -97,7 +107,7 @@ public class GizmoLoader {
     }
 
 
-    private boolean processShape(String shape, String id, int x, int y) {
+    private boolean processShape(String shape, String id, int x, int y) throws CorruptSaveException {
 
         // TODO - always returns false
 
@@ -123,10 +133,18 @@ public class GizmoLoader {
                 return true;
         }
 
+
+
         try {
-            model.addGizmo(gizmo);
-        } catch (InvalidGizmoException ex) { }
-        return false;
+            if (!model.checkLegalPlace(gizmo, x, y)) {
+                throw new CorruptSaveException("Save file isn't valid (possible that gizmos overlap in save)");
+            } else {
+                model.addGizmo(gizmo);
+                return true;
+            }
+        } catch (InvalidGizmoException ex) {
+            return false;
+        }
     }
 
     private boolean processAbsorber(String id, int startX, int startY, int endX, int endY) {

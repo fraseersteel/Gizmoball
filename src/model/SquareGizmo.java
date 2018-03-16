@@ -146,14 +146,13 @@ public class SquareGizmo implements IGizmo {
                 @Override
                 public void actionPerformed(ActionEvent arg0) {
                     colour = Color.RED;
+                    isTriggered = false;
                 }
             });
 
             timer.setRepeats(false);
             timer.start();
 
-        } else if (isTriggered == true) {
-            isTriggered = false;
         }
     }
 

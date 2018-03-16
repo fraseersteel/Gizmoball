@@ -141,14 +141,13 @@ public class CircleGizmo implements IGizmo {
                 @Override
                 public void actionPerformed(ActionEvent arg0) {
                     colour = Color.GREEN;
+                    isTriggered = false;
                 }
             });
 
             timer.setRepeats(false);
             timer.start();
 
-        } else if (isTriggered == true) {
-            isTriggered = false;
         }
     }
 

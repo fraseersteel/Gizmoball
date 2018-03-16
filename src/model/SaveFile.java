@@ -44,9 +44,7 @@ public class SaveFile {
             for(int i = 0; i<lines.size(); i++){
                 System.out.println(i);
                 if(lines.get(i) != null){
-                    out.write(lines.get(i));
                     System.out.println(lines.get(i));
-                    out.write("\n");
                 }
             }
             out.close();

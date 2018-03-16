@@ -155,8 +155,6 @@ public class TriangleGizmo implements IGizmo {
             timer.setRepeats(false);
             timer.start();
 
-        } else if (isTriggered == true) {
-            isTriggered = false;
         }
     }
 

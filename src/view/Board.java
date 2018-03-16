@@ -51,8 +51,6 @@ public class Board extends JPanel implements Observer {
             int x = (int) ((ball.getXPos() - ball.getRadius())*cellWidth);
             int y = (int) ((ball.getYPos() - ball.getRadius())*cellWidth);
             drawBall(x, y, ball.getRadius());
-        } else {
-            System.out.println("Error with ball");
         }
 
         for (IGizmo gizmo : model.getGizmos()) {
