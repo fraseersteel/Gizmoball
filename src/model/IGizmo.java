@@ -21,6 +21,8 @@ public interface IGizmo {
 
     void setXPos(int x);
 
+    void resetPhysics();
+
     ArrayList<physics.LineSegment> getLines();
 
     ArrayList<physics.Circle> getCircles();

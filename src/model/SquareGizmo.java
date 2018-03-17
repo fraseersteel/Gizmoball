@@ -49,9 +49,16 @@ public class SquareGizmo implements IGizmo {
         return colour;
     }
 
+    @Override
+    public void resetPhysics() {
+        addCircles();
+        addLines();
+    }
+
 
     private void addCircles() {
 
+        circles.clear();
         circles.add(new Circle(xPos, yPos, 0.0));
         circles.add(new Circle(xPos, yPos + 1, 0.0));
         circles.add(new Circle(xPos + 1, yPos, 0.0));
@@ -60,6 +67,7 @@ public class SquareGizmo implements IGizmo {
 
     private void addLines() {
 
+        lines.clear();
         lines.add(new LineSegment(xPos, yPos, xPos + 1, yPos));
         lines.add(new LineSegment(xPos + 1, yPos, xPos + 1, yPos + 1));
         lines.add(new LineSegment(xPos + 1, yPos + 1, xPos, yPos + 1));

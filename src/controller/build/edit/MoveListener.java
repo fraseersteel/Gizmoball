@@ -1,10 +1,7 @@
 package controller.build.edit;
 
 import exceptions.InvalidGizmoException;
-import model.Absorber;
-import model.Ball;
-import model.IGizmo;
-import model.Model;
+import model.*;
 import view.BuildBoard;
 import view.BuildGUI;
 
@@ -36,6 +33,18 @@ public class MoveListener implements MouseListener {
                 selectedItem = selection;
                 buildGUI.getLabel().setText("Selected. Choose location to move item.");
 
+                if (selection instanceof SquareGizmo)
+                    board.updateMouseHoverType("Square");
+                else if (selection instanceof TriangleGizmo)
+                    board.updateMouseHoverType("Triangle");
+                else if (selection instanceof CircleGizmo)
+                    board.updateMouseHoverType("Circle");
+                else if (selection instanceof LeftFlipper)
+                    board.updateMouseHoverType("Left Flipper");
+                else if (selection instanceof RightFlipper)
+                    board.updateMouseHoverType("Right Flipper");
+                else if (selection instanceof Ball)
+                    board.updateMouseHoverType("Ball");
             }
 
         }
@@ -46,8 +55,11 @@ public class MoveListener implements MouseListener {
                     if (legal) {
                         ((IGizmo) selectedItem).setXPos(xCoord);
                         ((IGizmo) selectedItem).setYPos(yCoord);
+                        ((IGizmo) selectedItem).resetPhysics();
+
                         selectedItem = null;
                         buildGUI.getLabel().setText("Gizmo moved.");
+                        board.updateMouseHoverType("");
                     }
                     else
                         buildGUI.getLabel().setText("This gizmo can't be moved here.");
@@ -59,6 +71,7 @@ public class MoveListener implements MouseListener {
                         ((Ball) selectedItem).setYPos(yCoord);
                         selectedItem = null;
                         buildGUI.getLabel().setText("Gizmo moved.");
+                        board.updateMouseHoverType("");
                     }
                     else
                         buildGUI.getLabel().setText("This gizmo can't be moved here.");

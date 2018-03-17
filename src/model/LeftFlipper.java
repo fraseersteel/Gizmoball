@@ -51,7 +51,15 @@ public class LeftFlipper implements IGizmo {
         addLines();
     }
 
+    @Override
+    public void resetPhysics() {
+        addCircles();
+        addLines();
+    }
+
     private void addCircles(){
+        circles.clear();
+
         //circles for rounded ends of flipper
         Circle c1 = new Circle(xPos+0.25, yPos, 0.25);
         Circle c2 = new Circle (xPos+0.25, yPos+2, 0.25);
@@ -69,6 +77,7 @@ public class LeftFlipper implements IGizmo {
     }
 
     private void addLines(){
+        lines.clear();
         lines.add(new LineSegment(xPos, yPos, xPos + 0.5, yPos+2));
         lines.add(new LineSegment(xPos+0.5, yPos, xPos + 0.5, yPos + 2));
     }
@@ -79,6 +88,7 @@ public class LeftFlipper implements IGizmo {
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
+        resetPhysics();
     }
 
     public void flipFlipper(){

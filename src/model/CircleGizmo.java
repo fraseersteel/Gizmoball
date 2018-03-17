@@ -38,6 +38,11 @@ public class CircleGizmo implements IGizmo {
         createCircles();
     }
 
+    @Override
+    public void resetPhysics() {
+        createCircles();
+    }
+
     public void createCircles() {
         circles.clear();
         Circle mid = new Circle(xPos + 0.5, yPos + 0.5, 0.5);

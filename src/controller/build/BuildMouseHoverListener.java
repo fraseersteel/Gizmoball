@@ -31,7 +31,9 @@ public class BuildMouseHoverListener implements MouseMotionListener{
         int xCoord = e.getX()/cellWidth;
         int yCoord = e.getY()/cellWidth;
 
-//        System.out.println("[MOUSE] x:" + xCoord + " y:" + yCoord);
+        board.updateMouseHoverCoords(xCoord, yCoord);
+
+        System.out.println("[MOUSE] x:" + xCoord + " y:" + yCoord);
 
 
         board.drawSquare(xCoord,yCoord, Color.BLUE);

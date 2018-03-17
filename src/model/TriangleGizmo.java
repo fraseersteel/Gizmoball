@@ -39,7 +39,14 @@ public class TriangleGizmo implements IGizmo {
         addCircles();
     }
 
+    @Override
+    public void resetPhysics() {
+        addLines();
+        addCircles();
+    }
+
     private void addLines() {
+        lines.clear();
 
         int x = xPos;
         int y = yPos;
@@ -79,6 +86,8 @@ public class TriangleGizmo implements IGizmo {
     }
 
     private void addCircles() {
+        circles.clear();
+
         int x = xPos;
         int y = yPos;
 
@@ -169,13 +178,7 @@ public class TriangleGizmo implements IGizmo {
         if (rotationAngle == 360) {
             rotationAngle = 0;
         }
-        updateLines();
-    }
-
-    private void updateLines() {
-        lines.clear();
-        circles.clear();
-        addLines();
+        resetPhysics();
     }
     
 

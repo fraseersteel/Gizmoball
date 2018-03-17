@@ -16,6 +16,9 @@ public class BuildBoard extends JPanel implements Observer {
     private final int cellWidth = 25;
     private Graphics2D g2d;
 
+    private int hoverX, hoverY;
+    private String hoverType;
+
 
 
     public BuildBoard(int x, int y, Model m) {
@@ -96,6 +99,23 @@ public class BuildBoard extends JPanel implements Observer {
                 drawRightFlipper(x, y,gizmo.getColour());
             }
         }
+
+
+        if (hoverType == "Square")
+            drawSquare(hoverX*cellWidth,hoverY*cellWidth, Color.RED);
+        else if (hoverType == "Circle")
+            drawCircle(hoverX*cellWidth,hoverY*cellWidth, Color.GREEN);
+        else if (hoverType == "Triangle")
+            drawTriangle(hoverX*cellWidth,hoverY*cellWidth, 0, Color.BLUE);
+        else if (hoverType == "Left Flipper")
+            drawLeftFlipper(hoverX*cellWidth,hoverY*cellWidth, Color.ORANGE);
+        else if (hoverType == "Right Flipper")
+            drawRightFlipper(hoverX*cellWidth,hoverY*cellWidth, Color.ORANGE);
+        else if (hoverType == "Ball") {
+            int x = (int) ((hoverX - 0.25) * cellWidth);
+            int y = (int) ((hoverY - 0.25) * cellWidth);
+            drawBall(x, y, 0.25);
+        }
     }
 
     private void drawBall(int x, int y, double radius) {
@@ -108,6 +128,7 @@ public class BuildBoard extends JPanel implements Observer {
     public void drawSquare(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRect(x, y, 25, 25);
+        System.out.println("drawing");
     }
 
     private void drawCircle(int x, int y,Color color) {
@@ -158,6 +179,14 @@ public class BuildBoard extends JPanel implements Observer {
         g2d.fillRect(startX+width-cellWidth, startY+height-cellWidth, cellWidth, cellWidth);
     }
 
+    public void updateMouseHoverCoords(int x, int y) {
+        hoverX = x;
+        hoverY = y;
+    }
+
+    public void updateMouseHoverType(String type) {
+        hoverType = type;
+    }
 
 
     public int getWidth() {
