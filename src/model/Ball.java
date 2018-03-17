@@ -11,10 +11,10 @@ import java.util.Observer;
 public class Ball implements Observer {
 
     private String id;
-    private Vect velocity;
+    private Vect velocity, defaultVelocity;
 
-    private double xPos;
-    private double yPos;
+    private double xPos, defaultxPos;
+    private double yPos, defaultyPos;
     private double radius;
     private Color colour;
 
@@ -24,12 +24,16 @@ public class Ball implements Observer {
     public Ball(String id, int xPosition, int yPosition, double xVelocity, double yVelocity){
         this.id = id;
         this.velocity = new Vect(xVelocity, yVelocity);
+        this.defaultVelocity = new Vect(xVelocity, yVelocity);
 
         this.radius = 0.25;
-        this.xPos = xPosition;
-        this.yPos = yPosition;
 
-        this.isStopped = false;
+        this.xPos = xPosition;
+        this.defaultxPos = xPosition;
+        this.yPos = yPosition;
+        this.defaultyPos = yPosition;
+
+        this.isStopped = true;
 
         colour = Color.ORANGE;
     }
@@ -104,6 +108,12 @@ public class Ball implements Observer {
 
     public void stop() {
         isStopped = true;
+    }
+
+    public void reset() {
+        xPos = defaultxPos;
+        yPos = defaultyPos;
+        velocity = defaultVelocity;
     }
 
     public String saveSignature() {

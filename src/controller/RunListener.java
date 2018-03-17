@@ -38,6 +38,7 @@ public class RunListener implements ActionListener {
         } else {
             switch (e.getActionCommand()) {
                 case "Start":
+                    model.getBall().start();
                     timer.start();
                     break;
                 case "Stop":
@@ -49,11 +50,10 @@ public class RunListener implements ActionListener {
                     timerCount++;
                     break;
                 case "Build Mode":
-                    System.out.println("switching");
+                    timer.stop();
                     gui.switchToBuildMode();
                     break;
                 case "Run Mode":
-                    System.out.println("switching to run");
                     gui.switchToRunMode();
                     break;
                 case "Quit":

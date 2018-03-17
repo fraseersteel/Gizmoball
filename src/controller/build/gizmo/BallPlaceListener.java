@@ -29,7 +29,7 @@ public class BallPlaceListener implements MouseListener {
         int xCoord = e.getX()/board.getCellWidth();
         int yCoord = e.getY()/board.getCellWidth();
 
-        Ball newBall = new Ball("ball", xCoord, yCoord, 3, 3);
+        Ball newBall = new Ball("ball", xCoord, yCoord, 0, 0);
         try {
             if (model.checkLegalPlace(newBall, xCoord, yCoord)) {
                 model.setBall(newBall);

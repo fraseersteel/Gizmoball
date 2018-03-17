@@ -7,6 +7,7 @@ import physics.LineSegment;
 import physics.Vect;
 
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -24,12 +25,6 @@ public class Model extends Observable {
 
     private double moveTime;
 
-    private int lFlipperCount = 0;
-    private int rFlipperCount = 0;
-    private int squareCount = 0;
-    private int circleCount = 0;
-    private int triangleCount = 0;
-
 
     public Model() {
         accDueToGrav = 1;
@@ -39,6 +34,7 @@ public class Model extends Observable {
         circles = new ArrayList<>();
         walls = new model.Wall(0, 0, 20, 20);
         absorber = null;
+
 
     }
 
@@ -601,7 +597,6 @@ public class Model extends Observable {
 
     public void removeAllGizmo(){
         gizmos.clear();
-        circleCount = squareCount = lFlipperCount = rFlipperCount = triangleCount = 0;
     }
 
 
