@@ -14,8 +14,8 @@ public class ConnectListener implements MouseListener {
     private BuildBoard board;
     private BuildGUI buildGUI;
     private boolean chosenConnector = false;
-    private IGizmo connectorGizmo;
-    private IGizmo connectedGizmo;
+    private Object connectorItem;
+    private Object connectedItem;
 
     public ConnectListener(Model model, BuildBoard board, BuildGUI gui) {
         this.model = model;
@@ -31,15 +31,15 @@ public class ConnectListener implements MouseListener {
 
         if(model.findItemByCoords(xCoord,yCoord) != null){
             if(!chosenConnector) {
-                connectorGizmo = model.findGizmoByCoords(xCoord, yCoord);
+                connectorItem = model.findItemByCoords(xCoord, yCoord);
                 chosenConnector = true;
-                buildGUI.getLabel().setText(String.format("Connecting %s", connectorGizmo.getId()));
+                buildGUI.getLabel().setText(String.format("Connecting Item"));
             } else {
-                connectedGizmo = model.findGizmoByCoords(xCoord, yCoord);
-                buildGUI.getLabel().setText(String.format("Connected %s to %s", connectorGizmo.getId(), connectedGizmo.getId()));
-                model.connect(connectorGizmo, connectedGizmo);
-                connectorGizmo = null;
-                connectedGizmo = null;
+                connectedItem = model.findItemByCoords(xCoord, yCoord);
+                buildGUI.getLabel().setText(String.format("Connected"));
+                model.connect(connectorItem, connectedItem);
+                connectorItem = null;
+                connectedItem = null;
                 chosenConnector = false;
             }
 

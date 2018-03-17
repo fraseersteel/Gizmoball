@@ -27,7 +27,7 @@ public class BuildButtonListener implements ActionListener{
 
         switch(e.getActionCommand()){
             case "Ball":
-                changePlaceListener(new BallPlaceListener(model, board, buildGUI));
+                changePlaceListener(new BallPlaceListener(model, board, buildGUI, this));
                 buildGUI.getLabel().setText("Adding ball");
                 board.updateMouseHoverType("Ball");
                 break;
@@ -57,7 +57,7 @@ public class BuildButtonListener implements ActionListener{
                 board.updateMouseHoverType("Right Flipper");
                 break;
             case "Absorber":
-                changePlaceListener(new AbsorberPlaceListener(model, board,buildGUI));
+                changePlaceListener(new AbsorberPlaceListener(model, board,buildGUI,this));
                 buildGUI.getLabel().setText("Drag over area to place absorber");
                 board.updateMouseHoverType("Absorber");
                 break;
@@ -100,7 +100,7 @@ public class BuildButtonListener implements ActionListener{
     public void keyPressed(KeyEvent e){
     }
 
-    private void changePlaceListener(MouseListener newListener) {
+    protected void changePlaceListener(MouseListener newListener) {
         board.removeMouseListener(listener);
         listener = newListener;
         board.addMouseListener(listener);

@@ -11,10 +11,16 @@ public class Absorber {
     private int startX, startY;
     private int endX, endY;
 
+    private ArrayList<IGizmo> gizmoConnections;
+    private boolean connectedItself;
+
     private ArrayList<LineSegment> edges;
 
     public Absorber(String name, int startX, int startY, int endX, int endY) {
         this.id = name;
+
+        gizmoConnections = new ArrayList<>();
+        connectedItself = false;
 
         // These if statements ensure that startX isnt higher than endX etc (this causes problems)
         if (endX < startX) {
@@ -78,5 +84,25 @@ public class Absorber {
         absorber.add("Absorber " + "A " + getStartX() + " "  + getStartY() + " " + getEndX() + " " + getEndY());
 
         return absorber;
+    }
+
+    public void setConnectedItself(boolean itself) {
+        connectedItself = itself;
+    }
+
+    public void addGizmoConnection(IGizmo gizmo) {
+        gizmoConnections.add(gizmo);
+    }
+
+    public void removeGizmoConnection(IGizmo gizmo) {
+        gizmoConnections.remove(gizmo);
+    }
+
+    public boolean isConnectedItself() {
+        return connectedItself;
+    }
+
+    public ArrayList<IGizmo> getGizmoConnections() {
+        return gizmoConnections;
     }
 }

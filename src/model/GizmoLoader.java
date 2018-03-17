@@ -3,6 +3,7 @@ package model;
 
 import exceptions.CorruptSaveException;
 import exceptions.InvalidGizmoException;
+import exceptions.LoadWarningException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -59,7 +60,6 @@ public class GizmoLoader {
 
         String id = line[1];
 
-        // Right now for testing, we only worry about shapes
         if (line[0].equals("Triangle") || line[0].equals("Circle") || line[0].equals("Square") || line[0].equals("Ball") || line[0].equals("LeftFlipper") || line[0].equals("RightFlipper")) {
             int x = (int) Double.parseDouble(line[2]);
             int y = (int) Double.parseDouble(line[3]);
@@ -88,15 +88,32 @@ public class GizmoLoader {
         if (line[0].equals("Move")) {
             int x = Integer.parseInt(line[2]);
             int y = Integer.parseInt(line[3]);
-            moveGizmo(id, x, y);
+
+            try {
+                moveGizmo(id, x, y);
+            } catch (LoadWarningException ex) {
+                System.err.println(ex);
+                return false;
+            }
         }
 
         if (line[0].equals("Rotate")) {
-            rotateGizmo(id);
+            try {
+                rotateGizmo(id);
+            } catch (LoadWarningException ex) {
+                System.err.println(ex);
+                return false;
+            }
+
         }
 
         if (line[0].equals("Connect")) {
-            connectTrigger(id, line[2]);
+            try {
+                connectTrigger(id, line[2]);
+            } catch (LoadWarningException ex) {
+                System.err.println(ex);
+                return false;
+            }
         }
 
         if (line[0].equals("KeyConnect")) {
@@ -109,7 +126,6 @@ public class GizmoLoader {
 
     private boolean processShape(String shape, String id, int x, int y) throws CorruptSaveException {
 
-        // TODO - always returns false
 
         IGizmo gizmo = null;
         switch(shape) {
@@ -133,8 +149,6 @@ public class GizmoLoader {
                 return true;
         }
 
-
-
         try {
             if (!model.checkLegalPlace(gizmo, x, y)) {
                 throw new CorruptSaveException("Save file isn't valid (possible that gizmos overlap in save)");
@@ -155,45 +169,49 @@ public class GizmoLoader {
         return true;
     }
 
-    private boolean moveGizmo(String id, int x, int y) {
+    private boolean moveGizmo(String id, int x, int y) throws LoadWarningException {
         IGizmo gizmo = model.findGizmoByID(id);
 
         if (gizmo == null)
-            return false;
+            throw new LoadWarningException("Attempting to move gizmo that doesn't exist.");
 
         gizmo.setXPos(x);
         gizmo.setYPos(y);
         return true;
     }
 
-    private boolean rotateGizmo(String id) {
+    private boolean rotateGizmo(String id) throws LoadWarningException {
         IGizmo gizmo = model.findGizmoByID(id);
 
         if (gizmo == null)
-            return false;
+            throw new LoadWarningException("Attempting to rotate gizmo that doesn't exist.");
 
         gizmo.rotate();
         return true;
     }
 
-    private boolean connectTrigger(String id, String trigger) {
+    private boolean connectTrigger(String id, String trigger) throws LoadWarningException {
         IGizmo baseGizmo = model.findGizmoByID(id);
         IGizmo triggerGizmo = model.findGizmoByID(trigger);
 
-        if (triggerGizmo == null)
-            return false;
-
+        if (model.getAbsorber() != null) {
+            if (model.getAbsorber().getId().equals(id)) {
+                model.getAbsorber().setConnectedItself(true);
+                return true;
+            }
+        }
 
         if (id.equals("OuterWalls")) {
-            // Still to connect walls to triggers here.
+            // TODO: connect walls to triggers
+            return true;
         }
 
-        if (baseGizmo == null || triggerGizmo == null) {
-            return false;
+        if (baseGizmo != null && triggerGizmo != null) {
+            baseGizmo.addTrigger(triggerGizmo);
+            return true;
         }
 
-        baseGizmo.addTrigger((IGizmo) triggerGizmo);
-        return true;
+        throw new LoadWarningException("Attempting to connect gizmos that don't exist. ("+id+")");
     }
 
 }

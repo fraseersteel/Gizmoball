@@ -14,11 +14,13 @@ public class BallPlaceListener implements MouseListener {
     private Model model;
     private BuildBoard board;
     private BuildGUI buildGUI;
+    private BuildButtonListener buttonListener;
 
-    public BallPlaceListener(Model model, BuildBoard board,  BuildGUI gui) {
+    public BallPlaceListener(Model model, BuildBoard board,  BuildGUI gui, BuildButtonListener buttonListener) {
         this.model = model;
         this.board = board;
         this.buildGUI = gui;
+        this.buttonListener = buttonListener;
     }
 
 
@@ -32,6 +34,10 @@ public class BallPlaceListener implements MouseListener {
             if (model.checkLegalPlace(newBall, xCoord, yCoord)) {
                 model.setBall(newBall);
                 buildGUI.getLabel().setText("Added Ball");
+
+                buttonListener.changePlaceListener(null);
+                board.updateMouseHoverType("");
+
             } else {
                 buildGUI.getLabel().setText("Ball can't be placed here!");
             }

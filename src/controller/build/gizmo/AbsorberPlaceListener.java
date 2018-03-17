@@ -16,13 +16,16 @@ public class AbsorberPlaceListener implements MouseListener {
     private BuildBoard board;
     private int cellWidth;
 
-    private int absorberStartX, absorberStartY, absorberEndX, absorberEndY;
     private boolean absorberProgress;
 
-    public AbsorberPlaceListener(Model model, BuildBoard board, BuildGUI gui) {
+    private int absorberStartX, absorberStartY, absorberEndX, absorberEndY;
+    private BuildButtonListener buttonListener;
+
+    public AbsorberPlaceListener(Model model, BuildBoard board, BuildGUI gui, BuildButtonListener buttonListener) {
         this.model = model;
         this.board = board;
         this.gui = gui;
+        this.buttonListener = buttonListener;
 
         this.cellWidth = board.getCellWidth();
         this.absorberProgress = false;
@@ -67,6 +70,9 @@ public class AbsorberPlaceListener implements MouseListener {
                 if (model.checkLegalPlace(absorber, absorberStartX, absorberStartY)) {
                     model.setAbsorber(absorber);
                     gui.getLabel().setText("Added Absorber");
+
+                    buttonListener.changePlaceListener(null);
+                    board.updateMouseHoverType("");
                 } else {
                     gui.getLabel().setText("Absorber can't be placed here!");
                 }

@@ -80,8 +80,11 @@ public class Model extends Observable {
 
                 if (checkAbsorber()) {
                     ball.setXPos(absorber.getEndX()-0.5);
-                    ball.setYPos(absorber.getEndY()-0.5);
+                    ball.setYPos(absorber.getStartY()+0.5);
                     ball.stop();
+
+                    if (absorber.isConnectedItself())
+                        shootAbsorber();
                 }
 
                 this.setChanged();
@@ -273,10 +276,20 @@ public class Model extends Observable {
         return new CollisionDetails(minTUC, newVelocity);
     }
 
-    public void connect(IGizmo connector, IGizmo connected) {
+    // Note: method is very messy right now, hard to understand due to absorbers being classed as connections
+    public void connect(Object connector, Object connected) {
 
-        if (!connector.getConnections().contains(connected)){
-            connector.addConnection(connected);
+        if (connector instanceof IGizmo) {
+            if (!((IGizmo) connector).getConnections().contains((IGizmo) connected)) {
+                ((IGizmo) connector).addConnection((IGizmo) connected);
+            }
+        }
+        else if (connector instanceof Absorber && !(connected instanceof Absorber)) {
+            ((Absorber) connector).addGizmoConnection((IGizmo) connected);
+        }
+        else if (connector.equals(connected)) {
+            if (connector instanceof Absorber)
+                ((Absorber) connector).setConnectedItself(true);
         }
     }
 

@@ -197,9 +197,10 @@ public class RightFlipper implements IGizmo {
         this.xPos = x;
     }
 
+    // Note: we need to be able to trigger on absorber as well (not sure why)
     @Override
-    public void addTrigger(IGizmo gizmo) {
-
+    public void addTrigger(IGizmo gizmo){
+        //
     }
 
 

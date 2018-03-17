@@ -33,8 +33,6 @@ public class BuildMouseHoverListener implements MouseMotionListener{
 
         board.updateMouseHoverCoords(xCoord, yCoord);
 
-        System.out.println("[MOUSE] x:" + xCoord + " y:" + yCoord);
-
 
         board.drawSquare(xCoord,yCoord, Color.BLUE);
         board.repaint();

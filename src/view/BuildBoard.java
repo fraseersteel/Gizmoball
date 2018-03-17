@@ -128,7 +128,6 @@ public class BuildBoard extends JPanel implements Observer {
     public void drawSquare(int x, int y,Color color) {
         g2d.setColor(color);
         g2d.fillRect(x, y, 25, 25);
-        System.out.println("drawing");
     }
 
     private void drawCircle(int x, int y,Color color) {
@@ -176,7 +175,7 @@ public class BuildBoard extends JPanel implements Observer {
         g2d.fillRect(startX, startY, width, height);
 
         g2d.setColor(Color.pink);
-        g2d.fillRect(startX+width-cellWidth, startY+height-cellWidth, cellWidth, cellWidth);
+        g2d.fillRect(startX+width-cellWidth, startY, cellWidth, cellWidth);
     }
 
     public void updateMouseHoverCoords(int x, int y) {

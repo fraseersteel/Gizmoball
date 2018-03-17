@@ -85,8 +85,7 @@ public class BuildGUI extends GUI {
         pane1.add(sliders,BorderLayout.PAGE_END);
 
 
-
-        jframe.setResizable(true);
+        jframe.setResizable(false);
 
     }
 
