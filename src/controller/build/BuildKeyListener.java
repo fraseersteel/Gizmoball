@@ -1,14 +1,16 @@
-package controller;
+package controller.build;
 
 import model.Model;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class RunKeyListener implements KeyListener{
+public class BuildKeyListener implements KeyListener {
 
-    Model model;
-    public RunKeyListener(Model m) {
-        model = m;
+    private Model model;
+
+    public BuildKeyListener(Model model) {
+        this.model = model;
     }
 
     @Override
@@ -18,9 +20,7 @@ public class RunKeyListener implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            model.shootAbsorber();
-        }
+        System.out.println("Pressed: " + e.getKeyCode());
     }
 
     @Override

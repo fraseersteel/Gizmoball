@@ -1,6 +1,7 @@
 package view;
 
 import controller.*;
+import controller.build.BuildKeyListener;
 import controller.build.edit.ClearListener;
 import controller.build.edit.SliderListener;
 import controller.build.gizmo.BuildButtonListener;
@@ -51,6 +52,8 @@ public class BuildGUI extends GUI {
         flow = new FlowLayout();
         jframe.setLayout(flow);
 
+        jframe.addKeyListener(new BuildKeyListener(model));
+
         jframe.setTitle("Gizmoball - BUILD MODE");
 
         jframe.setSize(WINDOW_SIZE);
@@ -85,6 +88,8 @@ public class BuildGUI extends GUI {
         pane1.add(sliders,BorderLayout.PAGE_END);
 
 
+
+
         jframe.setResizable(false);
 
     }
@@ -93,10 +98,15 @@ public class BuildGUI extends GUI {
 
         //Create grid and populate with buttons
         JButton move = new JButton("Move");
+        move.setFocusable(false);
         JButton rotate = new JButton("Rotate");
+        rotate.setFocusable(false);
         JButton delete = new JButton("Delete");
+        delete.setFocusable(false);
         JButton connect = new JButton("Connect");
+        connect.setFocusable(false);
         JButton disconnect =  new JButton("Disconnect");
+        disconnect.setFocusable(false);
 
         connect.addActionListener(buildButtonListener);
         disconnect.addActionListener(buildButtonListener);
@@ -116,12 +126,19 @@ public class BuildGUI extends GUI {
 
         //Create grid and populate with buttons
         JButton ball = new JButton("Ball");
+        ball.setFocusable(false);
         JButton square = new JButton("SquareGizmo");
+        square.setFocusable(false);
         JButton triangle = new JButton("TriangleGizmo");
+        triangle.setFocusable(false);
         JButton circle = new JButton("Circle");
+        circle.setFocusable(false);
         JButton leftFlipper = new JButton("Left Flipper");
+        leftFlipper.setFocusable(false);
         JButton rightFlipper = new JButton("Right Flipper");
+        rightFlipper.setFocusable(false);
         JButton absorber = new JButton("Absorber");
+        absorber.setFocusable(false);
 
 
 
@@ -189,6 +206,7 @@ public class BuildGUI extends GUI {
 
     private void setSliders(){
         JSlider grav = new JSlider(JSlider.HORIZONTAL, gravMin,gravMax,gravInit);
+        grav.setFocusable(false);
         grav.setName("gravity");
         grav.setMinorTickSpacing(1);
         grav.setMajorTickSpacing(5);
@@ -200,6 +218,7 @@ public class BuildGUI extends GUI {
 
 
         JSlider fric = new JSlider(JSlider.HORIZONTAL,gravMin,gravMax,gravInit);
+        fric.setFocusable(false);
         fric.setName("friction");
         fric.setMinorTickSpacing(1);
         fric.setMajorTickSpacing(5);
