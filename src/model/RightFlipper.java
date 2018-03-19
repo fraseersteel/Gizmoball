@@ -41,9 +41,8 @@ public class RightFlipper implements IGizmo {
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
-        //lineCor = new Vect ( xPos, yPos-height);
-        //circleCor = new Vect ( xPos, yPos-height);
-
+        lineCor = new Vect(xPos+0.25, yPos+0.25);
+        circleCor = new Vect((xPos + 0.25), (yPos + 0.25)); //still not sure about these
 
         addCircles();
         addLines();
@@ -130,6 +129,7 @@ public class RightFlipper implements IGizmo {
     @Override
     public void trigger() {
         isTriggered = true;
+        flipFlipper();
     }
 
     public Vect getCircleCor() {

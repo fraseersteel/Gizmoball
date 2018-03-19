@@ -6,7 +6,9 @@ import physics.LineSegment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Line2D;
+import java.awt.geom.RoundRectangle2D;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -82,10 +84,10 @@ public class Board extends JPanel implements Observer {
                 }
             }
             else if (gizmo instanceof LeftFlipper) {
-                drawLeftFlipper(x, y,gizmo.getColour());
+                drawLeftFlipper(x, y,gizmo.getColour(), ((LeftFlipper) gizmo).getIsFlipped());
             }
             else if(gizmo instanceof RightFlipper) {
-                drawRightFlipper(x, y,gizmo.getColour());
+                drawRightFlipper(x, y,gizmo.getColour(), ((RightFlipper) gizmo).getIsFlipped());
             }
         }
 
@@ -108,29 +110,39 @@ public class Board extends JPanel implements Observer {
         g2d.fillOval(x, y, cellWidth, cellWidth);
     }
 
-    private void drawLeftFlipper(int x, int y,Color color) {
+    private void drawLeftFlipper(int x, int y,Color color, boolean isFlipped) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+        AffineTransform transform = new AffineTransform();
+        g2d.setColor(Color.ORANGE);
+        Shape flipper;
+        if (!isFlipped) {
+            flipper = new RoundRectangle2D.Double(x+cellWidth, y, 12, 50, 13, 13);
+            g2d.fill(flipper);
+        } else if (isFlipped) {
+            flipper = new RoundRectangle2D.Double(x+cellWidth, y, 12, 50, 13, 13);
+            transform.rotate(Math.toRadians(-90),  x + 12, y + 50);
+            Shape newFlipper = transform.createTransformedShape(flipper);
+            flipper = newFlipper;
+            g2d.fill(flipper);
+        }
     }
 
-    private void drawRightFlipper(int x, int y,Color color) {
+    private void drawRightFlipper(int x, int y,Color color, boolean isFlipped) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
 
-
-        /*AffineTransform transform = new AffineTransform();
+        AffineTransform transform = new AffineTransform();
             g2d.setColor(Color.ORANGE);
             Shape flipper;
-            if (rFlippers.getOrientation() == 0) {
-                flipper = new RoundRectangle2D.Double((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
+            if (!isFlipped) {
+                flipper = new RoundRectangle2D.Double(x+cellWidth, y, 12, 50, 13, 13);
                 g2d.fill(flipper);
-            } else if (rFlippers.getOrientation() != 0) {
-                flipper = new RoundRectangle2D.Double((int) l1.p1().x(), (int) l1.p1().y(), 20, 50, 20, 25);
-                transform.rotate(Math.toRadians(rFlippers.getOrientation()), (int) l1.p1().x() + 20, (int) l1.p1().y() + 50);
+            } else if (isFlipped) {
+                flipper = new RoundRectangle2D.Double(x+cellWidth, y, 12, 50, 13, 13);
+                transform.rotate(Math.toRadians(-90),  x + 12, y + 50);
                 Shape newFlipper = transform.createTransformedShape(flipper);
                 flipper = newFlipper;
                 g2d.fill(flipper);
-            }*/
+            }
     }
 
     private void drawTriangle(int x, int y, int rotationAngle,Color color) {
