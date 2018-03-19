@@ -44,8 +44,8 @@ public class LeftFlipper implements IGizmo {
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
-        lineCor = new Vect((xPos + 0.25), (yPos + 0.25));
-        circleCor = new Vect((xPos + 0.25), (yPos + 0.25)); //still not sure about these
+        lineCor = new Vect ( xPos, yPos-height);
+        circleCor = new Vect ( xPos, yPos-height); //still not sure about these
 
         addCircles();
         addLines();
@@ -93,9 +93,9 @@ public class LeftFlipper implements IGizmo {
 
     public void flipFlipper(){
         if (!isFlipped) {
-            angle = new Angle(-1.57);
+            angle = new Angle(-1.57); //think these should just be opposite of right
         } else {
-            angle = new Angle(1.57);
+            angle = new Angle(1.57); //roughly 90 degrees
         }
 
         circles.set(0, Geometry.rotateAround(circles.get(0), circleCor, angle));
@@ -133,7 +133,6 @@ public class LeftFlipper implements IGizmo {
     @Override
     public void trigger() {
         isTriggered = true;
-        flipFlipper();
     }
 
 

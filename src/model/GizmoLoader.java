@@ -117,7 +117,12 @@ public class GizmoLoader {
         }
 
         if (line[0].equals("KeyConnect")) {
-            // still to do.
+            try {
+                keyConnect(line[4], line[2], line[3]);
+            } catch (LoadWarningException ex) {
+                System.err.println(ex);
+                return false;
+            }
         }
 
         return true;
@@ -212,6 +217,29 @@ public class GizmoLoader {
         }
 
         throw new LoadWarningException("Attempting to connect gizmos that don't exist. ("+id+")");
+    }
+
+    private boolean keyConnect(String id, String key, String operation) throws LoadWarningException {
+        IGizmo gizmo = model.findGizmoByID(id);
+
+        if (model.getAbsorber() != null) {
+            if (model.getAbsorber().getId().equals(id)) {
+                try {
+                    model.addKeyConnect(model.getAbsorber(), key);
+                    return true;
+                } catch (InvalidGizmoException ex) {
+                }
+            }
+        }
+        else if (gizmo != null ) {
+            try {
+                model.addKeyConnect(gizmo, key);
+                return true;
+
+            } catch (InvalidGizmoException ex) { }
+        }
+
+        throw new LoadWarningException("Attempting to add key connect to gizmo that doesn't exist.");
     }
 
 }
