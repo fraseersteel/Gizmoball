@@ -26,7 +26,7 @@ public class Board extends JPanel implements Observer {
         g2d = null;
 
         this.setBackground(Color.BLACK);
-        this.addKeyListener(new RunKeyListener(model));
+        this.addKeyListener(new RunKeyListener(model, this));
         this.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
         m.addObserver(this);
@@ -82,10 +82,16 @@ public class Board extends JPanel implements Observer {
                 }
             }
             else if (gizmo instanceof LeftFlipper) {
-                drawLeftFlipper(x, y,gizmo.getColour());
+                if (((LeftFlipper) gizmo).isFlipped())
+                    drawLeftFlipper(x, y, true, gizmo.getColour());
+                else
+                    drawLeftFlipper(x, y, false, gizmo.getColour());
             }
             else if(gizmo instanceof RightFlipper) {
-                drawRightFlipper(x, y,gizmo.getColour());
+                if (((RightFlipper) gizmo).isFlipped())
+                    drawRightFlipper(x, y, true, gizmo.getColour());
+                else
+                    drawRightFlipper(x, y, false, gizmo.getColour());
             }
         }
 
@@ -108,14 +114,22 @@ public class Board extends JPanel implements Observer {
         g2d.fillOval(x, y, cellWidth, cellWidth);
     }
 
-    private void drawLeftFlipper(int x, int y,Color color) {
+    private void drawLeftFlipper(int x, int y, boolean flipped, Color color) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x, y, 12, 50, 13, 13);
+
+        if (flipped)
+            g2d.fillRoundRect(x, y, 50, 12, 13, 13);
+        else
+            g2d.fillRoundRect(x, y, 12, 50, 13, 13);
     }
 
-    private void drawRightFlipper(int x, int y,Color color) {
+    private void drawRightFlipper(int x, int y, boolean flipped, Color color) {
         g2d.setColor(color);
-        g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
+
+        if (flipped)
+            g2d.fillRoundRect(x, y, 50, 12, 13, 13);
+        else
+            g2d.fillRoundRect(x+cellWidth+13, y, 12, 50, 13, 13);
 
 
         /*AffineTransform transform = new AffineTransform();

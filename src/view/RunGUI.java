@@ -34,7 +34,7 @@ public class RunGUI extends GUI {
         flow = new FlowLayout();
         jframe.setLayout(flow);
 
-        jframe.addKeyListener(new RunKeyListener(model));
+
 
         jframe.setTitle("Gizmoball");
 
@@ -45,6 +45,7 @@ public class RunGUI extends GUI {
         //playZone = new JPanel();
 
         playZone = new Board(500, 500, model);
+        jframe.addKeyListener(new RunKeyListener(model, (Board)playZone));
 
         // Gizmo board is 25x25 pixels each zone (doesnt work atm)
         Dimension runDimension = new Dimension(playZone.getWidth(), playZone.getHeight());

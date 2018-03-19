@@ -57,26 +57,54 @@ public class RightFlipper implements IGizmo {
 
     private void addCircles(){
         circles.clear();
-        //circles for rounded ends of flipper
-        Circle c1 = new Circle(xPos+1.75, yPos, 0.25);
-        Circle c2 = new Circle (xPos+1.75, yPos+2, 0.25);
-        circles.add(c1);
-        circles.add(c2);
-        //zero-radius circles for ends of lines
-        Circle z1 = new Circle(xPos+1.5, yPos, 0);
-        Circle z2 = new Circle(xPos+1.5, yPos+2, 0);
-        Circle z3 = new Circle(xPos+2, yPos, 0);
-        Circle z4 = new Circle(xPos+2, yPos+2, 0);
-        circles.add(z1);
-        circles.add(z2);
-        circles.add(z3);
-        circles.add(z4);
+
+        if (!isFlipped) {
+            //circles for rounded ends of flipper
+            Circle c1 = new Circle(xPos + 1.75, yPos, 0.25);
+            Circle c2 = new Circle(xPos + 1.75, yPos + 2, 0.25);
+            circles.add(c1);
+            circles.add(c2);
+            //zero-radius circles for ends of lines
+            Circle z1 = new Circle(xPos + 1.5, yPos, 0);
+            Circle z2 = new Circle(xPos + 1.5, yPos + 2, 0);
+            Circle z3 = new Circle(xPos + 2, yPos, 0);
+            Circle z4 = new Circle(xPos + 2, yPos + 2, 0);
+            circles.add(z1);
+            circles.add(z2);
+            circles.add(z3);
+            circles.add(z4);
+        }
+        else
+        {
+            //circles for rounded ends of flipper
+            Circle c1 = new Circle(xPos + 0.25, yPos, 0.25);
+            Circle c2 = new Circle(xPos + 2, yPos + 0.25, 0.25);
+            circles.add(c1);
+            circles.add(c2);
+            //zero-radius circles for ends of lines
+            Circle z1 = new Circle(xPos, yPos, 0);
+            Circle z2 = new Circle(xPos + 2, yPos + 0.5, 0);
+            Circle z3 = new Circle(xPos, yPos+0.5, 0);
+            Circle z4 = new Circle(xPos + 2, yPos + 0.5, 0);
+            circles.add(z1);
+            circles.add(z2);
+            circles.add(z3);
+            circles.add(z4);
+        }
     }
 
     private void addLines(){
         lines.clear();
-        lines.add(new LineSegment(xPos+1.5, yPos, xPos+1.5, yPos+2));
-        lines.add(new LineSegment(xPos + 2, yPos, xPos + 2, yPos + 2));
+
+        if (!isFlipped) {
+            lines.add(new LineSegment(xPos + 1.5, yPos, xPos + 1.5, yPos + 2));
+            lines.add(new LineSegment(xPos + 2, yPos, xPos + 2, yPos + 2));
+        }
+        else
+        {
+            lines.add(new LineSegment(xPos, yPos, xPos +2, yPos + 0.5));
+            lines.add(new LineSegment(xPos, yPos + 0.5, xPos + 2, yPos + 0.5));
+        }
     }
 
     @Override
@@ -129,7 +157,11 @@ public class RightFlipper implements IGizmo {
 
     @Override
     public void trigger() {
-        isTriggered = true;
+        flip();
+        if (!isTriggered)
+            isTriggered = true;
+        else
+            isTriggered = false;
     }
 
     public Vect getCircleCor() {
@@ -159,8 +191,17 @@ public class RightFlipper implements IGizmo {
         return isStopped;
     }
 
-    public boolean getIsFlipped(){
+    public boolean isFlipped(){
         return isFlipped;
+    }
+
+    public void flip() {
+        if (!isFlipped)
+            isFlipped = true;
+        else
+            isFlipped = false;
+
+        resetPhysics();
     }
 
     public double getAngle(){
