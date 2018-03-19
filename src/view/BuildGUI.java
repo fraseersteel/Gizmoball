@@ -9,6 +9,7 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.util.Hashtable;
 
 public class BuildGUI extends GUI {
@@ -23,6 +24,7 @@ public class BuildGUI extends GUI {
     private JLabel status;
     private BuildButtonListener buildButtonListener;
     private RunListener runListener;
+    private KeyListener keyListener;
     private SliderListener sliderListener;
 
     static final int gravMin = 0;
@@ -34,6 +36,7 @@ public class BuildGUI extends GUI {
     public BuildGUI(Model model) {
         super(model);
         runListener = new RunListener(model,this);
+        keyListener = null;
         sliderListener = new SliderListener(model,this);
         status = new JLabel("Welcome to Build Mode");
 
@@ -52,7 +55,7 @@ public class BuildGUI extends GUI {
         flow = new FlowLayout();
         jframe.setLayout(flow);
 
-        jframe.addKeyListener(new BuildKeyListener(model));
+        //jframe.addKeyListener(new BuildKeyListener(model));
 
         jframe.setTitle("Gizmoball - BUILD MODE");
 
@@ -233,6 +236,12 @@ public class BuildGUI extends GUI {
         sliders.add(grav);
         sliders.add(fric);
 
+    }
+
+    public void setKeyListener(KeyListener listener) {
+        jframe.removeKeyListener(keyListener);
+        keyListener = listener;
+        jframe.addKeyListener(keyListener);
     }
 
 

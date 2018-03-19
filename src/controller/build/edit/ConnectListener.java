@@ -35,7 +35,8 @@ public class ConnectListener implements MouseListener {
                 chosenConnector = true;
                 buildGUI.getLabel().setText(String.format("Connecting Item"));
 
-                new ConnectKeyListener(model, connectorItem);
+                buildGUI.setKeyListener(new ConnectKeyListener(buildGUI, model, connectorItem));
+
             } else {
                 connectedItem = model.findItemByCoords(xCoord, yCoord);
                 buildGUI.getLabel().setText(String.format("Connected"));
