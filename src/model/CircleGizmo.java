@@ -142,6 +142,7 @@ public class CircleGizmo implements IGizmo {
             if (hasConnections()){
                 for(int i = 0; i < getConnections().size(); i++){
                     getConnections().get(i).trigger();
+                    System.out.println("Triggering: " +getConnections().get(i).getId());
                 }
             }
 

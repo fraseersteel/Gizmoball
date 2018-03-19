@@ -212,7 +212,8 @@ public class GizmoLoader {
         }
 
         if (baseGizmo != null && triggerGizmo != null) {
-            baseGizmo.addTrigger(triggerGizmo);
+            model.connect(baseGizmo, triggerGizmo);
+            //baseGizmo.addTrigger(triggerGizmo);
             return true;
         }
 
