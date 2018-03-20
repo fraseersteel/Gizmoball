@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import physics.LineSegment;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -69,7 +70,7 @@ public class FlipperTest {
         assertEquals(9, right.getyPos());
     }
 
-    //Test to check lines that compose flipper
+    //Test to check lines that compose left flipper
     @Test
     public void testLeftLines(){
         assertEquals(2, left.getLines().size());
@@ -85,6 +86,8 @@ public class FlipperTest {
 
     }
 
+    //Checking positions of lines for right flipper
+    @Test
     public void testRightLines(){
         assertEquals(2, right.getLines().size());
         ArrayList<LineSegment> rightLines = right.getLines();
@@ -98,6 +101,30 @@ public class FlipperTest {
         assertEquals(10+2, rightLines.get(1).p2().y(), 0);
     }
 
+    //Test changing colour
+    @Test
+    public void testColor(){
+        left.setColour(Color.GREEN);
+        right.setColour(Color.BLUE);
+        assertEquals(Color.GREEN, left.getColour());
+        assertEquals(Color.BLUE, right.getColour());
+    }
+
+    //Check coordinates remain the same after rotation
+    @Test
+    public void testRotationLines(){
+        left.rotate();
+        right.rotate();
+        assertEquals(5, left.getxPos());
+        assertEquals(10, right.getyPos());
+    }
+
+    //Testing save signature is correct
+    @Test
+    public void testSaveSignature(){
+        assertEquals("LeftFlipper L1 5 5", left.saveSignature().get(0));
+        assertEquals("RightFlipper R1 10 10", right.saveSignature().get(0));
+    }
 
 
 }
