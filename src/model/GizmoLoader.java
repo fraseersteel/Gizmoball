@@ -222,6 +222,7 @@ public class GizmoLoader {
 
     private boolean keyConnect(String id, String key, String operation) throws LoadWarningException {
         IGizmo gizmo = model.findGizmoByID(id);
+        System.out.println("Searching for " + id);
 
         if (model.getAbsorber() != null) {
             if (model.getAbsorber().getId().equals(id)) {
@@ -229,12 +230,13 @@ public class GizmoLoader {
                 return true;
             }
         }
-        else if (gizmo != null) {
+        if (gizmo != null) {
             gizmo.addKeyConnection(key);
             return true;
         }
-
-        throw new LoadWarningException("Attempting to add key connect to gizmo that doesn't exist.");
+        else {
+            throw new LoadWarningException("Attempting to add key connect to gizmo that doesn't exist.");
+        }
     }
 
 }
