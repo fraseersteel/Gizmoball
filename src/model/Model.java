@@ -45,12 +45,20 @@ public class Model extends Observable {
         ball.setVelocity(veloAfterGrav);
     }
 
-    public void setGravity(int gravity){
+    public void setGravity(double gravity){
         accDueToGrav = gravity;
         System.out.println("gravity: " + accDueToGrav);
     }
 
-    public void setFriction(int friciton){
+    public double getGravity(){
+        return accDueToGrav;
+    }
+
+    public double getFriction(){
+        return deaccDueToFric;
+    }
+
+    public void setFriction(double friciton){
         deaccDueToFric = friciton;
         System.out.println("friction: " + deaccDueToFric);
     }
