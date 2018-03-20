@@ -13,10 +13,12 @@ public class ModelTests {
     private LeftFlipper lf;
     private RightFlipper rf;
     private Ball ball;
+    private SquareGizmo s;
 
     @Before
     public void setUp() throws Exception {
         model = new Model();
+        s = new SquareGizmo("test",15,15);
         c = new CircleGizmo("test",1,1);
         lf = new LeftFlipper("test", 3,3);
         rf = new RightFlipper("test",5,5);
@@ -65,12 +67,54 @@ public class ModelTests {
     @Test
     public void removeTest(){
         try {
-            model.addGizmo(c);
+            model.addGizmo(lf);
         } catch (InvalidGizmoException e) {
             e.printStackTrace();
         }
-        model.removeItem(c);
-        assertNull(model.findGizmoByCoords(c.getxPos(),c.getyPos()));
+        model.removeItem(lf);
+        assertNull(model.findGizmoByCoords(lf.getxPos(),lf.getyPos()));
+    }
 
+    @Test
+    public void addFlipperOntopTest() {
+        try {
+            model.addGizmo(lf);
+        } catch (InvalidGizmoException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            model.checkLegalPlace(new LeftFlipper("leftFlipper",3,3),3,3);
+        } catch (InvalidGizmoException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testAddAbsorber(){
+            model.setAbsorber(new Absorber("abs",1,1,20,20));
+        try {
+            model.checkLegalPlace(lf,5,5);
+        } catch (InvalidGizmoException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void getTUC(){
+        try {
+            model.addGizmo(c);
+            model.addGizmo(rf);
+            model.addGizmo(lf);
+            model.addGizmo(s);
+        } catch (InvalidGizmoException e) {
+            e.printStackTrace();
+        }
+
+        model.setBall(ball);
+        ball.start();
+        model.moveBall();
     }
 }
