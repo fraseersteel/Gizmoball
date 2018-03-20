@@ -37,10 +37,11 @@ public class RunKeyListener implements KeyListener{
             }
         }
 
-        if (model.getAbsorber().getKeyConnections().contains(keyPress)) {
-            model.shootAbsorber();
+        if (model.getAbsorber() != null) {
+            if (model.getAbsorber().getKeyConnections().contains(keyPress)) {
+                model.shootAbsorber();
+            }
         }
-
     }
 
     @Override
