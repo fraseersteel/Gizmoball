@@ -361,29 +361,29 @@ public class Model extends Observable {
             throw new InvalidGizmoException("Attempting to check if an invalid gizmo/object type can be placed on the board");
         }
 
-        if (findGizmoByCoords(x, y) != null)
+        if (findItemByCoords(x, y) != null  && !findItemByCoords(x, y).equals(gizmo))
             return false;
 
         // Check no flippers in vicinity
         for (LeftFlipper flipper : getLeftFlippers()) {
-            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y && !flipper.equals(gizmo))
                 return false;
-            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y && !flipper.equals(gizmo))
                 return false;
-            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y)
+            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y && !flipper.equals(gizmo))
                 return false;
         }
         for (RightFlipper flipper : getRightFlippers()) {
-            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() == y && !flipper.equals(gizmo))
                 return false;
-            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y)
+            if (flipper.getxPos() + 1 == x && flipper.getyPos() + 1 == y && !flipper.equals(gizmo))
                 return false;
-            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y)
+            if (flipper.getxPos() == x && flipper.getyPos() + 1 == y && !flipper.equals(gizmo))
                 return false;
         }
 
         // Check no ball in vicinity
-        if (ball != null) {
+        if (ball != null && !gizmo.equals(ball)) {
             Ball ball = getBall();
             if (ball.getXPos() == x && ball.getYPos() == y)
                 return false;
@@ -446,11 +446,11 @@ public class Model extends Observable {
         // BALL
         // Note: Due to way balls are drawn, assume [x,y] location is bottom right of ball coords.
         if (gizmo instanceof Ball) {
-            if (findGizmoByCoords(x, y - 1) != null)
+            if (findItemByCoords(x, y - 1) != null && !findItemByCoords(x, y - 1).equals(gizmo))
                 return false;
-            if (findGizmoByCoords(x - 1, y - 1) != null)
+            if (findItemByCoords(x - 1, y - 1) != null && !findItemByCoords(x - 1, y - 1).equals(gizmo))
                 return false;
-            if (findGizmoByCoords(x - 1, y) != null)
+            if (findItemByCoords(x - 1, y) != null && !findItemByCoords(x - 1, y).equals(gizmo))
                 return false;
 
             if (absorber != null) {
@@ -471,12 +471,18 @@ public class Model extends Observable {
             if (((IGizmo) gizmo).getxPos() >=19 || ((IGizmo) gizmo).getyPos() >= 19)
                 return false;
 
-            if (findGizmoByCoords(x + 1, y) != null)
-                return false;
-            if (findGizmoByCoords(x, y + 1) != null)
-                return false;
-            if (findGizmoByCoords(x + 1, y + 1) != null)
-                return false;
+            if (findGizmoByCoords(x + 1, y) != null) {
+                if (!findGizmoByCoords(x + 1, y).equals(gizmo))
+                    return false;
+            }
+            if (findGizmoByCoords(x, y + 1) != null) {
+                if (!findGizmoByCoords(x, y + 1).equals(gizmo))
+                    return false;
+            }
+            if (findGizmoByCoords(x + 1, y + 1) != null) {
+                if (!findGizmoByCoords(x + 1, y + 1).equals(gizmo))
+                    return false;
+            }
 
             if (absorber != null) {
                 if (absorber.occupies(x, y))
