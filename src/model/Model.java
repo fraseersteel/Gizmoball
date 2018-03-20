@@ -72,6 +72,12 @@ public class Model extends Observable {
         moveTime = 0.05;
 
         if (!ball.isStopped() && ball != null) {
+
+            System.out.println(ball.getVelocity());
+
+            if(ball.getYVelo()==0){
+                ball.setYPos(ball.getYPos()-0.06);
+            }
             CollisionDetails cd = timeUntilCollision();
             if (cd != null) {
                 applyGravity();
@@ -201,7 +207,7 @@ public class Model extends Observable {
                 }
             } else if (gizmo instanceof RightFlipper) {
                 if (!((RightFlipper) gizmo).getIsStopped()) { //if it's moving
-                    for (LineSegment lines : ((RightFlipper) gizmo).getLines()) {
+                    for (LineSegment lines : gizmo.getLines()) {
                         double lineTime = Geometry.timeUntilRotatingWallCollision(lines, ((RightFlipper) gizmo).getLineCor(),
                                 ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
                         if (lineTime < minTUC) {
@@ -211,7 +217,7 @@ public class Model extends Observable {
                         }
                     }
 
-                    for (Circle circle : ((RightFlipper) gizmo).getCircles()) {
+                    for (Circle circle : gizmo.getCircles()) {
                         double circleTime = Geometry.timeUntilRotatingCircleCollision(circle, ((RightFlipper) gizmo).getCircleCor(),
                                 ((RightFlipper) gizmo).getAngle(), ballCircle, ballVelocity);
                         if (circleTime < minTUC) {
