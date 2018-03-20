@@ -10,6 +10,7 @@ public class ModelTests {
 
     private Model model;
     private CircleGizmo c;
+    private TriangleGizmo t;
     private LeftFlipper lf;
     private RightFlipper rf;
     private Ball ball;
@@ -22,6 +23,7 @@ public class ModelTests {
         c = new CircleGizmo("test",1,1);
         lf = new LeftFlipper("test", 3,3);
         rf = new RightFlipper("test",5,5);
+        t = new TriangleGizmo("test",20,15);
         ball = new Ball("ball",20,20,1,1);
     }
 
@@ -107,8 +109,11 @@ public class ModelTests {
         try {
             model.addGizmo(c);
             model.addGizmo(rf);
+            rf.flip();
             model.addGizmo(lf);
+            lf.flip();
             model.addGizmo(s);
+            model.addGizmo(t);
         } catch (InvalidGizmoException e) {
             e.printStackTrace();
         }
@@ -116,5 +121,17 @@ public class ModelTests {
         model.setBall(ball);
         ball.start();
         model.moveBall();
+    }
+
+
+    @Test
+    public void setGravity(){
+        model.setGravity(5);
+        assertEquals((int) model.getGravity(),5);
+    }
+
+    public void setFriction(){
+        model.setFriction(2);
+        assertEquals((int) model.getFriction(),2);
     }
 }

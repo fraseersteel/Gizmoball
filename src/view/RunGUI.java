@@ -100,10 +100,6 @@ public class RunGUI extends GUI {
         //Create menu
         JMenu menu = new JMenu("File");
 
-        //Create all menu items
-        JMenuItem save = new JMenuItem("Save");
-        save.addActionListener(runListener);
-
         JMenuItem load = new JMenuItem("Load");
         load.addActionListener(new LoadListener(model, playZone));
 
@@ -115,7 +111,6 @@ public class RunGUI extends GUI {
         jframe.setJMenuBar(runMenu);
 
         runMenu.add(menu);
-        menu.add(save);
         menu.add(load);
         menu.addSeparator();
 

@@ -45,12 +45,20 @@ public class Model extends Observable {
         ball.setVelocity(veloAfterGrav);
     }
 
-    public void setGravity(int gravity){
+    public void setGravity(double gravity){
         accDueToGrav = gravity;
         System.out.println("gravity: " + accDueToGrav);
     }
 
-    public void setFriction(int friciton){
+    public double getGravity(){
+        return accDueToGrav;
+    }
+
+    public double getFriction(){
+        return deaccDueToFric;
+    }
+
+    public void setFriction(double friciton){
         deaccDueToFric = friciton;
         System.out.println("friction: " + deaccDueToFric);
     }
@@ -453,6 +461,10 @@ public class Model extends Observable {
 
         // FLIPPERS
         if (gizmo instanceof LeftFlipper || gizmo instanceof RightFlipper) {
+
+            if (((IGizmo) gizmo).getxPos() >=19 || ((IGizmo) gizmo).getyPos() >= 19)
+                return false;
+
             if (findGizmoByCoords(x + 1, y) != null)
                 return false;
             if (findGizmoByCoords(x, y + 1) != null)
