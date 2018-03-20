@@ -32,7 +32,7 @@ public class BallPlaceListener implements MouseListener {
         Ball newBall = new Ball("ball", xCoord, yCoord, 0, 0);
         try {
             if(xCoord<1||yCoord<1||xCoord>20||yCoord>20) {
-            buildGUI.getLabel().setText("cannot place here");
+            buildGUI.getLabel().setText("Cannot place ball here");
             }
             else{
             if (model.checkLegalPlace(newBall, xCoord, yCoord)) {
