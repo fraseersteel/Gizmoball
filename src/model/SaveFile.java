@@ -19,15 +19,32 @@ public class SaveFile {
 
     public ArrayList<String> save(){
 
+        Absorber absorber = model.getAbsorber();
+
         for(IGizmo gizmo: model.getGizmos()){
            saveLine.addAll(gizmo.saveSignature());
         }
-        if(model.getAbsorber() != null){
-            saveLine.addAll(model.getAbsorber().saveSignature());
+        if(absorber != null){
+            saveLine.addAll(absorber.saveSignature());
+            if (absorber.isConnectedItself()) {
+                saveLine.add("Connect " + absorber.getId() + " " + absorber.getId());
+            }
         }
         if (model.getBall() != null) {
             saveLine.add(model.getBall().saveSignature());
         }
+
+        for (IGizmo gizmo : model.getGizmos()) {
+            for (IGizmo connectionGizmo : gizmo.getConnections()) {
+                saveLine.add("Connect " + gizmo.getId() + " " + connectionGizmo.getId());
+            }
+            for (String key : gizmo.getKeyConnections()) {
+                saveLine.add("KeyConnect key " + key + " down " + gizmo.getId());
+            }
+        }
+
+
+
         //for ()
 
         return saveLine;
@@ -43,8 +60,8 @@ public class SaveFile {
             ArrayList<String> lines = save();
 
             for(int i = 0; i<lines.size(); i++){
-                System.out.println(i);
                 if(lines.get(i) != null){
+                    out.println(lines.get(i));
                     System.out.println(lines.get(i));
                 }
             }
