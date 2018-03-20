@@ -71,11 +71,9 @@ public class FlipperTest {
 
     //Test to check lines that compose flipper
     @Test
-    public void testLines(){
+    public void testLeftLines(){
         assertEquals(2, left.getLines().size());
-        assertEquals(2, right.getLines().size());
         ArrayList<LineSegment> leftLines = left.getLines();
-        ArrayList<LineSegment> rightLines = right.getLines();
         assertEquals(5, leftLines.get(0).p1().x(), 0);
         assertEquals(5, leftLines.get(0).p1().y(), 0);
         assertEquals(5+0.5, leftLines.get(0).p2().x(), 0);
@@ -85,6 +83,11 @@ public class FlipperTest {
         assertEquals(5+0.5, leftLines.get(1).p2().x(), 0);
         assertEquals(5+2, leftLines.get(1).p2().y(), 0);
 
+    }
+
+    public void testRightLines(){
+        assertEquals(2, right.getLines().size());
+        ArrayList<LineSegment> rightLines = right.getLines();
         assertEquals(10+1.5, rightLines.get(0).p1().x(), 0);
         assertEquals(10, rightLines.get(0).p1().y(), 0);
         assertEquals(10+1.5, rightLines.get(0).p2().x(), 0);
@@ -93,9 +96,7 @@ public class FlipperTest {
         assertEquals(10, rightLines.get(1).p1().y(), 0);
         assertEquals(10+2, rightLines.get(1).p2().x(), 0);
         assertEquals(10+2, rightLines.get(1).p2().y(), 0);
-
     }
-
 
 
 
