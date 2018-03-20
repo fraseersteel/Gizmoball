@@ -566,8 +566,6 @@ public class Model extends Observable {
 
 
 
-
-
     public Object findItemByCoords(int x, int y) {
         if (findGizmoByCoords(x, y) != null)
             return findGizmoByCoords(x, y);
