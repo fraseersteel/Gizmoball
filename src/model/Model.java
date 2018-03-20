@@ -599,11 +599,15 @@ public class Model extends Observable {
         if (findGizmoByCoords(x, y) != null)
             return findGizmoByCoords(x, y);
 
-        if (absorber.occupies(x, y))
-            return absorber;
+        if (absorber != null) {
+            if (absorber.occupies(x, y))
+                return absorber;
+        }
 
-        if (ball.occupies(x, y))
-            return ball;
+        if (ball != null) {
+            if (ball.occupies(x, y))
+                return ball;
+        }
 
         return null;
     }
