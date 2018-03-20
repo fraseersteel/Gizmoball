@@ -38,7 +38,13 @@ public class RunListener implements ActionListener {
         } else {
             switch (e.getActionCommand()) {
                 case "Start":
-                    if (model.getBall() != null) {
+                    if (model.getBall() == null) {
+                        int warning = JOptionPane.showConfirmDialog(null, "Add ball to the game board then hit Play!", "Error", JOptionPane.DEFAULT_OPTION);
+                        if (warning == JOptionPane.DEFAULT_OPTION) {
+                            JOptionPane.showMessageDialog(null, "Resuming game");
+                        }
+                    }
+                    else {
                         model.getBall().start();
                         timer.start();
                     }
@@ -48,8 +54,13 @@ public class RunListener implements ActionListener {
                         timer.stop();
                     break;
                 case "Tick":
-
-                    if (model.getBall() != null) {
+                    if (model.getBall() == null) {
+                        int warning = JOptionPane.showConfirmDialog(null, "Add ball to the game board then hit Tick!", "Error", JOptionPane.DEFAULT_OPTION);
+                        if (warning == JOptionPane.DEFAULT_OPTION) {
+                            JOptionPane.showMessageDialog(null, "Resuming game");
+                        }
+                    }
+                    else {
                         timer.stop();
                         model.moveBall();
                         timerCount++;
