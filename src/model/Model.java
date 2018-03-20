@@ -488,6 +488,17 @@ public class Model extends Observable {
                 if (absorber.occupies(x + 1, y + 1))
                     return false;
             }
+
+            if (ball != null) {
+                if (ball.occupies(x, y))
+                    return false;
+                if (ball.occupies(x + 1, y))
+                    return false;
+                if (ball.occupies(x, y + 1))
+                    return false;
+                if (ball.occupies(x + 1, y + 1))
+                    return false;
+            }
         }
 
         return true;
