@@ -226,6 +226,7 @@ public class GizmoLoader {
         IGizmo gizmo = model.findGizmoByID(id);
         System.out.println("Searching for " + id);
 
+
         if (model.getAbsorber() != null) {
             if (model.getAbsorber().getId().equals(id)) {
                 model.getAbsorber().addKeyConnection(key);
