@@ -43,19 +43,13 @@ public class BallTest {
         assertEquals(200,ball.getYVelo(),0);
     }
 
-    //Test to check if the correct ball coordinates were set initially
-    @Test
-    public void testCoord(){
-        assertEquals(100,ball.getXPos());
-        assertEquals(100,ball.getYPos());
-    }
 
     //Test to check if the correct ball coordinates are displayed after setting new values
     @Test
     public void testCoord2(){
         ball.setXYPos(80,130);
-        assertEquals(80, ball.getXPos());
-        assertEquals(130, ball.getYPos());
+        assertEquals(80,(int) ball.getXPos());
+        assertEquals(130,(int) ball.getYPos());
     }
 
     //Test to check if the ball is currently stopped
@@ -70,14 +64,9 @@ public class BallTest {
 
     //Test to check if correct circle radius was set initially
     @Test
-    public void testRadius() { assertEquals(0.4, ball.getRadius(),0);}
-
-    //Test to check if the correct ball radius is displayed after setting new value
-    @Test
-    public void testRadius2(){
-        ball.setRadius(0.9);
-        assertEquals(0.9, ball.getRadius(),0);
-    }
+    public void testRadius() {
+        ball.setRadius(0.4);
+        assertEquals(0.4, ball.getRadius(),0);}
 
     //Test to check if the correct Save Signature is displayed
     @Test
@@ -85,7 +74,7 @@ public class BallTest {
         ball.setId("Ball_2");
         ball.setXYPos(50,60);
         ball.setVelocity(new Vect(15, 18));
-        assertEquals("Ball Ball_2 50 60.0 15.0 18.0",ball.saveSignature());
+        assertEquals("Ball Ball_2 50.0 60.0 15.0 18.0",ball.saveSignature());
     }
 
     @Test

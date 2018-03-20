@@ -28,7 +28,9 @@ public class TriangleTest {
 
     //Test to check the initial x position of the triangle
     @Test
-    public void testXPos(){ assertEquals(25,triangleGizmo.getxPos()); }
+    public void testXPos(){
+        assertEquals(11,triangleGizmo.getxPos());
+    }
 
     //Test to check if triangles x position is displayed correctly after setting a new value
     @Test
@@ -40,14 +42,14 @@ public class TriangleTest {
     //Test to check the initial y position of the triangle
     @Test
     public void testYPos(){
-        assertEquals(20,triangleGizmo.getyPos());
+        assertEquals(19,triangleGizmo.getyPos());
     }
 
     //Test to check if triangles y position is displayed correctly after setting a new value
     @Test
     public void testYPos2(){
         triangleGizmo.setYPos(17);
-        assertEquals(17,triangleGizmo.getxPos());
+        assertEquals(17,triangleGizmo.getyPos());
     }
 
     //Test to check if the correct number of lines are used to construct the triangle gizmo
