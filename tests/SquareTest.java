@@ -10,7 +10,7 @@ public class SquareTest {
 
     @Before
     public void setUP(){
-        squareGizmo = new SquareGizmo("S1",25,20);
+        squareGizmo = new SquareGizmo("S1",17,20);
     }
 
     //Test to check if initial square ID is displayed correctly
@@ -28,7 +28,7 @@ public class SquareTest {
 
     //Test to check the initial x position of the square
     @Test
-    public void testXPos(){ assertEquals(25,squareGizmo.getxPos()); }
+    public void testXPos(){ assertEquals(17,squareGizmo.getxPos()); }
 
     //Test to check if squares x position is displayed correctly after setting a new value
     @Test

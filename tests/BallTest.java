@@ -85,7 +85,7 @@ public class BallTest {
         ball.setId("Ball_2");
         ball.setXYPos(50,60);
         ball.setVelocity(new Vect(15, 18));
-        assertEquals("Ball Ball_2 50 60 15 18",ball.saveSignature());
+        assertEquals("Ball Ball_2 50 60.0 15.0 18.0",ball.saveSignature());
     }
 
     @Test

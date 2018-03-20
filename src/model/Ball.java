@@ -35,7 +35,6 @@ public class Ball implements Observer {
 
         this.isStopped = true;
 
-        colour = Color.ORANGE;
     }
 
 
