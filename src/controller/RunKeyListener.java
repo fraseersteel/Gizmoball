@@ -28,24 +28,19 @@ public class RunKeyListener implements KeyListener{
     public void keyPressed(KeyEvent e) {
         System.out.println("Pressed " + e.getKeyCode());
 
-        Map<Object, String> keyConnects = model.getKeyConnects();
+
         String keyPress = String.valueOf(e.getKeyCode());
 
-        for (Object key : keyConnects.keySet()) {
-            if (keyConnects.get(key).equals(keyPress)) {
-                if (key instanceof IGizmo) {
-                    ((IGizmo) key).trigger();
-
-                    board.repaint();
-                } else if (key instanceof Absorber) {
-                    model.shootAbsorber();
-                }
+        for (IGizmo gizmo : model.getGizmos()) {
+            if (gizmo.getKeyConnections().contains(keyPress)) {
+                gizmo.trigger();
             }
         }
-        /*
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+
+        if (model.getAbsorber().getKeyConnections().contains(keyPress)) {
             model.shootAbsorber();
-        } */
+        }
+
     }
 
     @Override

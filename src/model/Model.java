@@ -17,8 +17,6 @@ public class Model extends Observable {
     private ArrayList<IGizmo> gizmos;
     private ArrayList<Circle> circles;
 
-    private Map<Object, String> keyConnects;
-
     private Absorber absorber;
     private Ball ball;
     private Wall walls;
@@ -35,7 +33,6 @@ public class Model extends Observable {
 
         gizmos = new ArrayList<>();
         circles = new ArrayList<>();
-        keyConnects = new HashMap<>();
 
         walls = new model.Wall(0, 0, 20, 20);
         absorber = null;
@@ -512,28 +509,6 @@ public class Model extends Observable {
     public void setBall(Ball b) {
         ball = b;
     }
-
-    public boolean addKeyConnect(Object item, String key) throws InvalidGizmoException {
-        if (!(item instanceof IGizmo) && !(item instanceof Absorber))
-            throw new InvalidGizmoException("Attempting to add key connect to invalid item");
-
-        if (item instanceof IGizmo) {
-            if (!gizmos.contains(item))
-                return false;
-        }
-        if (item instanceof Absorber) {
-            if (!absorber.equals(item))
-                return false;
-        }
-
-        keyConnects.put(item, key);
-        return true;
-    }
-
-    public Map<Object, String> getKeyConnects() {
-        return keyConnects;
-    }
-
 
     public ArrayList<IGizmo> getGizmos() {
         return gizmos;

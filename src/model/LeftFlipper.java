@@ -11,6 +11,7 @@ public class LeftFlipper implements IGizmo {
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
     private ArrayList<IGizmo> connections;
+    private ArrayList<String> keyConnections;
 
     private Color colour;
     private String ID;
@@ -43,6 +44,7 @@ public class LeftFlipper implements IGizmo {
 
         colour = Color.ORANGE;
 
+        keyConnections = new ArrayList<>();
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -246,6 +248,16 @@ public class LeftFlipper implements IGizmo {
     @Override
     public void addTrigger(IGizmo gizmo) {
 
+    }
+
+    @Override
+    public ArrayList<String> getKeyConnections() {
+        return keyConnections;
+    }
+
+    @Override
+    public void addKeyConnection(String key) {
+        keyConnections.add(key);
     }
 
     @Override

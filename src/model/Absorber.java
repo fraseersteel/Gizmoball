@@ -11,7 +11,9 @@ public class Absorber {
     private int startX, startY;
     private int endX, endY;
 
+    private ArrayList<String> keyConnections;
     private ArrayList<IGizmo> gizmoConnections;
+
     private boolean connectedItself;
 
     private ArrayList<LineSegment> edges;
@@ -19,6 +21,7 @@ public class Absorber {
     public Absorber(String name, int startX, int startY, int endX, int endY) {
         this.id = name;
 
+        keyConnections = new ArrayList<>();
         gizmoConnections = new ArrayList<>();
         connectedItself = false;
 
@@ -84,6 +87,14 @@ public class Absorber {
         absorber.add("Absorber " + "A " + getStartX() + " "  + getStartY() + " " + getEndX() + " " + getEndY());
 
         return absorber;
+    }
+
+    public ArrayList<String> getKeyConnections() {
+        return keyConnections;
+    }
+
+    public void addKeyConnection(String key) {
+        keyConnections.add(key);
     }
 
     public void setConnectedItself(boolean itself) {

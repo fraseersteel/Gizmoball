@@ -1,6 +1,8 @@
 package controller.build.edit;
 
 import exceptions.InvalidGizmoException;
+import model.Absorber;
+import model.IGizmo;
 import model.Model;
 import view.BuildGUI;
 import view.GUI;
@@ -31,15 +33,18 @@ public class ConnectKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (status == false) {
-            try {
-                System.out.println("Adding key connection");
-                model.addKeyConnect(item, String.valueOf(e.getKeyCode()));
-                status = true;
-                gui.getLabel().setText("Key Connected");
-            } catch (InvalidGizmoException ex) {}
-        }
+        String keyPress = String.valueOf(e.getKeyCode());
 
+        if (status == false) {
+            if (item instanceof IGizmo) {
+                ((IGizmo) item).addKeyConnection(keyPress);
+            }
+            else if (item instanceof Absorber) {
+                ((Absorber) item).addKeyConnection(keyPress);
+            }
+            status = true;
+            gui.getLabel().setText("Key Connected");
+        }
     }
 
     @Override

@@ -225,19 +225,13 @@ public class GizmoLoader {
 
         if (model.getAbsorber() != null) {
             if (model.getAbsorber().getId().equals(id)) {
-                try {
-                    model.addKeyConnect(model.getAbsorber(), key);
-                    return true;
-                } catch (InvalidGizmoException ex) {
-                }
+                model.getAbsorber().addKeyConnection(key);
+                return true;
             }
         }
-        else if (gizmo != null ) {
-            try {
-                model.addKeyConnect(gizmo, key);
-                return true;
-
-            } catch (InvalidGizmoException ex) { }
+        else if (gizmo != null) {
+            gizmo.addKeyConnection(key);
+            return true;
         }
 
         throw new LoadWarningException("Attempting to add key connect to gizmo that doesn't exist.");

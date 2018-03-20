@@ -14,6 +14,7 @@ public class CircleGizmo implements IGizmo {
 
     private ArrayList<Circle> circles;
     private ArrayList<IGizmo> connections;
+    private ArrayList<String> keyConnections;
 
     private String ID;
     private int xPos;
@@ -32,6 +33,7 @@ public class CircleGizmo implements IGizmo {
 
         colour = Color.GREEN;
 
+        keyConnections = new ArrayList<>();
         connections = new ArrayList<>();
         circles = new ArrayList<>();
 
@@ -160,6 +162,16 @@ public class CircleGizmo implements IGizmo {
             timer.start();
 
         }
+    }
+
+    @Override
+    public ArrayList<String> getKeyConnections() {
+        return keyConnections;
+    }
+
+    @Override
+    public void addKeyConnection(String key) {
+        keyConnections.add(key);
     }
 
     @Override

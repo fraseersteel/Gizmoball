@@ -28,6 +28,7 @@ public class SaveFile {
         if (model.getBall() != null) {
             saveLine.add(model.getBall().saveSignature());
         }
+        //for ()
 
         return saveLine;
     }

@@ -11,6 +11,7 @@ public class RightFlipper implements IGizmo {
     private ArrayList<Circle> circles;
     private ArrayList<LineSegment> lines;
     private ArrayList<IGizmo> connections;
+    private ArrayList<String> keyConnections;
 
     private String ID;
     private int xPos;
@@ -38,6 +39,7 @@ public class RightFlipper implements IGizmo {
 
         colour = Color.ORANGE;
 
+        keyConnections = new ArrayList<>();
         connections = new ArrayList<>();
         circles = new ArrayList<>();
         lines = new ArrayList<>();
@@ -262,6 +264,16 @@ public class RightFlipper implements IGizmo {
     public void addConnection(IGizmo connected){
         System.out.println(String.format("Connecting gizmo %s to %s", this.ID, connected.getId()));
         connections.add(connected);
+    }
+
+    @Override
+    public ArrayList<String> getKeyConnections() {
+        return keyConnections;
+    }
+
+    @Override
+    public void addKeyConnection(String key) {
+        keyConnections.add(key);
     }
 
     @Override

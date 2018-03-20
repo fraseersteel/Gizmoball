@@ -47,6 +47,10 @@ public interface IGizmo {
 
     void addConnection(IGizmo gizmo);
 
+    ArrayList<String> getKeyConnections();
+
+    void addKeyConnection(String key);
+
     ArrayList<String> saveSignature();
 
 }
