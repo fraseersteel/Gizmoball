@@ -18,6 +18,8 @@ public class GizmoLoader {
     public GizmoLoader(Model model, String fileName) {
         this.model = model;
         this.file = fileName;
+
+        model.reset();
         //load();
     }
 

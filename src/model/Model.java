@@ -453,6 +453,10 @@ public class Model extends Observable {
 
         // FLIPPERS
         if (gizmo instanceof LeftFlipper || gizmo instanceof RightFlipper) {
+
+            if (((IGizmo) gizmo).getxPos() >=19 || ((IGizmo) gizmo).getyPos() >= 19)
+                return false;
+
             if (findGizmoByCoords(x + 1, y) != null)
                 return false;
             if (findGizmoByCoords(x, y + 1) != null)
